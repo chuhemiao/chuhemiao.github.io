@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/ChinaJoy/" style="font-size: 10px;">ChinaJoy</a> <a href="/tags/InnoDB/" style="font-size: 10px;">InnoDB</a> <a href="/tags/MyISAM/" style="font-size: 10px;">MyISAM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/insert/" style="font-size: 10px;">insert</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/json，js/" style="font-size: 10px;">json，js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logo/" style="font-size: 10px;">logo</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/nts/" style="font-size: 10px;">nts</a> <a href="/tags/rewrite/" style="font-size: 10px;">rewrite</a> <a href="/tags/tar/" style="font-size: 10px;">tar</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/typecho/" style="font-size: 10px;">typecho</a> <a href="/tags/vc/" style="font-size: 10px;">vc</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/压缩/" style="font-size: 10px;">压缩</a> <a href="/tags/恋爱，女生/" style="font-size: 10px;">恋爱，女生</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a> <a href="/tags/水瓶座，天蝎座，夫妻/" style="font-size: 10px;">水瓶座，天蝎座，夫妻</a> <a href="/tags/爱情/" style="font-size: 10px;">爱情</a> <a href="/tags/瓶子，工作/" style="font-size: 10px;">瓶子，工作</a> <a href="/tags/百将行/" style="font-size: 10px;">百将行</a> <a href="/tags/虚拟域名/" style="font-size: 10px;">虚拟域名</a> <a href="/tags/重定向/" style="font-size: 10px;">重定向</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,80 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-139" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/22/139/" class="article-date">
+  	<time datetime="2015-10-22T17:04:10.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/139/">使用git在centos下连接github</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>git安装</p>
+<p>sudo apt-get install git git-core</p>
+<p>配置git</p>
+<p>$ git config –global user.name &quot;chuhe&quot;</p>
+<p>$ git config –global user.email chuhe@qq.com</p>
+</li>
+<li><p>生成密匙</p>
+<p>$ ssh-keygen -t rsa -C &quot;chuhe@qq.com&quot; //邮箱同上</p>
+<p>vim /home/linx/.ssh/id_rsa.pub //复制里面的密钥或者直接cat</p>
+</li>
+<li>打开自己的github-》点个人头像-》settings-》SSH  KEYS-&gt;add SSH key-&gt;把刚才复制的内容粘贴到key下（title随意起名）-》保存</li>
+<li><p>重点来了</p>
+<p>1.测试$ ssh git@github.com</p>
+<p>2.这是成功的状态：chuhe@ubuntu:~$ ssh -T git@github.com</p>
+<p>Hi chuhemiao! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>3.错误的情况：一直回车下去，出现yes和no的情况下，记住这里需要输入yes而不是y！！！！！！</p>
+</li>
+<li>本人在最后一步纠结了一天多，最后无意中看到一个博主说输入yes就行了，伤心啊！！<img src="http://www.shengxuezixun.com/usr/uploads/2015/10/3851079835.jpg" alt="k3qj53.jpg"></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -251,6 +325,493 @@
 
 
   
+    <article id="post-137" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/14/137/" class="article-date">
+  	<time datetime="2015-10-14T20:20:21.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/14/137/">原来不备案有很多中方法都能实现自己的博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先就是sae直接部署代码，现在升级能解析属于自己的域名，然后就能访问了；然后就是今天发现的github上直接fork一份代码，或者自己使用jekll自己部署，这里部署代码之后再有一个自己的域名，就能按域名来访问新的网站了，明天在详细写一篇怎样实现的把，回家看琅琊了，很充实的一天！！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-134" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/14/134/" class="article-date">
+  	<time datetime="2015-10-14T18:41:00.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/14/134/">公司logo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.shengxuezixun.com/usr/uploads/2015/10/1161392977.png" alt="logo.png">这几天公司换了新的logo，第一次让我想到了海贼王中的拉奥·G，每次放技能都很机智的来个G！今天又意外的发现，google的logo和公司也那么像，这就是传说中的走上了国际化吗？！一直被模仿，从未被超越啊！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logo/">logo</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-132" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/10/132/" class="article-date">
+  	<time datetime="2015-10-10T16:59:17.000Z" itemprop="datePublished">2015-10-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/10/132/">不想学习，好烦</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>搞了半天也不知道从那下手了，这yii也是醉了，好烦好烦。。<img src="http://www.shengxuezixun.com/usr/uploads/2015/10/2144937281.jpg" alt="2j2gjex.jpg"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-130" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/24/130/" class="article-date">
+  	<time datetime="2015-09-24T22:05:00.000Z" itemprop="datePublished">2015-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/24/130/">中秋福利</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司发了红酒和大闸蟹，又有的吃了，中午开始的猜灯谜，就在一瞬间就结束了，也是醉了有些人耍赖啊。啥也没落着，刚好那会还忙，这点子确实有点背啊！明天又周五了，终于盼到回家<img src="http://www.shengxuezixun.com/usr/uploads/2015/09/3684920078.jpg" alt="QQ图片20150924210853.jpg">的时候了，嘿嘿。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-126" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/23/126/" class="article-date">
+  	<time datetime="2015-09-23T12:26:00.000Z" itemprop="datePublished">2015-09-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/23/126/">把wordpress换成了typecho步骤</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code> 昨天看一个人的博客，突然看到了typecho，然后就新血来潮的直接换了，下面介绍下转数据库的方法。
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+</code></pre><ol>
+<li><p>步骤一<br><pre>`第一把你之前的数据库先备份，方法这里就不多啰嗦了。</pre></p>
+</li>
+<li><p>步骤二</p>
+<p>数据库备份后，那就直接把之前的网站干掉了，开始去下载typecho的代码，地址是:<a href="http://typecho.org/,或者直接去github上：https://github.com/typecho/typecho，然后就是把这些通过ftp上传到你的服务器，安装步骤什么的官网上都有，就不介绍了。" target="_blank" rel="external">http://typecho.org/,或者直接去github上：https://github.com/typecho/typecho，然后就是把这些通过ftp上传到你的服务器，安装步骤什么的官网上都有，就不介绍了。</a></p>
+</li>
+<li><p>步骤三</p>
+<p>重点来了，先去官网上找到wordpress转typecho的插件(附地址：<a href="http://docs.typecho.org/plugins/wordpress-to-typecho)。" target="_blank" rel="external">http://docs.typecho.org/plugins/wordpress-to-typecho)。</a></p>
+</li>
+<li><p>步骤四</p>
+<p>1.上传到/usr/plugins目录中访问后台</p>
+<p>2.在 “控制台”下拉菜单中进入“插件管理”</p>
+<p>3.激活wordpresstotypecho插件</p>
+<p>4.点击wordpresstotypecho插件的“设置”进入配置</p>
+<p>5.填写数据库及用户名等信息，保存设置</p>
+<p>6.在“控制台”下来菜单中会出现“从Wordpress导入数据”，选中</p>
+<p>7.完成导入，如果失败请确认您的数据库等设置。在完成导入之后可以禁用该插件，对其他功能没有任何影响。</p>
+</li>
+<li><p>步骤五</p>
+<p>首先如果你遇到导入不成功，那就把数据库中没有用的表直接可以干掉了，如果你使用的是阿里云服务器，我这时候用的时把之前备份的数据重新导入到现在的表中（注意这里的表前缀是不一样的），你现在就可以填写插件中给的配置，完成后直接转就搞定了。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typecho/">typecho</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-人有时候真是那啥啊" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/22/人有时候真是那啥啊/" class="article-date">
+  	<time datetime="2015-09-22T13:19:13.000Z" itemprop="datePublished">2015-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/22/人有时候真是那啥啊/">人有时候真是那啥啊</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天好闲好闲，昨天老大给了个短信的api，然后看啊看，擦将近100页的文档，也是醉了，一堆废话更可恨的是最后来了个java的例子，已哭瞎。老子学的是php，今天突然又感觉好忙，而且是好迷茫，看不懂不会用，怎么破，人呢有时候就是贱。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-15个ios9隐藏的新功能" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/18/15个ios9隐藏的新功能/" class="article-date">
+  	<time datetime="2015-09-18T11:54:55.000Z" itemprop="datePublished">2015-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/18/15个ios9隐藏的新功能/">15个iOS9隐藏的新功能！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iOS9" target="_blank" rel="external">iOS9</a>正式版终于发布了！它带来了许多新特性，但有一些隐藏的比较深<strong>，本文就为你盘点一下那些你可能不知道的新功能！</strong></p>
+<div id="article-img-0" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX00" alt=""></div>
+
+<p><strong>1 设置中搜索：</strong></p>
+<p>在新的设置菜单顶部多了一个搜索框，你可以快速搜索到自己想要的设置选项，而不用在列表里逐个去找啦。</p>
+<p><strong>2、 公交信息回归</strong></p>
+<p>公交信息又回到系统预装的地图中了。现在你可以查询公交车、<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E5%9C%B0%E9%93%81" target="_blank" rel="external">地铁</a>等公交信息。</p>
+<p><strong>3 、<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E9%94%AE%E7%9B%98" target="_blank" rel="external">键盘</a>变身触控板</strong></p>
+<p>当你的两个手指在键盘同时按压时，键盘就变身成为触控板，你可以随意调整光标的位置。<strong>目前这一功能仅限于<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iPad" target="_blank" rel="external">iPad</a>使用。</strong></p>
+<div id="article-img-1" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX01" alt=""></div><br><strong>4 、视频画中画</strong><br><br>在<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=Safari" target="_blank" rel="external">Safari</a>中打开一个视频，单指按住视频窗进入控制界面，这时会出现两个盒子状的图标，点击它，视频窗就独立出来了，你可以将它拖放到任意一个角落。但目前该功能仅限于<strong><a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iPad%20Air" target="_blank" rel="external">iPad Air</a>、<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iPad%20Air" target="_blank" rel="external">iPad Air</a> 2、 iPad Mini2和<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iPad" target="_blank" rel="external">iPad</a> Pro。</strong><br><br>5、 <strong>低电量模式</strong><br><br>当电量接近20%的时候，系统会提醒你是否打开“低电量模式”，开启之后，后台任务、屏幕特效和动画壁纸都将被禁用。你也可以在设置&gt;<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E7%94%B5%E6%B1%A0" target="_blank" rel="external">电池</a>里手动打开它。<br><br><strong>6、自拍与截图文件夹</strong><br><br>很多小伙伴自拍之后，在图片中寻找自拍照很麻烦。现在iOS9将自动为你生成自拍和截图文件夹，在图库中一目了然。<br><div id="article-img-2" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX02" alt=""></div><br><strong>7、 应用间快速切换</strong><br><br>有时在<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E5%BE%AE%E4%BF%A1" target="_blank" rel="external">微信</a>中出现地址链接，你点开后会自动进入Safari，要想回到微信，只需点击屏幕左上角的“<strong>Go Back</strong>”的按钮，你就可以在两个应用之间快速切换。<br><br><strong>8、Shift键功能调整</strong><br><br>iOS9中Shift功能可以帮助用户更方便地判断大写锁定是否激活。按下Shift之后，<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E9%94%AE%E7%9B%98" target="_blank" rel="external">键盘</a>上的所有字母都将以大写来显示。而Shift被关闭之后，所有字母又会变为小写。<br><div id="article-img-3" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX03" alt=""></div><br><strong>9 、<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=Apple" target="_blank" rel="external">Apple</a> Pay快捷操作</strong><br><br>只需在<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E9%94%81%E5%B1%8F" target="_blank" rel="external">锁屏</a>状态下双击Home键，就会看到你之前绑定的<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E9%93%B6%E8%A1%8C%E5%8D%A1" target="_blank" rel="external">银行卡</a>出现在屏幕顶部了。<br><br><strong>10 、请求桌面站点</strong><br><br>在Safari里面，你可以长按网址栏右边的刷新按钮，一到两秒之后，界面下方就会出现请求桌面站点的提醒。<br><br><strong>11、关闭“摇动以撤销”</strong><br><br>在iOS中加入了摇动以撤销的功能，但实际生活中会经常导致误操作。现在可以在设置&gt;通用&gt;辅助功能&gt;摇动以撤销中关闭它。<br><div id="article-img-4" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX04" alt=""></div><br><strong>12 <a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=APP" target="_blank" rel="external">APP</a>耗电量详情</strong><br><br>很多不起眼的应用却在大口的吃着你的电量，然而以前你是找不到它的。现在好了，<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iOS9" target="_blank" rel="external">iOS9</a>的<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=%E7%94%B5%E6%B1%A0" target="_blank" rel="external">电池</a>信息里可以详细显示每款<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=App" target="_blank" rel="external">App</a>的耗电量，让那些吃电黑户们无处可藏！<br><br><strong>13、 <a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iCloud" target="_blank" rel="external">iCloud</a> Drive文件浏览</strong><br><br>现在我们可以用 iCloud Drive查看储存在 iCloud 中的文件了。进入设置&gt;iCloud 中，选择开启 <a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=iCloud" target="_blank" rel="external">iCloud</a> Drive 即可。<br><br><strong>14、图片附件注释</strong><br><br>想为邮件中的照片添加注释？直接在照片上涂鸦就好了！点击并长按邮件直到分享菜单出现，在这里选择标记，你就可以在编辑界面中对附件进行各种涂鸦了。<br><br><div id="article-img-5" class="a-image"><img src="http://i3.go2yd.com/image.php?url=0AhkkX05" alt=""></div>
+
+<p><strong>15、网页直接转换为PDF文件</strong></p>
+<p>在新的系统中，<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=Safari" target="_blank" rel="external">Safari</a>内建了把网页转换成PDF格式文件功能。点击<a href="http://www.yidianzixun.com/home?page=channel&amp;keyword=Safari%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" rel="external">Safari浏览器</a>下面的分享按钮，<strong>在菜单里找到“将PDF存储到iBooks”</strong>，点一下就OK啦！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-养成了一种习惯" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/18/养成了一种习惯/" class="article-date">
+  	<time datetime="2015-09-18T11:41:26.000Z" itemprop="datePublished">2015-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/18/养成了一种习惯/">养成了一种习惯</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不知不觉每天出门就带上耳机，走到地铁做了两站快到下车的时候，突然发现耳机里面的音乐并没有播放，是自己老了吗？还是最近走神有点多，忧伤。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
@@ -287,6 +848,19 @@
 <script src="/js/main.js" type="text/javascript"></script>
 
 
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-68661235-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
 
 
 

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>InnoDB和MyISAM区别 | chuhemiao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣， 视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比 InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。以下是一些细节和具体实现的差别：◆1.InnoDB不支持FULL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InnoDB和MyISAM区别">
+<meta property="og:url" content="http://yoursite.com/2015/08/04/innodb和myisam区别/index.html">
+<meta property="og:site_name" content="chuhemiao">
+<meta property="og:description" content="InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣， 视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比 InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。以下是一些细节和具体实现的差别：◆1.InnoDB不支持FULL">
+<meta property="og:image" content="http://www.shengxuezixun.com/wp-content/uploads/2015/08/beishang-300x199.jpg">
+<meta property="og:updated_time" content="2015-10-26T06:16:13.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="InnoDB和MyISAM区别">
+<meta name="twitter:description" content="InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣， 视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比 InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。以下是一些细节和具体实现的差别：◆1.InnoDB不支持FULL">
+  
+    <link rel="alternative" href="/atom.xml" title="chuhemiao" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chuhemiao</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/chuhemiao/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3292942135/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="/535101602@qq.com" title="mail">mail</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100007396238142" title="facebook">facebook</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/meng535101602" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="http://www.linkedin.com/profile/view?id=AAIAABnNz-AB6TOMm0gqZ70QRYFX0dNYhKKGjcM&trk=nav_responsive_tab_profile_pic" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ChinaJoy/" style="font-size: 10px;">ChinaJoy</a> <a href="/tags/InnoDB/" style="font-size: 10px;">InnoDB</a> <a href="/tags/MyISAM/" style="font-size: 10px;">MyISAM</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/insert/" style="font-size: 10px;">insert</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/json，js/" style="font-size: 10px;">json，js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/logo/" style="font-size: 10px;">logo</a> <a href="/tags/memcache/" style="font-size: 10px;">memcache</a> <a href="/tags/nts/" style="font-size: 10px;">nts</a> <a href="/tags/rewrite/" style="font-size: 10px;">rewrite</a> <a href="/tags/tar/" style="font-size: 10px;">tar</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/ts/" style="font-size: 10px;">ts</a> <a href="/tags/typecho/" style="font-size: 10px;">typecho</a> <a href="/tags/vc/" style="font-size: 10px;">vc</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/压缩/" style="font-size: 10px;">压缩</a> <a href="/tags/恋爱，女生/" style="font-size: 10px;">恋爱，女生</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a> <a href="/tags/水瓶座，天蝎座，夫妻/" style="font-size: 10px;">水瓶座，天蝎座，夫妻</a> <a href="/tags/爱情/" style="font-size: 10px;">爱情</a> <a href="/tags/瓶子，工作/" style="font-size: 10px;">瓶子，工作</a> <a href="/tags/百将行/" style="font-size: 10px;">百将行</a> <a href="/tags/虚拟域名/" style="font-size: 10px;">虚拟域名</a> <a href="/tags/重定向/" style="font-size: 10px;">重定向</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://shengxuezixun.com">梦遥奇缘</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://lwxbo.com">小新</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">想要，所以才去追寻</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">chuhemiao</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chuhemiao</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/chuhemiao/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3292942135/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/535101602@qq.com" title="mail">mail</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100007396238142" title="facebook">facebook</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/meng535101602" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.linkedin.com/profile/view?id=AAIAABnNz-AB6TOMm0gqZ70QRYFX0dNYhKKGjcM&trk=nav_responsive_tab_profile_pic" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-innodb和myisam区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/04/innodb和myisam区别/" class="article-date">
+  	<time datetime="2015-08-04T16:06:50.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      InnoDB和MyISAM区别
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/InnoDB/">InnoDB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyISAM/">MyISAM</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/MySQL/">MySQL</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="cnblogs_post_body"><br><br><a href="http://www.shengxuezixun.com/wp-content/uploads/2015/08/beishang.jpg" target="_blank" rel="external"><img src="http://www.shengxuezixun.com/wp-content/uploads/2015/08/beishang-300x199.jpg" alt="beishang"></a>InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣， 视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比 InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。<br>以下是一些细节和具体实现的差别：<br><br>◆1.InnoDB不支持FULLTEXT类型的索引。<br><br>◆2.InnoDB 中不保存表的具体行数，也就是说，执行select count(<em>) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(</em>)语句包含 where条件时，两种表的操作是一样的。<br><br>◆3.对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。<br><br>◆4.DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br><br>◆5.LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性(例如外键)的表不适用。<br><br>另外，InnoDB表的行锁也不是绝对的，假如在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表，例如update table set num=1 where name like “�a%”<br><br>两种类型最主要的差别就是Innodb 支持事务处理与外键和行级锁.而MyISAM不支持.所以MyISAM往往就容易被人认为只适合在小项目中使用。<br><br>我作为使用MySQL的用户角度出发，Innodb和MyISAM都是比较喜欢的，但是从我目前运维的数据库平台要达到需求：99.9%的稳定性，方便的扩展性和高可用性来说的话，MyISAM绝对是我的首选。<br>原因如下：<br><br>1、首先我目前平台上承载的大部分项目是读多写少的项目，而MyISAM的读性能是比Innodb强不少的。<br><br>2、MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，没有使用压缩从而会造成Innodb比MyISAM体积庞大不小。<br><br>3、从平台角度来说，经常隔1，2个月就会发生应用开发人员不小心update一个表where写的范围不对，导致这个表没法正常用了，这个时 候MyISAM的优越性就体现出来了，随便从当天拷贝的压缩包取出对应表的文件，随便放到一个数据库目录下，然后dump成sql再导回到主库，并把对应 的binlog补上。如果是Innodb，恐怕不可能有这么快速度，别和我说让Innodb定期用导出xxx.sql机制备份，因为我平台上最小的一个数 据库实例的数据量基本都是几十G大小。<br><br>4、从我接触的应用逻辑来说，select count(<em>) 和order by 是最频繁的，大概能占了整个sql总语句的60%以上的操作，而这种操作Innodb其实也是会锁表的，很多人以为Innodb是行级锁，那个只是 where对它主键是有效，非主键的都会锁全表的。<br><br>5、还有就是经常有很多应用部门需要我给他们定期某些表的数据，MyISAM的话很方便，只要发给他们对应那表的frm.MYD,MYI的文 件，让他们自己在对应版本的数据库启动就行，而Innodb就需要导出xxx.sql了，因为光给别人文件，受字典数据文件的影响，对方是无法使用的。<br><br>6、如果和MyISAM比insert写操作的话，Innodb还达不到MyISAM的写性能，如果是针对基于索引的update操作，虽然MyISAM可能会逊色Innodb,但是那么高并发的写，从库能否追的上也是一个问题，还不如通过多实例分库分表架构来解决。<br><br>7、如果是用MyISAM的话，merge引擎可以大大加快应用部门的开发速度，他们只要对这个merge表做一些select count(</em>)操作，非常适合大项目总量约几亿的rows某一类型(如日志，调查统计)的业务表。<br><br>当然Innodb也不是绝对不用，用事务的项目如模拟炒股项目，我就是用Innodb的，活跃用户20多万时候，也是很轻松应付了，因此我个人也是很喜欢Innodb的，只是如果从数据库平台应用出发，我还是会首选MyISAM。<br><br>另外，可能有人会说你MyISAM无法抗太多写操作，但是我可以通过架构来弥补，说个我现有用的数据库平台容量：主从数据总量在几百T以上，每 天十多亿 pv的动态页面，还有几个大项目是通过数据接口方式调用未算进pv总数，(其中包括一个大项目因为初期memcached没部署,导致单台数据库每天处理 9千万的查询)。而我的整体数据库服务器平均负载都在0.5-1左右。<br>MyISAM存储引擎<br><br>MyISAM是 默认存储引擎。它基于更老的ISAM代码，但有很多有用的扩展。MyISAM存储引擎的一些特征：<br>·      所有数据值先存储低字节。这使得数据机和操作系统分离。二进制轻便性的唯一要求是机器使用补码（如最近20年的机器有的一样）和IEEE浮点格式（在主流 机器中也完全是主导的）。唯一不支持二进制兼容性的机器是嵌入式系统。这些系统有时使用特殊的处理器。<br><br>·        先存储数据低字节并不严重地影响速度；数据行中的字节一般是未联合的，从一个方向读未联合的字节并不比从反向读更占用更多的资源。服务器上的获取列值的代码与其它代码相比并不显得时间紧。<br><br>·        大文件（达63位文件长度）在支持大文件的文件系统和操作系统上被支持。<br><br>·         当把删除和更新及插入混合的时候，动态尺寸的行更少碎片。这要通过合并相邻被删除的块，以及若下一个块被删除，就扩展到下一块来自动完成。<br><br>·         每个MyISAM表最大索引数是64。 这可以通过重新编译来改变。每个索引最大的列数是16个。<br><br>·         最大的键长度是1000字节。这也可以通过编译来改变。对于键长度超过250字节的情况，一个超过1024字节的的键块被用上。<br><br>·         BLOB和TEXT列可以被索引。<br><br>·         NULL值被允许在索引的列中。这个占每个键的0-1个字节。<br><br>·         所有数字键值以高字节为先被存储以允许一个更高地索引压缩。<br><br>·        当记录以排好序的顺序插入（就像你使用一个AUTO_INCREMENT列之时），索引树被劈开以便高节点仅包含一个键。这改善了索引树的空间利用率。<br><br>·         每表一个AUTO_INCREMEN列的内部处理。MyISAM为INSERT和UPDATE操作自动更新这一 列。这使得AUTO_INCREMENT列更快（至少10%）。在序列顶的值被删除之后就不能再利用。（当AUTO_INCREMENT列被定义为多列索 引的最后一列，可以出现重使用从序列顶部删除的值的情况 ）。AUTO_INCREMENT值可用ALTER TABLE或myisamch来重置。<br><br>·         如果数据文件中间的表没有自由块了，在其它线程从表读的同时，你可以INSERT新行到表中。（这被认识为并发操作 ）。自由块的出现是作为删除行的结果，或者是用比当前内容多的数据对动态长度行更新的结果。当所有自由块被用完（填满），未来的插入又变成并发。<br><br>·         你可以把数据文件和索引文件放在不同目录，用DATA DIRECTORY和INDEX DIRECTORY选项CREATE TABLE以获得更高的速度，请参阅13.1.5节，“CREATE TABLE语法”。<br><br>·         每个字符列可以又不同的字符集。<br><br>·         在MyISAM索引文件里又一个标志，它表明表是否被正确关闭。如果用–myisam-recover选项启动mysqld，MyISAM表在打开得时候被自动检查，如果被表被不恰当地关闭，就修复表。<br><br>·         如果你用–update-state选项运行myisamchk，它标注表为已检查。myisamchk –fast只检查那些没有这个标志的表。<br><br>·         myisamchk –analyze为部分键存储统计信息，也为整个键存储统计信息。<br><br>·         myisampack可以打包BLOB和VARCHAR列。<br><br>MyISAM也支持下列特征：<br><br>·         支持true VARCHAR类型；VARCHAR列以存储在2个字节中的长度来开始。<br><br>·         有VARCHAR的表可以有固定或动态记录长度。<br><br>·         VARCHAR和CHAR列可以多达64KB。<br><br>·         一个被搞乱的已计算索引对可对UNIQUE来使用。这允许你在表内任何列的合并上有UNIQUE。（尽管如此，你不能在一个UNIQUE已计算索引上搜索）。<br><br>InnoDB存储引擎<br><br>InnoDB给MySQL提供 了具有提交，回滚和崩溃恢复能力的事务安全（ACID兼容）存储引擎。InnoDB锁定在行级并且也在SELECT语句提供一个Oracle风格一致的非 锁定读。这些特色增加 了多用户部署和性能。没有在InnoDB中扩大锁定的需要，因为在InnoDB中行级锁定适合非常小的空间。InnoDB也支持FOREIGN KEY强制。在SQL查询中，你可以自由地将InnoDB类型的表与其它MySQL的表的类型混合起来，甚至在同一个查询中也可以混合。<br><br>InnoDB是为处理巨大数据量时的最大性能设计。它的CPU效率可能是任何其它基于磁盘的关系数据库引擎所不能匹敌的。<br><br>InnoDB存储引擎被完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。 InnoDB存储它的表＆索引在一个表空间中，表空间可以包含数个文件（或原始磁盘分区）。这与MyISAM表不同，比如在MyISAM表中每个表被存在 分离的文件中。InnoDB 表可以是任何尺寸，即使在文件尺寸被限制为2GB的操作系统上。<br><br>InnoDB默认地被包含在MySQL二进制分发中。Windows Essentials installer使InnoDB成为Windows上MySQL的 默认表。<br><br>InnoDB被用来在众多需要高性能的大型数据库站点上产生。著名的Internet新闻站点Slashdot.org运行在 InnoDB上。Mytrix, Inc.在InnoDB上存储超过1TB的数据，还有一些其它站点在InnoDB上处理平均每秒800次插入/更新的负荷。<br><br>InnoDB和MyISAM的区别<br><br>区别概述：<br><br>MyISAM 是MySQL中默认的存储引擎，一般来说不是有太多人关心这个东西。决定使用什么样的存储引擎是一个很tricky的事情，但是还是值我们去研究一下，这里的文章只考虑 MyISAM 和InnoDB这两个，因为这两个是最常见的。<br><br>下面先让我们回答一些问题：<br><br>你的数据库有外键吗？<br>你需要事务支持吗？<br>你需要全文索引吗？<br>你经常使用什么样的查询模式？<br>你的数据有多大？<br><br>思考上面这些问题可以让你找到合适的方向，但那并不是绝对的。如果你需要事务处理或是外键，那么InnoDB 可能是比较好的方式。如果你需要全文索引，那么通常来说 MyISAM是好的选择，因为这是系统内建的，然而，我们其实并不会经常地去测试两百万行记录。所以，就算是慢一点，我们可以通过使用Sphinx从 InnoDB中获得全文索引。<br><br>数据的大小，是一个影响你选择什么样存储引擎的重要因素，大尺寸的数据集趋向于选择InnoDB方式，因为其支持事务处理和故障恢复。数据库的在小 决定了故障恢复的时间长短，InnoDB可以利用事务日志进行数据恢复，这会比较快。而MyISAM可能会需要几个小时甚至几天来干这些事，InnoDB 只需要几分钟。<br><br>您操作数据库表的习惯可能也会是一个对性能影响很大的因素。比如： COUNT() 在 MyISAM 表中会非常快，而在InnoDB 表下可能会很痛苦。而主键查询则在InnoDB下会相当相当的快，但需要小心的是如果我们的主键太长了也会导致性能问题。大批的inserts 语句在MyISAM下会快一些，但是updates 在InnoDB 下会更快一些——尤其在并发量大的时候。<br><br>所以，到底你检使用哪一个呢？根据经验来看，如果是一些小型的应用或项目，那么MyISAM 也许会更适合。当然，在大型的环境下使用MyISAM 也会有很大成功的时候，但却不总是这样的。如果你正在计划使用一个超大数据量的项目，而且需要事务处理或外键支持，那么你真的应该直接使用InnoDB方 式。但需要记住InnoDB 的表需要更多的内存和存储，转换100GB 的MyISAM 表到InnoDB 表可能会让你有非常坏的体验。<br><br>区别总结：<br><br>1.InnoDB不支持FULLTEXT类型的索引。<br>2.InnoDB 中不保存表的具体行数，也就是说，执行select count(<em>) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(</em>)语句包含 where条件时，两种表的操作是一样的。<br>3.对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。<br>4.DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br>5.LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性（例如外键）的表不适用。<br>另外，InnoDB表的行锁也不是绝对的，如果在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表，例如update table set num=1 where name like “�a%”<br>提升InnoDB性能的方法：<br>MyISAM和InnoDB存储引擎性能差别并不是很大，针对InnoDB来说，影响性能的主要是 innodb_flush_log_at_trx_commit 这个选项，如果设置为1的话，那么每次插入数据的时候都会自动提交，导致性能急剧下降，应该是跟刷新日志有关系，设置为0效率能够看到明显提升，当然，同 样你可以SQL中提交“SET AUTOCOMMIT = 0”来设置达到好的性能。另外，还听说通过设置innodb_buffer_pool_size能够提升InnoDB的性能，但是我测试发现没有特别明显 的提升。<br>基本上我们可以考虑使用InnoDB来替代我们的MyISAM引擎了，因为InnoDB自身很多良好的特点，比如事务支持、存储 过程、视图、行级锁定等等，在并发很多的情况下，相信InnoDB的表现肯定要比MyISAM强很多，当然，相应的在my.cnf中的配置也是比较关键 的，良好的配置，能够有效的加速你的应用。<br>任何一种表都不是万能的，只用恰当的针对业务类型来选择合适的表类型，才能最大的发挥MySQL的性能优势。<br>InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣，视具体应用而定。基本的差别为：MyISAM类型 不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而 InnoDB提供事务支持已经外部键等高级数据库功能。<br>MyIASM是IASM表的新版本，有如下扩展：<br><br>·二进制层次的可移植性。<br><br>·NULL列索引。<br><br>·对变长行比ISAM表有更少的碎片。<br><br>·支持大文件。<br><br>·更好的索引压缩。<br><br>·更好的键吗统计分布。<br><br>·更好和更快的auto_increment处理。<br><br>以下是一些细节和具体实现的差别：<br><br>◆1.InnoDB不支持FULLTEXT类型的索引。<br><br>◆2.InnoDB 中不保存表的具体行数，也就是说，执行select count(<em>) from table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(</em>)语句包含 where条件时，两种表的操作是一样的。<br><br>◆3.对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。<br><br>◆4.DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。<br><br>◆5.LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性（例如外键）的表不适用。<br><br>另外，InnoDB表的行锁也不是绝对的，假如在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表，例如update table set num=1 where name like “�a%”<br><br>综上所述，任何一种表都不是万能的，只有恰当的针对业务类型来选择合适的表类型，才能最大的发挥MySQL的性能优势。<br>key_buffer_size – 这对MyISAM表来说非常重要。如果只是使用MyISAM表，可以把它设置为可用内存的 30-40%。合理的值取决于索引大小、数据量以及负载。<br>记住，MyISAM表会使用操作系统的缓存来缓存数据，因此需要留出部分内存给它们，很多情况下数据比索引大多了。尽管如此，需要总是检查是否所有的 key_buffer 都被利用了。<br>.MYI 文件只有 1GB，而 key_buffer 却设置为 4GB 的情况是非常少的。这么做太浪费了。如果你很少使用MyISAM表，那么也保留低于 16-32MB 的 key_buffer_size 以适应给予磁盘的临时表索引所需。<br>innodb_buffer_pool_size – 这对Innodb表来说非常重要。Innodb相比MyISAM表对缓冲更为敏感。MyISAM可以在默认的 key_buffer_size 设置下运行的可以，然而Innodb在默认的 innodb_buffer_pool_size 设置下却跟蜗牛似的。由于Innodb把数据和索引都缓存起来，无需留给操作系统太多的内存，因此如果只需要用Innodb的话则可以设置它高达 70-80% 的可用内存。如果你的数据量不大，并且不会暴增，那么无需把 innodb_buffer_pool_size 设置的太大了。<br><br>innodb_additional_pool_size – 这个选项对性能影响并不太多，至少在有差不多足够内存可分配的操作系统上是这样。不过如果你仍然想设置为 20MB(或者更大)，因此就需要看一下Innodb其他需要分配的内存有多少。<br><br>innodb_log_file_size 在高写入负载尤其是大数据集的情况下很重要。这个值越大则性能相对越高，但是要注意到可能会增加恢复时间。我经常设置为 64-512MB，跟据服务器大小而异。innodb_log_buffer_size 默认的设置在中等强度写入负载以及较短事务的情况下，服务器性能还可以。如果存在更新操作峰值或者负载较大，就应该考虑加大它的值了。如果它的值设置太高 了，可能会浪费内存。它每秒都会刷新一次，因此无需设置超过1秒所需的内存空间。通常 8-16MB 就足够了。越小的系统它的值越小。<br><br>innodb_flush_logs_at_trx_commit 是否为Innodb比MyISAM慢1000倍而头大？看来也许你忘了修改这个参数了。默认值是 1，这意味着每次提交的更新事务（或者每个事务之外的语句）都会刷新到磁盘中，而这相当耗费资源，尤其是没有电池备用缓存时。很多应用程序，尤其是从 MyISAM转变过来的那些，把它的值设置为 2 就可以了，也就是不把日志刷新到磁盘上，而只刷新到操作系统的缓存上。日志仍然会每秒刷新到磁盘中去，因此通常不会丢失每秒1-2次更新的消耗。如果设置 为 0 就快很多了，不过也相对不安全了。MySQL服务器崩溃时就会丢失一些事务。设置为 2 指挥丢失刷新到操作系统缓存的那部分事务。<br><br>table_cache – 打开一个表的开销可能很大。例如MyISAM把MYI文件头标志该表正在使用中。你肯定不希望这种操作太频繁，所以通常要加大缓存数量，使得足以最大限度 地缓存打开的表。它需要用到操作系统的资源以及内存，对当前的硬件配置来说当然不是什么问题了。如果你有200多个表的话，那么设置为 1024 也许比较合适（每个线程都需要打开表），如果连接数比较大那么就加大它的值。我曾经见过设置为 100,000 的情况。<br><br>thread_cache – 线程的创建和销毁的开销可能很大，因为每个线程的连接/断开都需要。我通常至少设置为 16。如果应用程序中有大量的跳跃并发连接并且 Threads_Created 的值也比较大，那么我就会加大它的值。它的目的是在通常的操作中无需创建新线程。<br><br>query_cache – 如果你的应用程序有大量读，而且没有应用程序级别的缓存，那么这很有用。不要把它设置太大了，因为想要维护它也需要不少开销，这会导致MySQL变慢。通 常设置为 32-512Mb。设置完之后最好是跟踪一段时间，查看是否运行良好。在一定的负载压力下，如果缓存命中率太低了，就启用它。<br><br>摘自—–csdn（<a href="http://my.csdn.net/zqtsx" target="_blank" rel="external">摘取天上星</a>）<br><br>&nbsp;<br><br></div><br><div id="MySignature">我只是那个一直在努力的人，却超不过你们。</div>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/04/linux解压缩/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Linux解压缩
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/03/apache模块mod-rewrite详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache模块mod_rewrite详解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="innodb和myisam区别" data-title="InnoDB和MyISAM区别" data-url="http://yoursite.com/2015/08/04/innodb和myisam区别/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 chuhemiao
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-68661235-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
