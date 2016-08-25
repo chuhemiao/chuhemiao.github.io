@@ -3,17 +3,60 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档 | 梦遥奇缘</title>
+  <title>使用git在centos下连接github | 梦遥奇缘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter">
-<meta property="og:type" content="website">
-<meta property="og:title" content="梦遥奇缘">
-<meta property="og:url" content="http://idiot6.com/archives/index.html">
+  <meta name="description" content="git安装
+
+sudo apt-get install git git-core
+
+配置git
+
+$ git config –global user.name &amp;quot;chuhe&amp;quot;
+
+$ git config –global user.email chuhe@qq.com
+
+
+
+生成密匙
+
+$ ssh-keygen -t rsa -C &amp;quot;chuhe@qq.com&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用git在centos下连接github">
+<meta property="og:url" content="http://idiot6.com/2015/10/22/使用git在centos下连接github/index.html">
 <meta property="og:site_name" content="梦遥奇缘">
-<meta property="og:description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter">
+<meta property="og:description" content="git安装
+
+sudo apt-get install git git-core
+
+配置git
+
+$ git config –global user.name &amp;quot;chuhe&amp;quot;
+
+$ git config –global user.email chuhe@qq.com
+
+
+
+生成密匙
+
+$ ssh-keygen -t rsa -C &amp;quot;chuhe@qq.com&amp;quot">
+<meta property="og:updated_time" content="2016-08-25T09:43:09.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="梦遥奇缘">
-<meta name="twitter:description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter">
+<meta name="twitter:title" content="使用git在centos下连接github">
+<meta name="twitter:description" content="git安装
+
+sudo apt-get install git git-core
+
+配置git
+
+$ git config –global user.name &amp;quot;chuhe&amp;quot;
+
+$ git config –global user.email chuhe@qq.com
+
+
+
+生成密匙
+
+$ ssh-keygen -t rsa -C &amp;quot;chuhe@qq.com&amp;quot">
   
     <link rel="alternate" href="/atom.xml" title="梦遥奇缘" type="application/atom+xml">
   
@@ -66,215 +109,101 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/03/21/php获取url/" class="archive-article-date">
-  <time datetime="2016-03-21T10:43:08.000Z" itemprop="datePublished">3月 21</time>
+        <section id="main"><article id="post-使用git在centos下连接github" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/22/使用git在centos下连接github/" class="article-date">
+  <time datetime="2015-10-22T02:04:10.000Z" itemprop="datePublished">2015-10-22</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/21/php获取url/">PHP中获取当前页面的完整URL</a>
+    <h1 class="article-title" itemprop="name">
+      使用git在centos下连接github
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/03/09/error/" class="archive-article-date">
-  <time datetime="2016-03-09T10:23:53.000Z" itemprop="datePublished">3月 9</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/09/error/">常见错误代号</a>
-    </h1>
-  
+        <ol>
+<li><p>git安装</p>
+<ul>
+<li><p>sudo apt-get install git git-core</p>
+</li>
+<li><p>配置git</p>
+</li>
+<li><p>$ git config –global user.name &quot;chuhe&quot;</p>
+</li>
+<li><p>$ git config –global user.email chuhe@qq.com</p>
+</li>
+</ul>
+</li>
+<li><p>生成密匙</p>
+<ul>
+<li><p>$ ssh-keygen -t rsa -C &quot;chuhe@qq.com&quot; //邮箱同上</p>
+</li>
+<li><p>vim /home/linx/.ssh/id_rsa.pub //复制里面的密钥或者直接cat</p>
+</li>
+</ul>
+</li>
+<li>打开自己的github-》点个人头像-》settings-》SSH  KEYS-&gt;add SSH key-&gt;把刚才复制的内容粘贴到key下（title随意起名）-》保存</li>
+<li><p>重点来了</p>
+<ul>
+<li><p>测试$ ssh git@github.com</p>
+</li>
+<li><p>这是成功的状态：chuhe@ubuntu:~$ ssh -T git@github.com  Hi chuhemiao! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</li>
+<li><p>错误的情况：一直回车下去，出现yes和no的情况下，记住这里需要输入yes而不是y！！！！！！</p>
+</li>
+</ul>
+</li>
+<li>本人在最后一步纠结了一天多，最后无意中看到一个博主说输入yes就行了，伤心啊！！!</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/03/05/4个备受欢迎的Python程序库/" class="archive-article-date">
-  <time datetime="2016-03-05T05:45:27.000Z" itemprop="datePublished">3月 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/05/4个备受欢迎的Python程序库/">4个备受欢迎的Python程序库 你用哪个？</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/03/05/水瓶座/" class="archive-article-date">
-  <time datetime="2016-03-05T04:45:27.000Z" itemprop="datePublished">3月 5</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://idiot6.com/2015/10/22/使用git在centos下连接github/" data-id="cisa568yq00165uvhkabzgh2o" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/05/水瓶座/">水瓶座在什么时候最心疼自己!!!</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/02/15/心情记/" class="archive-article-date">
-  <time datetime="2016-02-15T09:23:53.000Z" itemprop="datePublished">2月 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/15/心情记/">游戏离开你的那一天</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/09/dpkg-lock/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Could not get lock /var/lib/dpkg/lock
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/23/把wordpress换成了typecho步骤/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">把wordpress换成了typecho步骤</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/02/14/开始工作了/" class="archive-article-date">
-  <time datetime="2016-02-14T05:14:00.000Z" itemprop="datePublished">2月 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/14/开始工作了/">新的目标，新的启程</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/02/01/并没想象中那么努力/" class="archive-article-date">
-  <time datetime="2016-02-01T10:54:37.000Z" itemprop="datePublished">2月 1</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/01/并没想象中那么努力/">你的名片随处都是</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/30/放假前的最后一周/" class="archive-article-date">
-  <time datetime="2016-01-30T02:40:27.000Z" itemprop="datePublished">1月 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/30/放假前的最后一周/">15年的最后一周,是有多忙</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/20/总有一个是你的菜/" class="archive-article-date">
-  <time datetime="2016-01-20T13:28:53.000Z" itemprop="datePublished">1月 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/20/总有一个是你的菜/">总有一个是你的菜</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/16/yii2.0基础版和高级版安装/" class="archive-article-date">
-  <time datetime="2016-01-16T08:18:08.000Z" itemprop="datePublished">1月 16</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/16/yii2.0基础版和高级版安装/">yii基础和高级版安装</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
