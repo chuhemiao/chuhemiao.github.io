@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>梦遥奇缘</title>
+  <subtitle>想要，所以才去追寻--禾子</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://idiot6.com/"/>
+  <updated>2016-08-31T09:45:19.207Z</updated>
+  <id>http://idiot6.com/</id>
+  
+  <author>
+    <name>梦遥奇缘</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>忙碌的一个月</title>
+    <link href="http://idiot6.com/2016/08/31/busy/"/>
+    <id>http://idiot6.com/2016/08/31/busy/</id>
+    <published>2016-08-31T08:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Busy-Month"><a href="#Busy-Month" class="headerlink" title="Busy Month"></a>Busy Month</h1><ul>
+<li>游戏上线，各种活动，持续加班，已经赶上了一年前的每月30天班，都是泪！</li>
+</ul>
+<h1 id="To-sum-up"><a href="#To-sum-up" class="headerlink" title="To sum up"></a>To sum up</h1><ol>
+<li><p>2016-08-01~~2016-08-05</p>
+<ol>
+<li>仙剑公测活动、仙剑落地页问题修改   完成  </li>
+<li>自由之战众筹页面</li>
+<li>我的战争官网  完成   手机页未给</li>
+<li>公司官网icp备案问题  完成</li>
+<li>甲铁城游戏官网搭建</li>
+</ol>
+</li>
+<li><p>2016-08-08~~2016-08-12</p>
+<ol>
+<li>公司官网icp备案问题</li>
+<li>爆爆糖H5抽奖        周四  待测试   完成  时间修改礼包码</li>
+<li>甲铁城游戏官网剩余页面、概念站；   周四   </li>
+<li>竞猜页  手机完成   </li>
+<li>自由之战众筹   本周 完成  加补充</li>
+<li>自由之战港澳台分享   完成   待上线</li>
+<li>我的战争官网手机版  pc   bug修改   时间不着急</li>
+<li>仙剑代言人页面  杨幂   周四  完成</li>
+</ol>
+</li>
+<li><p>2016-08-15~~2016-08-20</p>
+<ol>
+<li>甲铁城三天预约   完成</li>
+<li>我的战争官网    分页待修改、视频问题</li>
+<li>爆爆糖礼包码替换、官网增加下载替换礼包  完成</li>
+<li>品专623问题  完成 </li>
+<li>818   landpage 落地页地址替换新包地址  完成</li>
+<li>/baidu页面周六修改为杨幂活动页</li>
+<li>仙剑短信验证增加图形验证码  测试 完成</li>
+<li>港澳台自由之战新加首页  完成</li>
+<li>仙剑新增媒体落地页 、新增活动福利页 完成</li>
+<li>自由之战众筹问题</li>
+</ol>
+</li>
+<li><p>2016-08-22~~2016-08-26</p>
+<ol>
+<li>kom官网   over</li>
+<li>我的战争分页问题   over</li>
+<li>新版视频替换  完成</li>
+<li>仙剑落地页、替换服务器  ending….</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Busy-Month&quot;&gt;&lt;a href=&quot;#Busy-Month&quot; class=&quot;headerlink&quot; title=&quot;Busy Month&quot;&gt;&lt;/a&gt;Busy Month&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;游戏上线，各种活动，持续加班，已经赶上了一年前的每月30天班，都
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="busy" scheme="http://idiot6.com/tags/busy/"/>
+    
+      <category term="Overtime" scheme="http://idiot6.com/tags/Overtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>指定图片分享到facebook，fb图片缓存问题</title>
+    <link href="http://idiot6.com/2016/07/19/share_facebook/"/>
+    <id>http://idiot6.com/2016/07/19/share_facebook/</id>
+    <published>2016-07-19T04:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用share-js插件分享到社交媒体"><a href="#使用share-js插件分享到社交媒体" class="headerlink" title="使用share.js插件分享到社交媒体"></a>使用share.js插件分享到社交媒体</h2><p>1.使用教程请移步到<a href="http://overtrue.me/share.js/" target="_blank" rel="external">overtrue</a></p>
+<p>2.分享到fb时，图片出现缓存问题</p>
+<ul>
+<li>清除缓存：<code>https://developers.facebook.com/tools/debug/</code></li>
+<li><img src="http://source.shengxuezixun.com/facebook_clear.png" alt="facebook"></li>
+</ul>
+<p>3.点击debug之后:</p>
+<ul>
+<li><img src="http://source.shengxuezixun.com/fb_url.png" alt="facebook"></li>
+</ul>
+<p>4.多次点击清除，如果还不行，那就直接指定</p>
+<pre><code>&lt;head&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;梦遥奇缘&quot; /&gt;
+
+&lt;meta property=&quot;og:description&quot; content=&quot;梦遥奇缘 &quot; /&gt;
+
+&lt;meta property=&quot;og:url&quot; content=&quot;http://idiot6.com&quot; /&gt;
+
+&lt;meta property=&quot;og:image&quot; content=&quot;//source.shengxuezixun.com/images%2Flogo.png&quot;/&gt;
+
+&lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+&lt;/head&gt;
+</code></pre><p>5.然后在回到自己要分享的页面，点击分享，应该就是指定的图。</p>
+<h2 id="ps-使用share-js时的问题"><a href="#ps-使用share-js时的问题" class="headerlink" title="ps:使用share.js时的问题"></a>ps:使用<code>share.js</code>时的问题</h2><p>1.如果出现在ios中不能指定社交分享媒体，请查看自己使用的是否为jQuery版本，js原生版本只能在安卓上显示自己指定的社交分享媒体<br>2.参考资料:</p>
+<pre><code>+ [dotblog](https://dotblogs.com.tw/walter/2014/05/21/how-to-set-facebook-share-info)
++ [facebook_tools](https://developers.facebook.com/tools/debug/)
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;使用share-js插件分享到社交媒体&quot;&gt;&lt;a href=&quot;#使用share-js插件分享到社交媒体&quot; class=&quot;headerlink&quot; title=&quot;使用share.js插件分享到社交媒体&quot;&gt;&lt;/a&gt;使用share.js插件分享到社交媒体&lt;/h2&gt;&lt;p&gt;1.
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="facebook" scheme="http://idiot6.com/tags/facebook/"/>
+    
+      <category term="share" scheme="http://idiot6.com/tags/share/"/>
+    
+      <category term="facebook_tools" scheme="http://idiot6.com/tags/facebook-tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php安装libmcrypt和mcrypt扩展</title>
+    <link href="http://idiot6.com/2016/07/04/Libmcrypt/"/>
+    <id>http://idiot6.com/2016/07/04/Libmcrypt/</id>
+    <published>2016-07-04T06:44:20.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一步-下载扩展"><a href="#第一步-下载扩展" class="headerlink" title="第一步:下载扩展"></a>第一步:下载扩展</h2><p>1.<a href="https://sourceforge.net/projects/mcrypt/" target="_blank" rel="external">mcrypt</a><br>2.<a href="http://zh.osdn.jp/projects/sfnet_mcrypt/downloads/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz/" target="_blank" rel="external">libmcrypt</a></p>
+<h2 id="第二部：解压并进入到相应目录"><a href="#第二部：解压并进入到相应目录" class="headerlink" title="第二部：解压并进入到相应目录"></a>第二部：解压并进入到相应目录</h2><p>1.使用phpize模式去安装<br>2.<code>/usr/local/php/bin/phpize</code>   如果不知道位置（<code>whereis phpize</code>）</p>
+<ol>
+<li><code>./configure --with-php-config=/usr/local/php/bin/php-config</code>   其中<code>/usr/local/php/bin/php-config</code>这个为<code>php-config</code>的路径,此目录和phpize同级</li>
+<li><code>make &amp;&amp; make install</code><h2 id="第三步：找到php-ini配置"><a href="#第三步：找到php-ini配置" class="headerlink" title="第三步：找到php.ini配置"></a>第三步：找到<code>php.ini</code>配置</h2>1.在最后加上<code>extension=mcrypt.so</code>,<code>extension=libmcrypt.so</code><br>2.然后重启<code>php-fpm</code></li>
+<li><code>php -m</code> 测试已安装的扩展</li>
+</ol>
+<p>4.此文比较麻烦的感觉是下载扩展的地址，害我加班囧囧囧！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一步-下载扩展&quot;&gt;&lt;a href=&quot;#第一步-下载扩展&quot; class=&quot;headerlink&quot; title=&quot;第一步:下载扩展&quot;&gt;&lt;/a&gt;第一步:下载扩展&lt;/h2&gt;&lt;p&gt;1.&lt;a href=&quot;https://sourceforge.net/projects/mc
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="libmcrypt" scheme="http://idiot6.com/tags/libmcrypt/"/>
+    
+      <category term="mcrypt" scheme="http://idiot6.com/tags/mcrypt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx problem问题!</title>
+    <link href="http://idiot6.com/2016/06/30/nginx_problem/"/>
+    <id>http://idiot6.com/2016/06/30/nginx_problem/</id>
+    <published>2016-06-30T04:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use"><a href="#Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use" class="headerlink" title="Nginx [emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)"></a><code>Nginx [emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)</code></h1><p>1.意思是重复绑定了<code>server name</code>,但这个警告不会影响到服务器运行。是重复绑定的意思是现在运行的nginx服务和将要加载的新配置中的重复，所以，这个警告其实是不必的。</p>
+<p>2.使用命令关闭占用80端口的程序</p>
+<pre><code>+ `sudo fuser -k 80/tcp`
+</code></pre><p>3.nginx指定配置文件</p>
+<pre><code>+ 执行可以使用-c指定配置文件，拿你的配置来说，比如酱紫`/etc/nginx/sbin/nginx -c /data/conf/nginx.conf`在`nginx.conf`中指定其他内容的路径即可。
+</code></pre><p>4.重启nginx： <code>/usr/local/nginx/sbin/nginx -s reload</code><br>5.查看nginx进程是否在运行</p>
+<pre><code>+ `ps aux | grep nginx`
+</code></pre><p>6.查看nginx是否有在监听80端口或者你设置的其他端口</p>
+<pre><code>+ `netstat -tnlp | grep nginx`
+</code></pre><p>7.查看日志的最新几行</p>
+<pre><code>+ `tail -n error.log`
+</code></pre><ol>
+<li>nginx增加全局或者其它服务<ul>
+<li><code>vim /etc/profile</code></li>
+<li><code>PATH=$PATH:/usr/local/nginx/sbin/nginx</code>    后面指定需要的服务安装路径</li>
+<li><code>source /etc/profile</code></li>
+</ul>
+</li>
+</ol>
+<p>6.杀死<code>php-fpm</code>：<code>pkill   php-fpm</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use&quot;&gt;&lt;a href=&quot;#Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="nginx" scheme="http://idiot6.com/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git的使用</title>
+    <link href="http://idiot6.com/2016/06/28/git%E4%BD%BF%E7%94%A8/"/>
+    <id>http://idiot6.com/2016/06/28/git使用/</id>
+    <published>2016-06-28T08:08:53.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="GIT安装"><a href="#GIT安装" class="headerlink" title="GIT安装"></a>GIT安装</h2><p><code>homebrew http://brew.sh/</code></p>
+<p><code>git config --global user.name &#39;chuhemiao&#39;</code></p>
+<p><code>git config --global user.email &#39;yifeng826@vip.qq.com&#39;</code></p>
+<h2 id="创建git版本库-本质上就是创建一个目录，然后把这个目录交给git管理"><a href="#创建git版本库-本质上就是创建一个目录，然后把这个目录交给git管理" class="headerlink" title="创建git版本库(本质上就是创建一个目录，然后把这个目录交给git管理)"></a>创建git版本库(本质上就是创建一个目录，然后把这个目录交给git管理)</h2><p><code>mkdir gitrepository</code></p>
+<p><code>git init</code></p>
+<p>.git隐藏目录</p>
+<h2 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h2><p>1, 新增一个文件</p>
+<p><code>touch README.md</code></p>
+<p><code>vim READEME.md</code></p>
+<p><code>Welcome to git world!!!</code></p>
+<p><code>git status / git status -s</code></p>
+<p><code>git add READEME.md</code></p>
+<p><code>git commit -m &#39;add a reademe file&#39;</code></p>
+<p>2, 修改一个文件</p>
+<p>同上</p>
+<p>修改了一个文件，可以通过git diff filename 查看文件不同<br>git diff HEAD – readme.txt命令可以查看工作区和版本库里面最新版本的区别</p>
+<p>##版本回退</p>
+<p><code>git reset HEAD filename</code></p>
+<p>–hard 谨慎使用<br><code>git reset --hard HEAD^</code> 回退到上一个版本</p>
+<p><code>git reset --hard HEAD~n</code> 回到上n个版本，若不存在，会报错</p>
+<p><code>git reset --hard commitid</code> 回到指定版本号</p>
+<p><code>git revert commitid</code></p>
+<p>提交了一次，然后修改了两次<br>可通过git log查看历史提交版本<br><code>git log --pretty=oneline</code></p>
+<p><code>git reflog</code> 用来记录你的每一次命令,用来获取commit id,以确定回退到哪个版本</p>
+<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2><p>1, 工作区</p>
+<p>就是我们创建的gitrepository<br>2, 暂存区</p>
+<p>git init 产生的.git 目录就是一个git版本库</p>
+<p>.git 包含很多东西</p>
+<p>a, stage 暂存区</p>
+<p>b, git为我们自动创建的第一个分支master</p>
+<p>c, 指向master的一个指针HEAD</p>
+<p>简单说明下刚刚提叫文件的一个过程</p>
+<p><code>git add filename</code> 实际上就是把工作区的文件添加到暂存区(stage)</p>
+<p><code>git commit</code> 提交文件，把暂存区(stage)所有内容提交到当前分支(这里指的是master)</p>
+<h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2><p>修改之后一定要先<code>git add ,git commit</code> 才能生效</p>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><p>命令<code>git checkout -- README.md</code>意思就是，把<code>README.md</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
+<p>一种是README.md自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>下面需要先<code>git reset HEAD README.md</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
+<p>一种是README.md已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p>一种是已经<code>git commit</code>了， 版本回退</p>
+<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态</p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>rm README.md</code></p>
+<p><code>git rm README.md</code></p>
+<p>若你只进行了git add 而没有进行git commit </p>
+<p>做了<code>git rm -f README.md</code>,则无法恢复了，若做了<code>rm README.md</code> 则可以通过<code>git checkout -- README.md</code>恢复</p>
+<p>恢复暂存区内容：<code>git reset HEAD README.md</code></p>
+<p><code>git checkout -- README.md</code><br>这样就恢复了</p>
+<h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><p><code>git remote add origin https://github.com/chuhemiao/baqiye.git</code><br><code>git push -u origin master</code></p>
+<p><code>git pull</code> 从远程仓库获取最新代码</p>
+<p><code>git clone</code> 从远程仓库克隆代码</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;GIT安装&quot;&gt;&lt;a href=&quot;#GIT安装&quot; class=&quot;headerlink&quot; title=&quot;GIT安装&quot;&gt;&lt;/a&gt;GIT安装&lt;/h2&gt;&lt;p&gt;&lt;code&gt;homebrew http://brew.sh/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git con
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="git" scheme="http://idiot6.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信分享到朋友圈，使用特定Logo</title>
+    <link href="http://idiot6.com/2016/05/26/wechat_share/"/>
+    <id>http://idiot6.com/2016/05/26/wechat_share/</id>
+    <published>2016-05-26T14:45:08.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.标题：会取当前页面title里面的内容。<br>2.图片：会取当前页面body内最前面的一张符合条件的图片。<br>3.图片规格有要求：</p>
+<ul>
+<li>尺寸必须大于： 300px × 300px</li>
+<li>把符合以上两个条件的图片放到<code>&lt;img&gt;</code>里，放到页面<code>&lt;body&gt;</code>内的最前面。</li>
+<li>这样分享时就会取这张图作为缩略图了。</li>
+</ul>
+<p>4.<code>&lt;img style=&quot;position:absolute;top:-200%;left: -200%;display:block&quot; src=&quot;http://source.shengxuezixun.com/images/author.jpg&quot; &gt;</code><br>5.更新了n次，忘记提交图片，忧伤！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.标题：会取当前页面title里面的内容。&lt;br&gt;2.图片：会取当前页面body内最前面的一张符合条件的图片。&lt;br&gt;3.图片规格有要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;尺寸必须大于： 300px × 300px&lt;/li&gt;
+&lt;li&gt;把符合以上两个条件的图片放到&lt;code&gt;&amp;l
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="wechat" scheme="http://idiot6.com/tags/wechat/"/>
+    
+      <category term="absolute" scheme="http://idiot6.com/tags/absolute/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP安装扩展!</title>
+    <link href="http://idiot6.com/2016/05/24/php%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95/"/>
+    <id>http://idiot6.com/2016/05/24/php安装扩展/</id>
+    <published>2016-05-24T15:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.下载需要安装的扩展包，解压并进入当前目录</p>
+<p>2.找到<code>phpize</code>目录，运行<code>/usr/local/php/bin/phpize</code></p>
+<ol>
+<li><code>./configure --with-php-config=/usr/local/php/bin/php-config</code></li>
+</ol>
+<p>4.<code>--with-php-config=/usr/local/php/bin/php-config</code>此处为指定安装路径</p>
+<p>5.如果不知道<code>phpize</code>目录,可执行<code>whereis phpize</code>或者<code>find / -name phpize</code></p>
+<blockquote>
+<p>By 这些年踩过的坑</p>
+<blockquote>
+<p>梦遥奇缘</p>
+</blockquote>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.下载需要安装的扩展包，解压并进入当前目录&lt;/p&gt;
+&lt;p&gt;2.找到&lt;code&gt;phpize&lt;/code&gt;目录，运行&lt;code&gt;/usr/local/php/bin/phpize&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;./configure --with-ph
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="phpize" scheme="http://idiot6.com/tags/phpize/"/>
+    
+      <category term="whereis" scheme="http://idiot6.com/tags/whereis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用到的技巧加小问题总结</title>
+    <link href="http://idiot6.com/2016/05/24/problem/"/>
+    <id>http://idiot6.com/2016/05/24/problem/</id>
+    <published>2016-05-24T13:55:27.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><p>1.检测php已经安装的扩展：<code>php -m</code><br>2.nginx重启: <code>service nginx reload</code><br>3.composer配置国内镜像:<code>composer config repo.packagist composer https://packagist.phpcomposer.com</code><br>4.laravel5.2默认不安装权限:<code>php artisan make:auth --views</code><br>5.生成key：<code>php artisan key:generate</code><br>6.导出数据库: <code>mysqldump</code> -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>7.当前页面刷新:<code>onclick=&quot;window.location.reload();&quot;</code><br>8.点击跳转: <code>onclick=&quot;document.location=&#39;http://www.baidu.com&#39;&quot;</code><br>9.谷歌会缓存dns，之前打开的错误页面再次访问仍然是错误的页面,须重启浏览器。<br>10.日期转时间戳在转日月年格式：<code>date(&#39;d M Y&#39;,strtotime($value-&gt;date))</code><br>11.<code>php -i</code> 和<code>phpinfo</code>效果一样，能看到当前的所有环境信息<br>12.<code>php -m</code> 查看当前已经安装的扩展</p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>1.php5.3不支持[ ] 这中括号这种格式数组<br>2.php安装 出错，卸载重新安装  <code>skip-broken</code>报错也忽略</p>
+<ul>
+<li><code>yum install -y --skip-broken php-devel</code></li>
+</ul>
+<p>3.php-fpm启动,报错,无此用户，需修改<code>php-fpm.conf</code>文件<code>user</code>和<code>group</code>为当前运行的用户</p>
+<ul>
+<li><code>ERROR: [pool www] cannot get uid for user &#39;@chuhe@&#39;</code></li>
+<li><code>ERROR: FPM initialization failed</code></li>
+</ul>
+<p>4.svn锁死</p>
+<ul>
+<li><code>svn cleanup</code> 加当前的目录</li>
+<li>使用jobs 查看当前是否有停止的任务</li>
+<li>使用kill %加数字   代表当前有几个锁死的任务</li>
+<li><code>ping idiot6.com</code> 测试当前服务是否通</li>
+<li>使用<code>telnet idiot6.com 3690</code>   使用<code>telnet</code>查看当前的端口是否通</li>
+</ul>
+<blockquote>
+<p>这些天踩过的坑</p>
+<blockquote>
+<p>By 梦遥奇缘</p>
+</blockquote>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;skill&quot;&gt;&lt;a href=&quot;#skill&quot; class=&quot;headerlink&quot; title=&quot;skill&quot;&gt;&lt;/a&gt;skill&lt;/h2&gt;&lt;p&gt;1.检测php已经安装的扩展：&lt;code&gt;php -m&lt;/code&gt;&lt;br&gt;2.nginx重启: &lt;code&gt;ser
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="skill" scheme="http://idiot6.com/tags/skill/"/>
+    
+      <category term="problem" scheme="http://idiot6.com/tags/problem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP工作原理</title>
+    <link href="http://idiot6.com/2016/05/13/HTTP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    <id>http://idiot6.com/2016/05/13/HTTP工作原理/</id>
+    <published>2016-05-13T15:55:53.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h1><ol>
+<li>HTTP 协议采用请求/响应模型。客户端向服务器发送一个请求报文，服务器以一个状态作为响应。</li>
+<li>以下是 HTTP 请求/响应的步骤：</li>
+<li>客户端连接到web服务器：HTTP 客户端与web服务器建立一个 TCP 连接;</li>
+<li>客户端向服务器发起 HTTP 请求：通过已建立的TCP 连接，客户端向服务器发送一个请求报文;</li>
+<li>服务器接收 HTTP 请求并返回 HTTP 响应：服务器解析请求，定位请求资源，服务器将资源副本写到 TCP 连接，由客户端读取;</li>
+<li>释放 TCP 连接：若connection模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;<h1 id="客户端浏览器解析HTML内容：客户端将服务器响应的-html-文本解析并显示"><a href="#客户端浏览器解析HTML内容：客户端将服务器响应的-html-文本解析并显示" class="headerlink" title="客户端浏览器解析HTML内容：客户端将服务器响应的 html 文本解析并显示;"></a>客户端浏览器解析HTML内容：客户端将服务器响应的 html 文本解析并显示;</h1>1.浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;<br>2.解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立 TCP 连接;<br>3.浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;<br>4.服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;<br>5.释放 TCP 连接;<br>6.浏览器将该 html 文本并显示内容;<h1 id="HTTP-无状态性"><a href="#HTTP-无状态性" class="headerlink" title="HTTP 无状态性"></a>HTTP 无状态性</h1>1.HTTP协议是无状态的stateless也就是说，同一个客户端第二次访问同一个服务器上的页面时，服务器无法知道这个客户端曾经访问过，服务器也无法分辨不同的客户端。HTTP 的无状态特性简化了服务器的设计，使服务器更容易支持大量并发的HTTP 请求。<h1 id="HTTP-持久连接"><a href="#HTTP-持久连接" class="headerlink" title="HTTP 持久连接"></a>HTTP 持久连接</h1>1.HTTP1.0 使用的是非持久连接，主要缺点是客户端必须为每一个待请求的对象建立并维护一个新的连接，即每请求一个文档就要有两倍RTT 的开销。因为同一个页面可能存在多个对象，所以非持久连接可能使一个页面的下载变得十分缓慢，而且这种短连接增加了网络传输的负担。HTTP1.1 使用持久连接keepalive，所谓持久连接，就是服务器在发送响应后仍然在一段时间内保持这条连接，允许在同一个连接中存在多次数据请求和响应，即在持久连接情况下，服务器在发送完响应后并不关闭TCP 连接，而客户端可以通过这个连接继续请求其他对象。<h1 id="HTTP-1-1-协议的持久连接有两种方式："><a href="#HTTP-1-1-协议的持久连接有两种方式：" class="headerlink" title="HTTP/1.1 协议的持久连接有两种方式："></a>HTTP/1.1 协议的持久连接有两种方式：</h1></li>
+<li>非流水线方式：客户在收到前一个响应后才能发出下一个请求;</li>
+<li>流水线方式：客户在收到 HTTP 的响应报文之前就能接着发送新的请求报文;</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;HTTP-工作原理&quot;&gt;&lt;a href=&quot;#HTTP-工作原理&quot; class=&quot;headerlink&quot; title=&quot;HTTP 工作原理&quot;&gt;&lt;/a&gt;HTTP 工作原理&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;HTTP 协议采用请求/响应模型。客户端向服务器发送一个请求报文，服务器
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="http" scheme="http://idiot6.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP状态码</title>
+    <link href="http://idiot6.com/2016/04/13/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>http://idiot6.com/2016/04/13/http状态码/</id>
+    <published>2016-04-13T15:55:53.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.100 Continue 初始的请求已经接受，客户应当继续发送请求的其余部分。（HTTP 1.1新）</p>
+<p>2.101 Switching Protocols 服务器将遵从客户的请求转换到另外一种协议（HTTP 1.1新）</p>
+<p>3.200 OK 一切正常，对GET和POST请求的应答文档跟在后面。</p>
+<p>4.201 Created 服务器已经创建了文档，Location头给出了它的URL。</p>
+<p>5.202 Accepted 已经接受请求，但处理尚未完成。</p>
+<p>6.203 Non-Authoritative Information 文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝（HTTP 1.1新）。</p>
+<p>7.204 No Content 没有新文档，浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。</p>
+<p>8.205 Reset Content 没有新的内容，但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容（HTTP 1.1新）。</p>
+<p>9.206 Partial Content 客户发送了一个带有Range头的GET请求，服务器完成了它（HTTP 1.1新）。</p>
+<p>10.300 Multiple Choices客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。</p>
+<p>11.301 Moved Permanently 客户请求的文档在其他地方，新的URL在Location头中给出，浏览器应该自动地访问新的URL。</p>
+<p>12.302 Found 类似于301，但新的URL应该被视为临时性的替代，而不是永久性的。注意，在HTTP1.0中对应的状态信息是“Moved Temporatily”。<br>出现该状态代码时，浏览器能够自动访问新的URL，因此它是一个很有用的状态代码。</p>
+<ul>
+<li><p>注意这个状态代码有时候可以和301替换使用。例如，如果浏览器错误地请求<a href="http://host/~user（缺少了后面的斜杠），有的服务器返回301，有的则返回302。" target="_blank" rel="external">http://host/~user（缺少了后面的斜杠），有的服务器返回301，有的则返回302。</a></p>
+</li>
+<li><p>严格地说，我们只能假定只有当原来的请求是GET时浏览器才会自动重定向。请参见307。</p>
+</li>
+</ul>
+<p>13.303 See Other 类似于301/302，不同之处在于，如果原来的请求是POST，Location头指定的重定向目标文档应该通过GET提取（HTTP 1.1新）。</p>
+<p>14.304 Not Modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</p>
+<p>15.305 Use Proxy 客户请求的文档应该通过Location头所指明的代理服务器提取（HTTP 1.1新）。</p>
+<p>16.307 Temporary Redirect 和302（Found）相同。许多浏览器会错误地响应302应答进行重定向，即使原来的请求是POST，即使它实际上只能在POST请求的应答是303时才能重定向。由于这个原因，HTTP 1.1新增了307，以便更加清除地区分几个状态代码：当出现303应答时，浏览器可以跟随重定向的GET和POST请求；如果是307应答，则浏览器只能跟随对GET请求的重定向。（HTTP 1.1新）</p>
+<p>17.400 Bad Request 请求出现语法错误。</p>
+<p>18.401 Unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含一个WWW-Authenticate头，浏览器据此显示用户名字/密码对话框，然后在填写合适的Authorization头后再次发出请求。</p>
+<p>19.403 Forbidden 资源不可用。服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。</p>
+<p>20.404 Not Found 无法找到指定位置的资源。这也是一个常用的应答。</p>
+<p>21.405 Method Not Allowed 请求方法（GET、POST、HEAD、Delete、PUT、TRACE等）对指定的资源不适用。（HTTP 1.1新）</p>
+<p>22.406 Not Acceptable 指定的资源已经找到，但它的MIME类型和客户在Accpet头中所指定的不兼容。（HTTP 1.1新）</p>
+<p>23.407 Proxy Authentication Required 类似于401，表示客户必须先经过代理服务器的授权。（HTTP 1.1新）</p>
+<p>24.408 Request Timeout 在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。（HTTP 1.1新）</p>
+<p>25.409 Conflict 通常和PUT请求有关。由于请求和资源的当前状态相冲突，因此请求不能成功。（HTTP 1.1新）</p>
+<p>26.410 Gone 所请求的文档已经不再可用，而且服务器不知道应该重定向到哪一个地址。它和404的不同在于，返回407表示文档永久地离开了指定的位置，而404表示由于未知的原因文档不可用。（HTTP 1.1新）</p>
+<p>27.411 Length Required 服务器不能处理请求，除非客户发送一个Content-Length头。（HTTP 1.1新）</p>
+<p>28.412 Precondition Failed 请求头中指定的一些前提条件失败。（HTTP 1.1新）</p>
+<p>29.413 Request Entity Too Large 目标文档的大小超过服务器当前愿意处理的大小。如果服务器认为自己能够稍后再处理该请求，则应该提供一个Retry-After头。（HTTP 1.1新）</p>
+<p>30.414 Request URI Too Long URI太长。（HTTP 1.1新）</p>
+<p>31.416 Requested Range Not Satisfiable 服务器不能满足客户在请求中指定的Range头。（HTTP 1.1新）</p>
+<p>32.500 Internal Server Error 服务器遇到了意料不到的情况，不能完成客户的请求。</p>
+<p>33.501 Not Implemented 服务器不支持实现请求所需要的功能。例如，客户发出了一个服务器不支持的PUT请求。</p>
+<p>34.502 Bad Gateway 服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。</p>
+<p>35.503 Service Unavailable 服务器由于维护或者负载过重未能应答。例如，Servlet可能在数据库连接池已满的情况下返回503。服务器返回503时可以提供一个Retry-After头。</p>
+<p>36.504 Gateway Timeout 由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答。（HTTP 1.1新）</p>
+<p>37.505 HTTP Version Not Supported 服务器不支持请求中所指明的HTTP版本。（HTTP 1.1新）</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.100 Continue 初始的请求已经接受，客户应当继续发送请求的其余部分。（HTTP 1.1新）&lt;/p&gt;
+&lt;p&gt;2.101 Switching Protocols 服务器将遵从客户的请求转换到另外一种协议（HTTP 1.1新）&lt;/p&gt;
+&lt;p&gt;3.200 OK 一切正
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="http" scheme="http://idiot6.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP中获取当前页面的完整URL</title>
+    <link href="http://idiot6.com/2016/03/21/php%E8%8E%B7%E5%8F%96url/"/>
+    <id>http://idiot6.com/2016/03/21/php获取url/</id>
+    <published>2016-03-21T10:43:08.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck"><a href="#测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck" class="headerlink" title="测试网址:     http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck"></a>测试网址:     <code>http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck</code></h2><h2 id="获取域名或主机地址"><a href="#获取域名或主机地址" class="headerlink" title="获取域名或主机地址"></a>获取域名或主机地址</h2><pre><code>echo $_SERVER[&apos;HTTP_HOST&apos;].&quot;&lt;br&gt;&quot;; #localhost
+</code></pre><h2 id="获取网页地址"><a href="#获取网页地址" class="headerlink" title="获取网页地址"></a>获取网页地址</h2><pre><code>echo $_SERVER[&apos;PHP_SELF&apos;].&quot;&lt;br&gt;&quot;; #/chuhe/testurl.php
+</code></pre><h2 id="获取网址参数"><a href="#获取网址参数" class="headerlink" title="获取网址参数"></a>获取网址参数</h2><pre><code>echo $_SERVER[&quot;QUERY_STRING&quot;].&quot;&lt;br&gt;&quot;; #id=xxoo&amp;name=fuck
+</code></pre><h2 id="获取用户代理"><a href="#获取用户代理" class="headerlink" title="获取用户代理"></a>获取用户代理</h2><pre><code>echo $_SERVER[&apos;HTTP_REFERER&apos;].&quot;&lt;br&gt;&quot;; 
+</code></pre><h2 id="获取完整的url"><a href="#获取完整的url" class="headerlink" title="获取完整的url"></a>获取完整的url</h2><pre><code>echo &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;REQUEST_URI&apos;];
+echo &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;PHP_SELF&apos;].&apos;?&apos;.$_SERVER[&apos;QUERY_STRING&apos;];
+http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck
+</code></pre><h2 id="包含端口号的完整url"><a href="#包含端口号的完整url" class="headerlink" title="包含端口号的完整url"></a>包含端口号的完整url</h2><pre><code>echo &apos;http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].&apos;:&apos;.$_SERVER[&quot;SERVER_PORT&quot;].$_SERVER[&quot;REQUEST_URI&quot;]; 
+http://localhost:80/chuhe/testurl hp?id=xxoo&amp;name=fuck
+</code></pre><h2 id="只取路径"><a href="#只取路径" class="headerlink" title="只取路径"></a>只取路径</h2><pre><code>$url=&apos;http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].$_SERVER[&quot;REQUEST_URI&quot;]; 
+echo dirname($url);
+#http://localhost/chuhe
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck&quot;&gt;&lt;a href=&quot;#测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck&quot; 
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="url" scheme="http://idiot6.com/tags/url/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php获取用户的ip</title>
+    <link href="http://idiot6.com/2016/03/15/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7ip/"/>
+    <id>http://idiot6.com/2016/03/15/获取用户ip/</id>
+    <published>2016-03-15T04:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.210Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="获取用户的ip"><a href="#获取用户的ip" class="headerlink" title="获取用户的ip"></a>获取用户的ip</h1><pre><code>public  function getClientIP()
+    {
+        if (isset($_SERVER)) {
+            if (isset($_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;])) {
+                $realip = $_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;];
+            } else 
+                if (isset($_SERVER[&quot;HTTP_CLIENT_IP&quot;])) {
+                    $realip = $_SERVER[&quot;HTTP_CLIENT_IP&quot;];
+                } else {
+                    $realip = $_SERVER[&quot;REMOTE_ADDR&quot;];
+                }
+        } else {
+            if (getenv(&quot;HTTP_X_FORWARDED_FOR&quot;)) {
+                $realip = getenv(&quot;HTTP_X_FORWARDED_FOR&quot;);
+            } else 
+                if (getenv(&quot;HTTP_CLIENT_IP&quot;)) {
+                    $realip = getenv(&quot;HTTP_CLIENT_IP&quot;);
+                } else {
+                    $realip = getenv(&quot;REMOTE_ADDR&quot;);
+                }
+        }
+
+        return addslashes($realip);
+    }
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;获取用户的ip&quot;&gt;&lt;a href=&quot;#获取用户的ip&quot; class=&quot;headerlink&quot; title=&quot;获取用户的ip&quot;&gt;&lt;/a&gt;获取用户的ip&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;public  function getClientIP()
+    {
+     
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="ip" scheme="http://idiot6.com/tags/ip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见错误代号</title>
+    <link href="http://idiot6.com/2016/03/09/error/"/>
+    <id>http://idiot6.com/2016/03/09/error/</id>
+    <published>2016-03-09T10:23:53.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="页面Http状态查询工具说明"><a href="#页面Http状态查询工具说明" class="headerlink" title="页面Http状态查询工具说明"></a>页面Http状态查询工具说明</h2><p>1.建议直接Ctrl+F来查找状态码<br>2.如果向您的服务器发出了某项请求要求显示您网站上的某个网页，那么，您的服务器会返回 HTTP 状态代码以响应该请求。<br>3.如果向您的服务器发出了某项请求要求显示您网站上的某个网页（例如，当用户通过浏览器访问您的网页或在 Googlebot 抓取该网页时），那么，您的服务器会返回 HTTP 状态代码以响应该请求。<br>4.此状态代码提供了有关请求状态的信息，且为 Googlebot 提供了有关您网站和请求的网页的信息。<br>5.一些常见的状态代码为：<br>200 - 服务器成功返回网页<br>404 - 请求的网页不存在<br>503 - 服务器暂时不可用</p>
+<p>​</p>
+<h2 id="1xx（临时响应）"><a href="#1xx（临时响应）" class="headerlink" title="1xx（临时响应）"></a>1xx（临时响应）</h2><p>用于表示临时响应并需要请求者执行操作才能继续的状态代码。<br>代码 说明<br>100（继续） 请求者应当继续提出请求。服务器返回此代码则意味着，服务器已收到了请求的第一部分，现正在等待接收其余部分。<br>101（切换协议） 请求者已要求服务器切换协议，服务器已确认并准备进行切换。</p>
+<h2 id="2xx（成功）"><a href="#2xx（成功）" class="headerlink" title="2xx（成功）"></a>2xx（成功）</h2><p>用于表示服务器已成功处理了请求的状态代码。<br>代码 说明<br>200（成功） 服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。如果您的 robots.txt 文件显示为此状态，那么，这表示 Googlebot 已成功检索到该文件。<br>201（已创建） 请求成功且服务器已创建了新的资源。<br>202（已接受） 服务器已接受了请求，但尚未对其进行处理。<br>203（非授权信息） 服务器已成功处理了请求，但返回了可能来自另一来源的信息。<br>204（无内容） 服务器成功处理了请求，但未返回任何内容。<br>205（重置内容） 服务器成功处理了请求，但未返回任何内容。与 204 响应不同，此响应要求请求者重置文档视图（例如清除表单内容以输入新内容）。<br>206（部分内容） 服务器成功处理了部分 GET 请求。</p>
+<h2 id="3xx（已重定向）"><a href="#3xx（已重定向）" class="headerlink" title="3xx（已重定向）"></a>3xx（已重定向）</h2><p>要完成请求，您需要进一步进行操作。通常，这些状态代码是永远重定向的。Google 建议您在每次请求时使用的重定向要少于 5 个。您可以使用网站管理员工具来查看 Googlebot 在抓取您已重定向的网页时是否会遇到问题。<br>代码 说明<br>300（多种选择） 服务器根据请求可执行多种操作。服务器可根据请求者 (User agent) 来选择一项操作，或提供操作列表供请求者选择。<br>301（永久移动） 请求的网页已被永久移动到新位置。服务器返回此响应（作为对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。您应使用此代码通知 Googlebot 某个网页或网站已被永久移动到新位置。<br>302（临时移动） 服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置。但由于 Googlebot 会继续抓取原有位置并将其编入索引，因此您不应使用此代码来通知 Googlebot 某个页面或网站已被移动。<br>303（查看其他位置） 当请求者应对不同的位置进行单独的 GET 请求以检索响应时，服务器会返回此代码。对于除 HEAD 请求之外的所有请求，服务器会自动转到其他位置。<br>304（未修改）<br>自从上次请求后，请求的网页未被修改过。服务器返回此响应时，不会返回网页内容。<br>如果网页自请求者上次请求后再也没有更改过，您应当将服务器配置为返回此响应（称为 If-Modified-Since HTTP 标头）。由于服务器可以告诉 Googlebot 自从上次抓取后网页没有更改过，因此可节省 带宽和开销<br>305（使用代理） 请求者只能使用代理访问请求的网页。如果服务器返回此响应，那么，服务器还会指明请求者应当使用的代理。<br>307（临时重定向） 服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置。但由于 Googlebot 会继续抓取原有位置并将其编入索引，因此您不应使用此代码来通知 Googlebot 某个页面或网站已被移动。</p>
+<h2 id="4xx（请求错误）"><a href="#4xx（请求错误）" class="headerlink" title="4xx（请求错误）"></a>4xx（请求错误）</h2><p>这些状态代码表示，请求可能出错，已妨碍了服务器对请求的处理。<br>代码 说明<br>400（错误请求） 服务器不理解请求的语法。<br>401（未授权） 请求要求进行身份验证。登录后，服务器可能会返回对页面的此响应。<br>403（已禁止） 服务器拒绝请求。如果在 Googlebot 尝试抓取您网站上的有效网页时显示此状态代码（您可在 Google 网站管理员工具中诊断下的网络抓取页面上看到此状态代码），那么，这可能是您的服务器或主机拒绝 Googlebot 对其进行访问。<br>404（未找到）<br>服务器找不到请求的网页。例如，如果请求是针对服务器上不存在的网页进行的，那么，服务器通常会返回此代码。<br>如然而，如果您有 robots.txt 文件而又发现了此状态，那么，这说明您的 robots.txt 文件可能是命名错误或位于错误的位置。（该文件应当位于顶级域名上，且应当名为 robots.txt）。<br>如果您在 Googlebot 尝试抓取的网址上发现此状态（位于”诊断”标签的 HTTP 错误页上），那么，这表示 Googlebot 所追踪的可能是另一网页中的无效链接（旧链接或输入有误的链接）。<br>405（方法禁用） 禁用请求中所指定的方法。<br>406（不接受） 无法使用请求的内容特性来响应请求的网页。<br>407（需要代理授权） 此状态代码与 401（未授权）类似，但却指定了请求者应当使用代理进行授权。如果服务器返回此响应，那么，服务器还会指明请求者应当使用的代理。<br>408（请求超时） 服务器等候请求时超时。<br>409（冲突） 服务器在完成请求时发生冲突。服务器必须包含有关响应中所发生的冲突的信息。服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，同时会提供两个请求的差异列表。<br>410（已删除） 如果请求的资源已被永久删除，那么，服务器会返回此响应。该代码与 404（未找到）代码类似，但在资源以前有但现在已经不复存在的情况下，有时会替代 404 代码出现。如果资源已被永久删除，那么，您应当使用 301 代码指定该资源的新位置。<br>411（需要有效长度） 服务器不会接受包含无效内容长度标头字段的请求。<br>412（未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。<br>413（请求实体过大） 服务器无法处理请求，因为请求实体过大，已超出服务器的处理能力。<br>414（请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法进行处理。<br>415（不支持的媒体类型） 请求的格式不受请求页面的支持。<br>416（请求范围不符合要求） 如果请求是针对网页的无效范围进行的，那么，服务器会返回此状态代码。<br>417（未满足期望值） 服务器未满足”期望”请求标头字段的要求。</p>
+<h2 id="5xx（服务器错误）"><a href="#5xx（服务器错误）" class="headerlink" title="5xx（服务器错误）"></a>5xx（服务器错误）</h2><p>这些状态代码表示，服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。</p>
+<p>代码 说明<br>500（服务器内部错误） 服务器遇到错误，无法完成请求。<br>501（尚未实施） 服务器不具备完成请求的功能。例如，当服务器无法识别请求方法时，服务器可能会返回此代码。<br>502（错误网关） 服务器作为网关或代理，从上游服务器收到了无效的响应。<br>503（服务不可用） 目前无法使用服务器（由于超载或进行停机维护）。通常，这只是一种暂时的状态。<br>504（网关超时） 服务器作为网关或代理，未及时从上游服务器接收请求。<br>505（HTTP 版本不受支持） 服务器不支持请求中所使用的 HTTP 协议版本。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;页面Http状态查询工具说明&quot;&gt;&lt;a href=&quot;#页面Http状态查询工具说明&quot; class=&quot;headerlink&quot; title=&quot;页面Http状态查询工具说明&quot;&gt;&lt;/a&gt;页面Http状态查询工具说明&lt;/h2&gt;&lt;p&gt;1.建议直接Ctrl+F来查找状态码&lt;br&gt;
+    
+    </summary>
+    
+      <category term="HTML" scheme="http://idiot6.com/categories/HTML/"/>
+    
+    
+      <category term="error" scheme="http://idiot6.com/tags/error/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>4个备受欢迎的Python程序库 你用哪个？</title>
+    <link href="http://idiot6.com/2016/03/05/4%E4%B8%AA%E5%A4%87%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84Python%E7%A8%8B%E5%BA%8F%E5%BA%93/"/>
+    <id>http://idiot6.com/2016/03/05/4个备受欢迎的Python程序库/</id>
+    <published>2016-03-05T05:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Bottle"><a href="#Bottle" class="headerlink" title="Bottle"></a>Bottle</h2><ul>
+<li>Bottle是一个Python Web框架，整个框架只有一个文件，几十K，虽是小型的轻量网络开发框架，却自带了路径映射、模板、简单的数据库访问等web框架组件，确实是个可用的框架。初学web开发可以拿来玩玩，其语法简单，部署也很方便。</li>
+<li>Bottle译成中文是瓶子的意思，而它的图标也包含了一个瓶子。通过Bottle几秒内就能构建小型站点和APIs。所有的框架只有一个py文件，而且Bottle在设计时就考虑了可扩展性，随时可以介入其他高级功能。<h2 id="tqdm"><a href="#tqdm" class="headerlink" title="tqdm"></a>tqdm</h2>tqdm（读：taqadum）在阿拉伯语中的意思是进展，tqdm可以在长循环中添加一个进度提示信息，用户只需要封装任意的迭代器 tqdm(iterator)，是一个快速、扩展性强的进度条工具库。<br>简言之，tqdm是Python设计，快速，可扩展性的进度条。<h2 id="pyvim"><a href="#pyvim" class="headerlink" title="pyvim"></a>pyvim</h2>相信大家一定都知道Vim语言，而pyvim正是Vim在Python中的一个翻版或者叫克隆。这个编辑器完全采用Python开发（没有C扩展）。这使得开发变得快很多。它易于创建原型和集成新的特性。<h2 id="pyglet"><a href="#pyglet" class="headerlink" title="pyglet"></a>pyglet</h2></li>
+<li>pyglet提供了面向对象的编程接口，用于开发Windows、Mac OS X和Linux下的游戏以及大量视觉效果的应用。是一个纯Python语言编写的跨平台框架，用于开发多媒体和窗口特效应用。Pyglet通过BSD协议发布，可以用于任何商业和开源项目。</li>
+<li>除此之外，它还拥有不需要额外依赖的独立性；支持多窗口和多显示器的设置；还可以载入任何格式的图片、音频、音乐和视频。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Bottle&quot;&gt;&lt;a href=&quot;#Bottle&quot; class=&quot;headerlink&quot; title=&quot;Bottle&quot;&gt;&lt;/a&gt;Bottle&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Bottle是一个Python Web框架，整个框架只有一个文件，几十K，虽是小型的轻量网络开发
+    
+    </summary>
+    
+      <category term="Python" scheme="http://idiot6.com/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://idiot6.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>水瓶座在什么时候最心疼自己!!!</title>
+    <link href="http://idiot6.com/2016/03/05/%E6%B0%B4%E7%93%B6%E5%BA%A7/"/>
+    <id>http://idiot6.com/2016/03/05/水瓶座/</id>
+    <published>2016-03-05T04:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.210Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们真正享受人的时间也不过是十几年的光景，但在经历生活道路的同时，并不是一帆风顺的，遇到挫折，遭遇困难都是必然的，这样一来我们会感到很失落沮丧，同时对自己也是很心疼的，但每个人处理的方式也是不同的，下面请和华易算命网小编一起来看看十二星座在什么时候最心疼自己。<br>1.水瓶座：感到大起大落的时候<br>水瓶座的人情绪波动较大，上一秒钟还是好好的，下一秒中他们就开始觉得整个世界没有一个地方是属于自己的，他们常常会觉得自己不知所措，不知道该做什么好。水瓶座的内心都很敏感，很容易受伤，他们常常会因为一些小小的事情而心情大起大落。他们也很经常会心疼自己，他们会发现这个世界上的每个人都是独立的个体，谁都不能成为谁的依靠，每当这个时候，他们都好想去陌生的城市走一走，逃避所有认识的人。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们真正享受人的时间也不过是十几年的光景，但在经历生活道路的同时，并不是一帆风顺的，遇到挫折，遭遇困难都是必然的，这样一来我们会感到很失落沮丧，同时对自己也是很心疼的，但每个人处理的方式也是不同的，下面请和华易算命网小编一起来看看十二星座在什么时候最心疼自己。&lt;br&gt;1.水
+    
+    </summary>
+    
+      <category term="星座" scheme="http://idiot6.com/categories/%E6%98%9F%E5%BA%A7/"/>
+    
+    
+      <category term="python" scheme="http://idiot6.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游戏离开你的那一天</title>
+    <link href="http://idiot6.com/2016/02/15/%E5%BF%83%E6%83%85%E8%AE%B0/"/>
+    <id>http://idiot6.com/2016/02/15/心情记/</id>
+    <published>2016-02-15T09:23:53.000Z</published>
+    <updated>2016-08-31T09:45:19.209Z</updated>
+    
+    <content type="html"><![CDATA[<p>在好的游戏也有玩烦的一天，就像在好的工具有淘汰的那一天，打游戏还不如锻炼身体，看这appstore上的排行榜不知道下什么游戏玩，不知道去玩什么，因为游戏太多了，多的我们没发选择，这一天天的都浪费在游戏上了，容易吗！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在好的游戏也有玩烦的一天，就像在好的工具有淘汰的那一天，打游戏还不如锻炼身体，看这appstore上的排行榜不知道下什么游戏玩，不知道去玩什么，因为游戏太多了，多的我们没发选择，这一天天的都浪费在游戏上了，容易吗！&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="公司" scheme="http://idiot6.com/tags/%E5%85%AC%E5%8F%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新的目标，新的启程</title>
+    <link href="http://idiot6.com/2016/02/14/%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C%E4%BA%86/"/>
+    <id>http://idiot6.com/2016/02/14/开始工作了/</id>
+    <published>2016-02-14T05:14:00.000Z</published>
+    <updated>2016-08-31T09:45:19.209Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="迟到"><a href="#迟到" class="headerlink" title="迟到"></a>迟到</h2><p>昨晚上定了闹铃，还特意看了看，还是没发现今天是周末，定了工作日的闹铃，也是醉了，上班第一天光荣迟到了，人算不如天算啊！</p>
+<h2 id="福利"><a href="#福利" class="headerlink" title="福利"></a>福利</h2><p>新年红包一张毛爷爷、一束花、Raffaello一盒（好像是意大利制造的），满满的都是爱。</p>
+<h2 id="对自己狠一点"><a href="#对自己狠一点" class="headerlink" title="对自己狠一点"></a>对自己狠一点</h2><p>JD买了补水面膜，男人也要对自己好一点，锻炼身体，买了25kg的哑铃，奋斗了！</p>
+<h2 id="人生路上"><a href="#人生路上" class="headerlink" title="人生路上"></a>人生路上</h2><p>买mac pro、单反、去一个想去的地方旅游，学会使用多个php的框架，学python！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;迟到&quot;&gt;&lt;a href=&quot;#迟到&quot; class=&quot;headerlink&quot; title=&quot;迟到&quot;&gt;&lt;/a&gt;迟到&lt;/h2&gt;&lt;p&gt;昨晚上定了闹铃，还特意看了看，还是没发现今天是周末，定了工作日的闹铃，也是醉了，上班第一天光荣迟到了，人算不如天算啊！&lt;/p&gt;
+&lt;h2 id
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="上班" scheme="http://idiot6.com/tags/%E4%B8%8A%E7%8F%AD/"/>
+    
+      <category term="迟到" scheme="http://idiot6.com/tags/%E8%BF%9F%E5%88%B0/"/>
+    
+      <category term="面膜" scheme="http://idiot6.com/tags/%E9%9D%A2%E8%86%9C/"/>
+    
+      <category term="Raffaello" scheme="http://idiot6.com/tags/Raffaello/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP Warning  open_basedir restriction in effect!!!</title>
+    <link href="http://idiot6.com/2016/02/05/open_basedir/"/>
+    <id>http://idiot6.com/2016/02/05/open_basedir/</id>
+    <published>2016-02-05T04:45:27.000Z</published>
+    <updated>2016-08-31T09:45:19.208Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="完整的错误信息："><a href="#完整的错误信息：" class="headerlink" title="完整的错误信息："></a>完整的错误信息：</h1><ul>
+<li><code>FastCGI sent in stderr: PHP message: PHP Warning:  chdir(): open_basedir restriction in effect</code></li>
+</ul>
+<ul>
+<li>出现这个错误的原因就在于限制了程序访问的目录。这个目录由open_basedir所限制。所以解决办法就是在php.ini中将这个限制给注释掉，当然这样做会有一定的不安全。</li>
+<li>查看Nginx的运行错误日志才能看到。查看Nginx错误日志的命令：</li>
+<li><code>vi /var/log/nginx/error.log</code><h1 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h1></li>
+<li>打开php.ini，找到open_basedir这一行，在前面加上’;’给注释掉。<h1 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h1></li>
+<li>重启php-fpm，运行下面命令重启php-fpm：</li>
+<li><code>/etc/init.d/php-fpm restart</code></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;完整的错误信息：&quot;&gt;&lt;a href=&quot;#完整的错误信息：&quot; class=&quot;headerlink&quot; title=&quot;完整的错误信息：&quot;&gt;&lt;/a&gt;完整的错误信息：&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;FastCGI sent in stderr: PHP messag
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="php" scheme="http://idiot6.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你的名片随处都是</title>
+    <link href="http://idiot6.com/2016/02/01/%E5%B9%B6%E6%B2%A1%E6%83%B3%E8%B1%A1%E4%B8%AD%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B/"/>
+    <id>http://idiot6.com/2016/02/01/并没想象中那么努力/</id>
+    <published>2016-02-01T10:54:37.000Z</published>
+    <updated>2016-08-31T09:45:19.209Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://source.shengxuezixun.com/images%2F2015_11_30_01.jpg" alt="努力"></p>
+<h2 id="有时候跟一个人喝一杯茶，就知道是不是想要找的人。你所做的每一件事，每一个动作，每一个眼神，都是你的名片。"><a href="#有时候跟一个人喝一杯茶，就知道是不是想要找的人。你所做的每一件事，每一个动作，每一个眼神，都是你的名片。" class="headerlink" title="有时候跟一个人喝一杯茶，就知道是不是想要找的人。你所做的每一件事，每一个动作，每一个眼神，都是你的名片。"></a>有时候跟一个人喝一杯茶，就知道是不是想要找的人。你所做的每一件事，每一个动作，每一个眼神，都是你的名片。</h2><ul>
+<li>收拾收拾下班回家做顿美食吃,尖椒炒肉，瞬间又感觉好饿！</li>
+<li>每一个走过的路，都是一笔财富!</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://source.shengxuezixun.com/images%2F2015_11_30_01.jpg&quot; alt=&quot;努力&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;有时候跟一个人喝一杯茶，就知道是不是想要找的人。你所做的每一件事，每一个动作，每一个眼神，
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="美食" scheme="http://idiot6.com/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+      <category term="生活" scheme="http://idiot6.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>15年的最后一周,是有多忙</title>
+    <link href="http://idiot6.com/2016/01/30/%E6%94%BE%E5%81%87%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%91%A8/"/>
+    <id>http://idiot6.com/2016/01/30/放假前的最后一周/</id>
+    <published>2016-01-30T02:40:27.000Z</published>
+    <updated>2016-08-31T09:45:19.209Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="沙巴克传奇"><a href="#沙巴克传奇" class="headerlink" title="沙巴克传奇"></a>沙巴克传奇</h2><ul>
+<li>周一沙巴克传奇手机站开始搭建，痛苦的一天过的很漫长，晚上11点多才下班，也是呵呵了！最终结束在周三的晚上，又新加一个H5活动页，写的也是醉了，各种乱啊，改了几个小时，游戏最终在周四下午两点上线app store，话说充值流水好高，果然还是土豪比较多啊！</li>
+</ul>
+<h2 id="公司新官网上线"><a href="#公司新官网上线" class="headerlink" title="公司新官网上线"></a>公司新官网上线</h2><blockquote>
+<p>为期二周的工作，终于到了收尾的阶段，修改最终的bug，周五终于拉上了帷幕！</p>
+<blockquote>
+<p><a href="http://www.gaea.com" target="_blank" rel="external">盖娅互娱</a></p>
+</blockquote>
+</blockquote>
+<h2 id="台湾百将行、韩国dota新年官网上线"><a href="#台湾百将行、韩国dota新年官网上线" class="headerlink" title="台湾百将行、韩国dota新年官网上线"></a>台湾百将行、韩国dota新年官网上线</h2><ul>
+<li>合在一起也快一天才搞完，测试，调试bug，最主要的是上了cdn后的版本号，多么痛苦的事！<h2 id="自由之战新版加法维安专题页"><a href="#自由之战新版加法维安专题页" class="headerlink" title="自由之战新版加法维安专题页"></a>自由之战新版加法维安专题页</h2></li>
+<li>每次这个项目都是一个痛苦的事情，有阴影，搞的我服务器都不敢乱更新，唉，都是泪！由于这个项目，让我再一次意识到，做事要细心、做事要细心、做事要细心！！</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结这一周，每天都是11点之后下班(有一次是12点，这个点接单好快)，打车还没接单的，黑心的垄断市场，滴滴什么时候被干掉，或者是其它的也有发票打！或许这才是每个程序员想要的，加班起码有车打，能报销啊！还记得有几次是11点多去做地铁，多么苦逼！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;沙巴克传奇&quot;&gt;&lt;a href=&quot;#沙巴克传奇&quot; class=&quot;headerlink&quot; title=&quot;沙巴克传奇&quot;&gt;&lt;/a&gt;沙巴克传奇&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;周一沙巴克传奇手机站开始搭建，痛苦的一天过的很漫长，晚上11点多才下班，也是呵呵了！最终结束在周三的晚上
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="公司" scheme="http://idiot6.com/tags/%E5%85%AC%E5%8F%B8/"/>
+    
+  </entry>
+  
+</feed>
