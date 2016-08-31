@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>游戏离开你的那一天 | 梦遥奇缘</title>
+    <title>PHP Warning  open_basedir restriction in effect!!! | 梦遥奇缘</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="梦遥奇缘">
     
-    <meta name="description" content="在好的游戏也有玩烦的一天，就像在好的工具有淘汰的那一天，打游戏还不如锻炼身体，看这appstore上的排行榜不知道下什么游戏玩，不知道去玩什么，因为游戏太多了，多的我们没发选择，这一天天的都浪费在游戏上了，容易吗！">
+    <meta name="description" content="完整的错误信息：
+FastCGI sent in stderr: PHP message: PHP Warning:  chdir(): open_basedir restriction in effect
+
+
+出现这个错误的原因就在于限制了程序访问的目录。这个目录由open_basedir所限制。">
     
-    <meta name="keywords" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter">
+    <meta name="keywords" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter,星座">
     
     
     <link rel="alternate" href="/atom.xml" title="梦遥奇缘" type="application/atom+xml">
@@ -223,15 +227,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/15/心情记/" title="游戏离开你的那一天" itemprop="url">游戏离开你的那一天</a>
+      <a href="/2016/02/05/open_basedir/" title="PHP Warning  open_basedir restriction in effect!!!" itemprop="url">PHP Warning  open_basedir restriction in effect!!!</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://idiot6.com" title="梦遥奇缘">梦遥奇缘</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-02-15T09:23:53.000Z" itemprop="datePublished">2016-02-15</time>
-    更新日期:<time datetime="2016-08-31T07:11:26.882Z" itemprop="dateModified">2016-08-31</time>
+    <time datetime="2016-02-05T04:45:27.000Z" itemprop="datePublished">2016-02-05</time>
+    更新日期:<time datetime="2016-08-31T07:11:26.881Z" itemprop="dateModified">2016-08-31</time>
     
   </p>
 </header>
@@ -240,30 +244,40 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#完整的错误信息："><span class="toc-number">1.</span> <span class="toc-text">完整的错误信息：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤一："><span class="toc-number">2.</span> <span class="toc-text">步骤一：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤二："><span class="toc-number">3.</span> <span class="toc-text">步骤二：</span></a></li></ol>
 		</div>
 		
-		<p>在好的游戏也有玩烦的一天，就像在好的工具有淘汰的那一天，打游戏还不如锻炼身体，看这appstore上的排行榜不知道下什么游戏玩，不知道去玩什么，因为游戏太多了，多的我们没发选择，这一天天的都浪费在游戏上了，容易吗！</p>
+		<h1 id="完整的错误信息："><a href="#完整的错误信息：" class="headerlink" title="完整的错误信息："></a>完整的错误信息：</h1><ul>
+<li><code>FastCGI sent in stderr: PHP message: PHP Warning:  chdir(): open_basedir restriction in effect</code></li>
+</ul>
+<ul>
+<li>出现这个错误的原因就在于限制了程序访问的目录。这个目录由open_basedir所限制。所以解决办法就是在php.ini中将这个限制给注释掉，当然这样做会有一定的不安全。</li>
+<li>查看Nginx的运行错误日志才能看到。查看Nginx错误日志的命令：</li>
+<li><code>vi /var/log/nginx/error.log</code><h1 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h1></li>
+<li>打开php.ini，找到open_basedir这一行，在前面加上’;’给注释掉。<h1 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h1></li>
+<li>重启php-fpm，运行下面命令重启php-fpm：</li>
+<li><code>/etc/init.d/php-fpm restart</code></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/公司/">公司</a>
+  <span></span> <a href="/tags/php/">php</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/心の栄養/">心の栄養</a>
+  <a class="article-category-link" href="/categories/PHP/">PHP</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://idiot6.com/2016/02/15/心情记/" data-title="游戏离开你的那一天 | 梦遥奇缘" data-tsina="null" class="share clearfix">
+  <div data-url="http://idiot6.com/2016/02/05/open_basedir/" data-title="PHP Warning  open_basedir restriction in effect!!! | 梦遥奇缘" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -273,18 +287,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/05/水瓶座/" title="水瓶座在什么时候最心疼自己!!!">
+ <a href="/2016/02/14/开始工作了/" title="新的目标，新的启程">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  水瓶座在什么时候最心疼自己!!!</span>
+  新的目标，新的启程</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/02/14/开始工作了/"  title="新的目标，新的启程">
+<a href="/2016/02/01/并没想象中那么努力/"  title="你的名片随处都是">
  <strong>NEXT:</strong><br/> 
- <span>新的目标，新的启程
+ <span>你的名片随处都是
 </span>
 </a>
 </div>
@@ -301,7 +315,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#完整的错误信息："><span class="toc-number">1.</span> <span class="toc-text">完整的错误信息：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤一："><span class="toc-number">2.</span> <span class="toc-text">步骤一：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤二："><span class="toc-number">3.</span> <span class="toc-text">步骤二：</span></a></li></ol>
   </div>
 
 <div id="asidepart">
