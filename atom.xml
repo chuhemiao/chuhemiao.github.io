@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-08-31T09:45:19.207Z</updated>
+  <updated>2016-09-01T06:06:15.287Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>想要和需要</title>
+    <link href="http://idiot6.com/2016/09/01/want/"/>
+    <id>http://idiot6.com/2016/09/01/want/</id>
+    <published>2016-09-01T06:00:27.000Z</published>
+    <updated>2016-09-01T06:06:15.287Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="想要"><a href="#想要" class="headerlink" title="想要"></a>想要</h1><p>1.在修行的路上，我们都希望自己今天就能成佛，并想拥有纵横天下的智慧，目标固然很好，但一定要根据自己的实际情况来行持。一旦欲望离了现实的基础，它就成为一种遥不可及的梦想，难以实现。因此我们要懂得“需要”和“想要”的区别，应把“想要”当成欲求的目标，以“需要”来调服一切烦恼。<br>2.想要和需要两者差别很大，想要是一种执念，需要是一种被动。出发点不同，结果肯定也不同！<br>3.想要一份工作，需要一份工作，只有自己最清楚，你想要的是什么！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;想要&quot;&gt;&lt;a href=&quot;#想要&quot; class=&quot;headerlink&quot; title=&quot;想要&quot;&gt;&lt;/a&gt;想要&lt;/h1&gt;&lt;p&gt;1.在修行的路上，我们都希望自己今天就能成佛，并想拥有纵横天下的智慧，目标固然很好，但一定要根据自己的实际情况来行持。一旦欲望离了现实的基础
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="want" scheme="http://idiot6.com/tags/want/"/>
+    
+      <category term="need" scheme="http://idiot6.com/tags/need/"/>
+    
+  </entry>
   
   <entry>
     <title>忙碌的一个月</title>
@@ -791,43 +816,6 @@ echo dirname($url);
       <category term="美食" scheme="http://idiot6.com/tags/%E7%BE%8E%E9%A3%9F/"/>
     
       <category term="生活" scheme="http://idiot6.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>15年的最后一周,是有多忙</title>
-    <link href="http://idiot6.com/2016/01/30/%E6%94%BE%E5%81%87%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%91%A8/"/>
-    <id>http://idiot6.com/2016/01/30/放假前的最后一周/</id>
-    <published>2016-01-30T02:40:27.000Z</published>
-    <updated>2016-08-31T09:45:19.209Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="沙巴克传奇"><a href="#沙巴克传奇" class="headerlink" title="沙巴克传奇"></a>沙巴克传奇</h2><ul>
-<li>周一沙巴克传奇手机站开始搭建，痛苦的一天过的很漫长，晚上11点多才下班，也是呵呵了！最终结束在周三的晚上，又新加一个H5活动页，写的也是醉了，各种乱啊，改了几个小时，游戏最终在周四下午两点上线app store，话说充值流水好高，果然还是土豪比较多啊！</li>
-</ul>
-<h2 id="公司新官网上线"><a href="#公司新官网上线" class="headerlink" title="公司新官网上线"></a>公司新官网上线</h2><blockquote>
-<p>为期二周的工作，终于到了收尾的阶段，修改最终的bug，周五终于拉上了帷幕！</p>
-<blockquote>
-<p><a href="http://www.gaea.com" target="_blank" rel="external">盖娅互娱</a></p>
-</blockquote>
-</blockquote>
-<h2 id="台湾百将行、韩国dota新年官网上线"><a href="#台湾百将行、韩国dota新年官网上线" class="headerlink" title="台湾百将行、韩国dota新年官网上线"></a>台湾百将行、韩国dota新年官网上线</h2><ul>
-<li>合在一起也快一天才搞完，测试，调试bug，最主要的是上了cdn后的版本号，多么痛苦的事！<h2 id="自由之战新版加法维安专题页"><a href="#自由之战新版加法维安专题页" class="headerlink" title="自由之战新版加法维安专题页"></a>自由之战新版加法维安专题页</h2></li>
-<li>每次这个项目都是一个痛苦的事情，有阴影，搞的我服务器都不敢乱更新，唉，都是泪！由于这个项目，让我再一次意识到，做事要细心、做事要细心、做事要细心！！</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结这一周，每天都是11点之后下班(有一次是12点，这个点接单好快)，打车还没接单的，黑心的垄断市场，滴滴什么时候被干掉，或者是其它的也有发票打！或许这才是每个程序员想要的，加班起码有车打，能报销啊！还记得有几次是11点多去做地铁，多么苦逼！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;沙巴克传奇&quot;&gt;&lt;a href=&quot;#沙巴克传奇&quot; class=&quot;headerlink&quot; title=&quot;沙巴克传奇&quot;&gt;&lt;/a&gt;沙巴克传奇&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;周一沙巴克传奇手机站开始搭建，痛苦的一天过的很漫长，晚上11点多才下班，也是呵呵了！最终结束在周三的晚上
-    
-    </summary>
-    
-      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
-    
-    
-      <category term="公司" scheme="http://idiot6.com/tags/%E5%85%AC%E5%8F%B8/"/>
     
   </entry>
   
