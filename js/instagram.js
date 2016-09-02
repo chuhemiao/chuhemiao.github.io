@@ -80,7 +80,7 @@ var Instagram = (function(){
 	var getList = function(url){
 		$(".open-ins").html("图片来自instagram，正在加载中…");
 		$.ajax({
-			url: 'https://api.instagram.com/v1/users/self/?access_token=3854252896.6621895.95b8fcb7daeb490793b92707e39a0791',
+			url: 'https://api.instagram.com/v1/users/3854252896/media/recent/?access_token=3854252896.6621895.95b8fcb7daeb490793b92707e39a0791',
 			type:"GET",
 			dataType:"jsonp",
 			success:function(re){
