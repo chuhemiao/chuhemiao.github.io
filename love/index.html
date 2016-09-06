@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter"><title>想要，才去追寻 | 梦遥奇缘</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">想要，才去追寻</h1><a id="logo" href="/.">梦遥奇缘</a><p class="description">想要，所以才去追寻--禾子</p></div><div id="nav-menu"><a href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/timeline/"><i class="fa fa-book"> timeline</i></a><a href="/instagram/"><i class="fa fa-picture-o"> album</i></a><a href="/music/"><i class="fa fa-music"> music</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/love/" class="current"><i class="fa fa-heart"> love</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">想要，才去追寻</h1><div class="post-content"><pre><code>&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;audio controls=&quot;controls&quot; hidden=&quot;hidden&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt;
+    &lt;source src=&quot;http://source.shengxuezixun.com/images/Far_away.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+&lt;title&gt;想要，才去追寻&lt;/title&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot;&gt;
+&lt;style&gt;
+    html {
+        height: 100%;
+    }
+
+    body {
+        font-family: &quot;Helvetica Neue&quot;, &quot;Luxi Sans&quot;, &quot;DejaVu Sans&quot;, Tahoma, &quot;Hiragino Sans GB&quot;, &quot;Microsoft Yahei&quot;, sans-serif;
+        background: #79a8ae;
+        color: #CFEBE4;
+        font-size: 18px;
+        line-height: 2;
+        letter-spacing: 1.2px;
+        margin: 0;
+    }
+
+    a {
+        color: #ebf7f4;
+    }
+
+    .body--ready {
+        background: -webkit-linear-gradient(top, rgb(235, 199, 219) 0%, rgb(55, 148, 192) 120%);
+        background: -moz-linear-gradient(top, rgb(235, 199, 219) 0%, rgb(55, 148, 192) 120%);
+        background: -o-linear-gradient(top, rgb(235, 199, 219) 0%, rgb(55, 148, 192) 120%);
+        background: -ms-linear-gradient(top, rgb(235, 199, 219) 0%, rgb(55, 148, 192) 120%);
+        background: linear-gradient(top, rgb(235, 199, 219) 0%, rgb(55, 148, 192) 120%);
+    }
+
+    .text {
+        position: fixed;
+        bottom: 100px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .canvas {
+        margin: 0 auto;
+        display: block;
+    }
+&lt;/style&gt;
+</code></pre><p></p>
+<p><body class="body--ready"><br>    <canvas class="canvas" width="1266" height="651"></canvas><br>    <p class="text"><br>    </p><br>    <script><br>            var S = {<br>                init: function () {<br>                    S.Drawing.init(‘.canvas’);<br>                    document.body.classList.add(‘body–ready’);<br>                    S.UI.simulate(‘我|想|告|诉|你|I |♥ |U|I ♥ U’);<br>                    S.Drawing.loop(function () {<br>                        S.Shape.render();<br>                    });<br>                }<br>            };<br>            S.Drawing = (function () {<br>                var canvas,<br>                        context,<br>                        renderFn,<br>                        requestFrame = window.requestAnimationFrame ||<br>                        window.webkitRequestAnimationFrame ||<br>                        window.mozRequestAnimationFrame ||<br>                        window.oRequestAnimationFrame ||<br>                        window.msRequestAnimationFrame ||<br>                        function (callback) {<br>                            window.setTimeout(callback, 1000 / 60);<br>                        };</p>
+<pre><code>            return {
+                init: function (el) {
+                    canvas = document.querySelector(el);
+                    context = canvas.getContext(&apos;2d&apos;);
+                    this.adjustCanvas();
+
+                    window.addEventListener(&apos;resize&apos;, function (e) {
+                        S.Drawing.adjustCanvas();
+                    });
+                },
+                loop: function (fn) {
+                    renderFn = !renderFn ? fn : renderFn;
+                    this.clearFrame();
+                    renderFn();
+                    requestFrame.call(window, this.loop.bind(this));
+                },
+                adjustCanvas: function () {
+                    canvas.width = window.innerWidth - 100;
+                    canvas.height = window.innerHeight - 30;
+                },
+                clearFrame: function () {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                },
+                getArea: function () {
+                    return {w: canvas.width, h: canvas.height};
+                },
+                drawCircle: function (p, c) {
+                    context.fillStyle = c.render();
+                    context.beginPath();
+                    context.arc(p.x, p.y, p.z, 0, 2 * Math.PI, true);
+                    context.closePath();
+                    context.fill();
+                }
+            };
+        }());
+
+
+        S.UI = (function () {
+            var interval,
+                    currentAction,
+                    time,
+                    maxShapeSize = 30,
+                    sequence = [],
+                    cmd = &apos;#&apos;;
+
+            function formatTime(date) {
+                var h = date.getHours(),
+                        m = date.getMinutes(),
+                        m = m &lt; 10 ? &apos;0&apos; + m : m;
+                return h + &apos;:&apos; + m;
+            }
+
+            function getValue(value) {
+                return value &amp;&amp; value.split(&apos; &apos;)[1];
+            }
+
+            function getAction(value) {
+                value = value &amp;&amp; value.split(&apos; &apos;)[0];
+                return value &amp;&amp; value[0] === cmd &amp;&amp; value.substring(1);
+            }
+
+            function timedAction(fn, delay, max, reverse) {
+                clearInterval(interval);
+                currentAction = reverse ? max : 1;
+                fn(currentAction);
+
+                if (!max || (!reverse &amp;&amp; currentAction &lt; max) || (reverse &amp;&amp; currentAction &gt; 0)) {
+                    interval = setInterval(function () {
+                        currentAction = reverse ? currentAction - 1 : currentAction + 1;
+                        fn(currentAction);
+
+                        if ((!reverse &amp;&amp; max &amp;&amp; currentAction === max) || (reverse &amp;&amp; currentAction === 0)) {
+                            clearInterval(interval);
+                        }
+                    }, delay);
+                }
+            }
+
+            function performAction(value) {
+                var action,
+                        value,
+                        current;
+
+                sequence = typeof (value) === &apos;object&apos; ? value : sequence.concat(value.split(&apos;|&apos;));
+
+                timedAction(function (index) {
+                    current = sequence.shift();
+                    action = getAction(current);
+                    value = getValue(current);
+
+                    switch (action) {
+                        case &apos;countdown&apos;:
+                            value = parseInt(value) || 10;
+                            value = value &gt; 0 ? value : 10;
+
+                            timedAction(function (index) {
+                                if (index === 0) {
+                                    if (sequence.length === 0) {
+                                        S.Shape.switchShape(S.ShapeBuilder.letter(&apos;&apos;));
+                                    } else {
+                                        performAction(sequence);
+                                    }
+                                } else {
+                                    S.Shape.switchShape(S.ShapeBuilder.letter(index), true);
+                                }
+                            }, 1000, value, true);
+                            break;
+
+                        case &apos;rectangle&apos;:
+                            value = value &amp;&amp; value.split(&apos;x&apos;);
+                            value = (value &amp;&amp; value.length === 2) ? value : [maxShapeSize, maxShapeSize / 2];
+
+                            S.Shape.switchShape(S.ShapeBuilder.rectangle(Math.min(maxShapeSize, parseInt(value[0])), Math.min(maxShapeSize, parseInt(value[1]))));
+                            break;
+
+                        case &apos;circle&apos;:
+                            value = parseInt(value) || maxShapeSize;
+                            value = Math.min(value, maxShapeSize);
+                            S.Shape.switchShape(S.ShapeBuilder.circle(value));
+                            break;
+
+                        case &apos;time&apos;:
+                            var t = formatTime(new Date());
+
+                            if (sequence.length &gt; 0) {
+                                S.Shape.switchShape(S.ShapeBuilder.letter(t));
+                            } else {
+                                timedAction(function () {
+                                    t = formatTime(new Date());
+                                    if (t !== time) {
+                                        time = t;
+                                        S.Shape.switchShape(S.ShapeBuilder.letter(time));
+                                    }
+                                }, 1000);
+                            }
+                            break;
+
+                        default:
+                            S.Shape.switchShape(S.ShapeBuilder.letter(current[0] === cmd ? &apos;HacPai&apos; : current));
+                    }
+                }, 2000, sequence.length);
+            }
+
+            return {
+                simulate: function (action) {
+                    performAction(action);
+                }
+            };
+        }());
+
+
+        S.Point = function (args) {
+            this.x = args.x;
+            this.y = args.y;
+            this.z = args.z;
+            this.a = args.a;
+            this.h = args.h;
+        };
+
+
+        S.Color = function (r, g, b, a) {
+            this.r = r;
+            this.g = g;
+            this.b = b;
+            this.a = a;
+        };
+
+        S.Color.prototype = {
+            render: function () {
+                return &apos;rgba(&apos; + this.r + &apos;,&apos; + +this.g + &apos;,&apos; + this.b + &apos;,&apos; + this.a + &apos;)&apos;;
+            }
+        };
+
+
+        S.Dot = function (x, y) {
+            this.p = new S.Point({
+                x: x,
+                y: y,
+                z: 5,
+                a: 1,
+                h: 0
+            });
+
+            this.e = 0.07;
+            this.s = true;
+
+            this.c = new S.Color(255, 255, 255, this.p.a);
+
+            this.t = this.clone();
+            this.q = [];
+        };
+
+        S.Dot.prototype = {
+            clone: function () {
+                return new S.Point({
+                    x: this.x,
+                    y: this.y,
+                    z: this.z,
+                    a: this.a,
+                    h: this.h
+                });
+            },
+            _draw: function () {
+                this.c.a = this.p.a;
+                S.Drawing.drawCircle(this.p, this.c);
+            },
+            _moveTowards: function (n) {
+                var details = this.distanceTo(n, true),
+                        dx = details[0],
+                        dy = details[1],
+                        d = details[2],
+                        e = this.e * d;
+
+                if (this.p.h === -1) {
+                    this.p.x = n.x;
+                    this.p.y = n.y;
+                    return true;
+                }
+
+                if (d &gt; 1) {
+                    this.p.x -= ((dx / d) * e);
+                    this.p.y -= ((dy / d) * e);
+                } else {
+                    if (this.p.h &gt; 0) {
+                        this.p.h--;
+                    } else {
+                        return true;
+                    }
+                }
+
+                return false;
+            },
+            _update: function () {
+                if (this._moveTowards(this.t)) {
+                    var p = this.q.shift();
+
+                    if (p) {
+                        this.t.x = p.x || this.p.x;
+                        this.t.y = p.y || this.p.y;
+                        this.t.z = p.z || this.p.z;
+                        this.t.a = p.a || this.p.a;
+                        this.p.h = p.h || 0;
+                    } else {
+                        if (this.s) {
+                            this.p.x -= Math.sin(Math.random() * 3.142);
+                            this.p.y -= Math.sin(Math.random() * 3.142);
+                        } else {
+                            this.move(new S.Point({
+                                x: this.p.x + (Math.random() * 50) - 25,
+                                y: this.p.y + (Math.random() * 50) - 25
+                            }));
+                        }
+                    }
+                }
+
+                d = this.p.a - this.t.a;
+                this.p.a = Math.max(0.1, this.p.a - (d * 0.05));
+                d = this.p.z - this.t.z;
+                this.p.z = Math.max(1, this.p.z - (d * 0.05));
+            },
+            distanceTo: function (n, details) {
+                var dx = this.p.x - n.x,
+                        dy = this.p.y - n.y,
+                        d = Math.sqrt(dx * dx + dy * dy);
+
+                return details ? [dx, dy, d] : d;
+            },
+            move: function (p, avoidStatic) {
+                if (!avoidStatic || (avoidStatic &amp;&amp; this.distanceTo(p) &gt; 1)) {
+                    this.q.push(p);
+                }
+            },
+            render: function () {
+                this._update();
+                this._draw();
+            }
+        };
+
+
+        S.ShapeBuilder = (function () {
+            var gap = 13,
+                    shapeCanvas = document.createElement(&apos;canvas&apos;),
+                    shapeContext = shapeCanvas.getContext(&apos;2d&apos;),
+                    fontSize = 500,
+                    fontFamily = &apos;Avenir, Helvetica Neue, Helvetica, Arial, sans-serif&apos;;
+
+            function fit() {
+                shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
+                shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
+                shapeContext.fillStyle = &apos;red&apos;;
+                shapeContext.textBaseline = &apos;middle&apos;;
+                shapeContext.textAlign = &apos;center&apos;;
+            }
+
+            function processCanvas() {
+                var pixels = shapeContext.getImageData(0, 0, shapeCanvas.width, shapeCanvas.height).data;
+                dots = [],
+                        pixels,
+                        x = 0,
+                        y = 0,
+                        fx = shapeCanvas.width,
+                        fy = shapeCanvas.height,
+                        w = 0,
+                        h = 0;
+
+                for (var p = 0; p &lt; pixels.length; p += (4 * gap)) {
+                    if (pixels[p + 3] &gt; 0) {
+                        dots.push(new S.Point({
+                            x: x,
+                            y: y
+                        }));
+
+                        w = x &gt; w ? x : w;
+                        h = y &gt; h ? y : h;
+                        fx = x &lt; fx ? x : fx;
+                        fy = y &lt; fy ? y : fy;
+                    }
+
+                    x += gap;
+
+                    if (x &gt;= shapeCanvas.width) {
+                        x = 0;
+                        y += gap;
+                        p += gap * 4 * shapeCanvas.width;
+                    }
+                }
+
+                return {dots: dots, w: w + fx, h: h + fy};
+            }
+
+            function setFontSize(s) {
+                shapeContext.font = &apos;bold &apos; + s + &apos;px &apos; + fontFamily;
+            }
+
+            function isNumber(n) {
+                return !isNaN(parseFloat(n)) &amp;&amp; isFinite(n);
+            }
+
+            function init() {
+                fit();
+                window.addEventListener(&apos;resize&apos;, fit);
+            }
+
+            // Init
+            init();
+
+            return {
+                imageFile: function (url, callback) {
+                    var image = new Image(),
+                            a = S.Drawing.getArea();
+
+                    image.onload = function () {
+                        shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
+                        shapeContext.drawImage(this, 0, 0, a.h * 0.6, a.h * 0.6);
+                        callback(processCanvas());
+                    };
+
+                    image.onerror = function () {
+                        callback(S.ShapeBuilder.letter(&apos;What?&apos;));
+                    };
+
+                    image.src = url;
+                },
+                circle: function (d) {
+                    var r = Math.max(0, d) / 2;
+                    shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
+                    shapeContext.beginPath();
+                    shapeContext.arc(r * gap, r * gap, r * gap, 0, 2 * Math.PI, false);
+                    shapeContext.fill();
+                    shapeContext.closePath();
+
+                    return processCanvas();
+                },
+                letter: function (l) {
+                    var s = 0;
+
+                    setFontSize(fontSize);
+                    s = Math.min(fontSize,
+                            (shapeCanvas.width / shapeContext.measureText(l).width) * 0.8 * fontSize,
+                            (shapeCanvas.height / fontSize) * (isNumber(l) ? 1 : 0.45) * fontSize);
+                    setFontSize(s);
+
+                    shapeContext.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
+                    shapeContext.fillText(l, shapeCanvas.width / 2, shapeCanvas.height / 2);
+
+                    return processCanvas();
+                },
+                rectangle: function (w, h) {
+                    var dots = [],
+                            width = gap * w,
+                            height = gap * h;
+
+                    for (var y = 0; y &lt; height; y += gap) {
+                        for (var x = 0; x &lt; width; x += gap) {
+                            dots.push(new S.Point({
+                                x: x,
+                                y: y
+                            }));
+                        }
+                    }
+
+                    return {dots: dots, w: width, h: height};
+                }
+            };
+        }());
+
+
+        S.Shape = (function () {
+            var dots = [],
+                    width = 0,
+                    height = 0,
+                    cx = 0,
+                    cy = 0;
+
+            function compensate() {
+                var a = S.Drawing.getArea();
+
+                cx = a.w / 2 - width / 2;
+                cy = a.h / 2 - height / 2;
+            }
+
+            return {
+                shuffleIdle: function () {
+                    var a = S.Drawing.getArea();
+
+                    for (var d = 0; d &lt; dots.length; d++) {
+                        if (!dots[d].s) {
+                            dots[d].move({
+                                x: Math.random() * a.w,
+                                y: Math.random() * a.h
+                            });
+                        }
+                    }
+                },
+                switchShape: function (n, fast) {
+                    var size,
+                            a = S.Drawing.getArea();
+
+                    width = n.w;
+                    height = n.h;
+
+                    compensate();
+
+                    if (n.dots.length &gt; dots.length) {
+                        size = n.dots.length - dots.length;
+                        for (var d = 1; d &lt;= size; d++) {
+                            dots.push(new S.Dot(a.w / 2, a.h / 2));
+                        }
+                    }
+
+                    var d = 0,
+                            i = 0;
+
+                    while (n.dots.length &gt; 0) {
+                        i = Math.floor(Math.random() * n.dots.length);
+                        dots[d].e = fast ? 0.25 : (dots[d].s ? 0.14 : 0.11);
+
+                        if (dots[d].s) {
+                            dots[d].move(new S.Point({
+                                z: Math.random() * 20 + 10,
+                                a: Math.random(),
+                                h: 18
+                            }));
+                        } else {
+                            dots[d].move(new S.Point({
+                                z: Math.random() * 5 + 5,
+                                h: fast ? 18 : 30
+                            }));
+                        }
+
+                        dots[d].s = true;
+                        dots[d].move(new S.Point({
+                            x: n.dots[i].x + cx,
+                            y: n.dots[i].y + cy,
+                            a: 1,
+                            z: 5,
+                            h: 0
+                        }));
+
+                        n.dots = n.dots.slice(0, i).concat(n.dots.slice(i + 1));
+                        d++;
+                    }
+
+                    for (var i = d; i &lt; dots.length; i++) {
+                        if (dots[i].s) {
+                            dots[i].move(new S.Point({
+                                z: Math.random() * 20 + 10,
+                                a: Math.random(),
+                                h: 20
+                            }));
+
+                            dots[i].s = false;
+                            dots[i].e = 0.04;
+                            dots[i].move(new S.Point({
+                                x: Math.random() * a.w,
+                                y: Math.random() * a.h,
+                                a: 0.3, //.4
+                                z: Math.random() * 4,
+                                h: 0
+                            }));
+                        }
+                    }
+                },
+                render: function () {
+                    for (var d = 0; d &lt; dots.length; d++) {
+                        dots[d].render();
+                    }
+                }
+            };
+        }());
+        S.init();
+&lt;/script&gt;
+</code></pre></script></body></p></div></div><div data-thread-key="love/index.html" data-title="想要，才去追寻" data-url="http://idiot6.com/love/index.html" data-author-key="1" class="ds-thread"></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://idiot6.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Index/">Index</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LINUX/">LINUX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/YII/">YII</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人收录/">个人收录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心の栄養/">心の栄養</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/星座/">星座</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/atom/" style="font-size: 15px;">atom</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/libmcrypt/" style="font-size: 15px;">libmcrypt</a> <a href="/tags/mcrypt/" style="font-size: 15px;">mcrypt</a> <a href="/tags/vc6/" style="font-size: 15px;">vc6</a> <a href="/tags/vc9/" style="font-size: 15px;">vc9</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/NTS/" style="font-size: 15px;">NTS</a> <a href="/tags/busy/" style="font-size: 15px;">busy</a> <a href="/tags/Overtime/" style="font-size: 15px;">Overtime</a> <a href="/tags/dpkg/" style="font-size: 15px;">dpkg</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/error/" style="font-size: 15px;">error</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/high/" style="font-size: 15px;">high</a> <a href="/tags/面试-hr/" style="font-size: 15px;">面试,hr</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/phpize/" style="font-size: 15px;">phpize</a> <a href="/tags/whereis/" style="font-size: 15px;">whereis</a> <a href="/tags/url/" style="font-size: 15px;">url</a> <a href="/tags/skill/" style="font-size: 15px;">skill</a> <a href="/tags/problem/" style="font-size: 15px;">problem</a> <a href="/tags/facebook/" style="font-size: 15px;">facebook</a> <a href="/tags/share/" style="font-size: 15px;">share</a> <a href="/tags/facebook-tools/" style="font-size: 15px;">facebook_tools</a> <a href="/tags/knowledge/" style="font-size: 15px;">knowledge</a> <a href="/tags/http/" style="font-size: 15px;">http</a> <a href="/tags/yii2-0/" style="font-size: 15px;">yii2.0</a> <a href="/tags/wechat/" style="font-size: 15px;">wechat</a> <a href="/tags/absolute/" style="font-size: 15px;">absolute</a> <a href="/tags/win10/" style="font-size: 15px;">win10</a> <a href="/tags/yaf/" style="font-size: 15px;">yaf</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/yii/" style="font-size: 15px;">yii</a> <a href="/tags/心理/" style="font-size: 15px;">心理</a> <a href="/tags/乐心手环/" style="font-size: 15px;">乐心手环</a> <a href="/tags/公司/" style="font-size: 15px;">公司</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/UA/" style="font-size: 15px;">UA</a> <a href="/tags/美食/" style="font-size: 15px;">美食</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/上班/" style="font-size: 15px;">上班</a> <a href="/tags/迟到/" style="font-size: 15px;">迟到</a> <a href="/tags/面膜/" style="font-size: 15px;">面膜</a> <a href="/tags/Raffaello/" style="font-size: 15px;">Raffaello</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/dnspod/" style="font-size: 15px;">dnspod</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/七牛/" style="font-size: 15px;">七牛</a> <a href="/tags/typecho/" style="font-size: 15px;">typecho</a> <a href="/tags/资源/" style="font-size: 15px;">资源</a> <a href="/tags/app/" style="font-size: 15px;">app</a> <a href="/tags/感悟/" style="font-size: 15px;">感悟</a> <a href="/tags/ip/" style="font-size: 15px;">ip</a> <a href="/tags/want/" style="font-size: 15px;">want</a> <a href="/tags/need/" style="font-size: 15px;">need</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/want/">想要和需要</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/busy/">忙碌的一个月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/share_facebook/">指定图片分享到facebook，fb图片缓存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/04/Libmcrypt/">php安装libmcrypt和mcrypt扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/nginx_problem/">nginx problem问题!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/git使用/">git的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/wechat_share/">微信分享到朋友圈，使用特定Logo</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/php安装扩展/">PHP安装扩展!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/problem/">用到的技巧加小问题总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/HTTP工作原理/">HTTP工作原理</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.lwxbk.com/" title="小新博客" target="_blank">小新博客</a><ul></ul><a href="http://www.baqiye.com/" title="扒企业" target="_blank">扒企业</a><ul></ul><a href="http://www.shengxuezixun.com/" title="升学咨询" target="_blank">升学咨询</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <script src="//source.shengxuezixun.com/js%2Fstatis-code.js"></script><a href="/." rel="nofollow">梦遥奇缘.</a> 想要,才去追寻 @@禾子<a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a><span id="busuanzi_container_site_pv"></span>本站总访问量<span id="busuanzi_value_site_pv"></span>次</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'myoung'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-68661235-3','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
