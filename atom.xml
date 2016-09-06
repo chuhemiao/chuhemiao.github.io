@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-09-06T09:27:41.116Z</updated>
+  <updated>2016-09-06T09:31:31.666Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://idiot6.com/2016/09/06/facebook-pixel/"/>
     <id>http://idiot6.com/2016/09/06/facebook-pixel/</id>
     <published>2016-09-06T08:23:53.000Z</published>
-    <updated>2016-09-06T09:27:41.116Z</updated>
+    <updated>2016-09-06T09:31:31.666Z</updated>
     
     <content type="html"><![CDATA[<h2 id="创建-Facebook-像素"><a href="#创建-Facebook-像素" class="headerlink" title="创建 Facebook 像素"></a>创建 <code>Faceboo</code>k 像素</h2><p>1.前往广告管理工具的 <a href="https://www.facebook.com/ads/manager/pixel/facebook_pixel" target="_blank" rel="external">Facebook像素选项卡</a>。<br>2.点击创建像素。<br>3.为像素输入名称。每个广告账户只能有一个像素，因此请选择代表您企业的名称。<br>4.注意：您可以在之后通过 <code>Facebook</code> 像素选项卡更改像素名称。<br>5.勾选复选框，接受条款。<br>6.点击创建像素。</p>
 <h2 id="Facebook-像素代码相关信息"><a href="#Facebook-像素代码相关信息" class="headerlink" title="Facebook 像素代码相关信息"></a>Facebook 像素代码相关信息</h2><ol>
