@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-09-06T09:31:31.666Z</updated>
+  <updated>2016-09-07T03:02:38.169Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>instagram上传照片后hexo报错</title>
+    <link href="http://idiot6.com/2016/09/07/instagram/"/>
+    <id>http://idiot6.com/2016/09/07/instagram/</id>
+    <published>2016-09-07T02:23:53.000Z</published>
+    <updated>2016-09-07T03:02:38.169Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="data-i-caption-text-null错误问题"><a href="#data-i-caption-text-null错误问题" class="headerlink" title="data[i].caption.text==null错误问题"></a><code>data[i].caption.text==null</code>错误问题</h2><ul>
+<li><p>点开instagram客户端，点击分享照片，有添加说明一项，此处必须填写，否则<code>data[i].caption.text==null</code>报错，导致已经上传的照片不能正常显示</p>
+</li>
+<li><p>删除照片方法，手机客户端进入当前照片列表，找到当前上传的照片，点击=》右上角…=&gt;删除即可</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;data-i-caption-text-null错误问题&quot;&gt;&lt;a href=&quot;#data-i-caption-text-null错误问题&quot; class=&quot;headerlink&quot; title=&quot;data[i].caption.text==null错误问题&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="facebook" scheme="http://idiot6.com/tags/facebook/"/>
+    
+      <category term="instagram" scheme="http://idiot6.com/tags/instagram/"/>
+    
+  </entry>
   
   <entry>
     <title>Facebook像素应用安装到网站中</title>
@@ -816,40 +846,6 @@ echo dirname($url);
       <category term="面膜" scheme="http://idiot6.com/tags/%E9%9D%A2%E8%86%9C/"/>
     
       <category term="Raffaello" scheme="http://idiot6.com/tags/Raffaello/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP Warning  open_basedir restriction in effect!!!</title>
-    <link href="http://idiot6.com/2016/02/05/open_basedir/"/>
-    <id>http://idiot6.com/2016/02/05/open_basedir/</id>
-    <published>2016-02-05T04:45:27.000Z</published>
-    <updated>2016-08-31T09:45:19.208Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="完整的错误信息："><a href="#完整的错误信息：" class="headerlink" title="完整的错误信息："></a>完整的错误信息：</h1><ul>
-<li><code>FastCGI sent in stderr: PHP message: PHP Warning:  chdir(): open_basedir restriction in effect</code></li>
-</ul>
-<ul>
-<li>出现这个错误的原因就在于限制了程序访问的目录。这个目录由open_basedir所限制。所以解决办法就是在php.ini中将这个限制给注释掉，当然这样做会有一定的不安全。</li>
-<li>查看Nginx的运行错误日志才能看到。查看Nginx错误日志的命令：</li>
-<li><code>vi /var/log/nginx/error.log</code><h1 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h1></li>
-<li>打开php.ini，找到open_basedir这一行，在前面加上’;’给注释掉。<h1 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h1></li>
-<li>重启php-fpm，运行下面命令重启php-fpm：</li>
-<li><code>/etc/init.d/php-fpm restart</code></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;完整的错误信息：&quot;&gt;&lt;a href=&quot;#完整的错误信息：&quot; class=&quot;headerlink&quot; title=&quot;完整的错误信息：&quot;&gt;&lt;/a&gt;完整的错误信息：&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;FastCGI sent in stderr: PHP messag
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="php" scheme="http://idiot6.com/tags/php/"/>
     
   </entry>
   
