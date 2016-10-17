@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-09-20T07:48:43.696Z</updated>
+  <updated>2016-10-17T06:28:27.295Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github快捷键</title>
+    <link href="http://idiot6.com/2016/10/17/github_hotkey/"/>
+    <id>http://idiot6.com/2016/10/17/github_hotkey/</id>
+    <published>2016-10-17T06:20:08.000Z</published>
+    <updated>2016-10-17T06:28:27.295Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="github快捷键使用"><a href="#github快捷键使用" class="headerlink" title="github快捷键使用"></a>github快捷键使用</h1><ol>
+<li>项目目录下，可直接使用t聚焦到当前的搜索框</li>
+<li><code>shift+?</code>可以直接显示出当前的快捷键,如下图</li>
+</ol>
+<p><img src="http://source.shengxuezixun.com/images/github.png" alt="github"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      有时候的失去未必不是一件好事，只是人生中的过客，又何必在意那么多。失去了才会懂得珍惜吗？
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="github" scheme="http://idiot6.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>别扯了，时间才不会改变一切</title>
@@ -854,29 +881,6 @@ echo dirname($url);
     </summary>
     
       <category term="Python" scheme="http://idiot6.com/categories/Python/"/>
-    
-    
-      <category term="python" scheme="http://idiot6.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>水瓶座在什么时候最心疼自己!!!</title>
-    <link href="http://idiot6.com/2016/03/05/%E6%B0%B4%E7%93%B6%E5%BA%A7/"/>
-    <id>http://idiot6.com/2016/03/05/水瓶座/</id>
-    <published>2016-03-05T04:45:27.000Z</published>
-    <updated>2016-08-31T09:45:19.210Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们真正享受人的时间也不过是十几年的光景，但在经历生活道路的同时，并不是一帆风顺的，遇到挫折，遭遇困难都是必然的，这样一来我们会感到很失落沮丧，同时对自己也是很心疼的，但每个人处理的方式也是不同的，下面请和华易算命网小编一起来看看十二星座在什么时候最心疼自己。<br>1.水瓶座：感到大起大落的时候<br>水瓶座的人情绪波动较大，上一秒钟还是好好的，下一秒中他们就开始觉得整个世界没有一个地方是属于自己的，他们常常会觉得自己不知所措，不知道该做什么好。水瓶座的内心都很敏感，很容易受伤，他们常常会因为一些小小的事情而心情大起大落。他们也很经常会心疼自己，他们会发现这个世界上的每个人都是独立的个体，谁都不能成为谁的依靠，每当这个时候，他们都好想去陌生的城市走一走，逃避所有认识的人。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我们真正享受人的时间也不过是十几年的光景，但在经历生活道路的同时，并不是一帆风顺的，遇到挫折，遭遇困难都是必然的，这样一来我们会感到很失落沮丧，同时对自己也是很心疼的，但每个人处理的方式也是不同的，下面请和华易算命网小编一起来看看十二星座在什么时候最心疼自己。&lt;br&gt;1.水
-    
-    </summary>
-    
-      <category term="星座" scheme="http://idiot6.com/categories/%E6%98%9F%E5%BA%A7/"/>
     
     
       <category term="python" scheme="http://idiot6.com/tags/python/"/>
