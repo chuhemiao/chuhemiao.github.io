@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-10-17T06:28:27.295Z</updated>
+  <updated>2016-10-24T13:08:37.018Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>说好的不加班呢！！！</title>
+    <link href="http://idiot6.com/2016/10/24/work_night_day/"/>
+    <id>http://idiot6.com/2016/10/24/work_night_day/</id>
+    <published>2016-10-24T13:06:53.000Z</published>
+    <updated>2016-10-24T13:08:37.018Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.伟大的程序员一年也会过几个节日，比如 1111 ， 1024 ， 618 等等。</p>
+<p>2.2014 年 1024 正式命名今天为程序员节日。</p>
+<p>3.所谓 1024 ，可以是 2 的 10 次方。</p>
+<p>4.所谓 1024 ，可以是你懂得。</p>
+<p>5.所谓 1024 ，在今天是程序员的节日。</p>
+<p>6.所谓 1024 ，是让你不加班给个借口。<br>+此处有图:D</p>
+<p>7.原谅哥放荡一生，仍然在拼搏。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      在好的游戏也有玩烦的一天，就像在好的工具有淘汰的那一天，打游戏还不如锻炼身体，看这appstore上的排行榜不知道下什么游戏玩，不知道去玩什么，因为游戏太多了，多的我们没发选择，这一天天的都浪费在游戏上了，容易吗！
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="working" scheme="http://idiot6.com/tags/working/"/>
+    
+  </entry>
   
   <entry>
     <title>github快捷键</title>
@@ -855,35 +884,6 @@ echo dirname($url);
     
     
       <category term="error" scheme="http://idiot6.com/tags/error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>4个备受欢迎的Python程序库 你用哪个？</title>
-    <link href="http://idiot6.com/2016/03/05/4%E4%B8%AA%E5%A4%87%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84Python%E7%A8%8B%E5%BA%8F%E5%BA%93/"/>
-    <id>http://idiot6.com/2016/03/05/4个备受欢迎的Python程序库/</id>
-    <published>2016-03-05T05:45:27.000Z</published>
-    <updated>2016-08-31T09:45:19.207Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Bottle"><a href="#Bottle" class="headerlink" title="Bottle"></a>Bottle</h2><ul>
-<li>Bottle是一个Python Web框架，整个框架只有一个文件，几十K，虽是小型的轻量网络开发框架，却自带了路径映射、模板、简单的数据库访问等web框架组件，确实是个可用的框架。初学web开发可以拿来玩玩，其语法简单，部署也很方便。</li>
-<li>Bottle译成中文是瓶子的意思，而它的图标也包含了一个瓶子。通过Bottle几秒内就能构建小型站点和APIs。所有的框架只有一个py文件，而且Bottle在设计时就考虑了可扩展性，随时可以介入其他高级功能。<h2 id="tqdm"><a href="#tqdm" class="headerlink" title="tqdm"></a>tqdm</h2>tqdm（读：taqadum）在阿拉伯语中的意思是进展，tqdm可以在长循环中添加一个进度提示信息，用户只需要封装任意的迭代器 tqdm(iterator)，是一个快速、扩展性强的进度条工具库。<br>简言之，tqdm是Python设计，快速，可扩展性的进度条。<h2 id="pyvim"><a href="#pyvim" class="headerlink" title="pyvim"></a>pyvim</h2>相信大家一定都知道Vim语言，而pyvim正是Vim在Python中的一个翻版或者叫克隆。这个编辑器完全采用Python开发（没有C扩展）。这使得开发变得快很多。它易于创建原型和集成新的特性。<h2 id="pyglet"><a href="#pyglet" class="headerlink" title="pyglet"></a>pyglet</h2></li>
-<li>pyglet提供了面向对象的编程接口，用于开发Windows、Mac OS X和Linux下的游戏以及大量视觉效果的应用。是一个纯Python语言编写的跨平台框架，用于开发多媒体和窗口特效应用。Pyglet通过BSD协议发布，可以用于任何商业和开源项目。</li>
-<li>除此之外，它还拥有不需要额外依赖的独立性；支持多窗口和多显示器的设置；还可以载入任何格式的图片、音频、音乐和视频。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Bottle&quot;&gt;&lt;a href=&quot;#Bottle&quot; class=&quot;headerlink&quot; title=&quot;Bottle&quot;&gt;&lt;/a&gt;Bottle&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Bottle是一个Python Web框架，整个框架只有一个文件，几十K，虽是小型的轻量网络开发
-    
-    </summary>
-    
-      <category term="Python" scheme="http://idiot6.com/categories/Python/"/>
-    
-    
-      <category term="python" scheme="http://idiot6.com/tags/python/"/>
     
   </entry>
   
