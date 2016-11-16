@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-10-29T08:57:24.986Z</updated>
+  <updated>2016-11-16T07:51:36.398Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>curl访问https接口，点击图片下载</title>
+    <link href="http://idiot6.com/2016/11/16/curl_attachment/"/>
+    <id>http://idiot6.com/2016/11/16/curl_attachment/</id>
+    <published>2016-11-16T07:40:27.000Z</published>
+    <updated>2016-11-16T07:51:36.398Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="curl访问https接口"><a href="#curl访问https接口" class="headerlink" title="curl访问https接口"></a><code>curl</code>访问<code>https</code>接口</h2><p><code>$url = &quot;https://test.idiot.com/preregister/data?phone=15756892356&quot; ;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+$result = curl_exec($ch);
+print_r($result)</code>;</p>
+<h2 id="图片点击直接下载"><a href="#图片点击直接下载" class="headerlink" title="图片点击直接下载"></a>图片点击直接下载</h2><p>1.后端返回加上<code>header</code>头：<br><code>header(&#39;Content-type: image/png&#39;)</code><br><code>header(&quot;Content-Disposition: attachment; filename=&#39;xxxx.png&#39;&quot;)</code><br>2.前端：a标签属性加上<code>download</code>属性     </p>
+<ul>
+<li><code>eg</code>:<code>&lt;a href=&quot;large.jpg&quot; download&gt;</code>下载<code>&lt;/a&gt;</code></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;curl访问https接口&quot;&gt;&lt;a href=&quot;#curl访问https接口&quot; class=&quot;headerlink&quot; title=&quot;curl访问https接口&quot;&gt;&lt;/a&gt;&lt;code&gt;curl&lt;/code&gt;访问&lt;code&gt;https&lt;/code&gt;接口&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="公司" scheme="http://idiot6.com/tags/%E5%85%AC%E5%8F%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>呵呵的一周，终于过去了!</title>
@@ -844,54 +877,6 @@ echo dirname($url);
     
     
       <category term="url" scheme="http://idiot6.com/tags/url/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php获取用户的ip</title>
-    <link href="http://idiot6.com/2016/03/15/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7ip/"/>
-    <id>http://idiot6.com/2016/03/15/获取用户ip/</id>
-    <published>2016-03-15T04:45:27.000Z</published>
-    <updated>2016-08-31T09:45:19.210Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="获取用户的ip"><a href="#获取用户的ip" class="headerlink" title="获取用户的ip"></a>获取用户的ip</h1><pre><code>public  function getClientIP()
-    {
-        if (isset($_SERVER)) {
-            if (isset($_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;])) {
-                $realip = $_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;];
-            } else 
-                if (isset($_SERVER[&quot;HTTP_CLIENT_IP&quot;])) {
-                    $realip = $_SERVER[&quot;HTTP_CLIENT_IP&quot;];
-                } else {
-                    $realip = $_SERVER[&quot;REMOTE_ADDR&quot;];
-                }
-        } else {
-            if (getenv(&quot;HTTP_X_FORWARDED_FOR&quot;)) {
-                $realip = getenv(&quot;HTTP_X_FORWARDED_FOR&quot;);
-            } else 
-                if (getenv(&quot;HTTP_CLIENT_IP&quot;)) {
-                    $realip = getenv(&quot;HTTP_CLIENT_IP&quot;);
-                } else {
-                    $realip = getenv(&quot;REMOTE_ADDR&quot;);
-                }
-        }
-
-        return addslashes($realip);
-    }
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;获取用户的ip&quot;&gt;&lt;a href=&quot;#获取用户的ip&quot; class=&quot;headerlink&quot; title=&quot;获取用户的ip&quot;&gt;&lt;/a&gt;获取用户的ip&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;public  function getClientIP()
-    {
-     
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="ip" scheme="http://idiot6.com/tags/ip/"/>
     
   </entry>
   
