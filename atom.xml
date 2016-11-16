@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-11-16T07:51:36.398Z</updated>
+  <updated>2016-11-16T08:12:43.397Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -16,20 +16,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>php使用qrcode生成二维码，并合成为一张图</title>
+    <link href="http://idiot6.com/2016/11/16/qrcode_imagecopyresampled/"/>
+    <id>http://idiot6.com/2016/11/16/qrcode_imagecopyresampled/</id>
+    <published>2016-11-16T08:10:27.000Z</published>
+    <updated>2016-11-16T08:12:43.397Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="载入phpqrcode，并使用合成图片"><a href="#载入phpqrcode，并使用合成图片" class="headerlink" title="载入phpqrcode，并使用合成图片"></a>载入phpqrcode，并使用合成图片</h2><pre><code>include(&apos;phpqrcode.php&quot;),下载地址[phpqrcode](https://sourceforge.net/projects/phpqrcode/);
+$filename = &quot;xxx.png&quot;;//图片路径
+$errorCorrectionLevel = &apos;L&apos;;//容错级别
+$matrixPointSize = 3; //生成图大小
+$url = &apos;http://idiot6.com&apos;;
+QRcode::png($url, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
+
+$QR = &quot;xxx.png&quot;;     // qr
+$logo = &apos;layout-bg-1.png&apos;;// bg
+
+$QR = imagecreatefromstring ( file_get_contents ( $QR ) );   //open picture source 
+$logo = imagecreatefromstring ( file_get_contents ( $logo ) ); //open picture source  
+
+imagecopyresampled ( $logo, $QR,565,215,0,0,154,154,$QR_width, $QR_height ); // mixed picture
+
+$result_png = rand(100000, 999999) . uniqid() . &quot;.png&quot;; // file name
+
+$file = &apos;/data/www/upload/qrcode/&apos; . $result_png;
+
+imagepng ( $logo, $file );//output picture
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;载入phpqrcode，并使用合成图片&quot;&gt;&lt;a href=&quot;#载入phpqrcode，并使用合成图片&quot; class=&quot;headerlink&quot; title=&quot;载入phpqrcode，并使用合成图片&quot;&gt;&lt;/a&gt;载入phpqrcode，并使用合成图片&lt;/h2&gt;&lt;pre&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="qrcode" scheme="http://idiot6.com/tags/qrcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>curl访问https接口，点击图片下载</title>
     <link href="http://idiot6.com/2016/11/16/curl_attachment/"/>
     <id>http://idiot6.com/2016/11/16/curl_attachment/</id>
     <published>2016-11-16T07:40:27.000Z</published>
-    <updated>2016-11-16T07:51:36.398Z</updated>
+    <updated>2016-11-16T08:12:43.396Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="curl访问https接口"><a href="#curl访问https接口" class="headerlink" title="curl访问https接口"></a><code>curl</code>访问<code>https</code>接口</h2><p><code>$url = &quot;https://test.idiot.com/preregister/data?phone=15756892356&quot; ;
+    <content type="html"><![CDATA[<h2 id="curl访问https接口"><a href="#curl访问https接口" class="headerlink" title="curl访问https接口"></a><code>curl</code>访问<code>https</code>接口</h2><pre><code>$url = &quot;https://test.idiot.com/preregister/data?phone=15756892356&quot; ;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 $result = curl_exec($ch);
-print_r($result)</code>;</p>
-<h2 id="图片点击直接下载"><a href="#图片点击直接下载" class="headerlink" title="图片点击直接下载"></a>图片点击直接下载</h2><p>1.后端返回加上<code>header</code>头：<br><code>header(&#39;Content-type: image/png&#39;)</code><br><code>header(&quot;Content-Disposition: attachment; filename=&#39;xxxx.png&#39;&quot;)</code><br>2.前端：a标签属性加上<code>download</code>属性     </p>
+print_r($result)
+</code></pre><h2 id="图片点击直接下载"><a href="#图片点击直接下载" class="headerlink" title="图片点击直接下载"></a>图片点击直接下载</h2><p>1.后端返回加上<code>header</code>头：</p>
+<ul>
+<li><code>header(&#39;Content-type: image/png&#39;)</code></li>
+<li><code>header(&quot;Content-Disposition: attachment; filename=&#39;xxxx.png&#39;&quot;)</code></li>
+</ul>
+<p>2.前端：a标签属性加上<code>download</code>属性 </p>
 <ul>
 <li><code>eg</code>:<code>&lt;a href=&quot;large.jpg&quot; download&gt;</code>下载<code>&lt;/a&gt;</code></li>
 </ul>
@@ -37,7 +84,7 @@ print_r($result)</code>;</p>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;curl访问https接口&quot;&gt;&lt;a href=&quot;#curl访问https接口&quot; class=&quot;headerlink&quot; title=&quot;curl访问https接口&quot;&gt;&lt;/a&gt;&lt;code&gt;curl&lt;/code&gt;访问&lt;code&gt;https&lt;/code&gt;接口&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;curl访问https接口&quot;&gt;&lt;a href=&quot;#curl访问https接口&quot; class=&quot;headerlink&quot; title=&quot;curl访问https接口&quot;&gt;&lt;/a&gt;&lt;code&gt;curl&lt;/code&gt;访问&lt;code&gt;https&lt;/code&gt;接口&lt;/h2&gt;&lt;pr
     
     </summary>
     
@@ -843,40 +890,6 @@ print_r($result)</code>;</p>
     
     
       <category term="http" scheme="http://idiot6.com/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP中获取当前页面的完整URL</title>
-    <link href="http://idiot6.com/2016/03/21/php%E8%8E%B7%E5%8F%96url/"/>
-    <id>http://idiot6.com/2016/03/21/php获取url/</id>
-    <published>2016-03-21T10:43:08.000Z</published>
-    <updated>2016-08-31T09:45:19.208Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck"><a href="#测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck" class="headerlink" title="测试网址:     http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck"></a>测试网址:     <code>http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck</code></h2><h2 id="获取域名或主机地址"><a href="#获取域名或主机地址" class="headerlink" title="获取域名或主机地址"></a>获取域名或主机地址</h2><pre><code>echo $_SERVER[&apos;HTTP_HOST&apos;].&quot;&lt;br&gt;&quot;; #localhost
-</code></pre><h2 id="获取网页地址"><a href="#获取网页地址" class="headerlink" title="获取网页地址"></a>获取网页地址</h2><pre><code>echo $_SERVER[&apos;PHP_SELF&apos;].&quot;&lt;br&gt;&quot;; #/chuhe/testurl.php
-</code></pre><h2 id="获取网址参数"><a href="#获取网址参数" class="headerlink" title="获取网址参数"></a>获取网址参数</h2><pre><code>echo $_SERVER[&quot;QUERY_STRING&quot;].&quot;&lt;br&gt;&quot;; #id=xxoo&amp;name=fuck
-</code></pre><h2 id="获取用户代理"><a href="#获取用户代理" class="headerlink" title="获取用户代理"></a>获取用户代理</h2><pre><code>echo $_SERVER[&apos;HTTP_REFERER&apos;].&quot;&lt;br&gt;&quot;; 
-</code></pre><h2 id="获取完整的url"><a href="#获取完整的url" class="headerlink" title="获取完整的url"></a>获取完整的url</h2><pre><code>echo &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;REQUEST_URI&apos;];
-echo &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;PHP_SELF&apos;].&apos;?&apos;.$_SERVER[&apos;QUERY_STRING&apos;];
-http://localhost/chuhe/testurl.php?id=xxoo&amp;name=fuck
-</code></pre><h2 id="包含端口号的完整url"><a href="#包含端口号的完整url" class="headerlink" title="包含端口号的完整url"></a>包含端口号的完整url</h2><pre><code>echo &apos;http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].&apos;:&apos;.$_SERVER[&quot;SERVER_PORT&quot;].$_SERVER[&quot;REQUEST_URI&quot;]; 
-http://localhost:80/chuhe/testurl hp?id=xxoo&amp;name=fuck
-</code></pre><h2 id="只取路径"><a href="#只取路径" class="headerlink" title="只取路径"></a>只取路径</h2><pre><code>$url=&apos;http://&apos;.$_SERVER[&apos;SERVER_NAME&apos;].$_SERVER[&quot;REQUEST_URI&quot;]; 
-echo dirname($url);
-#http://localhost/chuhe
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck&quot;&gt;&lt;a href=&quot;#测试网址-http-localhost-chuhe-testurl-php-id-xxoo-amp-name-fuck&quot; 
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="url" scheme="http://idiot6.com/tags/url/"/>
     
   </entry>
   
