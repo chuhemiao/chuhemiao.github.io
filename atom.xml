@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-11-16T08:24:14.233Z</updated>
+  <updated>2016-12-30T08:53:32.628Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的2016年</title>
+    <link href="http://idiot6.com/2016/12/30/2016end/"/>
+    <id>http://idiot6.com/2016/12/30/2016end/</id>
+    <published>2016-12-30T08:50:27.000Z</published>
+    <updated>2016-12-30T08:53:32.628Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="关于GITHUB："><a href="#关于GITHUB：" class="headerlink" title="关于GITHUB："></a>关于GITHUB：</h3><pre><code>* GITHUB：
+    1. 博客从wordpress转到了hexo，搭建了自己的博客，换了maupassant主题，添加了INS的图库感觉很帅；
+    2.last year
+    ![github](hhttp://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600)
+</code></pre><h3 id="关于工作："><a href="#关于工作：" class="headerlink" title="关于工作："></a>关于工作：</h3><pre><code>* WORK：
+    1. 在盖娅司龄已经 一年半了，对于公司的业务也越来越熟悉，能快速完成工作上的任务，同时也踩了很多坑，也进步了很多，学到了很多东西；
+    2. 总结写代码时遇到的问题，以免下一次在碰到同样的问题 ，并整理发布到博客，记录一点一滴的进步；
+    3. 学习新技术和关注互联网动态，学习新的框架；
+</code></pre><h3 id="关于分享："><a href="#关于分享：" class="headerlink" title="关于分享："></a>关于分享：</h3><pre><code>* SHARE：
+    1. 个人博客中16年累计41篇（包括心灵鸡汤）；
+    2. 开发者头条APP中，个人公众号梦遥奇缘，订阅者534；
+</code></pre><h3 id="关于读书："><a href="#关于读书：" class="headerlink" title="关于读书："></a>关于读书：</h3><pre><code>* READ：
+    1. 东野圭吾的书目前正在看白夜行，已读（新参者、解忧杂货店、只差一个谎言、恶意、嫌疑人X的献身）
+    2. 别扯了时间根本不会改变一切（王远成）
+    3. 从0到1：开启商业与未来的秘密（蒂尔马斯特斯）
+    4. 黑客与画家（ 保罗•格雷厄姆）
+    5. redis设计与实现（黄健宏）
+    6. 算法的乐趣（王晓华）
+    7. app后台开发运维和架构实践（曾建生）
+    8. 我的第一本日语学习书（袁燕）
+    9. 购买了Reeder3，订阅好的博客（mottoin、代码家、SF头条、伯乐在线、标点符等值得拥有）
+</code></pre><h3 id="关于生活："><a href="#关于生活：" class="headerlink" title="关于生活："></a>关于生活：</h3><pre><code>* LIFE：
+    1. 买了人生第一个单反（70D，18-135），虽然已经在家吃灰，配置了台式电脑，入坑了守望屁股；
+    2. 续费了vps、域名，双十一也是那么坑（去年生日的时候买给自己的）；
+    3. 买了股票和万恶的数字币（区块链技术飞起）；
+    4. 夏、秋季时坚持每天去跑步，锻炼身体，入冬后就没了（北京的雾霾伤不起）；
+</code></pre><h3 id="关于社交："><a href="#关于社交：" class="headerlink" title="关于社交："></a>关于社交：</h3><pre><code>* CHAT：
+    1. 认识了一群逗比的朋友和同事；
+    2. 打游戏认识了俩基友；
+</code></pre><h3 id="关于未来："><a href="#关于未来：" class="headerlink" title="关于未来："></a>关于未来：</h3><pre><code>* FATURE：
+    1. 10月份办了护照，明年可以有一场说走就走的旅行；
+    2. GITHUB上可以多做几个有趣的东西，学习下py爬虫；
+    3. 在这个计划赶不上变化的人生，2017一切随缘把；
+    4. 未来还有很远，我在慢慢的前进；
+</code></pre><blockquote>
+<p>By：梦遥奇缘</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;关于GITHUB：&quot;&gt;&lt;a href=&quot;#关于GITHUB：&quot; class=&quot;headerlink&quot; title=&quot;关于GITHUB：&quot;&gt;&lt;/a&gt;关于GITHUB：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* GITHUB：
+    1. 博客从wordpress转到了he
+    
+    </summary>
+    
+      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
+    
+    
+      <category term="点滴记录" scheme="http://idiot6.com/tags/%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>php使用qrcode生成二维码，并合成为一张图</title>
@@ -792,73 +852,6 @@
     
       &lt;h1 id=&quot;HTTP-工作原理&quot;&gt;&lt;a href=&quot;#HTTP-工作原理&quot; class=&quot;headerlink&quot; title=&quot;HTTP 工作原理&quot;&gt;&lt;/a&gt;HTTP 工作原理&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;HTTP 协议采用请求/响应模型。客户端向服务器发送一个请求报文，服务器
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="http" scheme="http://idiot6.com/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP状态码</title>
-    <link href="http://idiot6.com/2016/04/13/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
-    <id>http://idiot6.com/2016/04/13/http状态码/</id>
-    <published>2016-04-13T15:55:53.000Z</published>
-    <updated>2016-08-31T09:45:19.208Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.100 Continue 初始的请求已经接受，客户应当继续发送请求的其余部分。（HTTP 1.1新）</p>
-<p>2.101 Switching Protocols 服务器将遵从客户的请求转换到另外一种协议（HTTP 1.1新）</p>
-<p>3.200 OK 一切正常，对GET和POST请求的应答文档跟在后面。</p>
-<p>4.201 Created 服务器已经创建了文档，Location头给出了它的URL。</p>
-<p>5.202 Accepted 已经接受请求，但处理尚未完成。</p>
-<p>6.203 Non-Authoritative Information 文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝（HTTP 1.1新）。</p>
-<p>7.204 No Content 没有新文档，浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。</p>
-<p>8.205 Reset Content 没有新的内容，但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容（HTTP 1.1新）。</p>
-<p>9.206 Partial Content 客户发送了一个带有Range头的GET请求，服务器完成了它（HTTP 1.1新）。</p>
-<p>10.300 Multiple Choices客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。</p>
-<p>11.301 Moved Permanently 客户请求的文档在其他地方，新的URL在Location头中给出，浏览器应该自动地访问新的URL。</p>
-<p>12.302 Found 类似于301，但新的URL应该被视为临时性的替代，而不是永久性的。注意，在HTTP1.0中对应的状态信息是“Moved Temporatily”。<br>出现该状态代码时，浏览器能够自动访问新的URL，因此它是一个很有用的状态代码。</p>
-<ul>
-<li><p>注意这个状态代码有时候可以和301替换使用。例如，如果浏览器错误地请求<a href="http://host/~user（缺少了后面的斜杠），有的服务器返回301，有的则返回302。" target="_blank" rel="external">http://host/~user（缺少了后面的斜杠），有的服务器返回301，有的则返回302。</a></p>
-</li>
-<li><p>严格地说，我们只能假定只有当原来的请求是GET时浏览器才会自动重定向。请参见307。</p>
-</li>
-</ul>
-<p>13.303 See Other 类似于301/302，不同之处在于，如果原来的请求是POST，Location头指定的重定向目标文档应该通过GET提取（HTTP 1.1新）。</p>
-<p>14.304 Not Modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</p>
-<p>15.305 Use Proxy 客户请求的文档应该通过Location头所指明的代理服务器提取（HTTP 1.1新）。</p>
-<p>16.307 Temporary Redirect 和302（Found）相同。许多浏览器会错误地响应302应答进行重定向，即使原来的请求是POST，即使它实际上只能在POST请求的应答是303时才能重定向。由于这个原因，HTTP 1.1新增了307，以便更加清除地区分几个状态代码：当出现303应答时，浏览器可以跟随重定向的GET和POST请求；如果是307应答，则浏览器只能跟随对GET请求的重定向。（HTTP 1.1新）</p>
-<p>17.400 Bad Request 请求出现语法错误。</p>
-<p>18.401 Unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含一个WWW-Authenticate头，浏览器据此显示用户名字/密码对话框，然后在填写合适的Authorization头后再次发出请求。</p>
-<p>19.403 Forbidden 资源不可用。服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。</p>
-<p>20.404 Not Found 无法找到指定位置的资源。这也是一个常用的应答。</p>
-<p>21.405 Method Not Allowed 请求方法（GET、POST、HEAD、Delete、PUT、TRACE等）对指定的资源不适用。（HTTP 1.1新）</p>
-<p>22.406 Not Acceptable 指定的资源已经找到，但它的MIME类型和客户在Accpet头中所指定的不兼容。（HTTP 1.1新）</p>
-<p>23.407 Proxy Authentication Required 类似于401，表示客户必须先经过代理服务器的授权。（HTTP 1.1新）</p>
-<p>24.408 Request Timeout 在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。（HTTP 1.1新）</p>
-<p>25.409 Conflict 通常和PUT请求有关。由于请求和资源的当前状态相冲突，因此请求不能成功。（HTTP 1.1新）</p>
-<p>26.410 Gone 所请求的文档已经不再可用，而且服务器不知道应该重定向到哪一个地址。它和404的不同在于，返回407表示文档永久地离开了指定的位置，而404表示由于未知的原因文档不可用。（HTTP 1.1新）</p>
-<p>27.411 Length Required 服务器不能处理请求，除非客户发送一个Content-Length头。（HTTP 1.1新）</p>
-<p>28.412 Precondition Failed 请求头中指定的一些前提条件失败。（HTTP 1.1新）</p>
-<p>29.413 Request Entity Too Large 目标文档的大小超过服务器当前愿意处理的大小。如果服务器认为自己能够稍后再处理该请求，则应该提供一个Retry-After头。（HTTP 1.1新）</p>
-<p>30.414 Request URI Too Long URI太长。（HTTP 1.1新）</p>
-<p>31.416 Requested Range Not Satisfiable 服务器不能满足客户在请求中指定的Range头。（HTTP 1.1新）</p>
-<p>32.500 Internal Server Error 服务器遇到了意料不到的情况，不能完成客户的请求。</p>
-<p>33.501 Not Implemented 服务器不支持实现请求所需要的功能。例如，客户发出了一个服务器不支持的PUT请求。</p>
-<p>34.502 Bad Gateway 服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。</p>
-<p>35.503 Service Unavailable 服务器由于维护或者负载过重未能应答。例如，Servlet可能在数据库连接池已满的情况下返回503。服务器返回503时可以提供一个Retry-After头。</p>
-<p>36.504 Gateway Timeout 由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答。（HTTP 1.1新）</p>
-<p>37.505 HTTP Version Not Supported 服务器不支持请求中所指明的HTTP版本。（HTTP 1.1新）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.100 Continue 初始的请求已经接受，客户应当继续发送请求的其余部分。（HTTP 1.1新）&lt;/p&gt;
-&lt;p&gt;2.101 Switching Protocols 服务器将遵从客户的请求转换到另外一种协议（HTTP 1.1新）&lt;/p&gt;
-&lt;p&gt;3.200 OK 一切正
     
     </summary>
     
