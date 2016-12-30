@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-12-30T08:59:41.858Z</updated>
+  <updated>2016-12-30T09:02:44.365Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -20,52 +20,77 @@
     <link href="http://idiot6.com/2016/12/30/2016end/"/>
     <id>http://idiot6.com/2016/12/30/2016end/</id>
     <published>2016-12-30T08:50:27.000Z</published>
-    <updated>2016-12-30T08:59:41.858Z</updated>
+    <updated>2016-12-30T09:02:44.365Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="关于GITHUB："><a href="#关于GITHUB：" class="headerlink" title="关于GITHUB："></a>关于GITHUB：</h3><pre><code>* GITHUB：
-    1. 博客从wordpress转到了hexo，搭建了自己的博客，换了maupassant主题，添加了INS的图库感觉很帅；
-    2. last year
-
-    ![github](http://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600)
-</code></pre><h3 id="关于工作："><a href="#关于工作：" class="headerlink" title="关于工作："></a>关于工作：</h3><pre><code>* WORK：
-    1. 在盖娅司龄已经 一年半了，对于公司的业务也越来越熟悉，能快速完成工作上的任务，同时也踩了很多坑，也进步了很多，学到了很多东西；
-    2. 总结写代码时遇到的问题，以免下一次在碰到同样的问题 ，并整理发布到博客，记录一点一滴的进步；
-    3. 学习新技术和关注互联网动态，学习新的框架；
-</code></pre><h3 id="关于分享："><a href="#关于分享：" class="headerlink" title="关于分享："></a>关于分享：</h3><pre><code>* SHARE：
-    1. 个人博客中16年累计41篇（包括心灵鸡汤）；
-    2. 开发者头条APP中，个人公众号梦遥奇缘，订阅者534；
-</code></pre><h3 id="关于读书："><a href="#关于读书：" class="headerlink" title="关于读书："></a>关于读书：</h3><pre><code>* READ：
-    1. 东野圭吾的书目前正在看白夜行，已读（新参者、解忧杂货店、只差一个谎言、恶意、嫌疑人X的献身）
-    2. 别扯了时间根本不会改变一切（王远成）
-    3. 从0到1：开启商业与未来的秘密（蒂尔马斯特斯）
-    4. 黑客与画家（ 保罗•格雷厄姆）
-    5. redis设计与实现（黄健宏）
-    6. 算法的乐趣（王晓华）
-    7. app后台开发运维和架构实践（曾建生）
-    8. 我的第一本日语学习书（袁燕）
-    9. 购买了Reeder3，订阅好的博客（mottoin、代码家、SF头条、伯乐在线、标点符等值得拥有）
-</code></pre><h3 id="关于生活："><a href="#关于生活：" class="headerlink" title="关于生活："></a>关于生活：</h3><pre><code>* LIFE：
-    1. 买了人生第一个单反（70D，18-135），虽然已经在家吃灰，配置了台式电脑，入坑了守望屁股；
-    2. 续费了vps、域名，双十一也是那么坑（去年生日的时候买给自己的）；
-    3. 买了股票和万恶的数字币（区块链技术飞起）；
-    4. 夏、秋季时坚持每天去跑步，锻炼身体，入冬后就没了（北京的雾霾伤不起）；
-</code></pre><h3 id="关于社交："><a href="#关于社交：" class="headerlink" title="关于社交："></a>关于社交：</h3><pre><code>* CHAT：
-    1. 认识了一群逗比的朋友和同事；
-    2. 打游戏认识了俩基友；
-</code></pre><h3 id="关于未来："><a href="#关于未来：" class="headerlink" title="关于未来："></a>关于未来：</h3><pre><code>* FATURE：
-    1. 10月份办了护照，明年可以有一场说走就走的旅行；
-    2. GITHUB上可以多做几个有趣的东西，学习下py爬虫；
-    3. 在这个计划赶不上变化的人生，2017一切随缘把；
-    4. 未来还有很远，我在慢慢的前进；
-</code></pre><blockquote>
+    <content type="html"><![CDATA[<h3 id="关于GITHUB："><a href="#关于GITHUB：" class="headerlink" title="关于GITHUB："></a>关于GITHUB：</h3><ul>
+<li>GITHUB：<pre><code>1. 博客从wordpress转到了hexo，搭建了自己的博客，换了maupassant主题，添加了INS的图库感觉很帅；
+2. last year
+</code></pre></li>
+</ul>
+<p><img src="http://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600" alt="github"></p>
+<h3 id="关于工作："><a href="#关于工作：" class="headerlink" title="关于工作："></a>关于工作：</h3><ul>
+<li>WORK：<ol>
+<li>在盖娅司龄已经 一年半了，对于公司的业务也越来越熟悉，能快速完成工作上的任务，同时也踩了很多坑，也进步了很多，学到了很多东西；</li>
+<li>总结写代码时遇到的问题，以免下一次在碰到同样的问题 ，并整理发布到博客，记录一点一滴的进步；</li>
+<li>学习新技术和关注互联网动态，学习新的框架；</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于分享："><a href="#关于分享：" class="headerlink" title="关于分享："></a>关于分享：</h3><ul>
+<li>SHARE：<ol>
+<li>个人博客中16年累计41篇（包括心灵鸡汤）；</li>
+<li>开发者头条APP中，个人公众号梦遥奇缘，订阅者534；</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于读书："><a href="#关于读书：" class="headerlink" title="关于读书："></a>关于读书：</h3><ul>
+<li>READ：<ol>
+<li>东野圭吾的书目前正在看白夜行，已读（新参者、解忧杂货店、只差一个谎言、恶意、嫌疑人X的献身）</li>
+<li>别扯了时间根本不会改变一切（王远成）</li>
+<li>从0到1：开启商业与未来的秘密（蒂尔马斯特斯）</li>
+<li>黑客与画家（ 保罗•格雷厄姆）</li>
+<li>redis设计与实现（黄健宏）</li>
+<li>算法的乐趣（王晓华）</li>
+<li>app后台开发运维和架构实践（曾建生）</li>
+<li>我的第一本日语学习书（袁燕）</li>
+<li>购买了Reeder3，订阅好的博客（mottoin、代码家、SF头条、伯乐在线、标点符等值得拥有）</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于生活："><a href="#关于生活：" class="headerlink" title="关于生活："></a>关于生活：</h3><ul>
+<li>LIFE：<ol>
+<li>买了人生第一个单反（70D，18-135），虽然已经在家吃灰，配置了台式电脑，入坑了守望屁股；</li>
+<li>续费了vps、域名，双十一也是那么坑（去年生日的时候买给自己的）；</li>
+<li>买了股票和万恶的数字币（区块链技术飞起）；</li>
+<li>夏、秋季时坚持每天去跑步，锻炼身体，入冬后就没了（北京的雾霾伤不起）；</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于社交："><a href="#关于社交：" class="headerlink" title="关于社交："></a>关于社交：</h3><ul>
+<li>CHAT：<ol>
+<li>认识了一群逗比的朋友和同事；</li>
+<li>打游戏认识了俩基友；</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于未来："><a href="#关于未来：" class="headerlink" title="关于未来："></a>关于未来：</h3><ul>
+<li>FATURE：<ol>
+<li>10月份办了护照，明年可以有一场说走就走的旅行；</li>
+<li>GITHUB上可以多做几个有趣的东西，学习下py爬虫；</li>
+<li>在这个计划赶不上变化的人生，2017一切随缘把；</li>
+<li>未来还有很远，我在慢慢的前进；</li>
+</ol>
+</li>
+</ul>
+<blockquote>
 <p>By：梦遥奇缘</p>
 </blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;关于GITHUB：&quot;&gt;&lt;a href=&quot;#关于GITHUB：&quot; class=&quot;headerlink&quot; title=&quot;关于GITHUB：&quot;&gt;&lt;/a&gt;关于GITHUB：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* GITHUB：
-    1. 博客从wordpress转到了he
+      &lt;h3 id=&quot;关于GITHUB：&quot;&gt;&lt;a href=&quot;#关于GITHUB：&quot; class=&quot;headerlink&quot; title=&quot;关于GITHUB：&quot;&gt;&lt;/a&gt;关于GITHUB：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;GITHUB：&lt;pre&gt;&lt;code&gt;1. 博客从wordpress转到了
     
     </summary>
     
