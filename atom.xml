@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2016-12-30T09:34:44.291Z</updated>
+  <updated>2017-01-18T07:58:52.608Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ios安装plist文件</title>
+    <link href="http://idiot6.com/2017/01/18/plist/"/>
+    <id>http://idiot6.com/2017/01/18/plist/</id>
+    <published>2017-01-18T07:33:08.000Z</published>
+    <updated>2017-01-18T07:58:52.608Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="准备资源"><a href="#准备资源" class="headerlink" title="准备资源"></a>准备资源</h2><ol>
+<li>服务器必须支持<code>https</code>，且下载的文件也必须是<code>https</code>协议的下载源</li>
+<li>两张png图，即是安装完成后的icon（一张<code>57*57</code>,一张<code>114*114</code>）</li>
+<li>需要访问的文件，可放在<code>web</code>站资源，直接访问 </li>
+<li>文件<code>autoninstall.html</code>和<code>dai.plist</code>,下载可直接访问文件:<code>https://idiot6.com/autoninstall.html</code>(域名为测试地址，不可访问)</li>
+<li>主要是配置autoinstall.html中的doLocation路径和dai.plist文件中的<code>bundle-identifier</code>和图片资源、标题</li>
+<li>有个很严重的坑，就是plist文件会缓存，如果升级或者配置出问题并且上线，就要重新加<code>plist</code>文件,同事修改<code>autoinstall.html</code>中的路径</li>
+<li>配置文件如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/HTML; charset=utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"cache-control"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"</span> <span class="attr">name</span>=<span class="string">"viewport"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">function doLocation(url)</div><div class="line">&#123;</div><div class="line">  var a = document.createElement("a");</div><div class="line">  if(!a.click) &#123;</div><div class="line">    window.location = url;</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line">  a.setAttribute("href", url);</div><div class="line">  a.style.display = "none";</div><div class="line">  document.body.appendChild(a);</div><div class="line">  a.click();</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">doLocation('itms-services://?action=download-manifest&amp;url=https://idiot6.com/dai.plist');</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">key</span>&gt;</span>items<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">key</span>&gt;</span>assets<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>software-package<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>①ipa文件地址<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>full-size-image<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>needs-shine<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>②图片资源114x114.png<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>display-image<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>needs-shine<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>③图片资源57x57.png<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">key</span>&gt;</span>metadata<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>bundle-identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>④bundle-id<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>bundle-version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>software<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>subtitle<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>⑤标题<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>title<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>⑤标题<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;准备资源&quot;&gt;&lt;a href=&quot;#准备资源&quot; class=&quot;headerlink&quot; title=&quot;准备资源&quot;&gt;&lt;/a&gt;准备资源&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;服务器必须支持&lt;code&gt;https&lt;/code&gt;，且下载的文件也必须是&lt;code&gt;https&lt;/code&gt;协议
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="plist" scheme="http://idiot6.com/tags/plist/"/>
+    
+  </entry>
   
   <entry>
     <title>我的2016年</title>
@@ -855,39 +891,6 @@
       <category term="skill" scheme="http://idiot6.com/tags/skill/"/>
     
       <category term="problem" scheme="http://idiot6.com/tags/problem/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP工作原理</title>
-    <link href="http://idiot6.com/2016/05/13/HTTP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
-    <id>http://idiot6.com/2016/05/13/HTTP工作原理/</id>
-    <published>2016-05-13T15:55:53.000Z</published>
-    <updated>2016-08-31T09:45:19.207Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h1><ol>
-<li>HTTP 协议采用请求/响应模型。客户端向服务器发送一个请求报文，服务器以一个状态作为响应。</li>
-<li>以下是 HTTP 请求/响应的步骤：</li>
-<li>客户端连接到web服务器：HTTP 客户端与web服务器建立一个 TCP 连接;</li>
-<li>客户端向服务器发起 HTTP 请求：通过已建立的TCP 连接，客户端向服务器发送一个请求报文;</li>
-<li>服务器接收 HTTP 请求并返回 HTTP 响应：服务器解析请求，定位请求资源，服务器将资源副本写到 TCP 连接，由客户端读取;</li>
-<li>释放 TCP 连接：若connection模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;<h1 id="客户端浏览器解析HTML内容：客户端将服务器响应的-html-文本解析并显示"><a href="#客户端浏览器解析HTML内容：客户端将服务器响应的-html-文本解析并显示" class="headerlink" title="客户端浏览器解析HTML内容：客户端将服务器响应的 html 文本解析并显示;"></a>客户端浏览器解析HTML内容：客户端将服务器响应的 html 文本解析并显示;</h1>1.浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;<br>2.解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立 TCP 连接;<br>3.浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;<br>4.服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;<br>5.释放 TCP 连接;<br>6.浏览器将该 html 文本并显示内容;<h1 id="HTTP-无状态性"><a href="#HTTP-无状态性" class="headerlink" title="HTTP 无状态性"></a>HTTP 无状态性</h1>1.HTTP协议是无状态的stateless也就是说，同一个客户端第二次访问同一个服务器上的页面时，服务器无法知道这个客户端曾经访问过，服务器也无法分辨不同的客户端。HTTP 的无状态特性简化了服务器的设计，使服务器更容易支持大量并发的HTTP 请求。<h1 id="HTTP-持久连接"><a href="#HTTP-持久连接" class="headerlink" title="HTTP 持久连接"></a>HTTP 持久连接</h1>1.HTTP1.0 使用的是非持久连接，主要缺点是客户端必须为每一个待请求的对象建立并维护一个新的连接，即每请求一个文档就要有两倍RTT 的开销。因为同一个页面可能存在多个对象，所以非持久连接可能使一个页面的下载变得十分缓慢，而且这种短连接增加了网络传输的负担。HTTP1.1 使用持久连接keepalive，所谓持久连接，就是服务器在发送响应后仍然在一段时间内保持这条连接，允许在同一个连接中存在多次数据请求和响应，即在持久连接情况下，服务器在发送完响应后并不关闭TCP 连接，而客户端可以通过这个连接继续请求其他对象。<h1 id="HTTP-1-1-协议的持久连接有两种方式："><a href="#HTTP-1-1-协议的持久连接有两种方式：" class="headerlink" title="HTTP/1.1 协议的持久连接有两种方式："></a>HTTP/1.1 协议的持久连接有两种方式：</h1></li>
-<li>非流水线方式：客户在收到前一个响应后才能发出下一个请求;</li>
-<li>流水线方式：客户在收到 HTTP 的响应报文之前就能接着发送新的请求报文;</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;HTTP-工作原理&quot;&gt;&lt;a href=&quot;#HTTP-工作原理&quot; class=&quot;headerlink&quot; title=&quot;HTTP 工作原理&quot;&gt;&lt;/a&gt;HTTP 工作原理&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;HTTP 协议采用请求/响应模型。客户端向服务器发送一个请求报文，服务器
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="http" scheme="http://idiot6.com/tags/http/"/>
     
   </entry>
   
