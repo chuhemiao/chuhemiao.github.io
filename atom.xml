@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-01-18T07:58:52.608Z</updated>
+  <updated>2017-02-21T07:05:03.698Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php常用函数</title>
+    <link href="http://idiot6.com/2017/02/21/php_function/"/>
+    <id>http://idiot6.com/2017/02/21/php_function/</id>
+    <published>2017-02-21T06:24:27.000Z</published>
+    <updated>2017-02-21T07:05:03.698Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="判断当前域名是否是https模式"><a href="#判断当前域名是否是https模式" class="headerlink" title="判断当前域名是否是https模式"></a>判断当前域名是否是<code>https</code>模式</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHttps</span><span class="params">()</span></span>&#123; </div><div class="line">    <span class="keyword">if</span>(!<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTPS'</span>]))  <span class="keyword">return</span> <span class="keyword">false</span>; </div><div class="line">    <span class="keyword">if</span>($_SERVER[<span class="string">'HTTPS'</span>] === <span class="number">1</span>)&#123;  <span class="comment">//Apache </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125;<span class="keyword">elseif</span>($_SERVER[<span class="string">'HTTPS'</span>] === <span class="string">'on'</span>)&#123; <span class="comment">//IIS </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125;<span class="keyword">elseif</span>($_SERVER[<span class="string">'SERVER_PORT'</span>] == <span class="number">443</span>)&#123; <span class="comment">//其他 </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="验证网址"><a href="#验证网址" class="headerlink" title="验证网址"></a>验证网址</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">url</span><span class="params">( $str )</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">empty</span>( $str ) )</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">return</span> preg_match( <span class="string">'#(http|https|ftp|ftps)://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?#i'</span>, $str ) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="CURL请求数据"><a href="#CURL请求数据" class="headerlink" title="CURL请求数据"></a>CURL请求数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">sendByCurl</span><span class="params">($url, $mode, $params = <span class="string">''</span>, $timeout = <span class="number">10</span>)</span></span>&#123;</div><div class="line">    $ch = curl_init();</div><div class="line">    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); <span class="comment">//设置超时时间</span></div><div class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>); <span class="comment">//返回原生输出</span></div><div class="line">    <span class="keyword">if</span> ($mode == <span class="string">'post'</span>) &#123;</div><div class="line">        curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Expect:'</span>));</div><div class="line">        curl_setopt($ch, CURLOPT_POST, <span class="keyword">true</span>); <span class="comment">//发送一个常规的POST请求</span></div><div class="line">        curl_setopt($ch, CURLOPT_POSTFIELDS, $params); <span class="comment">//全部数据使用HTTP协议中的"POST"操作来发送</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        $url .= (strpos($url, <span class="string">'?'</span>) === <span class="keyword">false</span> ? <span class="string">'?'</span> : <span class="string">'&amp;'</span>) . http_build_query($params); <span class="comment">//如果是get,则会对url进行添加param参数</span></div><div class="line">    &#125;</div><div class="line">    curl_setopt($ch, CURLOPT_URL, $url); <span class="comment">// 需要获取的URL地址</span></div><div class="line">    $result = curl_exec($ch);</div><div class="line">    $errno = curl_errno($ch);</div><div class="line">    <span class="keyword">if</span> ($errno) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">            <span class="string">'errno'</span> =&gt; $errno,</div><div class="line">            <span class="string">'error'</span> =&gt; curl_error($ch),</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">    curl_close($ch);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;判断当前域名是否是https模式&quot;&gt;&lt;a href=&quot;#判断当前域名是否是https模式&quot; class=&quot;headerlink&quot; title=&quot;判断当前域名是否是https模式&quot;&gt;&lt;/a&gt;判断当前域名是否是&lt;code&gt;https&lt;/code&gt;模式&lt;/h2&gt;&lt;fig
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="function" scheme="http://idiot6.com/tags/function/"/>
+    
+      <category term="https" scheme="http://idiot6.com/tags/https/"/>
+    
+  </entry>
   
   <entry>
     <title>ios安装plist文件</title>
@@ -833,64 +860,6 @@
       <category term="phpize" scheme="http://idiot6.com/tags/phpize/"/>
     
       <category term="whereis" scheme="http://idiot6.com/tags/whereis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用到的技巧加小问题总结</title>
-    <link href="http://idiot6.com/2016/05/24/problem/"/>
-    <id>http://idiot6.com/2016/05/24/problem/</id>
-    <published>2016-05-24T13:55:27.000Z</published>
-    <updated>2016-09-20T07:48:43.696Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><p>1.检测php已经安装的扩展：<code>php -m</code><br>2.nginx重启: <code>service nginx reload</code><br>3.composer配置国内镜像:<code>composer config repo.packagist composer https://packagist.phpcomposer.com</code><br>4.laravel5.2默认不安装权限:<code>php artisan make:auth --views</code><br>5.生成key：<code>php artisan key:generate</code><br>6.导出数据库: <code>mysqldump</code> -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>7.当前页面刷新:<code>onclick=&quot;window.location.reload();&quot;</code><br>8.点击跳转: <code>onclick=&quot;document.location=&#39;http://www.baidu.com&#39;&quot;</code><br>9.谷歌会缓存dns，之前打开的错误页面再次访问仍然是错误的页面,须重启浏览器。<br>10.日期转时间戳在转日月年格式：<code>date(&#39;d M Y&#39;,strtotime($value-&gt;date))</code><br>11.<code>php -i</code> 和<code>phpinfo</code>效果一样，能看到当前的所有环境信息<br>12.<code>php -m</code> 查看当前已经安装的扩展</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>1.php5.3不支持[ ] 这中括号这种格式数组<br>2.php安装 出错，卸载重新安装  <code>skip-broken</code>报错也忽略</p>
-<ul>
-<li><code>yum install -y --skip-broken php-devel</code></li>
-</ul>
-<p>3.php-fpm启动,报错,无此用户，需修改<code>php-fpm.conf</code>文件<code>user</code>和<code>group</code>为当前运行的用户</p>
-<ul>
-<li><code>ERROR: [pool www] cannot get uid for user &#39;@chuhe@&#39;</code></li>
-<li><code>ERROR: FPM initialization failed</code></li>
-</ul>
-<p>4.svn锁死</p>
-<ul>
-<li><code>svn cleanup</code> 加当前的目录</li>
-<li>使用jobs 查看当前是否有停止的任务</li>
-<li>使用kill %加数字   代表当前有几个锁死的任务</li>
-<li><code>ping idiot6.com</code> 测试当前服务是否通</li>
-<li>使用<code>telnet idiot6.com 3690</code>   使用<code>telnet</code>查看当前的端口是否通</li>
-</ul>
-<p>5.检测当前怎样安装的php</p>
-<ul>
-<li><code>rpm -qa php</code></li>
-</ul>
-<p>6.yum安装库带devel和不带的区别</p>
-<ul>
-<li>devel是编译其他库但是依赖这个库的时候用的</li>
-<li>就是源码版, 没有devel的是二进制包, 编译好的</li>
-</ul>
-<p>7.短信验证码页面嵌套时，发送的短信每次session都会变<br>8.laravel5.2自定义分页，只需要修改<code>BootstrapFourPresenter.php</code>中的class属性为自己定义的样式即可<br>9.sql只用排序时，<code>order by</code> 字段（应该为int形）否侧是按字节排序</p>
-<blockquote>
-<p>这些天踩过的坑</p>
-<blockquote>
-<p>By 梦遥奇缘</p>
-</blockquote>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;skill&quot;&gt;&lt;a href=&quot;#skill&quot; class=&quot;headerlink&quot; title=&quot;skill&quot;&gt;&lt;/a&gt;skill&lt;/h2&gt;&lt;p&gt;1.检测php已经安装的扩展：&lt;code&gt;php -m&lt;/code&gt;&lt;br&gt;2.nginx重启: &lt;code&gt;ser
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="skill" scheme="http://idiot6.com/tags/skill/"/>
-    
-      <category term="problem" scheme="http://idiot6.com/tags/problem/"/>
     
   </entry>
   
