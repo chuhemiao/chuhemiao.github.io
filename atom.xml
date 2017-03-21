@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-02-21T07:05:03.698Z</updated>
+  <updated>2017-03-21T10:14:43.286Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GO基础安装</title>
+    <link href="http://idiot6.com/2017/03/21/golang_basic/"/>
+    <id>http://idiot6.com/2017/03/21/golang_basic/</id>
+    <published>2017-03-21T10:03:53.000Z</published>
+    <updated>2017-03-21T10:14:43.286Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="linux下安装go的步骤"><a href="#linux下安装go的步骤" class="headerlink" title="linux下安装go的步骤"></a>linux下安装go的步骤</h2><ul>
+<li><a href="https://golang.org/dl/" target="_blank" rel="external">GO下载地址</a></li>
+<li><code>wget   https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz</code></li>
+<li><code>tar -C /usr/local/ -xzf go1.7.4.linux-amd64.tar.gz</code></li>
+<li><p>#在/etc/profile添加变量</p>
+<ul>
+<li><code>vi /etc/profile</code></li>
+<li>#go 环境变量</li>
+<li><code>export GOROOT=/usr/local/go/bin</code></li>
+<li><code>export GOPATH=$PATH:$GOROOT/bin</code></li>
+<li><code>source /etc/profile</code></li>
+</ul>
+</li>
+<li><p>测试当前版本 <code>go version</code></p>
+</li>
+<li>构建GO  <code>/usr/local/go/src</code>   <code>./all.bash</code></li>
+</ul>
+<h2 id="NOTICE"><a href="#NOTICE" class="headerlink" title="NOTICE"></a>NOTICE</h2><ul>
+<li>如果当前没有安装之前版本(go1.6)，需要先安装低版本才能继续安装高版本</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;linux下安装go的步骤&quot;&gt;&lt;a href=&quot;#linux下安装go的步骤&quot; class=&quot;headerlink&quot; title=&quot;linux下安装go的步骤&quot;&gt;&lt;/a&gt;linux下安装go的步骤&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://gol
+    
+    </summary>
+    
+      <category term="GO" scheme="http://idiot6.com/categories/GO/"/>
+    
+    
+      <category term="golang" scheme="http://idiot6.com/tags/golang/"/>
+    
+  </entry>
   
   <entry>
     <title>php常用函数</title>
@@ -820,46 +863,6 @@
       <category term="wechat" scheme="http://idiot6.com/tags/wechat/"/>
     
       <category term="absolute" scheme="http://idiot6.com/tags/absolute/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP安装扩展!</title>
-    <link href="http://idiot6.com/2016/05/24/php%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95/"/>
-    <id>http://idiot6.com/2016/05/24/php安装扩展/</id>
-    <published>2016-05-24T15:45:27.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.下载需要安装的扩展包，解压并进入当前目录</p>
-<p>2.找到<code>phpize</code>目录，运行<code>/usr/local/php/bin/phpize</code></p>
-<ol>
-<li><code>./configure --with-php-config=/usr/local/php/bin/php-config</code></li>
-</ol>
-<p>4.<code>--with-php-config=/usr/local/php/bin/php-config</code>此处为指定安装路径</p>
-<p>5.如果不知道<code>phpize</code>目录,可执行<code>whereis phpize</code>或者<code>find / -name phpize</code></p>
-<blockquote>
-<p>By 这些年踩过的坑</p>
-<blockquote>
-<p>梦遥奇缘</p>
-</blockquote>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.下载需要安装的扩展包，解压并进入当前目录&lt;/p&gt;
-&lt;p&gt;2.找到&lt;code&gt;phpize&lt;/code&gt;目录，运行&lt;code&gt;/usr/local/php/bin/phpize&lt;/code&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;./configure --with-ph
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="phpize" scheme="http://idiot6.com/tags/phpize/"/>
-    
-      <category term="whereis" scheme="http://idiot6.com/tags/whereis/"/>
     
   </entry>
   
