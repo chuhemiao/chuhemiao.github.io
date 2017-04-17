@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter"><title>MySQL DBA 修炼之道读书笔记 | 梦遥奇缘</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">MySQL DBA 修炼之道读书笔记</h1><a id="logo" href="/.">梦遥奇缘</a><p class="description">想要，所以才去追寻--禾子</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/timeline/"><i class="fa fa-book"> timeline</i></a><a href="/instagram/"><i class="fa fa-picture-o"> album</i></a><a href="/music/"><i class="fa fa-music"> music</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/love/"><i class="fa fa-heart"> love</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">MySQL DBA 修炼之道读书笔记</h1><div class="post-meta">Apr 17, 2017<span> | </span><span class="category"><a href="/categories/PHP/">PHP</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/04/17/mysql_dba/" href="/2017/04/17/mysql_dba/#comments" class="ds-thread-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一章-理解mysql"><span class="toc-number">1.</span> <span class="toc-text">第一章:理解mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三章："><span class="toc-number">2.</span> <span class="toc-text">第三章：</span></a></li></ol></div></div><div class="post-content"><h3 id="第一章-理解mysql"><a href="#第一章-理解mysql" class="headerlink" title="第一章:理解mysql"></a>第一章:理解mysql</h3><ol>
+<li><p>三层架构:</p>
+<ol>
+<li>表现层(<code>UI</code>)，直接和用户交互的界面</li>
+<li>业务逻辑层(<code>BLL</code>)，对业务逻辑的处理，处理用户的请求</li>
+<li>数据访问层(<code>DAL</code>)，操作数据库，增删改查等</li>
+</ol>
+</li>
+<li><p><code>SQL</code>（结构化查询语言）是声明性语言，只告诉数据库要查询什么，并不告诉数据库如何去查询，数据库所要做的事基于算法和统计信息计算出最佳的访问路径，这个是由优化器(<code>optimizer</code>)来完成。</p>
+</li>
+<li><p>mysql权限:</p>
+<ol>
+<li>赋予查询，插入，修改，删除权限  <code>grant select,insert,update,delete on db_name.* to user_name@ &#39;10.%&#39; identified by  &#39;pwd&#39;</code></li>
+<li>删除权限:<code>revoke select,insert,update,delete on db_name.* from user_name@ &#39;10.%&#39;</code></li>
+</ol>
+</li>
+<li><p>数据库引擎:ARCHIVE存储引擎是被设计用来存储企业中的大量流水数据的存储引擎。使用zlib无损数据压缩，让数据都保存在压缩的存档表中。当数据被插入时，它们被压缩。只支持<code>insert</code>和<code>select</code>，支持自增键及其上的索引，不支持其他索引。适合做日志分析，用户行为分析，不需要<code>u、d</code>和索引的数据。</p>
+</li>
+<li><code>MySQL</code>是指<code>MYSQL</code>服务器，<code>mysql</code>指客户端</li>
+<li>清楚输入字符:可以用<code>&#39;\c</code>  如果前面语句为单引号则用单引，如果为双引则用双。</li>
+<li><code>MySQL</code>主要参数设置<ol>
+<li><code>innodb_buffer_pool_size</code>为了提升写性能，不清楚环境的数据和访问模式，应该设置为机器物理内存的70%-80%</li>
+<li><code>innodb_log_file_size</code>日志组里每个文件的大小，建议设置256mb或者更大</li>
+<li><code>innodb_flush_log_at_trx_commit</code>建议设置为2，默认为1，设置为2时，你爹事务提交时，日志缓冲被写到文件中，但不对日志文件到磁盘的操作</li>
+<li><code>sync_binlog</code>建议设置为0，不与磁盘同步。如果是<code>autocommit</code>模式，那么每执行一个语句就会像二进制日志写入一次，否则每个事务写入一次。</li>
+</ol>
+</li>
+</ol>
+<h3 id="第三章："><a href="#第三章：" class="headerlink" title="第三章："></a>第三章：</h3><ol>
+<li><p>开发基础：</p>
+<ol>
+<li>数据模型：是数据的定义和格式，即数据是如何组成的。关系数据库模型是以二维表的结构来标识实体与实体直接的关系，每个二维表又可称为关系。</li>
+<li>DLL=》数据定义语言（<code>Data Definition language</code>）是负责数据结构定义与数据库对象定义的语言，通常有用在创建数据库、创建表（<code>create、alter、drop</code>）；</li>
+<li>DML=》数据操作语言（<code>Data Manipulation Language</code>）是用来查询和修改数据的语句，包括（<code>select、insert、update、delete</code>）四种语句，就是所说的<code>CRUD（create、read、upadte、delete）</code></li>
+<li><code>XML（eXtensible Markup Language）</code>是可扩展标记语言，最开始设计<code>xml</code>的目的是为了在<code>Internet</code>上交换数据。</li>
+<li>xml被设计为传输和存储数据，其标签描述的是数据的内容，HTML被设计用来显示数据，其标签是用来格式化数据的。</li>
+</ol>
+</li>
+<li><p>数据类型：以下数据均为有符号（signed）</p>
+<ol>
+<li><code>tinyint</code>  占1字节   最小值  <code>-128~~127</code></li>
+<li><code>smallint</code>  2字节   <code>-32768 ~~ 32767</code></li>
+<li><code>mediumint</code>  3字节  <code>-8388608~~8388607</code></li>
+<li><code>int</code>     4字节  <code>-2147483648~~2147483647</code></li>
+<li><code>bigint</code>  8字节  <code>-9223372036954775808~~9223372036954775807</code></li>
+<li><code>float</code>  值会四舍五入</li>
+<li>日期和时间：<ol>
+<li>没有使用<code>NO_ZERO_DATES</code>的<code>SQL</code>模式，默认情况MySQL只允许在<code>date</code>或<code>datetime</code>列保存月和日是零的日期</li>
+<li><code>70~99</code>表示：<code>1970-1999</code></li>
+<li><code>00~69</code>表示：<code>2000-2069</code></li>
+<li>同时包含日期和时间信息：用<code>datetime</code> 8个字节</li>
+<li>只需要日期：用<code>date</code>  占3个字节</li>
+<li><code>timestamp</code>的值是以<code>utc</code>格式进行保存，存储时会对当前的时区进行转换，检索时在换回当前的时区。当前时区默认是<code>time_zone</code>系统变量，四个字节；</li>
+<li><code>time</code>类型，三个字节；</li>
+<li><code>year</code>类型，只显示年的时候用，1个字节。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>索引介绍：</p>
+</li>
+<li><p>种类分为以下几种：</p>
+<ol>
+<li>B树索引（<code>B-tree</code>）、散列索引（<code>hash</code>）、空间索引（<code>R-tree</code>）、全文索引（<code>full-text</code>）</li>
+<li>从逻辑上分：单列索引、复合索引（多列索引）、唯一索引（<code>Unique</code>）、非唯一（<code>Non Unique</code>）索引</li>
+</ol>
+</li>
+<li><p>簇索引：如果索引键值的逻辑顺序与索引所服务的表中相应行的屋里数序相同，那么就是簇索引，也称为聚集索引、聚簇索引。就是说数据和索引（<code>B+tree</code>）在一起，记录被真实地保存在索引的叶子中，簇索引也被称为索引组织表，反之为非聚集索引。<code>InnoDB</code>是聚集索引</p>
+</li>
+<li><p>索引查询：</p>
+<ol>
+<li>按最左前缀的原则进行筛选</li>
+</ol>
+</li>
+<li><p>MySQL优化器：</p>
+<ol>
+<li><code>explain</code>输出信息<code>extra</code>中表示的意义：<ol>
+<li><code>select  tables  optimized  away</code>  意思是查询所包含的<code>MIN、MAX</code>操作可以直接利用索引信息来解决，不用去检索物理记录。</li>
+<li><code>Using index</code>= 》表示覆盖索引（是指所有的数据都可以从索引中得到，不用去读取物理记录） </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://idiot6.com/2017/04/17/mysql_dba/" data-id="cj1m0wzne0000w7vh0alf8uhm" class="article-share-link">分享到</a><div class="tags"><a href="/tags/mysql/">mysql</a><a href="/tags/dba/">dba</a></div><div class="post-nav"><a href="/2017/03/21/golang_basic/" class="next">GO基础安装</a></div><div data-thread-key="2017/04/17/mysql_dba/" data-title="MySQL DBA 修炼之道读书笔记" data-url="http://idiot6.com/2017/04/17/mysql_dba/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/04/17/mysql_dba/" data-title="MySQL DBA 修炼之道读书笔记" data-url="http://idiot6.com/2017/04/17/mysql_dba/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://idiot6.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GO/">GO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Index/">Index</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LINUX/">LINUX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/YII/">YII</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人收录/">个人收录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心の栄養/">心の栄養</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/星座/">星座</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/qrcode/" style="font-size: 15px;">qrcode</a> <a href="/tags/点滴记录/" style="font-size: 15px;">点滴记录</a> <a href="/tags/413/" style="font-size: 15px;">413</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/http/" style="font-size: 15px;">http</a> <a href="/tags/libmcrypt/" style="font-size: 15px;">libmcrypt</a> <a href="/tags/mcrypt/" style="font-size: 15px;">mcrypt</a> <a href="/tags/vc6/" style="font-size: 15px;">vc6</a> <a href="/tags/vc9/" style="font-size: 15px;">vc9</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/NTS/" style="font-size: 15px;">NTS</a> <a href="/tags/busy/" style="font-size: 15px;">busy</a> <a href="/tags/Overtime/" style="font-size: 15px;">Overtime</a> <a href="/tags/公司/" style="font-size: 15px;">公司</a> <a href="/tags/dpkg/" style="font-size: 15px;">dpkg</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/error/" style="font-size: 15px;">error</a> <a href="/tags/facebook/" style="font-size: 15px;">facebook</a> <a href="/tags/pixels/" style="font-size: 15px;">pixels</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/golang/" style="font-size: 15px;">golang</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/high/" style="font-size: 15px;">high</a> <a href="/tags/面试-hr/" style="font-size: 15px;">面试,hr</a> <a href="/tags/instagram/" style="font-size: 15px;">instagram</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/phpize/" style="font-size: 15px;">phpize</a> <a href="/tags/whereis/" style="font-size: 15px;">whereis</a> <a href="/tags/function/" style="font-size: 15px;">function</a> <a href="/tags/https/" style="font-size: 15px;">https</a> <a href="/tags/url/" style="font-size: 15px;">url</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/plist/" style="font-size: 15px;">plist</a> <a href="/tags/skill/" style="font-size: 15px;">skill</a> <a href="/tags/problem/" style="font-size: 15px;">problem</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/share/" style="font-size: 15px;">share</a> <a href="/tags/facebook-tools/" style="font-size: 15px;">facebook_tools</a> <a href="/tags/time/" style="font-size: 15px;">time</a> <a href="/tags/改变/" style="font-size: 15px;">改变</a> <a href="/tags/knowledge/" style="font-size: 15px;">knowledge</a> <a href="/tags/atom/" style="font-size: 15px;">atom</a> <a href="/tags/yii2-0/" style="font-size: 15px;">yii2.0</a> <a href="/tags/want/" style="font-size: 15px;">want</a> <a href="/tags/need/" style="font-size: 15px;">need</a> <a href="/tags/wechat/" style="font-size: 15px;">wechat</a> <a href="/tags/absolute/" style="font-size: 15px;">absolute</a> <a href="/tags/win10/" style="font-size: 15px;">win10</a> <a href="/tags/working/" style="font-size: 15px;">working</a> <a href="/tags/yaf/" style="font-size: 15px;">yaf</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/yii/" style="font-size: 15px;">yii</a> <a href="/tags/心理/" style="font-size: 15px;">心理</a> <a href="/tags/乐心手环/" style="font-size: 15px;">乐心手环</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/UA/" style="font-size: 15px;">UA</a> <a href="/tags/美食/" style="font-size: 15px;">美食</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/上班/" style="font-size: 15px;">上班</a> <a href="/tags/迟到/" style="font-size: 15px;">迟到</a> <a href="/tags/面膜/" style="font-size: 15px;">面膜</a> <a href="/tags/Raffaello/" style="font-size: 15px;">Raffaello</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/dnspod/" style="font-size: 15px;">dnspod</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/七牛/" style="font-size: 15px;">七牛</a> <a href="/tags/typecho/" style="font-size: 15px;">typecho</a> <a href="/tags/资源/" style="font-size: 15px;">资源</a> <a href="/tags/app/" style="font-size: 15px;">app</a> <a href="/tags/感悟/" style="font-size: 15px;">感悟</a> <a href="/tags/ip/" style="font-size: 15px;">ip</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/dba/" style="font-size: 15px;">dba</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/17/mysql_dba/">MySQL DBA 修炼之道读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/golang_basic/">GO基础安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/php_function/">php常用函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/plist/">ios安装plist文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/30/2016end/">我的2016年</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/qrcode_imagecopyresampled/">php使用qrcode生成二维码，并合成为一张图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/curl_attachment/">curl访问https接口，点击图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/20161028/">呵呵的一周，终于过去了!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/work_night_day/">说好的不加班呢！！！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/github_hotkey/">github快捷键</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.lwxbk.com/" title="小新博客" target="_blank">小新博客</a><ul></ul><a href="http://www.baqiye.com/" title="扒企业" target="_blank">扒企业</a><ul></ul><a href="http://www.shengxuezixun.com/" title="升学咨询" target="_blank">升学咨询</a><ul></ul><a href="http://video.idiot6.com" title="影视白痴" target="_blank">影视白痴</a><ul></ul><a href="http://www.rumeng.gq" title="入梦|今生" target="_blank">入梦|今生</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <script src="//source.shengxuezixun.com/js%2Fstatis-code.js"></script><a href="/." rel="nofollow">梦遥奇缘.</a> 想要,才去追寻 @@禾子<a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a><span id="busuanzi_container_site_pv"></span>本站总访问量<span id="busuanzi_value_site_pv"></span>次</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'myoung'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-68661235-3','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>

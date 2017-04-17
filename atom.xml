@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-03-21T10:14:43.286Z</updated>
+  <updated>2017-04-17T11:14:35.933Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,119 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL DBA 修炼之道读书笔记</title>
+    <link href="http://idiot6.com/2017/04/17/mysql_dba/"/>
+    <id>http://idiot6.com/2017/04/17/mysql_dba/</id>
+    <published>2017-04-17T11:00:27.000Z</published>
+    <updated>2017-04-17T11:14:35.933Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="第一章-理解mysql"><a href="#第一章-理解mysql" class="headerlink" title="第一章:理解mysql"></a>第一章:理解mysql</h3><ol>
+<li><p>三层架构:</p>
+<ol>
+<li>表现层(<code>UI</code>)，直接和用户交互的界面</li>
+<li>业务逻辑层(<code>BLL</code>)，对业务逻辑的处理，处理用户的请求</li>
+<li>数据访问层(<code>DAL</code>)，操作数据库，增删改查等</li>
+</ol>
+</li>
+<li><p><code>SQL</code>（结构化查询语言）是声明性语言，只告诉数据库要查询什么，并不告诉数据库如何去查询，数据库所要做的事基于算法和统计信息计算出最佳的访问路径，这个是由优化器(<code>optimizer</code>)来完成。</p>
+</li>
+<li><p>mysql权限:</p>
+<ol>
+<li>赋予查询，插入，修改，删除权限  <code>grant select,insert,update,delete on db_name.* to user_name@ &#39;10.%&#39; identified by  &#39;pwd&#39;</code></li>
+<li>删除权限:<code>revoke select,insert,update,delete on db_name.* from user_name@ &#39;10.%&#39;</code></li>
+</ol>
+</li>
+<li><p>数据库引擎:ARCHIVE存储引擎是被设计用来存储企业中的大量流水数据的存储引擎。使用zlib无损数据压缩，让数据都保存在压缩的存档表中。当数据被插入时，它们被压缩。只支持<code>insert</code>和<code>select</code>，支持自增键及其上的索引，不支持其他索引。适合做日志分析，用户行为分析，不需要<code>u、d</code>和索引的数据。</p>
+</li>
+<li><code>MySQL</code>是指<code>MYSQL</code>服务器，<code>mysql</code>指客户端</li>
+<li>清楚输入字符:可以用<code>&#39;\c</code>  如果前面语句为单引号则用单引，如果为双引则用双。</li>
+<li><code>MySQL</code>主要参数设置<ol>
+<li><code>innodb_buffer_pool_size</code>为了提升写性能，不清楚环境的数据和访问模式，应该设置为机器物理内存的70%-80%</li>
+<li><code>innodb_log_file_size</code>日志组里每个文件的大小，建议设置256mb或者更大</li>
+<li><code>innodb_flush_log_at_trx_commit</code>建议设置为2，默认为1，设置为2时，你爹事务提交时，日志缓冲被写到文件中，但不对日志文件到磁盘的操作</li>
+<li><code>sync_binlog</code>建议设置为0，不与磁盘同步。如果是<code>autocommit</code>模式，那么每执行一个语句就会像二进制日志写入一次，否则每个事务写入一次。</li>
+</ol>
+</li>
+</ol>
+<h3 id="第三章："><a href="#第三章：" class="headerlink" title="第三章："></a>第三章：</h3><ol>
+<li><p>开发基础：</p>
+<ol>
+<li>数据模型：是数据的定义和格式，即数据是如何组成的。关系数据库模型是以二维表的结构来标识实体与实体直接的关系，每个二维表又可称为关系。</li>
+<li>DLL=》数据定义语言（<code>Data Definition language</code>）是负责数据结构定义与数据库对象定义的语言，通常有用在创建数据库、创建表（<code>create、alter、drop</code>）；</li>
+<li>DML=》数据操作语言（<code>Data Manipulation Language</code>）是用来查询和修改数据的语句，包括（<code>select、insert、update、delete</code>）四种语句，就是所说的<code>CRUD（create、read、upadte、delete）</code></li>
+<li><code>XML（eXtensible Markup Language）</code>是可扩展标记语言，最开始设计<code>xml</code>的目的是为了在<code>Internet</code>上交换数据。</li>
+<li>xml被设计为传输和存储数据，其标签描述的是数据的内容，HTML被设计用来显示数据，其标签是用来格式化数据的。</li>
+</ol>
+</li>
+<li><p>数据类型：以下数据均为有符号（signed）</p>
+<ol>
+<li><code>tinyint</code>  占1字节   最小值  <code>-128~~127</code></li>
+<li><code>smallint</code>  2字节   <code>-32768 ~~ 32767</code></li>
+<li><code>mediumint</code>  3字节  <code>-8388608~~8388607</code></li>
+<li><code>int</code>     4字节  <code>-2147483648~~2147483647</code></li>
+<li><code>bigint</code>  8字节  <code>-9223372036954775808~~9223372036954775807</code></li>
+<li><code>float</code>  值会四舍五入</li>
+<li>日期和时间：<ol>
+<li>没有使用<code>NO_ZERO_DATES</code>的<code>SQL</code>模式，默认情况MySQL只允许在<code>date</code>或<code>datetime</code>列保存月和日是零的日期</li>
+<li><code>70~99</code>表示：<code>1970-1999</code></li>
+<li><code>00~69</code>表示：<code>2000-2069</code></li>
+<li>同时包含日期和时间信息：用<code>datetime</code> 8个字节</li>
+<li>只需要日期：用<code>date</code>  占3个字节</li>
+<li><code>timestamp</code>的值是以<code>utc</code>格式进行保存，存储时会对当前的时区进行转换，检索时在换回当前的时区。当前时区默认是<code>time_zone</code>系统变量，四个字节；</li>
+<li><code>time</code>类型，三个字节；</li>
+<li><code>year</code>类型，只显示年的时候用，1个字节。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>索引介绍：</p>
+</li>
+<li><p>种类分为以下几种：</p>
+<ol>
+<li>B树索引（<code>B-tree</code>）、散列索引（<code>hash</code>）、空间索引（<code>R-tree</code>）、全文索引（<code>full-text</code>）</li>
+<li>从逻辑上分：单列索引、复合索引（多列索引）、唯一索引（<code>Unique</code>）、非唯一（<code>Non Unique</code>）索引</li>
+</ol>
+</li>
+<li><p>簇索引：如果索引键值的逻辑顺序与索引所服务的表中相应行的屋里数序相同，那么就是簇索引，也称为聚集索引、聚簇索引。就是说数据和索引（<code>B+tree</code>）在一起，记录被真实地保存在索引的叶子中，簇索引也被称为索引组织表，反之为非聚集索引。<code>InnoDB</code>是聚集索引</p>
+</li>
+<li><p>索引查询：</p>
+<ol>
+<li>按最左前缀的原则进行筛选</li>
+</ol>
+</li>
+<li><p>MySQL优化器：</p>
+<ol>
+<li><code>explain</code>输出信息<code>extra</code>中表示的意义：<ol>
+<li><code>select  tables  optimized  away</code>  意思是查询所包含的<code>MIN、MAX</code>操作可以直接利用索引信息来解决，不用去检索物理记录。</li>
+<li><code>Using index</code>= 》表示覆盖索引（是指所有的数据都可以从索引中得到，不用去读取物理记录） </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;第一章-理解mysql&quot;&gt;&lt;a href=&quot;#第一章-理解mysql&quot; class=&quot;headerlink&quot; title=&quot;第一章:理解mysql&quot;&gt;&lt;/a&gt;第一章:理解mysql&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;三层架构:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;表现层(&lt;c
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="mysql" scheme="http://idiot6.com/tags/mysql/"/>
+    
+      <category term="dba" scheme="http://idiot6.com/tags/dba/"/>
+    
+  </entry>
   
   <entry>
     <title>GO基础安装</title>
@@ -829,40 +942,6 @@
     
     
       <category term="git" scheme="http://idiot6.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信分享到朋友圈，使用特定Logo</title>
-    <link href="http://idiot6.com/2016/05/26/wechat_share/"/>
-    <id>http://idiot6.com/2016/05/26/wechat_share/</id>
-    <published>2016-05-26T14:45:08.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.标题：会取当前页面title里面的内容。<br>2.图片：会取当前页面body内最前面的一张符合条件的图片。<br>3.图片规格有要求：</p>
-<ul>
-<li>尺寸必须大于： 300px × 300px</li>
-<li>把符合以上两个条件的图片放到<code>&lt;img&gt;</code>里，放到页面<code>&lt;body&gt;</code>内的最前面。</li>
-<li>这样分享时就会取这张图作为缩略图了。</li>
-</ul>
-<p>4.<code>&lt;img style=&quot;position:absolute;top:-200%;left: -200%;display:block&quot; src=&quot;http://source.shengxuezixun.com/images/author.jpg&quot; &gt;</code><br>5.更新了n次，忘记提交图片，忧伤！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.标题：会取当前页面title里面的内容。&lt;br&gt;2.图片：会取当前页面body内最前面的一张符合条件的图片。&lt;br&gt;3.图片规格有要求：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;尺寸必须大于： 300px × 300px&lt;/li&gt;
-&lt;li&gt;把符合以上两个条件的图片放到&lt;code&gt;&amp;l
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="wechat" scheme="http://idiot6.com/tags/wechat/"/>
-    
-      <category term="absolute" scheme="http://idiot6.com/tags/absolute/"/>
     
   </entry>
   
