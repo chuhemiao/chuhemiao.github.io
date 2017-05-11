@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-04-17T11:14:35.933Z</updated>
+  <updated>2017-05-11T08:39:02.940Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个你想用的vpn，免费5G，可续命</title>
+    <link href="http://idiot6.com/2017/05/11/freecatvpn/"/>
+    <id>http://idiot6.com/2017/05/11/freecatvpn/</id>
+    <published>2017-05-11T08:40:53.000Z</published>
+    <updated>2017-05-11T08:39:02.940Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="vpn翻墙"><a href="#vpn翻墙" class="headerlink" title="vpn翻墙"></a>vpn翻墙</h2><p>1.<a href="http://www.freecatvpn.net/" target="_blank" rel="external">freecatvpn</a>，go go out ，我们去油管看视频去！</p>
+<p>2.初始免费5G,不限速，每天可续命，也可直接付费，注册须邀请码，官网没有的话，请邮件我，会最快回复你，或者加群QQ群：604297136，也可twitter@：meng535101602，祝您使用愉快。</p>
+<p>3.免费教、免费用，更多使用请访问官方网站或者加群咨询。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;vpn翻墙&quot;&gt;&lt;a href=&quot;#vpn翻墙&quot; class=&quot;headerlink&quot; title=&quot;vpn翻墙&quot;&gt;&lt;/a&gt;vpn翻墙&lt;/h2&gt;&lt;p&gt;1.&lt;a href=&quot;http://www.freecatvpn.net/&quot; target=&quot;_blank&quot; rel
+    
+    </summary>
+    
+      <category term="vpn" scheme="http://idiot6.com/categories/vpn/"/>
+    
+    
+      <category term="vpn" scheme="http://idiot6.com/tags/vpn/"/>
+    
+      <category term="Shadowsocks" scheme="http://idiot6.com/tags/Shadowsocks/"/>
+    
+      <category term="freecatvpn" scheme="http://idiot6.com/tags/freecatvpn/"/>
+    
+      <category term="梯子" scheme="http://idiot6.com/tags/%E6%A2%AF%E5%AD%90/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL DBA 修炼之道读书笔记</title>
@@ -869,79 +900,6 @@
     
     
       <category term="nginx" scheme="http://idiot6.com/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git的使用</title>
-    <link href="http://idiot6.com/2016/06/28/git%E4%BD%BF%E7%94%A8/"/>
-    <id>http://idiot6.com/2016/06/28/git使用/</id>
-    <published>2016-06-28T08:08:53.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="GIT安装"><a href="#GIT安装" class="headerlink" title="GIT安装"></a>GIT安装</h2><p><code>homebrew http://brew.sh/</code></p>
-<p><code>git config --global user.name &#39;chuhemiao&#39;</code></p>
-<p><code>git config --global user.email &#39;yifeng826@vip.qq.com&#39;</code></p>
-<h2 id="创建git版本库-本质上就是创建一个目录，然后把这个目录交给git管理"><a href="#创建git版本库-本质上就是创建一个目录，然后把这个目录交给git管理" class="headerlink" title="创建git版本库(本质上就是创建一个目录，然后把这个目录交给git管理)"></a>创建git版本库(本质上就是创建一个目录，然后把这个目录交给git管理)</h2><p><code>mkdir gitrepository</code></p>
-<p><code>git init</code></p>
-<p>.git隐藏目录</p>
-<h2 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h2><p>1, 新增一个文件</p>
-<p><code>touch README.md</code></p>
-<p><code>vim READEME.md</code></p>
-<p><code>Welcome to git world!!!</code></p>
-<p><code>git status / git status -s</code></p>
-<p><code>git add READEME.md</code></p>
-<p><code>git commit -m &#39;add a reademe file&#39;</code></p>
-<p>2, 修改一个文件</p>
-<p>同上</p>
-<p>修改了一个文件，可以通过git diff filename 查看文件不同<br>git diff HEAD – readme.txt命令可以查看工作区和版本库里面最新版本的区别</p>
-<p>##版本回退</p>
-<p><code>git reset HEAD filename</code></p>
-<p>–hard 谨慎使用<br><code>git reset --hard HEAD^</code> 回退到上一个版本</p>
-<p><code>git reset --hard HEAD~n</code> 回到上n个版本，若不存在，会报错</p>
-<p><code>git reset --hard commitid</code> 回到指定版本号</p>
-<p><code>git revert commitid</code></p>
-<p>提交了一次，然后修改了两次<br>可通过git log查看历史提交版本<br><code>git log --pretty=oneline</code></p>
-<p><code>git reflog</code> 用来记录你的每一次命令,用来获取commit id,以确定回退到哪个版本</p>
-<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2><p>1, 工作区</p>
-<p>就是我们创建的gitrepository<br>2, 暂存区</p>
-<p>git init 产生的.git 目录就是一个git版本库</p>
-<p>.git 包含很多东西</p>
-<p>a, stage 暂存区</p>
-<p>b, git为我们自动创建的第一个分支master</p>
-<p>c, 指向master的一个指针HEAD</p>
-<p>简单说明下刚刚提叫文件的一个过程</p>
-<p><code>git add filename</code> 实际上就是把工作区的文件添加到暂存区(stage)</p>
-<p><code>git commit</code> 提交文件，把暂存区(stage)所有内容提交到当前分支(这里指的是master)</p>
-<h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2><p>修改之后一定要先<code>git add ,git commit</code> 才能生效</p>
-<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><p>命令<code>git checkout -- README.md</code>意思就是，把<code>README.md</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
-<p>一种是README.md自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
-<p>下面需要先<code>git reset HEAD README.md</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区</p>
-<p>一种是README.md已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
-<p>一种是已经<code>git commit</code>了， 版本回退</p>
-<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态</p>
-<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>rm README.md</code></p>
-<p><code>git rm README.md</code></p>
-<p>若你只进行了git add 而没有进行git commit </p>
-<p>做了<code>git rm -f README.md</code>,则无法恢复了，若做了<code>rm README.md</code> 则可以通过<code>git checkout -- README.md</code>恢复</p>
-<p>恢复暂存区内容：<code>git reset HEAD README.md</code></p>
-<p><code>git checkout -- README.md</code><br>这样就恢复了</p>
-<h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><p><code>git remote add origin https://github.com/chuhemiao/baqiye.git</code><br><code>git push -u origin master</code></p>
-<p><code>git pull</code> 从远程仓库获取最新代码</p>
-<p><code>git clone</code> 从远程仓库克隆代码</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;GIT安装&quot;&gt;&lt;a href=&quot;#GIT安装&quot; class=&quot;headerlink&quot; title=&quot;GIT安装&quot;&gt;&lt;/a&gt;GIT安装&lt;/h2&gt;&lt;p&gt;&lt;code&gt;homebrew http://brew.sh/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git con
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="git" scheme="http://idiot6.com/tags/git/"/>
     
   </entry>
   
