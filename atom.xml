@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-05-11T08:39:02.940Z</updated>
+  <updated>2017-07-25T06:13:39.715Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里云低配ECS NPM线上打包卡死解决办法</title>
+    <link href="http://idiot6.com/2017/07/25/npm_run_pro_error/"/>
+    <id>http://idiot6.com/2017/07/25/npm_run_pro_error/</id>
+    <published>2017-07-25T15:45:27.000Z</published>
+    <updated>2017-07-25T06:13:39.715Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.<code>npm install</code> #没问题</p>
+<p>2.<code>npm run production</code> 打包进行中，经历了三次，最多到65%，后来直接vps挂掉（cpu没满，可能是I/O瓶颈，用的是低配），重启然后加swap。</p>
+<p>3.创建文件作为交换分区（相当于 Windows 的虚拟内存页面文件 3GB）：<code>dd if=/dev/zero of=/mnt/swap bs=1024 count=3194304</code> </p>
+<p>4.设置交换分区文件：<code>mkswap /mnt/swap swapon /mnt/swap</code></p>
+<p>5.加入挂载点：<code>echo &quot;/mnt/swap swap swap defaults 0 0&quot; &gt;&gt; /etc/fstab</code></p>
+<p>6.挂载：<code>SWAP： mount -a</code></p>
+<blockquote>
+<p>By 这些年踩过的坑</p>
+<blockquote>
+<p>梦遥奇缘</p>
+</blockquote>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.&lt;code&gt;npm install&lt;/code&gt; #没问题&lt;/p&gt;
+&lt;p&gt;2.&lt;code&gt;npm run production&lt;/code&gt; 打包进行中，经历了三次，最多到65%，后来直接vps挂掉（cpu没满，可能是I/O瓶颈，用的是低配），重启然后加swap。&lt;/p
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="NPM" scheme="http://idiot6.com/tags/NPM/"/>
+    
+      <category term="swap" scheme="http://idiot6.com/tags/swap/"/>
+    
+  </entry>
   
   <entry>
     <title>一个你想用的vpn，免费5G，可续命</title>
@@ -858,48 +895,6 @@
       <category term="libmcrypt" scheme="http://idiot6.com/tags/libmcrypt/"/>
     
       <category term="mcrypt" scheme="http://idiot6.com/tags/mcrypt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx problem问题!</title>
-    <link href="http://idiot6.com/2016/06/30/nginx_problem/"/>
-    <id>http://idiot6.com/2016/06/30/nginx_problem/</id>
-    <published>2016-06-30T04:45:27.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use"><a href="#Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use" class="headerlink" title="Nginx [emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)"></a><code>Nginx [emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)</code></h1><p>1.意思是重复绑定了<code>server name</code>,但这个警告不会影响到服务器运行。是重复绑定的意思是现在运行的nginx服务和将要加载的新配置中的重复，所以，这个警告其实是不必的。</p>
-<p>2.使用命令关闭占用80端口的程序</p>
-<pre><code>+ `sudo fuser -k 80/tcp`
-</code></pre><p>3.nginx指定配置文件</p>
-<pre><code>+ 执行可以使用-c指定配置文件，拿你的配置来说，比如酱紫`/etc/nginx/sbin/nginx -c /data/conf/nginx.conf`在`nginx.conf`中指定其他内容的路径即可。
-</code></pre><p>4.重启nginx： <code>/usr/local/nginx/sbin/nginx -s reload</code><br>5.查看nginx进程是否在运行</p>
-<pre><code>+ `ps aux | grep nginx`
-</code></pre><p>6.查看nginx是否有在监听80端口或者你设置的其他端口</p>
-<pre><code>+ `netstat -tnlp | grep nginx`
-</code></pre><p>7.查看日志的最新几行</p>
-<pre><code>+ `tail -n error.log`
-</code></pre><ol>
-<li>nginx增加全局或者其它服务<ul>
-<li><code>vim /etc/profile</code></li>
-<li><code>PATH=$PATH:/usr/local/nginx/sbin/nginx</code>    后面指定需要的服务安装路径</li>
-<li><code>source /etc/profile</code></li>
-</ul>
-</li>
-</ol>
-<p>6.杀死<code>php-fpm</code>：<code>pkill   php-fpm</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-in-use&quot;&gt;&lt;a href=&quot;#Nginx-emerg-bind-to-0-0-0-0-80-failed-98-Address-already-
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="nginx" scheme="http://idiot6.com/tags/nginx/"/>
     
   </entry>
   
