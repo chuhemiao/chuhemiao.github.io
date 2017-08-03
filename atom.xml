@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-07-25T06:13:39.715Z</updated>
+  <updated>2017-08-03T11:05:46.535Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>经典抽奖算法</title>
+    <link href="http://idiot6.com/2017/08/03/lottery_active/"/>
+    <id>http://idiot6.com/2017/08/03/lottery_active/</id>
+    <published>2017-08-03T10:59:27.000Z</published>
+    <updated>2017-08-03T11:05:46.535Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="定义中奖概率数组"><a href="#定义中奖概率数组" class="headerlink" title="定义中奖概率数组"></a>定义中奖概率数组</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> $innerRate = <span class="keyword">array</span>(</div><div class="line"><span class="string">'1'</span> =&gt; <span class="number">1</span>,</div><div class="line"><span class="string">'2'</span> =&gt; <span class="number">200</span>,</div><div class="line"><span class="string">'3'</span> =&gt; <span class="number">500</span>,</div><div class="line"><span class="string">'4'</span> =&gt; <span class="number">100000</span>,</div><div class="line"><span class="string">'5'</span> =&gt; <span class="number">300000</span>,</div><div class="line"><span class="string">'6'</span> =&gt; <span class="number">1693000</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>1.<code>$i = $this-&gt;getRand($this-&gt;innerRate)</code>;<br>2.根据返回的$i,处理当前返回逻辑，if和switch都可以。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>($i==<span class="number">1</span>)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"一等奖"</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"二等奖"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="基础函数"><a href="#基础函数" class="headerlink" title="基础函数"></a>基础函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getRand</span><span class="params">($proArr)</span></span></div><div class="line">&#123;</div><div class="line">    $result = <span class="string">''</span>;</div><div class="line">    <span class="comment">// 概率数组的总概率精度</span></div><div class="line">    $proSum = array_sum($proArr);</div><div class="line">    <span class="comment">// 概率数组循环</span></div><div class="line">    <span class="keyword">foreach</span> ($proArr <span class="keyword">as</span> $key =&gt; $proCur) &#123;</div><div class="line">        $randNum = mt_rand(<span class="number">1</span>, $proSum); <span class="comment">// 抽取随机数</span></div><div class="line">        <span class="keyword">if</span> ($randNum &lt;= $proCur) &#123;</div><div class="line">            $result = $key; <span class="comment">// 得出结果</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $proSum -= $proCur;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">unset</span>($proArr);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;定义中奖概率数组&quot;&gt;&lt;a href=&quot;#定义中奖概率数组&quot; class=&quot;headerlink&quot; title=&quot;定义中奖概率数组&quot;&gt;&lt;/a&gt;定义中奖概率数组&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="lottery" scheme="http://idiot6.com/tags/lottery/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里云低配ECS NPM线上打包卡死解决办法</title>
@@ -863,38 +888,6 @@
       <category term="share" scheme="http://idiot6.com/tags/share/"/>
     
       <category term="facebook_tools" scheme="http://idiot6.com/tags/facebook-tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php安装libmcrypt和mcrypt扩展</title>
-    <link href="http://idiot6.com/2016/07/04/Libmcrypt/"/>
-    <id>http://idiot6.com/2016/07/04/Libmcrypt/</id>
-    <published>2016-07-04T06:44:20.000Z</published>
-    <updated>2016-09-06T02:44:34.930Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="第一步-下载扩展"><a href="#第一步-下载扩展" class="headerlink" title="第一步:下载扩展"></a>第一步:下载扩展</h2><p>1.<a href="https://sourceforge.net/projects/mcrypt/" target="_blank" rel="external">mcrypt</a><br>2.<a href="http://zh.osdn.jp/projects/sfnet_mcrypt/downloads/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz/" target="_blank" rel="external">libmcrypt</a></p>
-<h2 id="第二部：解压并进入到相应目录"><a href="#第二部：解压并进入到相应目录" class="headerlink" title="第二部：解压并进入到相应目录"></a>第二部：解压并进入到相应目录</h2><p>1.使用phpize模式去安装<br>2.<code>/usr/local/php/bin/phpize</code>   如果不知道位置（<code>whereis phpize</code>）</p>
-<ol>
-<li><code>./configure --with-php-config=/usr/local/php/bin/php-config</code>   其中<code>/usr/local/php/bin/php-config</code>这个为<code>php-config</code>的路径,此目录和phpize同级</li>
-<li><code>make &amp;&amp; make install</code><h2 id="第三步：找到php-ini配置"><a href="#第三步：找到php-ini配置" class="headerlink" title="第三步：找到php.ini配置"></a>第三步：找到<code>php.ini</code>配置</h2>1.在最后加上<code>extension=mcrypt.so</code>,<code>extension=libmcrypt.so</code><br>2.然后重启<code>php-fpm</code></li>
-<li><code>php -m</code> 测试已安装的扩展</li>
-</ol>
-<p>4.此文比较麻烦的感觉是下载扩展的地址，害我加班囧囧囧！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一步-下载扩展&quot;&gt;&lt;a href=&quot;#第一步-下载扩展&quot; class=&quot;headerlink&quot; title=&quot;第一步:下载扩展&quot;&gt;&lt;/a&gt;第一步:下载扩展&lt;/h2&gt;&lt;p&gt;1.&lt;a href=&quot;https://sourceforge.net/projects/mc
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="libmcrypt" scheme="http://idiot6.com/tags/libmcrypt/"/>
-    
-      <category term="mcrypt" scheme="http://idiot6.com/tags/mcrypt/"/>
     
   </entry>
   
