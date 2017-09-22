@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-08-03T11:05:46.535Z</updated>
+  <updated>2017-09-22T09:33:53.091Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>站长百度百家号添加json_ld报错</title>
+    <link href="http://idiot6.com/2017/09/22/baijiahao/"/>
+    <id>http://idiot6.com/2017/09/22/baijiahao/</id>
+    <published>2017-09-22T09:40:53.000Z</published>
+    <updated>2017-09-22T09:33:53.091Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="添加canonical标签（必选）"><a href="#添加canonical标签（必选）" class="headerlink" title="添加canonical标签（必选）"></a>添加canonical标签（必选）</h2><p>1.<code>&lt;link rel=&quot;canonical&quot; href=&quot;http(s)://xxx&quot;/&gt;</code><br>2.要求href的内容为mip页或h5页对应的PC页地址；如果没有PC页，则填写当前页面地址。</p>
+<h3 id="添加json-ld数据"><a href="#添加json-ld数据" class="headerlink" title="添加json_ld数据"></a>添加json_ld数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"application/ld+json"</span>&gt;</div><div class="line">&#123;</div><div class="line">    <span class="string">"@context"</span>:<span class="string">"https://zhanzhang.baidu.com/contexts/cambrian.jsonld"</span>,</div><div class="line">    <span class="string">"@id"</span>:<span class="string">"https://btxiaobai.com/coinbaseethltc.html"</span>,</div><div class="line">    <span class="string">"title"</span>:<span class="string">"币圈大佬coinbase新增ETH和LTC钱包存储"</span>,</div><div class="line">    <span class="string">"images"</span>:[</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/21/3FjRPCI635TFPHViuAaGa8kqzr0RTWTgjdTClOiN.png"</span>,</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/21/TZpJXC0I7rV9YkG8gkrw0T4LL3XysM87y6KB5ifs.png"</span>,</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/20/mPUtYXFtBOz3N9M9bcGO1TIztbzJmDtHOSKqnchL.png"</span></div><div class="line">        ],</div><div class="line">    <span class="string">"description"</span>:<span class="string">"coinbase新增ETH和LTC钱包存储"</span>,</div><div class="line">    <span class="string">"pubDate"</span>:<span class="string">"2017-09-22T16:23:00"</span></div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>1.注意所有数据之前不能有空格、换行等特殊字符、时间字段须加T、图片最多三张、id为当前网页url！</p>
+<h3 id="添加官方号ID声明（H5页面必选）"><a href="#添加官方号ID声明（H5页面必选）" class="headerlink" title="添加官方号ID声明（H5页面必选）"></a>添加官方号ID声明（H5页面必选）</h3><ol>
+<li>在页面标签前添加代码、appid为当前已添加到站长网站的appid</li>
+<li><code>eg:&lt;script src=&quot;//msite.baidu.com/sdk/c.js?appid=123456789&quot;&gt;&lt;/script&gt;</code></li>
+</ol>
+<h3 id="添加关注功能代码（强烈推荐）或者是mip页面"><a href="#添加关注功能代码（强烈推荐）或者是mip页面" class="headerlink" title="添加关注功能代码（强烈推荐）或者是mip页面"></a>添加关注功能代码（强烈推荐）或者是mip页面</h3><p>1.吸顶bar <code>&lt;script&gt;cambrian.render(&#39;head&#39;)&lt;/script&gt;</code></p>
+<h3 id="格式校验"><a href="#格式校验" class="headerlink" title="格式校验"></a>格式校验</h3><p>1.复制当前文章页url、粘贴到校验地址上。</p>
+<p>2.右键查看当前网页源代码，粘贴到网页源码选项。</p>
+<p>3.点击校验，如出现json_ld格式错误，请查看提示（绝大多数是格式问题）。</p>
+<h3 id="数据提交"><a href="#数据提交" class="headerlink" title="数据提交"></a>数据提交</h3><p>1.脚本提交数据，用php取出当前网站url，push到百度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$urls = <span class="keyword">array</span>(</div><div class="line">    <span class="string">'https://www.btxiaobai.com/eroscoin.html'</span>,</div><div class="line">    <span class="string">'https://www.btxiaobai.com/j-japan-bitecoin.html'</span>,</div><div class="line">);</div><div class="line">$api = <span class="string">'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&amp;token=此处为你站长的token&amp;type=realtime'</span>;</div><div class="line">$ch = curl_init();</div><div class="line">$options =  <span class="keyword">array</span>(</div><div class="line">    CURLOPT_URL =&gt; $api,</div><div class="line">    CURLOPT_POST =&gt; <span class="keyword">true</span>,</div><div class="line">    CURLOPT_RETURNTRANSFER =&gt; <span class="keyword">true</span>,</div><div class="line">    CURLOPT_POSTFIELDS =&gt; implode(<span class="string">"\n"</span>, $urls),</div><div class="line">    CURLOPT_HTTPHEADER =&gt; <span class="keyword">array</span>(<span class="string">'Content-Type: text/plain'</span>),</div><div class="line">);</div><div class="line">curl_setopt_array($ch, $options);</div><div class="line">$result = curl_exec($ch);</div><div class="line"><span class="keyword">echo</span> $result;</div></pre></td></tr></table></figure>
+<p><img src="https://cdn.btxiaobai.com/article/2017/09/22/eHei4zYsn3vEI8yKdcPCNJdglY1vwwzYDS6ArCMQ.png" alt="返回结果"></p>
+<h3 id="效果查看"><a href="#效果查看" class="headerlink" title="效果查看"></a>效果查看</h3><p><a href="https://btxiaobai.com" target="_blank" rel="external">比特币小白</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;添加canonical标签（必选）&quot;&gt;&lt;a href=&quot;#添加canonical标签（必选）&quot; class=&quot;headerlink&quot; title=&quot;添加canonical标签（必选）&quot;&gt;&lt;/a&gt;添加canonical标签（必选）&lt;/h2&gt;&lt;p&gt;1.&lt;code&gt;&amp;l
+    
+    </summary>
+    
+      <category term="php" scheme="http://idiot6.com/categories/php/"/>
+    
+    
+      <category term="json_ld" scheme="http://idiot6.com/tags/json-ld/"/>
+    
+      <category term="canonical" scheme="http://idiot6.com/tags/canonical/"/>
+    
+  </entry>
   
   <entry>
     <title>经典抽奖算法</title>
@@ -836,58 +875,6 @@
       <category term="busy" scheme="http://idiot6.com/tags/busy/"/>
     
       <category term="Overtime" scheme="http://idiot6.com/tags/Overtime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>指定图片分享到facebook，fb图片缓存问题</title>
-    <link href="http://idiot6.com/2016/07/19/share_facebook/"/>
-    <id>http://idiot6.com/2016/07/19/share_facebook/</id>
-    <published>2016-07-19T04:45:27.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="使用share-js插件分享到社交媒体"><a href="#使用share-js插件分享到社交媒体" class="headerlink" title="使用share.js插件分享到社交媒体"></a>使用share.js插件分享到社交媒体</h2><p>1.使用教程请移步到<a href="http://overtrue.me/share.js/" target="_blank" rel="external">overtrue</a></p>
-<p>2.分享到fb时，图片出现缓存问题</p>
-<ul>
-<li>清除缓存：<code>https://developers.facebook.com/tools/debug/</code></li>
-<li><img src="http://source.shengxuezixun.com/facebook_clear.png" alt="facebook"></li>
-</ul>
-<p>3.点击debug之后:</p>
-<ul>
-<li><img src="http://source.shengxuezixun.com/fb_url.png" alt="facebook"></li>
-</ul>
-<p>4.多次点击清除，如果还不行，那就直接指定</p>
-<pre><code>&lt;head&gt;
-&lt;meta property=&quot;og:title&quot; content=&quot;梦遥奇缘&quot; /&gt;
-
-&lt;meta property=&quot;og:description&quot; content=&quot;梦遥奇缘 &quot; /&gt;
-
-&lt;meta property=&quot;og:url&quot; content=&quot;http://idiot6.com&quot; /&gt;
-
-&lt;meta property=&quot;og:image&quot; content=&quot;//source.shengxuezixun.com/images%2Flogo.png&quot;/&gt;
-
-&lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
-&lt;/head&gt;
-</code></pre><p>5.然后在回到自己要分享的页面，点击分享，应该就是指定的图。</p>
-<h2 id="ps-使用share-js时的问题"><a href="#ps-使用share-js时的问题" class="headerlink" title="ps:使用share.js时的问题"></a>ps:使用<code>share.js</code>时的问题</h2><p>1.如果出现在ios中不能指定社交分享媒体，请查看自己使用的是否为jQuery版本，js原生版本只能在安卓上显示自己指定的社交分享媒体<br>2.参考资料:</p>
-<pre><code>+ [dotblog](https://dotblogs.com.tw/walter/2014/05/21/how-to-set-facebook-share-info)
-+ [facebook_tools](https://developers.facebook.com/tools/debug/)
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;使用share-js插件分享到社交媒体&quot;&gt;&lt;a href=&quot;#使用share-js插件分享到社交媒体&quot; class=&quot;headerlink&quot; title=&quot;使用share.js插件分享到社交媒体&quot;&gt;&lt;/a&gt;使用share.js插件分享到社交媒体&lt;/h2&gt;&lt;p&gt;1.
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="facebook" scheme="http://idiot6.com/tags/facebook/"/>
-    
-      <category term="share" scheme="http://idiot6.com/tags/share/"/>
-    
-      <category term="facebook_tools" scheme="http://idiot6.com/tags/facebook-tools/"/>
     
   </entry>
   
