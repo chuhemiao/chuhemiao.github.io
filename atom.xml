@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2017-09-22T09:33:53.091Z</updated>
+  <updated>2017-10-29T14:00:10.800Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决CFBundleIdentifier&quot;, Does Not Exist</title>
+    <link href="http://idiot6.com/2017/10/29/react-ios-native-CFBundleIdentifier/"/>
+    <id>http://idiot6.com/2017/10/29/react-ios-native-CFBundleIdentifier/</id>
+    <published>2017-10-29T13:59:08.000Z</published>
+    <updated>2017-10-29T14:00:10.800Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mac-下运行react-native-run-ios-报错-CFBundleIdentifier”-Does-Not-Exist"><a href="#mac-下运行react-native-run-ios-报错-CFBundleIdentifier”-Does-Not-Exist" class="headerlink" title="mac 下运行react-native run-ios 报错 CFBundleIdentifier”, Does Not Exist"></a>mac 下运行react-native run-ios 报错 CFBundleIdentifier”, Does Not Exist</h1><p>1.产生原因：/Users/你的用户名<code>/.rncache中boost_1_63_0.tar.gz，double-conversion-1.1.5.tar.gz，folly-2016.09.26.00.tar.gz，glog-0.3.4.tar.gz文件不完整。或者node_modules/react-native/third-party</code> 文件不完整。</p>
+<ul>
+<li>删除/user/你的用户名/.rncache目录下的<code>boost_1_63_0</code>，重新下载安装</li>
+<li>打开命令行工具，在项目目录下输入<code>rm -rf node_modules &amp;&amp; rm -rf ~/.rncache &amp;&amp; yarn</code></li>
+<li><code>npm install</code>  </li>
+<li><code>react-native upgrade</code> </li>
+<li>运行 <code>react-native run-ios</code></li>
+</ul>
+<ol>
+<li><p><a href="https://github.com/facebook/react-native/issues/7308" target="_blank" rel="external">github解答</a> ，似乎大多数点赞的是路径问题，配置真是一大难题！</p>
+</li>
+<li><p>如果以上问题仍然不能解决，那么你可以重新删除，编译环境生成项目，然后使用梯子代理全局模式下<code>npm install</code>（或者使用yarn），全局模式下最新版<code>react-native</code>并未出现 <code>CFBundleIdentifier</code>问题。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      有时候的失去未必不是一件好事，只是人生中的过客，又何必在意那么多。失去了才会懂得珍惜吗？
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="git" scheme="http://idiot6.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git pull出现 composer.lock被锁定</title>
+    <link href="http://idiot6.com/2017/10/29/git_composer_lock/"/>
+    <id>http://idiot6.com/2017/10/29/git_composer_lock/</id>
+    <published>2017-10-29T13:50:08.000Z</published>
+    <updated>2017-10-29T14:00:10.799Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git-pull出现-composer-lock被锁定，即是当前文件不是最新"><a href="#git-pull出现-composer-lock被锁定，即是当前文件不是最新" class="headerlink" title="git pull出现 composer.lock被锁定，即是当前文件不是最新"></a>git pull出现 composer.lock被锁定，即是当前文件不是最新</h1><ol>
+<li>git fetch origin</li>
+<li>git reset –hard origin/master</li>
+<li>git pull</li>
+</ol>
+<h1 id="Your-local-changes-to-the-following-files-would-be-overwritten-by-merge"><a href="#Your-local-changes-to-the-following-files-would-be-overwritten-by-merge" class="headerlink" title="Your local changes to the following files would be overwritten by merge"></a>Your local changes to the following files would be overwritten by merge</h1><pre><code class="PHP">error: Your local changes to the following files would be overwritten by merge:
+<span class="keyword">protected</span>/config/main.php
+Please, commit your changes <span class="keyword">or</span> stash them before you can merge.
+</code></pre>
+<ul>
+<li><p>解决方法：</p>
+<ul>
+<li>如果希望保留生产服务器上所做的改动,仅仅并入新配置项, 处理方法如下:</li>
+<li>git stash</li>
+<li>git pull</li>
+<li>git stash pop</li>
+</ul>
+</li>
+<li><p>然后可以使用git diff -w +文件名 来确认代码自动合并的情况.</p>
+</li>
+<li><p>同样，你也可以使用上述方法直接以线上库为最新代码。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      有时候的失去未必不是一件好事，只是人生中的过客，又何必在意那么多。失去了才会懂得珍惜吗？
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
+    
+    
+      <category term="git" scheme="http://idiot6.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>站长百度百家号添加json_ld报错</title>
@@ -777,104 +858,6 @@
       <category term="facebook" scheme="http://idiot6.com/tags/facebook/"/>
     
       <category term="pixels" scheme="http://idiot6.com/tags/pixels/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>想要和需要</title>
-    <link href="http://idiot6.com/2016/09/01/want/"/>
-    <id>http://idiot6.com/2016/09/01/want/</id>
-    <published>2016-09-01T06:00:27.000Z</published>
-    <updated>2016-09-06T02:44:34.931Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="想要"><a href="#想要" class="headerlink" title="想要"></a>想要</h1><p>1.在修行的路上，我们都希望自己今天就能成佛，并想拥有纵横天下的智慧，目标固然很好，但一定要根据自己的实际情况来行持。一旦欲望离了现实的基础，它就成为一种遥不可及的梦想，难以实现。因此我们要懂得“需要”和“想要”的区别，应把“想要”当成欲求的目标，以“需要”来调服一切烦恼。<br>2.想要和需要两者差别很大，想要是一种执念，需要是一种被动。出发点不同，结果肯定也不同！<br>3.想要一份工作，需要一份工作，只有自己最清楚，你想要的是什么！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;想要&quot;&gt;&lt;a href=&quot;#想要&quot; class=&quot;headerlink&quot; title=&quot;想要&quot;&gt;&lt;/a&gt;想要&lt;/h1&gt;&lt;p&gt;1.在修行的路上，我们都希望自己今天就能成佛，并想拥有纵横天下的智慧，目标固然很好，但一定要根据自己的实际情况来行持。一旦欲望离了现实的基础
-    
-    </summary>
-    
-      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
-    
-    
-      <category term="want" scheme="http://idiot6.com/tags/want/"/>
-    
-      <category term="need" scheme="http://idiot6.com/tags/need/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>忙碌的一个月</title>
-    <link href="http://idiot6.com/2016/08/31/busy/"/>
-    <id>http://idiot6.com/2016/08/31/busy/</id>
-    <published>2016-08-31T08:45:27.000Z</published>
-    <updated>2016-09-06T02:44:34.930Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Busy-Month"><a href="#Busy-Month" class="headerlink" title="Busy Month"></a>Busy Month</h1><ul>
-<li>游戏上线，各种活动，持续加班，已经赶上了一年前的每月30天班，都是泪！</li>
-</ul>
-<h1 id="To-sum-up"><a href="#To-sum-up" class="headerlink" title="To sum up"></a>To sum up</h1><ol>
-<li><p>2016-08-01~~2016-08-05</p>
-<ol>
-<li>仙剑公测活动、仙剑落地页问题修改   完成  </li>
-<li>自由之战众筹页面</li>
-<li>我的战争官网  完成   手机页未给</li>
-<li>公司官网icp备案问题  完成</li>
-<li>甲铁城游戏官网搭建</li>
-</ol>
-</li>
-<li><p>2016-08-08~~2016-08-12</p>
-<ol>
-<li>公司官网icp备案问题</li>
-<li>爆爆糖H5抽奖        周四  待测试   完成  时间修改礼包码</li>
-<li>甲铁城游戏官网剩余页面、概念站；   周四   </li>
-<li>竞猜页  手机完成   </li>
-<li>自由之战众筹   本周 完成  加补充</li>
-<li>自由之战港澳台分享   完成   待上线</li>
-<li>我的战争官网手机版  pc   bug修改   时间不着急</li>
-<li>仙剑代言人页面  杨幂   周四  完成</li>
-</ol>
-</li>
-<li><p>2016-08-15~~2016-08-20</p>
-<ol>
-<li>甲铁城三天预约   完成</li>
-<li>我的战争官网    分页待修改、视频问题</li>
-<li>爆爆糖礼包码替换、官网增加下载替换礼包  完成</li>
-<li>品专623问题  完成 </li>
-<li>818   landpage 落地页地址替换新包地址  完成</li>
-<li>/baidu页面周六修改为杨幂活动页</li>
-<li>仙剑短信验证增加图形验证码  测试 完成</li>
-<li>港澳台自由之战新加首页  完成</li>
-<li>仙剑新增媒体落地页 、新增活动福利页 完成</li>
-<li>自由之战众筹问题</li>
-</ol>
-</li>
-<li><p>2016-08-22~~2016-08-26</p>
-<ol>
-<li>kom官网   over</li>
-<li>我的战争分页问题   over</li>
-<li>新版视频替换  完成</li>
-<li>仙剑落地页、替换服务器  ending….</li>
-</ol>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Busy-Month&quot;&gt;&lt;a href=&quot;#Busy-Month&quot; class=&quot;headerlink&quot; title=&quot;Busy Month&quot;&gt;&lt;/a&gt;Busy Month&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;游戏上线，各种活动，持续加班，已经赶上了一年前的每月30天班，都
-    
-    </summary>
-    
-      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
-    
-    
-      <category term="busy" scheme="http://idiot6.com/tags/busy/"/>
-    
-      <category term="Overtime" scheme="http://idiot6.com/tags/Overtime/"/>
     
   </entry>
   
