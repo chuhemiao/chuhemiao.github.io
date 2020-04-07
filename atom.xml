@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2019-07-23T09:40:40.675Z</updated>
+  <updated>2020-04-07T16:41:29.008Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://idiot6.com/2019/07/23/go-gin-golang-x/"/>
     <id>http://idiot6.com/2019/07/23/go-gin-golang-x/</id>
     <published>2019-07-23T09:03:53.000Z</published>
-    <updated>2019-07-23T09:40:40.675Z</updated>
+    <updated>2020-04-07T16:41:29.008Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1.问题描述"></a>1.问题描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Go get 出现超时问题：“golang unrecognized import path &quot;golang.org/x/net   unrecognized import path &quot;golang.org/x/sys&quot;  Unknown SSL protocol error in connection to gopkg.in:443 &quot;”</div></pre></td></tr></table></figure>
 <h3 id="2-解决办法"><a href="#2-解决办法" class="headerlink" title="2.解决办法"></a>2.解决办法</h3><ul>
@@ -58,7 +58,13 @@
       <category term="GO" scheme="http://idiot6.com/categories/GO/"/>
     
     
-      <category term="golang - gin - echo - goproxy" scheme="http://idiot6.com/tags/golang-gin-echo-goproxy/"/>
+      <category term="golang" scheme="http://idiot6.com/tags/golang/"/>
+    
+      <category term="gin" scheme="http://idiot6.com/tags/gin/"/>
+    
+      <category term="echo" scheme="http://idiot6.com/tags/echo/"/>
+    
+      <category term="goproxy" scheme="http://idiot6.com/tags/goproxy/"/>
     
   </entry>
   
@@ -829,7 +835,7 @@ Please, commit your changes <span class="keyword">or</span> stash them before yo
     <link href="http://idiot6.com/2016/12/30/2016end/"/>
     <id>http://idiot6.com/2016/12/30/2016end/</id>
     <published>2016-12-30T08:50:27.000Z</published>
-    <updated>2016-12-30T09:34:44.291Z</updated>
+    <updated>2020-04-07T16:41:29.008Z</updated>
     
     <content type="html"><![CDATA[<p>2016年过的感觉就像学新东西一样，什么都试了下，什么都没深入。总结起来就是，迷途瞎忙，慵懒平淡。</p>
 <p>2017希望有点变化把，多看点技术书，读书不改变世界，改变自己。</p>
@@ -838,7 +844,7 @@ Please, commit your changes <span class="keyword">or</span> stash them before yo
 2. last year
 </code></pre></li>
 </ul>
-<p><img src="http://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600" alt="github"></p>
+<p><img src="https://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600" alt="github"></p>
 <h3 id="关于工作："><a href="#关于工作：" class="headerlink" title="关于工作："></a>关于工作：</h3><ul>
 <li>WORK：<ol>
 <li>在盖娅司龄已经 一年半了，对于公司的业务也越来越熟悉，能快速完成工作上的任务，同时也踩了很多坑，也进步了很多，学到了很多东西；</li>
