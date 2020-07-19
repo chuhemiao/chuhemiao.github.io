@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="梦遥奇缘,PHP,HTML,JS,Linux,YII,YAF,禾子,永远的呆,hexo,github,gitcafe,pacman,Laravel,CodeIgniter"><title>Flutter 基础 | 梦遥奇缘</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Flutter 基础</h1><a id="logo" href="/.">梦遥奇缘</a><p class="description">想要，所以才去追寻--禾子</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/timeline/"><i class="fa fa-book"> timeline</i></a><a href="/instagram/"><i class="fa fa-picture-o"> album</i></a><a href="/music/"><i class="fa fa-music"> music</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/love/"><i class="fa fa-heart"> love</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Flutter 基础</h1><div class="post-meta">May 29, 2020<span> | </span><span class="category"><a href="/categories/flutter/">flutter</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2020/05/29/Flutter 基础/" href="/2020/05/29/Flutter 基础/#disqus_thread" class="disqus-comment-count"></a><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stateful-widget-和Stateless-widget"><span class="toc-number">1.</span> <span class="toc-text">Stateful widget 和Stateless widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigator，MaterialPageRoute-》路由管理"><span class="toc-number">2.</span> <span class="toc-text">Navigator，MaterialPageRoute=》路由管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pubspec之-包管理"><span class="toc-number">3.</span> <span class="toc-text">pubspec之 包管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pubspec-之资源管理"><span class="toc-number">4.</span> <span class="toc-text">pubspec 之资源管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pub仓库"><span class="toc-number">5.</span> <span class="toc-text">Pub仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态管理"><span class="toc-number">6.</span> <span class="toc-text">状态管理</span></a></li></ol></div></div><div class="post-content"><h3 id="Stateful-widget-和Stateless-widget"><a href="#Stateful-widget-和Stateless-widget" class="headerlink" title="Stateful widget 和Stateless widget"></a>Stateful widget 和Stateless widget</h3><ul>
+<li>有状态的组件（Stateful widget） 和无状态的组件（Stateless widget）有两点不同：<ul>
+<li>Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。</li>
+<li>Stateful widget至少由两个类组成：<ul>
+<li>一个StatefulWidget类。</li>
+<li>一个 State类； StatefulWidget类本身是不变的，但是State类中持有的状态在widget生命周期中可能会发生变化。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Navigator，MaterialPageRoute-》路由管理"><a href="#Navigator，MaterialPageRoute-》路由管理" class="headerlink" title="Navigator，MaterialPageRoute=》路由管理"></a>Navigator，MaterialPageRoute=》路由管理</h3><ul>
+<li><p>路由(Route)在移动开发中通常指页面（Page），这跟web开发中单页应用的Route概念意义是相同的，Route在Android中通常指一个Activity，在iOS中指一个ViewController。所谓路由管理，就是管理页面之间如何跳转，通常也可被称为导航管理。</p>
+</li>
+<li><p>导航管理都会维护一个路由栈，路由入栈(push)操作对应打开一个新页面，路由出栈(pop)操作对应页面关闭操作，而路由管理主要是指如何来管理路由栈。</p>
+</li>
+</ul>
+<p>// 路由跳转例子，调用Navigator.push方法，return到一个新的路由页面（NewRoute）</p>
+<p>onPressed: () {<br>  //导航到新路由<br>  Navigator.push( context,<br>   MaterialPageRoute(builder: (context) {<br>      return NewRoute();<br>   }));<br>},</p>
+<ul>
+<li><p>路由之=》MaterialPageRoute</p>
+<ul>
+<li><p>MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，它还定义了路由构建及切换时过渡动画的相关接口及属性。MaterialPageRoute 是Material组件库提供的组件，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画：</p>
+</li>
+<li><p>对于Android，当打开新页面时，新的页面会从屏幕底部滑动到屏幕顶部；当关闭页面时，当前页面会从屏幕顶部滑动到屏幕底部后消失，同时上一个页面会显示到屏幕上。</p>
+</li>
+<li>对于iOS，当打开页面时，新的页面会从屏幕右侧边缘一致滑动到屏幕左边，直到新页面全部显示到屏幕上，而上一个页面则会从当前屏幕滑动到屏幕左侧而消失；当关闭页面时，正好相反，当前页面会从屏幕右侧滑出，同时上一个页面会从屏幕左侧滑入。</li>
+</ul>
+</li>
+<li><p>MaterialPageRoute使用参数介绍</p>
+</li>
+</ul>
+<p>MaterialPageRoute({<br>    WidgetBuilder builder,<br>    RouteSettings settings,<br>    bool maintainState = true,<br>    bool fullscreenDialog = false,<br>})</p>
+<p>builder 是一个WidgetBuilder类型的回调函数，它的作用是构建路由页面的具体内容，返回值是一个widget。我们通常要实现此回调，返回新路由的实例。</p>
+<p>settings 包含路由的配置信息，如路由名称、是否初始路由（首页）。</p>
+<p>maintainState：默认情况下，当入栈一个新路由时，原来的路由仍然会被保存在内存中，如果想在路由没用的时候释放其所占用的所有资源，可以设置maintainState为false。</p>
+<p>fullscreenDialog表示新的路由页面是否是一个全屏的模态对话框，在iOS中，如果<br>fullscreenDialog为true，新页面将会从屏幕底部滑入（而不是水平方向）。</p>
+<ul>
+<li><p>路由之Navigator</p>
+<ul>
+<li>Navigator是一个路由管理的组件，它提供了打开和退出路由页方法。Navigator通过一个栈来管理活动路由集合。通常当前屏幕显示的页面就是栈顶的路由。Navigator提供了一系列方法来管理路由栈，在此我们只介绍其最常用的两个方法：<ul>
+<li>Future push(BuildContext context, Route route)</li>
+<li>将给定的路由入栈（即打开新的页面），返回值是一个Future对象，用以接收新路由出栈（即关闭）时的返回数据。</li>
+<li>bool pop(BuildContext context, [ result ])</li>
+<li>将栈顶路由出栈，result为页面关闭时返回给上一个页面的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断用户是否登陆，onGenerateRoute属性</p>
+<ul>
+<li>它在打开命名路由时可能会被调用，之所以说可能，是因为当调用Navigator.pushNamed(…)打开命名路由时，如果指定的路由名在路由表中已注册，则会调用路由表中的builder函数来生成路由组件；如果路由表中没有注册，才会调用onGenerateRoute来生成路由。</li>
+<li>全局的路由跳转前置处理逻辑。</li>
+</ul>
+</li>
+</ul>
+<h3 id="pubspec之-包管理"><a href="#pubspec之-包管理" class="headerlink" title="pubspec之 包管理"></a>pubspec之 包管理</h3><ul>
+<li><p>flutter如何使用配置文件pubspec.yaml（位于项目根目录）来管理第三方依赖包。</p>
+</li>
+<li><p>YAML是一种直观、可读性高并且容易被人类阅读的文件格式，它和xml或Json相比，它语法简单并非常容易解析，所以YAML常用于配置文件，Flutter也是用yaml文件作为其配置文件。</p>
+</li>
+<li>yaml例子和参数说明：<ul>
+<li>name：应用或包名称。</li>
+<li>description: 应用或包的描述、简介。</li>
+<li>version：应用或包的版本号。</li>
+<li>dependencies：应用或包依赖的其它包或插件。</li>
+<li>dev_dependencies：开发环境依赖的工具包（而不是flutter应用本身依赖的包）。</li>
+<li>flutter：flutter相关的配置选项。</li>
+</ul>
+</li>
+<li>dependencies和dev_dependencies的区别，前者的依赖包将作为APP的源码的一部分参与编译，生成最终的安装包。而后者的依赖包只是作为开发阶段的一些工具包，主要是用于帮助我们提高开发、测试效率，比如flutter的自动化测试包等</li>
+</ul>
+<p>name: flutter_in_action<br>description: First Flutter application.</p>
+<p>version: 1.0.0+1</p>
+<p>dependencies:<br>  flutter:<br>    sdk: flutter<br>  cupertino_icons: ^0.1.2<br>  // 新添加的依赖<br>  english_words: ^3.1.3<br>dev_dependencies:<br>  flutter_test:<br>    sdk: flutter</p>
+<p>flutter:<br>  uses-material-design: true</p>
+<ul>
+<li>如何使用新包：直接将所依赖的包添加到dependencies下，然后运行：flutter packages get<h3 id="pubspec-之资源管理"><a href="#pubspec-之资源管理" class="headerlink" title="pubspec 之资源管理"></a>pubspec 之资源管理</h3></li>
+<li>assets指定应包含在应用程序中的文件， 每个asset都通过相对于pubspec.yaml文件所在的文件系统路径来标识自身的路径。asset的声明顺序是无关紧要的，asset的实际目录可以是任意文件夹（在本示例中是assets文件夹）。</li>
+<li><p>flutter:<br>assets:</p>
+<ul>
+<li>images/my_icon.png</li>
+<li>images/background.png</li>
+</ul>
+</li>
+<li><p>加载当前在pubspec设置的assets图路径,两种方法都可以</p>
+</li>
+</ul>
+<p>Image(<br>  image: AssetImage(“images/my_icon.png”),<br>  width: 100.0<br>);</p>
+<p>Image.asset(“images/avatar.png”,<br>  width: 100.0,<br>)</p>
+<ul>
+<li>加载网络图片：</li>
+</ul>
+<p>Image(<br>  image: NetworkImage(<br>      “<a href="https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4" target="_blank" rel="external">https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4</a>“),<br>  width: 100.0,<br>)</p>
+<p>Image.network(<br>  “<a href="https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4" target="_blank" rel="external">https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4</a>“,<br>  width: 100.0,<br>)</p>
+<ul>
+<li>Image参数介绍</li>
+</ul>
+<p>const Image({<br>  …<br>  this.width, //图片的宽<br>  this.height, //图片高度<br>  this.color, //图片的混合色值<br>  this.colorBlendMode, //混合模式<br>  this.fit,//缩放模式<br>  this.alignment = Alignment.center, //对齐方式<br>  this.repeat = ImageRepeat.noRepeat, //重复方式<br>  …<br>})</p>
+<h3 id="Pub仓库"><a href="#Pub仓库" class="headerlink" title="Pub仓库"></a>Pub仓库</h3><ul>
+<li>Pub（<a href="https://pub.dev/" target="_blank" rel="external">https://pub.dev/</a> ）是Google官方的Dart Packages仓库，类似于node中的npm仓库，android中的jcenter。我们可以在Pub上面查找我们需要的包和插件，也可以向Pub发布我们的包和插件。</li>
+</ul>
+<h3 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h3><ul>
+<li><p>官方给出的一些原则可以帮助你做决定：</p>
+<ul>
+<li>如果状态是用户数据，如复选框的选中状态、滑块的位置，则该状态最好由父Widget管理。</li>
+<li>如果状态是有关界面外观效果的，例如颜色、动画，那么状态最好由Widget本身来管理。</li>
+<li>如果某一个状态是不同Widget共享的则最好由它们共同的父Widget管理。</li>
+</ul>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://idiot6.com/2020/05/29/Flutter 基础/" data-id="ckcsthmjj0005xtvh8gbg7yeb" class="article-share-link">分享到</a><div class="tags"><a href="/tags/dart/">dart</a><a href="/tags/eth/">eth</a><a href="/tags/React-native/">React native</a><a href="/tags/Truffle/">Truffle</a><a href="/tags/dapps/">dapps</a></div><div class="post-nav"><a href="/2020/06/19/dart 基础/" class="pre">dart 基础</a><a href="/2020/05/27/响应式编程 RN 优缺点/" class="next">响应式编程 RN 优缺点</a></div><div id="disqus_thread"><script>var disqus_shortname = 'idiot6';
+var disqus_identifier = '2020/05/29/Flutter 基础/';
+var disqus_title = 'Flutter 基础';
+var disqus_url = 'http://idiot6.com/2020/05/29/Flutter 基础/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//idiot6.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://idiot6.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GO/">GO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Index/">Index</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LINUX/">LINUX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/YII/">YII</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blockchain/">blockchain</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vpn/">vpn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vscode/">vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人收录/">个人收录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/">区块链</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/心の栄養/">心の栄養</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/星座/">星座</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/facebook-tools/" style="font-size: 15px;">facebook_tools</a> <a href="/tags/点滴记录/" style="font-size: 15px;">点滴记录</a> <a href="/tags/413/" style="font-size: 15px;">413</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/http/" style="font-size: 15px;">http</a> <a href="/tags/libmcrypt/" style="font-size: 15px;">libmcrypt</a> <a href="/tags/mcrypt/" style="font-size: 15px;">mcrypt</a> <a href="/tags/vc6/" style="font-size: 15px;">vc6</a> <a href="/tags/vc9/" style="font-size: 15px;">vc9</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/NTS/" style="font-size: 15px;">NTS</a> <a href="/tags/json-ld/" style="font-size: 15px;">json_ld</a> <a href="/tags/canonical/" style="font-size: 15px;">canonical</a> <a href="/tags/busy/" style="font-size: 15px;">busy</a> <a href="/tags/Overtime/" style="font-size: 15px;">Overtime</a> <a href="/tags/公司/" style="font-size: 15px;">公司</a> <a href="/tags/dpkg/" style="font-size: 15px;">dpkg</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/error/" style="font-size: 15px;">error</a> <a href="/tags/facebook/" style="font-size: 15px;">facebook</a> <a href="/tags/pixels/" style="font-size: 15px;">pixels</a> <a href="/tags/vpn/" style="font-size: 15px;">vpn</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/freecatvpn/" style="font-size: 15px;">freecatvpn</a> <a href="/tags/梯子/" style="font-size: 15px;">梯子</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/golang/" style="font-size: 15px;">golang</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/high/" style="font-size: 15px;">high</a> <a href="/tags/面试-hr/" style="font-size: 15px;">面试,hr</a> <a href="/tags/instagram/" style="font-size: 15px;">instagram</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/lottery/" style="font-size: 15px;">lottery</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/dba/" style="font-size: 15px;">dba</a> <a href="/tags/NPM/" style="font-size: 15px;">NPM</a> <a href="/tags/swap/" style="font-size: 15px;">swap</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/function/" style="font-size: 15px;">function</a> <a href="/tags/https/" style="font-size: 15px;">https</a> <a href="/tags/phpize/" style="font-size: 15px;">phpize</a> <a href="/tags/whereis/" style="font-size: 15px;">whereis</a> <a href="/tags/url/" style="font-size: 15px;">url</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/plist/" style="font-size: 15px;">plist</a> <a href="/tags/skill/" style="font-size: 15px;">skill</a> <a href="/tags/problem/" style="font-size: 15px;">problem</a> <a href="/tags/qrcode/" style="font-size: 15px;">qrcode</a> <a href="/tags/share/" style="font-size: 15px;">share</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/time/" style="font-size: 15px;">time</a> <a href="/tags/改变/" style="font-size: 15px;">改变</a> <a href="/tags/knowledge/" style="font-size: 15px;">knowledge</a> <a href="/tags/atom/" style="font-size: 15px;">atom</a> <a href="/tags/yii2-0/" style="font-size: 15px;">yii2.0</a> <a href="/tags/want/" style="font-size: 15px;">want</a> <a href="/tags/need/" style="font-size: 15px;">need</a> <a href="/tags/wechat/" style="font-size: 15px;">wechat</a> <a href="/tags/absolute/" style="font-size: 15px;">absolute</a> <a href="/tags/win10/" style="font-size: 15px;">win10</a> <a href="/tags/working/" style="font-size: 15px;">working</a> <a href="/tags/yaf/" style="font-size: 15px;">yaf</a> <a href="/tags/centos/" style="font-size: 15px;">centos</a> <a href="/tags/yii/" style="font-size: 15px;">yii</a> <a href="/tags/心理/" style="font-size: 15px;">心理</a> <a href="/tags/乐心手环/" style="font-size: 15px;">乐心手环</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/UA/" style="font-size: 15px;">UA</a> <a href="/tags/美食/" style="font-size: 15px;">美食</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/上班/" style="font-size: 15px;">上班</a> <a href="/tags/迟到/" style="font-size: 15px;">迟到</a> <a href="/tags/面膜/" style="font-size: 15px;">面膜</a> <a href="/tags/Raffaello/" style="font-size: 15px;">Raffaello</a> <a href="/tags/node/" style="font-size: 15px;">node</a> <a href="/tags/dnspod/" style="font-size: 15px;">dnspod</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/七牛/" style="font-size: 15px;">七牛</a> <a href="/tags/typecho/" style="font-size: 15px;">typecho</a> <a href="/tags/资源/" style="font-size: 15px;">资源</a> <a href="/tags/app/" style="font-size: 15px;">app</a> <a href="/tags/感悟/" style="font-size: 15px;">感悟</a> <a href="/tags/ip/" style="font-size: 15px;">ip</a> <a href="/tags/blockchain/" style="font-size: 15px;">blockchain</a> <a href="/tags/life/" style="font-size: 15px;">life</a> <a href="/tags/gin/" style="font-size: 15px;">gin</a> <a href="/tags/echo/" style="font-size: 15px;">echo</a> <a href="/tags/goproxy/" style="font-size: 15px;">goproxy</a> <a href="/tags/dart/" style="font-size: 15px;">dart</a> <a href="/tags/eth/" style="font-size: 15px;">eth</a> <a href="/tags/React-native/" style="font-size: 15px;">React native</a> <a href="/tags/Truffle/" style="font-size: 15px;">Truffle</a> <a href="/tags/dapps/" style="font-size: 15px;">dapps</a> <a href="/tags/aes/" style="font-size: 15px;">aes</a> <a href="/tags/des/" style="font-size: 15px;">des</a> <a href="/tags/3des/" style="font-size: 15px;">3des</a> <a href="/tags/vscode/" style="font-size: 15px;">vscode</a> <a href="/tags/rn开发/" style="font-size: 15px;">rn开发</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/07/19/React Native打包安卓和Ipa指南，RN小技巧记录/">React Native打包安卓和Ipa指南，RN小技巧记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/19/flutter 问题汇总/">flutter 问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/19/dart 基础/">dart 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/29/Flutter 基础/">Flutter 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/27/响应式编程 RN 优缺点/">响应式编程 RN 优缺点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/23/ 加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法/">加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/23/type annotations can only be used in typescript files.ts(8010)/">type annotations can only be used in typescript files.ts(8010)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/19/ 2020年Macos最全 ETH区块链环境搭建,并使用Truffle创建第一个Dapps/">2020年Macos最全ETH区块链环境搭建,并使用Truffle创建第一个Dapps</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/ 2020最新Macos eos区块链环境搭建和开发教程/">2020最新Macos eos区块链环境搭建和开发教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/go-gin-golang-x/">Go 语言解决不能Go get安装Gin问题解决方案</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//idiot6.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.btxiaobai.com/" title="比特币小白" target="_blank">比特币小白</a><ul></ul><a href="https://wwyqianqian.github.io/" title="WWY’S BLOG!" target="_blank">WWY’S BLOG!</a><ul></ul><a href="https://iluke.me" title="iLuke" target="_blank">iLuke</a><ul></ul><a href="http://blog.xcatliu.com/" title="Xcat Liu's Blog" target="_blank">Xcat Liu's Blog</a><ul></ul><a href="https://blog.liluhui.cn/" title="芦荟酸奶最Nice" target="_blank">芦荟酸奶最Nice</a><ul></ul><a href="https://www.dailybtc.cn/" title="比特币日报" target="_blank">比特币日报</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <script src="//source.shengxuezixun.com/js%2Fstatis-code.js"></script><a href="/." rel="nofollow">梦遥奇缘.</a> 想要,才去追寻 @@禾子<a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/"> 京ICP备15026980号.</a><span id="busuanzi_container_site_pv"></span>本站总访问量<span id="busuanzi_value_site_pv"></span>次</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-68661235-3','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>

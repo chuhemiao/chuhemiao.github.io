@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2020-04-07T16:41:29.008Z</updated>
+  <updated>2020-07-19T08:26:58.111Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -14,6 +14,1112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native打包安卓和Ipa指南，RN小技巧记录</title>
+    <link href="http://idiot6.com/2020/07/19/React%20Native%E6%89%93%E5%8C%85%E5%AE%89%E5%8D%93%E5%92%8CIpa%E6%8C%87%E5%8D%97%EF%BC%8CRN%E5%B0%8F%E6%8A%80%E5%B7%A7%E8%AE%B0%E5%BD%95/"/>
+    <id>http://idiot6.com/2020/07/19/React Native打包安卓和Ipa指南，RN小技巧记录/</id>
+    <published>2020-07-19T07:55:53.000Z</published>
+    <updated>2020-07-19T08:26:58.111Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CSS小技巧之文字实现竖排"><a href="#CSS小技巧之文字实现竖排" class="headerlink" title="CSS小技巧之文字实现竖排"></a>CSS小技巧之文字实现竖排</h3><ul>
+<li><p>设置外层宽度，然后定位文字，给文字设置css行高（lineHeight应大于外层文字高度）</p>
+<h3 id="IOS相关"><a href="#IOS相关" class="headerlink" title="IOS相关"></a>IOS相关</h3></li>
+<li><p><code>error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening cleaaan.xcworkspace</code></p>
+</li>
+<li><p>碰到code 65 可能和ios包管理有关，<code>cd ios &amp;&amp; pod repo update &amp;&amp; pod install &amp;&amp; pod update</code></p>
+</li>
+<li><p>ios键盘遮挡问题，使用APSL下组件：<code>[react-native-keyboard-aware-scrollview](https://github.com/APSL/react-native-keyboard-aware-scroll-view)</code> </p>
+</li>
+</ul>
+<h3 id="JS相关"><a href="#JS相关" class="headerlink" title="JS相关"></a>JS相关</h3><ul>
+<li><code>TypeError: Invalid attempt to spread non-iterable instance</code></li>
+<li>可能原因是数据和对象转换赋值导致不能遍历这个数据的问题，检查接口获取到之后的数据和当前state定义的数据之间互相赋值是否加了[…aaa],aaa为state定义的数组或对象，这里的…可能是导致错误出现的原因，去掉试试。</li>
+</ul>
+<h3 id="React-Native-ios打包-IPA"><a href="#React-Native-ios打包-IPA" class="headerlink" title="React Native ios打包 IPA"></a>React Native ios打包 IPA</h3><ul>
+<li><p><code>mkdir release_ios</code></p>
+</li>
+<li><p><code>npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/</code></p>
+</li>
+</ul>
+<ul>
+<li><code>release_ios</code> 下的文件 添加到xcode项目，xx项目名 -》 add files to xxx项目 -&gt;选择目录<code>release_ios-》folders</code>类型为<code>“Create folder references” -》 Add</code></li>
+</ul>
+<ul>
+<li>添加证书、配置描述文件打包 -》·product -&gt;archive =&gt; Distribute App· =&gt; 然后有4个选择，IOS App Store 上架、Development 测试，Enterprise 企业包，然后一直下一步，导出ipa</li>
+</ul>
+<h3 id="React-Native-安卓打包APK"><a href="#React-Native-安卓打包APK" class="headerlink" title="React Native 安卓打包APK"></a>React Native 安卓打包APK</h3><ul>
+<li>1.生成keystore</li>
+<li>2.设置 gradle 变量</li>
+<li>3.将签名配置加入到项目的 gradle 配置中</li>
+<li><ol>
+<li><code>cd  android</code></li>
+</ol>
+</li>
+<li><ol>
+<li><code>./gradlew assembleRelease</code></li>
+</ol>
+</li>
+<li><p>keytool -genkeypair -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</p>
+</li>
+</ul>
+<p>更多详细操作步骤推荐参考：</p>
+<ul>
+<li><a href="https://www.react-native.cn/docs/signed-apk-android" target="_blank" rel="external">React Native 官方打包APK</a></li>
+<li><p><a href="https://www.devio.org/2019/11/08/react-native-Release-APP-Signature-Package-APK/" target="_blank" rel="external">新版React Native发布APP之签名打包APK</a></p>
+</li>
+<li><p>Notice：Macos下可能需要sudo </p>
+<ul>
+<li>执行 sudo ./gradlew assembleRelease</li>
+</ul>
+</li>
+</ul>
+<h3 id="安卓打包线上realease版本安装后不能发起请求http问题"><a href="#安卓打包线上realease版本安装后不能发起请求http问题" class="headerlink" title="安卓打包线上realease版本安装后不能发起请求http问题"></a>安卓打包线上realease版本安装后不能发起请求http问题</h3><ul>
+<li>安卓打包realease版本后，默认 ReactNative Android9.0以上打包apk后http无法请求</li>
+</ul>
+<p><img src="media/15944435878136/15951436861022.jpg" alt="AndroidManifest.xml"></p>
+<ul>
+<li>修改 <code>/当前项目名/android/app/src/main/AndroidManifest.xml</code>，增加配置在application中 <code>android:usesCleartextTraffic=&quot;true&quot;</code></li>
+</ul>
+<h3 id="RN开发参考和React相关技术栈推荐"><a href="#RN开发参考和React相关技术栈推荐" class="headerlink" title="RN开发参考和React相关技术栈推荐"></a>RN开发参考和React相关技术栈推荐</h3><ul>
+<li><a href="https://www.react-native.cn/" target="_blank" rel="external">React Native中文网</a></li>
+<li><a href="https://reactnativeexample.com/" target="_blank" rel="external">RN常用例子和demo</a></li>
+<li><a href="https://shenbao.github.io/ishehui/index.html" target="_blank" rel="external">React和RN技术、RN速查表，强烈推荐查看</a></li>
+<li><a href="https://cn.redux.js.org/" target="_blank" rel="external">Store、Redux、Reducer、action等数据相关知识，必学必看</a></li>
+<li><a href="https://react.iamkasong.com/" target="_blank" rel="external">React 源码技术揭秘</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;a href=&quot;#CSS小技巧之文字实现竖排&quot; class=&quot;headerlink&quot; title=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;/a&gt;CSS小技巧之文字实现竖排&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;设置外层宽度，然后定位文字，给文字
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
+    
+      <category term="rn开发" scheme="http://idiot6.com/tags/rn%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flutter 问题汇总</title>
+    <link href="http://idiot6.com/2020/07/19/flutter%20%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://idiot6.com/2020/07/19/flutter 问题汇总/</id>
+    <published>2020-07-19T07:23:53.000Z</published>
+    <updated>2020-07-19T08:26:58.193Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>flutter doctor 一直卡住不动，可能是代理问题<ul>
+<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
+<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
+</ul>
+</li>
+</ul>
+<p>macos/linux 设置中国镜像：   每次都要先执行一次 （export PATH=”$PWD/flutter/bin:$PATH”）</p>
+<ol>
+<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
+<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
+<li>git clone -b dev <a href="https://github.com/flutter/flutter.git" target="_blank" rel="external">https://github.com/flutter/flutter.git</a></li>
+<li>export PATH=”$PWD/flutter/bin:$PATH”</li>
+<li>cd ./flutter</li>
+<li>flutter doctor</li>
+</ol>
+<p>然后运行flutter doctor -v 更新版本</p>
+<p>flutter 环境之java环境，必须使用jdk8，否则会一直提示升级。</p>
+<p>git clone 加速</p>
+<p>git config –global http.<a href="https://github.com.proxy" target="_blank" rel="external">https://github.com.proxy</a> socks5://127.0.0.1:7891<br>或者打开 .gitconfig 文件，输入下面配置</p>
+<p>[http “<a href="https://github.com" target="_blank" rel="external">https://github.com</a>“]<br>    proxy = socks5://127.0.0.1:1086</p>
+<ul>
+<li><p>Waiting for another flutter command to release the startup lock…</p>
+<ul>
+<li>进入到你的flutter sdk目录中，然后找到bin/cache/lockfile文件，删除它即可。</li>
+</ul>
+</li>
+</ul>
+<p>CDN: trunk URL couldn’t be downloaded:<br>      <a href="https://raw.githubusercontent.com" target="_blank" rel="external">https://raw.githubusercontent.com</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;flutter doctor 一直卡住不动，可能是代理问题&lt;ul&gt;
+&lt;li&gt;export PUB_HOSTED_URL=&lt;a href=&quot;https://pub.flutter-io.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dart 基础</title>
+    <link href="http://idiot6.com/2020/06/19/dart%20%E5%9F%BA%E7%A1%80/"/>
+    <id>http://idiot6.com/2020/06/19/dart 基础/</id>
+    <published>2020-06-19T06:03:53.000Z</published>
+    <updated>2020-07-19T08:26:58.191Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><ul>
+<li>var 关键字</li>
+<li><p>强类型语言，声明后无法改变</p>
+<pre><code>var z;
+z = &quot;hello world&quot;;
+// 下面代码在dart中会报错，因为变量t的类型已经确定为String，
+// 类型一旦确定后则不能再更改其类型。
+z = 1000;
+</code></pre></li>
+<li><p>dynamic和Object</p>
+<ul>
+<li>Object 是Dart所有对象的根基类，也就是说所有类型都是Object的子类(包括Function和Null)，所以任何类型的数据都可以赋值给Object声明的对象. dynamic与var一样都是关键词,声明的变量可以赋值任意对象。 </li>
+<li>dynamic与Object相同之处:”在于,他们声明的变量可以在后期改变赋值类型。”</li>
+<li>dynamic与Object不同的是:”dynamic声明的对象编译器会提供所有可能的组合, 而Object声明的对象只能使用Object的属性与方法, 否则编译器会报错”<br>dynamic t;<br>Object x;<br>t = “hello world”;<br>x = ‘Hello Object’;<br>//下面代码没有问题<br>t = 1000;<br>x = 1000;</li>
+</ul>
+<ul>
+<li>final和const<ul>
+<li>不改变变量类型或值，初始化就固定</li>
+<li>final 或 const，不是var，也不是一个类型。 一个 final 变量只能被设置一次</li>
+<li>两者区别在于：const 变量是一个编译时常量，final变量在第一次使用时被初始化。被final或者const修饰的变量，变量类型可以省略</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>//可以省略String这个类型声明<br>final str = “hi world”;<br>//final String str = “hi world”;<br>const str1 = “hi world”;<br>//const String str1 = “hi world”;</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>Dart是一种真正的面向对象的语言，所以即使是函数也是对象，并且有一个类型Function。这意味着函数可以赋值给变量或作为参数传递给其他函数，这是函数式编程的典型特征。</li>
+<li>声明一个函数：</li>
+</ul>
+<p>bool isNoble(int atomicNumber) {<br>  return _nobleGases[atomicNumber] != null;<br>}</p>
+<ul>
+<li><p>Dart函数声明如果没有显式声明返回值类型时会默认当做“dynamic处理”，注意，函数返回值没有类型推断！</p>
+</li>
+<li><p>对于只包含一个表达式的函数，可以使用简写语法</p>
+</li>
+</ul>
+<p>bool isNoble (int atomicNumber)=&gt; _nobleGases [ atomicNumber ] ！= null ;</p>
+<ul>
+<li>函数可以作为变量：</li>
+</ul>
+<p>var say = (str){<br>  print(str);<br>};<br>say(“hi world”);</p>
+<ul>
+<li>函数作为参数传递：</li>
+</ul>
+<p>void execute(var callback) {<br>    callback();<br>}<br>execute(() =&gt; print(“xxx”))</p>
+<ul>
+<li>可选的位置参数<ul>
+<li>包装一组函数参数，用[]标记为可选的位置参数，并放在参数列表的最后面：</li>
+</ul>
+</li>
+</ul>
+<p>String say(String from, String msg, [String device]) {<br>  var result = ‘$from says $msg’;<br>  if (device != null) {<br>    result = ‘$result with a $device’;<br>  }<br>  return result;<br>}</p>
+<p>测试=》say(‘Bob’, ‘Howdy’); //结果是： Bob says Howdy</p>
+<p>测试=&gt; say(‘Bob’, ‘Howdy’, ‘smoke signal’); //结果是：Bob says Howdy with a smoke signal</p>
+<ul>
+<li><strong>可选的命名参数(用的比较多)</strong><ul>
+<li>定义函数时，使用{param1, param2, …}，放在参数列表的最后面，用于指定命名参数。例如：</li>
+</ul>
+</li>
+</ul>
+<p>//设置[bold]和[hidden]标志<br>void enableFlags({bool bold, bool hidden}) {<br>    // …<br>}</p>
+<ul>
+<li>调用函数时，可以使用指定命名参数。例如：paramName: value</li>
+</ul>
+<p>enableFlags(bold: true, hidden: false);</p>
+<p><strong>注意，不能同时使用可选的位置参数和可选的命名参数</strong></p>
+<h3 id="异步支持"><a href="#异步支持" class="headerlink" title="异步支持"></a>异步支持</h3><ul>
+<li><p>Dart类库有非常多的返回Future或者Stream对象的函数。 这些函数被称为异步函数：它们只会在设置好一些耗时操作之后返回，比如像 IO操作。而不是等到这个操作完成。</p>
+</li>
+<li><p>async和await关键词支持了异步编程，允许您写出和同步代码很像的异步代码。</p>
+</li>
+<li><p>Future</p>
+<ul>
+<li>Future与JavaScript中的Promise非常相似，表示一个异步操作的最终完成（或失败）及其结果值的表示。</li>
+<li>简单来说，它就是用于处理异步操作的，异步处理成功了就执行成功的操作，异步处理失败了就捕获错误或者停止后续操作。</li>
+<li>一个Future只会对应一个结果，要么成功，要么失败。</li>
+<li>Future的所有API的返回值仍然是一个Future对象，所以可以很方便的进行链式调用。</li>
+</ul>
+</li>
+<li><p>Future API及特性 例子讲解</p>
+<ul>
+<li>Future.then  成功返回</li>
+<li>Future.catchError 捕捉错误</li>
+<li>Future.whenComplete 请求的中途想干些事</li>
+<li>Future.wait 等待所有的Future成功才会走这里</li>
+<li>因为只有成功和失败，捕捉到错误then方法不在执行</li>
+</ul>
+</li>
+</ul>
+<p>// 延迟2s返回结果：”hi world!”<br>Future.delayed(new Duration(seconds: 2),(){<br>   return “hi world!”;<br>}).then((data){<br>    // 执行成功走这<br>   print(data);<br>}).catchError((e){<br>   //执行失败会走到这里<br>   print(e);<br>}).whenComplete((){<br>   //无论成功或失败都会走到这里<br>});<br>// wait等待结果，4s后看到hello world<br>Future.wait([<br>  // 2秒后返回结果<br>  Future.delayed(new Duration(seconds: 2), () {<br>    return “hello”;<br>  }),<br>  // 4秒后返回结果<br>  Future.delayed(new Duration(seconds: 4), () {<br>    return “ world”;<br>  })<br>]).then((results){<br>  print(results[0]+results[1]);<br>}).catchError((e){<br>  print(e);<br>});</p>
+<ul>
+<li>Async/await<ul>
+<li>同步方法写异步代码，利用Dart的Future返回都是Future特性可以连续调用，也可以直接用Async/await形式</li>
+</ul>
+</li>
+</ul>
+<p>// 登陆之后保存用户信息<br>task() async {<br>   try{<br>    String id = await login(“alice”,”<strong>**</strong>“);<br>    String userInfo = await getUserInfo(id);<br>    await saveUserInfo(userInfo);<br>    //执行接下来的操作<br>   } catch(e){<br>    //错误处理<br>    print(e);<br>   }<br>}</p>
+<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3><ul>
+<li>也是用于接收异步事件数据，和Future 不同的是，它可以接收多个异步操作的结果（成功或失败）。 </li>
+<li>也就是说，在执行异步任务时，可以通过多次触发成功或失败事件来传递结果数据或错误异常。 </li>
+<li>Stream 常用于会多次读取数据的异步任务场景，如网络内容下载、文件读写等。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;变量声明&quot;&gt;&lt;a href=&quot;#变量声明&quot; class=&quot;headerlink&quot; title=&quot;变量声明&quot;&gt;&lt;/a&gt;变量声明&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;var 关键字&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;强类型语言，声明后无法改变&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var z;
+
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter 基础</title>
+    <link href="http://idiot6.com/2020/05/29/Flutter%20%E5%9F%BA%E7%A1%80/"/>
+    <id>http://idiot6.com/2020/05/29/Flutter 基础/</id>
+    <published>2020-05-29T15:58:53.000Z</published>
+    <updated>2020-07-19T08:26:58.111Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Stateful-widget-和Stateless-widget"><a href="#Stateful-widget-和Stateless-widget" class="headerlink" title="Stateful widget 和Stateless widget"></a>Stateful widget 和Stateless widget</h3><ul>
+<li>有状态的组件（Stateful widget） 和无状态的组件（Stateless widget）有两点不同：<ul>
+<li>Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。</li>
+<li>Stateful widget至少由两个类组成：<ul>
+<li>一个StatefulWidget类。</li>
+<li>一个 State类； StatefulWidget类本身是不变的，但是State类中持有的状态在widget生命周期中可能会发生变化。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Navigator，MaterialPageRoute-》路由管理"><a href="#Navigator，MaterialPageRoute-》路由管理" class="headerlink" title="Navigator，MaterialPageRoute=》路由管理"></a>Navigator，MaterialPageRoute=》路由管理</h3><ul>
+<li><p>路由(Route)在移动开发中通常指页面（Page），这跟web开发中单页应用的Route概念意义是相同的，Route在Android中通常指一个Activity，在iOS中指一个ViewController。所谓路由管理，就是管理页面之间如何跳转，通常也可被称为导航管理。</p>
+</li>
+<li><p>导航管理都会维护一个路由栈，路由入栈(push)操作对应打开一个新页面，路由出栈(pop)操作对应页面关闭操作，而路由管理主要是指如何来管理路由栈。</p>
+</li>
+</ul>
+<p>// 路由跳转例子，调用Navigator.push方法，return到一个新的路由页面（NewRoute）</p>
+<p>onPressed: () {<br>  //导航到新路由<br>  Navigator.push( context,<br>   MaterialPageRoute(builder: (context) {<br>      return NewRoute();<br>   }));<br>},</p>
+<ul>
+<li><p>路由之=》MaterialPageRoute</p>
+<ul>
+<li><p>MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，它还定义了路由构建及切换时过渡动画的相关接口及属性。MaterialPageRoute 是Material组件库提供的组件，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画：</p>
+</li>
+<li><p>对于Android，当打开新页面时，新的页面会从屏幕底部滑动到屏幕顶部；当关闭页面时，当前页面会从屏幕顶部滑动到屏幕底部后消失，同时上一个页面会显示到屏幕上。</p>
+</li>
+<li>对于iOS，当打开页面时，新的页面会从屏幕右侧边缘一致滑动到屏幕左边，直到新页面全部显示到屏幕上，而上一个页面则会从当前屏幕滑动到屏幕左侧而消失；当关闭页面时，正好相反，当前页面会从屏幕右侧滑出，同时上一个页面会从屏幕左侧滑入。</li>
+</ul>
+</li>
+<li><p>MaterialPageRoute使用参数介绍</p>
+</li>
+</ul>
+<p>MaterialPageRoute({<br>    WidgetBuilder builder,<br>    RouteSettings settings,<br>    bool maintainState = true,<br>    bool fullscreenDialog = false,<br>})</p>
+<p>builder 是一个WidgetBuilder类型的回调函数，它的作用是构建路由页面的具体内容，返回值是一个widget。我们通常要实现此回调，返回新路由的实例。</p>
+<p>settings 包含路由的配置信息，如路由名称、是否初始路由（首页）。</p>
+<p>maintainState：默认情况下，当入栈一个新路由时，原来的路由仍然会被保存在内存中，如果想在路由没用的时候释放其所占用的所有资源，可以设置maintainState为false。</p>
+<p>fullscreenDialog表示新的路由页面是否是一个全屏的模态对话框，在iOS中，如果<br>fullscreenDialog为true，新页面将会从屏幕底部滑入（而不是水平方向）。</p>
+<ul>
+<li><p>路由之Navigator</p>
+<ul>
+<li>Navigator是一个路由管理的组件，它提供了打开和退出路由页方法。Navigator通过一个栈来管理活动路由集合。通常当前屏幕显示的页面就是栈顶的路由。Navigator提供了一系列方法来管理路由栈，在此我们只介绍其最常用的两个方法：<ul>
+<li>Future push(BuildContext context, Route route)</li>
+<li>将给定的路由入栈（即打开新的页面），返回值是一个Future对象，用以接收新路由出栈（即关闭）时的返回数据。</li>
+<li>bool pop(BuildContext context, [ result ])</li>
+<li>将栈顶路由出栈，result为页面关闭时返回给上一个页面的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断用户是否登陆，onGenerateRoute属性</p>
+<ul>
+<li>它在打开命名路由时可能会被调用，之所以说可能，是因为当调用Navigator.pushNamed(…)打开命名路由时，如果指定的路由名在路由表中已注册，则会调用路由表中的builder函数来生成路由组件；如果路由表中没有注册，才会调用onGenerateRoute来生成路由。</li>
+<li>全局的路由跳转前置处理逻辑。</li>
+</ul>
+</li>
+</ul>
+<h3 id="pubspec之-包管理"><a href="#pubspec之-包管理" class="headerlink" title="pubspec之 包管理"></a>pubspec之 包管理</h3><ul>
+<li><p>flutter如何使用配置文件pubspec.yaml（位于项目根目录）来管理第三方依赖包。</p>
+</li>
+<li><p>YAML是一种直观、可读性高并且容易被人类阅读的文件格式，它和xml或Json相比，它语法简单并非常容易解析，所以YAML常用于配置文件，Flutter也是用yaml文件作为其配置文件。</p>
+</li>
+<li>yaml例子和参数说明：<ul>
+<li>name：应用或包名称。</li>
+<li>description: 应用或包的描述、简介。</li>
+<li>version：应用或包的版本号。</li>
+<li>dependencies：应用或包依赖的其它包或插件。</li>
+<li>dev_dependencies：开发环境依赖的工具包（而不是flutter应用本身依赖的包）。</li>
+<li>flutter：flutter相关的配置选项。</li>
+</ul>
+</li>
+<li>dependencies和dev_dependencies的区别，前者的依赖包将作为APP的源码的一部分参与编译，生成最终的安装包。而后者的依赖包只是作为开发阶段的一些工具包，主要是用于帮助我们提高开发、测试效率，比如flutter的自动化测试包等</li>
+</ul>
+<p>name: flutter_in_action<br>description: First Flutter application.</p>
+<p>version: 1.0.0+1</p>
+<p>dependencies:<br>  flutter:<br>    sdk: flutter<br>  cupertino_icons: ^0.1.2<br>  // 新添加的依赖<br>  english_words: ^3.1.3<br>dev_dependencies:<br>  flutter_test:<br>    sdk: flutter</p>
+<p>flutter:<br>  uses-material-design: true</p>
+<ul>
+<li>如何使用新包：直接将所依赖的包添加到dependencies下，然后运行：flutter packages get<h3 id="pubspec-之资源管理"><a href="#pubspec-之资源管理" class="headerlink" title="pubspec 之资源管理"></a>pubspec 之资源管理</h3></li>
+<li>assets指定应包含在应用程序中的文件， 每个asset都通过相对于pubspec.yaml文件所在的文件系统路径来标识自身的路径。asset的声明顺序是无关紧要的，asset的实际目录可以是任意文件夹（在本示例中是assets文件夹）。</li>
+<li><p>flutter:<br>assets:</p>
+<ul>
+<li>images/my_icon.png</li>
+<li>images/background.png</li>
+</ul>
+</li>
+<li><p>加载当前在pubspec设置的assets图路径,两种方法都可以</p>
+</li>
+</ul>
+<p>Image(<br>  image: AssetImage(“images/my_icon.png”),<br>  width: 100.0<br>);</p>
+<p>Image.asset(“images/avatar.png”,<br>  width: 100.0,<br>)</p>
+<ul>
+<li>加载网络图片：</li>
+</ul>
+<p>Image(<br>  image: NetworkImage(<br>      “<a href="https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4" target="_blank" rel="external">https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4</a>“),<br>  width: 100.0,<br>)</p>
+<p>Image.network(<br>  “<a href="https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4" target="_blank" rel="external">https://avatars2.githubusercontent.com/u/20411648?s=460&amp;v=4</a>“,<br>  width: 100.0,<br>)</p>
+<ul>
+<li>Image参数介绍</li>
+</ul>
+<p>const Image({<br>  …<br>  this.width, //图片的宽<br>  this.height, //图片高度<br>  this.color, //图片的混合色值<br>  this.colorBlendMode, //混合模式<br>  this.fit,//缩放模式<br>  this.alignment = Alignment.center, //对齐方式<br>  this.repeat = ImageRepeat.noRepeat, //重复方式<br>  …<br>})</p>
+<h3 id="Pub仓库"><a href="#Pub仓库" class="headerlink" title="Pub仓库"></a>Pub仓库</h3><ul>
+<li>Pub（<a href="https://pub.dev/" target="_blank" rel="external">https://pub.dev/</a> ）是Google官方的Dart Packages仓库，类似于node中的npm仓库，android中的jcenter。我们可以在Pub上面查找我们需要的包和插件，也可以向Pub发布我们的包和插件。</li>
+</ul>
+<h3 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h3><ul>
+<li><p>官方给出的一些原则可以帮助你做决定：</p>
+<ul>
+<li>如果状态是用户数据，如复选框的选中状态、滑块的位置，则该状态最好由父Widget管理。</li>
+<li>如果状态是有关界面外观效果的，例如颜色、动画，那么状态最好由Widget本身来管理。</li>
+<li>如果某一个状态是不同Widget共享的则最好由它们共同的父Widget管理。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Stateful-widget-和Stateless-widget&quot;&gt;&lt;a href=&quot;#Stateful-widget-和Stateless-widget&quot; class=&quot;headerlink&quot; title=&quot;Stateful widget 和Stateless
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
+    
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="eth" scheme="http://idiot6.com/tags/eth/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="Truffle" scheme="http://idiot6.com/tags/Truffle/"/>
+    
+      <category term="dapps" scheme="http://idiot6.com/tags/dapps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>响应式编程 RN 优缺点</title>
+    <link href="http://idiot6.com/2020/05/27/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%20RN%20%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
+    <id>http://idiot6.com/2020/05/27/响应式编程 RN 优缺点/</id>
+    <published>2020-05-27T15:54:22.000Z</published>
+    <updated>2020-07-19T08:26:58.676Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>React中提出一个重要思想：状态改变则UI随之自动改变，而React框架本身就是响应用户状态改变的事件而执行重新构建用户界面的工作，这就是典型的响应式编程范式，下面我们总结一下React中响应式原理：</p>
+</li>
+<li><p>开发者只需关注状态转移（数据），当状态发生变化，React框架会自动根据新的状态重新构建UI。<br>React框架在接收到用户状态改变通知后，会根据当前渲染树，结合最新的状态改变，通过Diff算法，计算出树中变化的部分，然后只更新变化的部分（DOM操作），从而避免整棵树重构，提高性能。</p>
+</li>
+</ul>
+<h3 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h3><ul>
+<li><p>上文已经提到React Native 是React 在原生移动应用平台的衍生产物，那两者主要的区别是什么呢？其实，主要的区别在于虚拟DOM映射的对象是什么？React中虚拟DOM最终会映射为浏览器DOM树，而RN中虚拟DOM会通过 JavaScriptCore 映射为原生控件树。</p>
+</li>
+<li><p>JavaScriptCore 是一个JavaScript解释器，它在React Native中主要有两个作用：</p>
+<ul>
+<li>为JavaScript提供运行环境。</li>
+<li>是JavaScript与原生应用之间通信的桥梁，作用和JsBridge一样，事实上，在iOS中，很多JsBridge的实现都是基于 JavaScriptCore 。</li>
+</ul>
+</li>
+<li><p>而RN中将虚拟DOM映射为原生控件的过程中分两步：</p>
+<ul>
+<li>布局消息传递； 将虚拟DOM布局信息传递给原生；</li>
+<li>原生根据布局信息通过对应的原生控件渲染控件树；</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>JavaScript开发+原生渲染的方式主要优点如下：</li>
+</ul>
+<ol>
+<li>采用Web开发技术栈，社区庞大、上手快、开发成本相对较低。</li>
+<li>原生渲染，性能相比H5提高很多。</li>
+<li>动态化较好，支持热更新。</li>
+</ol>
+<ul>
+<li>不足：</li>
+</ul>
+<ul>
+<li>渲染时需要JavaScript和原生之间通信，在有些场景如拖动可能会因为通信频繁导致卡顿。</li>
+<li>JavaScript为脚本语言，执行时需要JIT(Just In Time)，执行效率和AOT(Ahead Of Time)代码仍有差距。</li>
+<li>由于渲染依赖原生控件，不同平台的控件需要单独维护，并且当系统更新时，社区控件可能会滞后；除此之外，其控件系统也会受到原生UI系统限制，例如，在Android中，手势冲突消歧规则是固定的，这在使用不同人写的控件嵌套时，手势冲突问题将会变得非常棘手。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;React中提出一个重要思想：状态改变则UI随之自动改变，而React框架本身就是响应用户状态改变的事件而执行重新构建用户界面的工作，这就是典型的响应式编程范式，下面我们总结一下React中响应式原理：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;开发者只需关注状态
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="eth" scheme="http://idiot6.com/tags/eth/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="Truffle" scheme="http://idiot6.com/tags/Truffle/"/>
+    
+      <category term="dapps" scheme="http://idiot6.com/tags/dapps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法</title>
+    <link href="http://idiot6.com/2020/05/23/%20%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%EF%BC%9Ades%E5%8A%A0%E5%AF%86%E3%80%81aes%E5%8A%A0%E5%AF%86%E3%80%813des%E5%8A%A0%E5%AF%86%E3%80%81%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81Hash%20%E7%AE%97%E6%B3%95/"/>
+    <id>http://idiot6.com/2020/05/23/ 加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法/</id>
+    <published>2020-05-23T09:03:53.000Z</published>
+    <updated>2020-07-19T08:26:58.003Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="加密算法导读"><a href="#加密算法导读" class="headerlink" title="加密算法导读"></a>加密算法导读</h3><ul>
+<li><p>加密一般分为对称加密(Symmetric Key Encryption)和非对称加密(Asymmetric Key Encryption)</p>
+</li>
+<li><p>常见的对称加密算法：DES、3DES、DESX、Blowfish、IDEA、RC4、RC5、RC6 和 AES</p>
+</li>
+<li><p>常见的非对称加密算法：RSA、ECC （移动设备用）、Diffie-Hellman、El Gamal、DSA （数字签名用）</p>
+</li>
+<li><p>常见的 Hash 算法：MD2、MD4、MD5、HAVAL、SHA、SHA-1、HMAC、HMAC-MD5、HMAC-SHA1</p>
+</li>
+<li><p>分组加密算法中，有ECB,CBC,CFB,OFB这几种算法模式</p>
+</li>
+</ul>
+<h3 id="什么是对称密码算法"><a href="#什么是对称密码算法" class="headerlink" title="什么是对称密码算法"></a>什么是对称密码算法</h3><ul>
+<li><p>网络安全通信中要用到两类密码算法，加密一般分为对称加密(Symmetric Key Encryption)和非对称加密(Asymmetric Key Encryption)。对称密码算法有时又叫传统密码算法、秘密密钥算法或单密钥算法，非对称密码算法也叫公开密钥密码算法或双密钥算法。对称密码算法的加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。它要求发送者和接收者在安全通信之前，商定一个密钥。对称算法的安全性依赖于密钥，泄漏密钥就意味着任何人都能对消息进行加密解密。只要通信需要保密，密钥就必须保密。</p>
+</li>
+<li><p>对称算法又可分为两类。一次只对明文中的单个位（有时对字节）运算的算法称为序列算法或序列密码。另一类算法是对明文的一组位进行运算，这些位组称为分组，相应的算法称为分组算法或分组密码。现代计算机密码算法的典型分组长度为64位――这个长度既考虑到分析破译密码的难度，又考虑到使用的方便性。后来，随着破译能力的发展，分组长度又提高到128位或更长。</p>
+</li>
+<li><p>常用的采用对称密码术的加密方案有5个组成部分：</p>
+<ul>
+<li>1)明文：原始信息。</li>
+<li>2)加密算法：以密钥为参数，对明文进行多种置换和转换的规则和步骤，变换结果为密文。</li>
+<li>3)密钥：加密与解密算法的参数，直接影响对明文进行变换的结果。</li>
+<li>4)密文：对明文进行变换的结果。</li>
+<li>5)解密算法：加密算法的逆变换，以密文为输入、密钥为参数，变换结果为明文。</li>
+</ul>
+</li>
+<li><p>分组加密算法中，一般有ECB,CBC,CFB,OFB这几种算法模式。</p>
+</li>
+</ul>
+<h3 id="什么是DES加密"><a href="#什么是DES加密" class="headerlink" title="什么是DES加密"></a>什么是DES加密</h3><ul>
+<li><p>DES是Data Encryption Standard（数据加密标准）的缩写。它是由IBM公司研制的一种对称密码算法，美国国家标准局于1977年公布把它作为非机要部门使用的数据加密标准，三十年来，它一直活跃在国际保密通信的舞台上，扮演了十分重要的角色。</p>
+</li>
+<li><p>DES是一个分组加密算法，典型的DES以64位为分组对数据加密，加密和解密用的是同一个算法。它的密钥长度是56位（因为每个第8 位都用作奇偶校验），密钥可以是任意的56位的数，而且可以任意时候改变。其中有极少数被认为是易破解的弱密钥，但是很容易避开它们不用。所以保密性依赖于密钥。</p>
+</li>
+<li><p>DES加密的算法框架如下：</p>
+<ul>
+<li>首先要生成一套加密密钥，从用户处取得一个64位长的密码口令，然后通过等分、移位、选取和迭代形成一套16个加密密钥，分别供每一轮运算中使用。</li>
+</ul>
+</li>
+<li><p>DES解密过程：</p>
+<ul>
+<li>在了解了加密过程中所有的代替、置换、异或和循环迭代之后，读者也许会认为，解密算法应该是加密的逆运算，与加密算法完全不同。恰恰相反，经过密码学家精心设计选择的各种操作，DES获得了一个非常有用的性质：加密和解密使用相同的算法！</li>
+</ul>
+</li>
+</ul>
+<p>加密工作模式：ECB、CBC、CFB、OFB</p>
+<ul>
+<li><p>ECB   电子密码本模式：Electronic codebook  每块堵路加密 </p>
+<ul>
+<li><p>优点：分块处理 并行处理</p>
+</li>
+<li><p>缺点：同样的原文得到相同的密文  容易被攻击</p>
+</li>
+</ul>
+</li>
+<li><p>CBC 密码分组链接：Cipher-block chaining  每块加密依赖前一块的密文</p>
+<ul>
+<li><p>优点：同样的原文得到不同的密文  原文微下的改变影响后面全部密文</p>
+</li>
+<li><p>缺点：加密需要串行处理  误差传递</p>
+</li>
+</ul>
+</li>
+<li><p>CFB Cipher Feedback (CFB)/密文反馈模式</p>
+<ul>
+<li>密文反馈（CFB，Cipher feedback）模式类似于CBC，可以将块密码变为自同步的流密码；工作过程亦非常相似，CFB的解密过程几乎就是颠倒的CBC的加密过程：需要使用一个与块的大小相同的移位寄存器，并用IV将寄存器初始化。然后，将寄存器内容使用块密码加密，然后将结果的最高x位与平文的x进行异或，以产生密文的x位。下一步将生成的x位密文移入寄存器中，并对下面的x位平文重复这一过程。解密过程与加密过程相似，以IV开始，对寄存器加密，将结果的高x与密文异或，产生x位平文，再将密文的下面x位移入寄存器。</li>
+<li>与CBC相似，平文的改变会影响接下来所有的密文，因此加密过程不能并行化；而同样的，与CBC类似，解密过程是可以并行化的。</li>
+</ul>
+</li>
+<li><p>OFB Output Feedback (OFB)/输出反馈模式</p>
+<ul>
+<li>输出反馈模式（Output feedback, OFB）可以将块密码变成同步的流密码。它产生密钥流的块，然后将其与平文块进行异或，得到密文。与其它流密码一样，密文中一个位的翻转会使平文中同样位置的位也产生翻转。这种特性使得许多错误校正码，例如奇偶校验位，即使在加密前计算而在加密后进行校验也可以得出正确结果。</li>
+<li>每个使用OFB的输出块与其前面所有的输出块相关，因此不能并行化处理。然而，由于平文和密文只在最终的异或过程中使用，因此可以事先对IV进行加密，最后并行的将平文或密文进行并行的异或处理。</li>
+<li>可以利用输入全0的CBC模式产生OFB模式的密钥流。这种方法十分实用，因为可以利用快速的CBC硬件实现来加速OFB模式的加密过程。</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是3DES加密"><a href="#什么是3DES加密" class="headerlink" title="什么是3DES加密"></a>什么是3DES加密</h3><ul>
+<li>3DES，即triple-DES，简单地说就是3次DES加解密的组合。现已不推荐使用。（E表示Encrypt，D表示Decrypt。）</li>
+<li>加密：cipthertext = E(k3, D(k2, E(k1, plaintext)))</li>
+<li>解密：plaintext = D(k1, E(k2, D(k3, ciphertext)))</li>
+<li>特点：如果三个密钥都一样，拿刚好和DES一样。</li>
+</ul>
+<h3 id="什么是AES加密"><a href="#什么是AES加密" class="headerlink" title="什么是AES加密"></a>什么是AES加密</h3><ul>
+<li>AES, Advanced Encryption Standard，是现行的对称加密标准。目前（2017）如果使用对称加密，应该使用AES。当然，只能说当前AES算法是安全的，不能保证AES永远都是安全的。</li>
+<li>分组：128bit。</li>
+<li>密钥：128bit、192bit、256bit。</li>
+<li>Go语言包只支持128bit，因此下例子中使用的是128bit</li>
+</ul>
+<h3 id="DSA-（Digital-Signature-Algorithm）"><a href="#DSA-（Digital-Signature-Algorithm）" class="headerlink" title="DSA （Digital Signature Algorithm）"></a>DSA （Digital Signature Algorithm）</h3><ul>
+<li><p>DSA（Digital Signature Algorithm）是Schnorr和ElGamal签名算法的变种，被美国NIST作为DSS(DigitalSignature Standard)。</p>
+</li>
+<li><p>DSA加密算法主要依赖于整数有限域离散对数难题，素数P必须足够大，且p-1至少包含一个大素数因子以抵抗Pohlig &amp;Hellman算法的攻击。M一般都应采用信息的HASH值。DSA加密算法的安全性主要依赖于p和g，若选取不当则签名容易伪造，应保证g对于p-1的大素数因子不可约。其安全性与RSA相比差不多。</p>
+</li>
+<li><p>DSA 一般用于数字签名和认证。在DSA数字签名和认证中，发送者使用自己的私钥对文件或消息进行签名，接受者收到消息后使用发送者的公钥来验证签名的真实性。DSA只是一种算法，和RSA不同之处在于它不能用作加密和解密，也不能进行密钥交换，只用于签名,它比RSA要快很多.</p>
+</li>
+</ul>
+<h3 id="ECC-（Elliptic-Curves-Cryptography），椭圆曲线密码编码学。"><a href="#ECC-（Elliptic-Curves-Cryptography），椭圆曲线密码编码学。" class="headerlink" title="ECC （Elliptic Curves Cryptography），椭圆曲线密码编码学。"></a>ECC （Elliptic Curves Cryptography），椭圆曲线密码编码学。</h3><ul>
+<li><p>椭圆曲线密码学（英语：Elliptic curve cryptography，缩写为ECC），一种建立公开密钥加密的算法，基于椭圆曲线数学。椭圆曲线在密码学中的使用是在1985年由Neal Koblitz和Victor Miller分别独立提出的。</p>
+</li>
+<li><p>椭圆曲线密码学的主要优势是在某些情况下它比其他的方法使用更小的密钥 — — 比如RSA加密算法 — — 提供相当的或更高等级的安全。椭圆曲线密码学的另一个优势是可以定义群之间的双线性映射，基于Weil对或是Tate对；双线性映射已经在密码学中发现了大量的应用，例如基于身份的加密。不过一个缺点是加密和解密操作的实现比其他机制花费的时间长。</p>
+</li>
+<li><p>椭圆曲线密码学,是一种建立公开密钥加密的算法,也就输非对称加密.类似的还有RSA,EIGamal算法等.ECC被公认为在给定密钥长度下最安全的加密算法.</p>
+</li>
+</ul>
+<p><strong>双线性映射解释：在数论中，一个双线性映射是由两个向量空间上的元素，生成第三个向量空间上一个元素之函数，并且该函数对每个参数都是线性的。</strong></p>
+<h3 id="什么是RSA"><a href="#什么是RSA" class="headerlink" title="什么是RSA"></a>什么是RSA</h3><ul>
+<li>RSA加密算法是一种非对称加密算法，在公开密钥加密和电子商业中被广泛使用。RSA是1977年由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（Adi Shamir）和伦纳德·阿德曼（Leonard Adleman）一起提出的。当时他们三人都在麻省理工学院工作。RSA就是他们三人姓氏开头字母拼在一起组成的。</li>
+</ul>
+<ul>
+<li>这种算法非常可靠，密钥越长，它就越难破解。根据已经披露的文献，目前被破解的最长RSA密钥是768个二进制位。也就是说，长度超过768位的密钥，还无法破解（至少没人公开宣布）。因此可以认为，1024位的RSA密钥基本安全，2048位的密钥极其安全。</li>
+</ul>
+<ul>
+<li>RSA算法用到的数学知识<ul>
+<li>寻找两个不相同的质数</li>
+<li>模运算</li>
+<li>互质数,又称互素。若N个整数的最大公因子是1，则称这N个整数互质。</li>
+<li>指数运算</li>
+<li>同余</li>
+<li>根据欧拉函数和欧拉公式</li>
+<li>模反元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="ECC-和-RSA-相比"><a href="#ECC-和-RSA-相比" class="headerlink" title="ECC 和 RSA 相比"></a>ECC 和 RSA 相比</h3><ul>
+<li>抗攻击性强。相同的密钥长度，其抗攻击性要强很多倍。</li>
+<li>计算量小，处理速度快。ECC 总的速度比 RSA、DSA 要快得多。</li>
+<li>存储空间占用小。ECC 的密钥尺寸和系统参数与 RSA、DSA 相比要小得多，意味着它所占的存贮空间要小得多。这对于加密算法在 IC 卡上的应用具有特别重要的意义。</li>
+<li>带宽要求低。当对长消息进行加解密时，三类密码系统有相同的带宽要求，但应用于短消息时 ECC 带宽要求却低得多。带宽要求低使 ECC 在无线网络领域具有广泛的应用前景。</li>
+</ul>
+<h3 id="什么是非对称加密"><a href="#什么是非对称加密" class="headerlink" title="什么是非对称加密"></a>什么是非对称加密</h3><p>公开密钥加密（英语：public-key cryptography，又译为公开密钥加密），也称为非对称加密（asymmetric cryptography），一种密码学算法类型，在这种密码学方法中，需要一对密钥(其实这里密钥说法不好，就是“钥”)，一个是私人密钥，另一个则是公开密钥。这两个密钥是数学相关，用某用户密钥加密后所得的信息，只能用该用户的解密密钥才能解密。如果知道了其中一个，并不能计算出另外一个。因此如果公开了一对密钥中的一个，并不会危害到另外一个的秘密性质。称公开的密钥为公钥；不公开的密钥为私钥。–wiki百科</p>
+<ul>
+<li>指的是加、解密使用不同的密钥，一把作为公开的公钥，另一把作为私钥。公钥加密的信息，只有私钥才能解密。反之，私钥加密的信息，只有公钥才能解密。俗话来说：“要想使用非对称加密算法，首先要有一对key，一个被称为private key私钥，一个成为public key公钥，然后可以把你的public key分发给想给你传密文的用户，然后用户使用该public key加密过得密文，只有使用你的private key才能解密，也就是说，只要你自己保存好你的private key，就能确保，别人想给你发的密文不被破解，所以你不用担心别人的密钥被盗，没关系。 ”</li>
+</ul>
+<h3 id="Hash-算法"><a href="#Hash-算法" class="headerlink" title="Hash 算法"></a>Hash 算法</h3><ul>
+<li>Hash 算法特别的地方在于它是一种单向算法，用户可以通过 Hash 算法对目标信息生成一段特定长度的唯一的 Hash 值，却不能通过这个 Hash 值重新获得目标信息。因此 Hash 算法常用在不可还原的密码存储、信息完整性校验等。</li>
+</ul>
+<ul>
+<li><p>单向散列函数一般用于产生消息摘要，密钥加密等，常见的有：</p>
+<ul>
+<li>MD5 （Message Digest Algorithm 5）：是 RSA 数据安全公司开发的一种单向散列算法，非可逆，相同的明文产生相同的密文；</li>
+<li>SHA （Secure Hash Algorithm）：可以对任意长度的数据运算生成一个 160 位的数值。</li>
+</ul>
+</li>
+<li><p>SHA-1 与 MD5 的比较 :</p>
+<ul>
+<li><p>因为二者均由 MD4 导出，SHA-1 和 MD5 彼此很相似。相应的，他们的强度和其他特性也是相似，但还有以下几点不同：</p>
+</li>
+<li><p>对强行供给的安全性：最显著和最重要的区别是 SHA-1 摘要比 MD5 摘要长 32 位。使用强行技术，产生任何一个报文使其摘要等于给定报摘要的难度对 MD5 是 2128 数量级的操作，而对 SHA-1 则是 2160 数量级的操作。这样，SHA-1 对强行攻击有更大的强度；</p>
+</li>
+<li>对密码分析的安全性：由于 MD5 的设计，易受密码分析的攻击，SHA-1 显得不易受这样的攻击；</li>
+<li>速度：在相同的硬件上，SHA-1 的运行速度比 MD5 慢。</li>
+</ul>
+</li>
+</ul>
+<h3 id="对称加密与非对称加密对比"><a href="#对称加密与非对称加密对比" class="headerlink" title="对称加密与非对称加密对比"></a>对称加密与非对称加密对比</h3><ul>
+<li><p>在管理方面：公钥密码算法只需要较少的资源就可以实现目的，在密钥的分配上，两者之间相差一个指数级别（一个是 n 一个是 n2）。所以私钥密码算法不适应广域网的使用，而且更重要的一点是它不支持数字签名；</p>
+</li>
+<li><p>在安全方面：由于公钥密码算法基于未解决的数学难题，在破解上几乎不可能。对于私钥密码算法，到了 AES 虽说从理论来说是不可能破解的，但从计算机的发展角度来看。公钥更具有优越性；</p>
+</li>
+<li><p>从速度上来看：AES 的软件实现速度已经达到了每秒数兆或数十兆比特。是公钥的 100 倍，如果用硬件来实现的话这个比值将扩大到 1000 倍。</p>
+</li>
+<li><p>对称加密优缺点：对称加密相比非对称加密算法来说，加解密的效率要高得多、加密速度快。但是缺陷在于对于密钥的管理和分发上比较困难，不是非常安全，密钥管理负担很重。</p>
+</li>
+<li><p>非对称加密优缺点：安全性更高，公钥是公开的，密钥是自己保存的，不需要将私钥给别人。缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。</p>
+</li>
+</ul>
+<h3 id="DES、3DES、AES、RSA（非对称加密）Go语言实现"><a href="#DES、3DES、AES、RSA（非对称加密）Go语言实现" class="headerlink" title="DES、3DES、AES、RSA（非对称加密）Go语言实现"></a>DES、3DES、AES、RSA（非对称加密）Go语言实现</h3><p>代码托管已上传到Github，请访问连接查看：<a href="https://github.com/chuhemiao/myCrypto" target="_blank" rel="external">Go语言实现加密算法</a></p>
+<h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><ul>
+<li>非对称加密安全，但是效率比较慢，对称加密效率高，但是不安全。</li>
+<li>一般来说，密钥越长，运行的速度就越慢，应该根据的我们实际需要的安全级别来选择，一般来说，RSA 建议采用 1024 位的数字，ECC 建议采用 160 位，AES 采用 128 为即可。</li>
+</ul>
+<p>参考：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86" target="_blank" rel="external">wiki百科-公开密钥加密</a></p>
+<p><a href="https://github.com/xr/xr.github.io/issues/3" target="_blank" rel="external">白话-对称加密算法 vs 非对称加密算法</a></p>
+<p><a href="https://www.jianshu.com/p/b63095c59361" target="_blank" rel="external">对称加密算法和分组密码的模式</a></p>
+<p><a href="https://www.chainnews.com/articles/222021126804.htm" target="_blank" rel="external">一文读懂对称加密算法、非对称加密算法和 Hash 算法</a></p>
+<p><a href="https://juejin.im/post/5d2ae58f51882548ea35b9b0" target="_blank" rel="external">ECC椭圆曲线加密算法</a></p>
+<p><a href="https://blog.damonare.cn/2017/12/31/RSA%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/#more" target="_blank" rel="external">RSA算法详解</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;加密算法导读&quot;&gt;&lt;a href=&quot;#加密算法导读&quot; class=&quot;headerlink&quot; title=&quot;加密算法导读&quot;&gt;&lt;/a&gt;加密算法导读&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;加密一般分为对称加密(Symmetric Key Encryption)和非对称加密(As
+    
+    </summary>
+    
+      <category term="blockchain" scheme="http://idiot6.com/categories/blockchain/"/>
+    
+    
+      <category term="golang" scheme="http://idiot6.com/tags/golang/"/>
+    
+      <category term="aes" scheme="http://idiot6.com/tags/aes/"/>
+    
+      <category term="des" scheme="http://idiot6.com/tags/des/"/>
+    
+      <category term="3des" scheme="http://idiot6.com/tags/3des/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>type annotations can only be used in typescript files.ts(8010)</title>
+    <link href="http://idiot6.com/2020/05/23/type%20annotations%20can%20only%20be%20used%20in%20typescript%20files.ts(8010)/"/>
+    <id>http://idiot6.com/2020/05/23/type annotations can only be used in typescript files.ts(8010)/</id>
+    <published>2020-05-23T09:03:53.000Z</published>
+    <updated>2020-07-19T08:26:58.594Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="配置VS配置文件"><a href="#配置VS配置文件" class="headerlink" title="配置VS配置文件"></a>配置VS配置文件</h3><ul>
+<li>macos，preference=》setting=〉搜索 settings.json 点击Edit in settings.json</li>
+<li>添加配置 <ul>
+<li>“javascript.validate.enable”: false </li>
+<li>“typescript.validate.enable”: false,</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;配置VS配置文件&quot;&gt;&lt;a href=&quot;#配置VS配置文件&quot; class=&quot;headerlink&quot; title=&quot;配置VS配置文件&quot;&gt;&lt;/a&gt;配置VS配置文件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;macos，preference=》setting=〉搜索 settings.j
+    
+    </summary>
+    
+      <category term="vscode" scheme="http://idiot6.com/categories/vscode/"/>
+    
+    
+      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
+    
+      <category term="typescript" scheme="http://idiot6.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年Macos最全ETH区块链环境搭建,并使用Truffle创建第一个Dapps</title>
+    <link href="http://idiot6.com/2020/04/19/%202020%E5%B9%B4Macos%E6%9C%80%E5%85%A8%20ETH%E5%8C%BA%E5%9D%97%E9%93%BE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA,%E5%B9%B6%E4%BD%BF%E7%94%A8Truffle%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AADapps/"/>
+    <id>http://idiot6.com/2020/04/19/ 2020年Macos最全 ETH区块链环境搭建,并使用Truffle创建第一个Dapps/</id>
+    <published>2020-04-19T15:23:53.000Z</published>
+    <updated>2020-07-19T08:26:58.003Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="以太坊开需要哪些工具"><a href="#以太坊开需要哪些工具" class="headerlink" title="以太坊开需要哪些工具"></a>以太坊开需要哪些工具</h3><ul>
+<li><p>HomeBrew</p>
+</li>
+<li><p>Xcode命令行工具</p>
+</li>
+<li><p>go-ethereum</p>
+</li>
+<li><p>Ganache</p>
+</li>
+<li><p>nodejs和npm</p>
+</li>
+<li><p>Truffle</p>
+</li>
+<li><p>VsCode</p>
+</li>
+</ul>
+<h3 id="安装HOMEBREW"><a href="#安装HOMEBREW" class="headerlink" title="安装HOMEBREW"></a>安装HOMEBREW</h3><ul>
+<li><p>如果已经安装请忽略本步骤</p>
+</li>
+<li><p>请打开<a href="https://brew.sh/，然后复制红框内内容" target="_blank" rel="external">https://brew.sh/，然后复制红框内内容</a>: <code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763112879761.jpg" alt="homebrew"></p>
+<h3 id="安装Xcode"><a href="#安装Xcode" class="headerlink" title="安装Xcode"></a>安装Xcode</h3><ul>
+<li>一般电脑应该会有，没有的话，那自行谷歌把！</li>
+</ul>
+<h3 id="安装geth"><a href="#安装geth" class="headerlink" title="安装geth"></a>安装geth</h3><ul>
+<li>brew tap ethereum/ethereum</li>
+<li><p>brew install ethereum</p>
+</li>
+<li><p>检测是否安装完成：输入geth -h，如果出现下图所示，则代表已经安装完成</p>
+</li>
+</ul>
+<h3 id="nodejs和npm"><a href="#nodejs和npm" class="headerlink" title="nodejs和npm"></a>nodejs和npm</h3><ul>
+<li><p>brew install node</p>
+</li>
+<li><p>node -v 检测是否已经安装成功</p>
+</li>
+<li><p>npm -v</p>
+</li>
+</ul>
+<h3 id="安装truffle"><a href="#安装truffle" class="headerlink" title="安装truffle"></a>安装truffle</h3><ul>
+<li><p>npm install -g truffle</p>
+</li>
+<li><p>truffle -v 检测是否安装成功</p>
+</li>
+</ul>
+<h3 id="安装Ganache"><a href="#安装Ganache" class="headerlink" title="安装Ganache"></a>安装Ganache</h3><ul>
+<li><p>浏览器中打开下面的链接，<a href="https://www.trufflesuite.com/ganache" target="_blank" rel="external">https://www.trufflesuite.com/ganache</a></p>
+</li>
+<li><p>下载Ganache for MacOS ，然后点击下载后的dmg包，依次按步骤执行即可。</p>
+</li>
+<li><p>然后启动此软件，就可以进行相关调试了，如下图</p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763116506866.jpg" alt="安装Ganache"></p>
+<h3 id="安装VsCode"><a href="#安装VsCode" class="headerlink" title="安装VsCode"></a>安装VsCode</h3><ul>
+<li><p>打开网页：<a href="https://code.visualstudio.com/，下载后直接打开。" target="_blank" rel="external">https://code.visualstudio.com/，下载后直接打开。</a></p>
+</li>
+<li><p>然后安装插件，先点击步骤1，然后在步骤上直接搜索当前要安装的插件名称，然后点击install即可</p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763119152803.jpg" alt="安装VsCode"></p>
+<h3 id="创建第一个dapp"><a href="#创建第一个dapp" class="headerlink" title="创建第一个dapp"></a>创建第一个dapp</h3><ul>
+<li><p>首先上述软件已经安装成功，然后打开Ganache客户端，可以看到已经分配的测试网账户和一些余额。</p>
+</li>
+<li><p>然后打开终端，创建一个目录mkdir blockchain-test</p>
+</li>
+<li>cd blockchain-test</li>
+<li><p>使用前面安装的truffle创建项目，这里推荐使用truffle box 模式，它会带一些自动的事例，具体可以看文档和一些已经存在的项目：<a href="https://www.trufflesuite.com/boxes" target="_blank" rel="external">https://www.trufflesuite.com/boxes</a></p>
+</li>
+<li><p>这里我们以<a href="https://www.trufflesuite.com/boxes/pet-shop" target="_blank" rel="external">pet-shop</a>,首先执行：sudo truffle unbox pet-shop</p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763125307985.jpg" alt="创建第一个dapp"></p>
+<ul>
+<li>然后得到新项目目录如下</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763126268873.jpg" alt="创建第一个dapp"></p>
+<ul>
+<li><p>contracts/ : 包含所有項目中智能合約 Solidity 代码，其中有事例 Migrations.sol 智能合約，容后再介紹；</p>
+</li>
+<li><p>migrations/ : 主要是 Truffle 用与部署智能合約的一个迁移命令集；</p>
+</li>
+<li><p>test/ : 包含 JavaScript 和 Solidity 的 test cases；</p>
+</li>
+<li><p>truffle-config.js : Truffle 的一些设置，比如端口、测试网、正式网等；</p>
+</li>
+<li><p>node_modules ： 是一些安装的基础包</p>
+</li>
+<li><p>bs-config.json:是智能合约的编译鲁姆</p>
+</li>
+<li><p>src：是项目的主入口文件</p>
+</li>
+<li><p>然后分别依次执行 ： </p>
+<ul>
+<li>truffle compile</li>
+<li>truffle migrate</li>
+<li>truffle test</li>
+<li>npm run dev</li>
+</ul>
+</li>
+<li><p>然后就可以看到程序已经跑起来：</p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763132463521.jpg" alt="truffle创建第一个dapp"></p>
+<ul>
+<li>然后程序会默认打开浏览器，也可以直接访问：<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 查看已经得到的效果</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763132695654.jpg" alt="truffle创建第一个dapp"></p>
+<ul>
+<li>访问：<a href="http://localhost:3001可以看到智能合约的一些交互和当前dapp的一些运行情况，如下图：" target="_blank" rel="external">http://localhost:3001可以看到智能合约的一些交互和当前dapp的一些运行情况，如下图：</a></li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763134408246.jpg" alt="truffle创建第一个dapp"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;以太坊开需要哪些工具&quot;&gt;&lt;a href=&quot;#以太坊开需要哪些工具&quot; class=&quot;headerlink&quot; title=&quot;以太坊开需要哪些工具&quot;&gt;&lt;/a&gt;以太坊开需要哪些工具&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;HomeBrew&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Xco
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
+    
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="eth" scheme="http://idiot6.com/tags/eth/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="Truffle" scheme="http://idiot6.com/tags/Truffle/"/>
+    
+      <category term="dapps" scheme="http://idiot6.com/tags/dapps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020最新Macos eos区块链环境搭建和开发教程</title>
+    <link href="http://idiot6.com/2020/03/29/%202020%E6%9C%80%E6%96%B0Macos%20eos%E5%8C%BA%E5%9D%97%E9%93%BE%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/"/>
+    <id>http://idiot6.com/2020/03/29/ 2020最新Macos eos区块链环境搭建和开发教程/</id>
+    <published>2020-03-29T14:22:22.000Z</published>
+    <updated>2020-07-19T08:26:58.003Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>EOS、EOS-Mainnet、EOSIO都是什么？</strong></p>
+<h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><ul>
+<li><p>2017年，一个叫Block.one的公司开发了一个叫EOSIO的软件。为了开发这个软件，Block.one进行了一个历时350天的众筹，最后募集资金超过40亿美元。</p>
+</li>
+<li><p>EOSIO这个软件是后来的EOS-Mainnet和其他区块链网络（BOS、Telos等等）构建网络的基础工具。</p>
+</li>
+<li><p>EOS-Mainnet，也就是EOS主网，是我们目前使用最广泛的基于EOSIO软件的区块链网络。网上听说的很多EOS Dapp（Decentralized Application，去中心化的app）都是运行在EOS主网上，大多数人一说EOS，基本上指的就是EOS主网。</p>
+</li>
+<li><p>EOS是EOS主网上的原生代币的符号，EOS的数量体现了你在EOS主网上可使用资源和可参与治理的多少。EOS本身具有价格，可以在各大交易所购买。</p>
+</li>
+</ul>
+<h3 id="账户、公钥、私钥"><a href="#账户、公钥、私钥" class="headerlink" title="账户、公钥、私钥"></a>账户、公钥、私钥</h3><ul>
+<li><p>在EOS上，账户类似于用户名，所有的操作都是以账户为基础的，转账、投票、更新信息，参与Dapp等等。账户需要注册，至多12位字符。</p>
+</li>
+<li><p>如何证明这个账户是属于你的而不是别人的呢？这个就需要用到公钥和私钥，用互联网来类比的话就是密码，不过这个密码是由公钥和私钥两部分构成的。<br>形象地理解，公钥和私钥就相当于锁和钥匙，私钥，也就是钥匙，掌握在你自己手里；公钥，也就是锁，和账户绑定。如果你想在账户里进行操作，就需要用你手里的私钥和公钥匹配，如果匹配上了，那么账户就认为你是所有者。</p>
+</li>
+<li><p>实际上，EOS的账户系统还可以更加复杂，比如给予每个公钥/私钥对不同的权限（Owner和Active），对一个账户就行多人共管（Multi-sig，多签）等等，暂时先不展开了。<br>注意，一个公钥/私钥对可以同时控制多个账户。</p>
+</li>
+</ul>
+<p>（三）钱包</p>
+<ul>
+<li><p>常用的钱包，PC端和国外主要用Scatter，手机端和国内主要用TokenPocket、Meetone。这些可以通过他们的官网下载。</p>
+</li>
+<li><p>每个EOS账户里面存在着三者资源，所有的操作都需要花费这三种资源，可以理解，这三种资源是你使用EOS网络的成本。这三种资源叫做计算（CPU）、存储（RAM）和网络（NET）。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>传统含义</th>
+<th>EOS上含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算（CPU）</td>
+<td>中央处理单元，指的是负责在计算机中执行指令和处理信息的硬件</td>
+<td>一种按时间计价的资源（单位：微秒），用来衡量EOS节点应该对你帐户中的交易确认所投入的时间</td>
+</tr>
+<tr>
+<td>网络（NET）</td>
+<td>互联网带宽</td>
+<td>一种以空间计价的资源（单位：字节），用来衡量当在P2P层上传输数据时需要多少区块的网络描述来存储你的交易数据</td>
+</tr>
+<tr>
+<td>存储（RAM）</td>
+<td>存储是用来存储云平台上的所有数据。RAM是指运行内存，速度更快，但储存是暂时的，断电后内容就会消失</td>
+<td>RAM不再是临时存储，而是作为主储存层，用来储存所有的数据。相当于是让储存速度更快的内存（RAM）充当了硬盘的功能。在RAM中存储数据库，可以让读取数据的速度更快</td>
+</tr>
+</tbody>
+</table>
+<h3 id="EOSIO如何快速构建开发网络"><a href="#EOSIO如何快速构建开发网络" class="headerlink" title="EOSIO如何快速构建开发网络"></a>EOSIO如何快速构建开发网络</h3><ul>
+<li>EOSIO是由三个组件组成的。<ul>
+<li>nodeos:管理区块链节点的组件。</li>
+<li>keosd：管理钱包的组件。</li>
+<li>cleos：控制区块链和钱包CLI工具。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Macos-安装EOSIO"><a href="#Macos-安装EOSIO" class="headerlink" title="Macos 安装EOSIO"></a>Macos 安装EOSIO</h3><ul>
+<li><p>安装  <code>brew tap eosio/eosio</code>   <code>brew install eosio</code></p>
+</li>
+<li><p>卸载 <code>brew remove eosio</code></p>
+</li>
+</ul>
+<h3 id="Ubuntu-18-04-Debian-安装-eosio"><a href="#Ubuntu-18-04-Debian-安装-eosio" class="headerlink" title="Ubuntu 18.04  Debian 安装 eosio"></a>Ubuntu 18.04  Debian 安装 eosio</h3><ul>
+<li><p>wget <a href="https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb" target="_blank" rel="external">https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb</a></p>
+</li>
+<li><p>sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb</p>
+</li>
+</ul>
+<h3 id="Ubuntu-16-04-Debian-安装-eosio"><a href="#Ubuntu-16-04-Debian-安装-eosio" class="headerlink" title="Ubuntu 16.04 Debian 安装 eosio"></a>Ubuntu 16.04 Debian 安装 eosio</h3><ul>
+<li><p>wget <a href="https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-16.04_amd64.deb" target="_blank" rel="external">https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-16.04_amd64.deb</a></p>
+</li>
+<li><p>sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb</p>
+</li>
+</ul>
+<h3 id="CentOS-通过RPM-安装-eosio"><a href="#CentOS-通过RPM-安装-eosio" class="headerlink" title="CentOS 通过RPM  安装 eosio"></a>CentOS 通过RPM  安装 eosio</h3><ul>
+<li><p>wget <a href="https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio-1.8.6-1.el7.x86_64.rpm" target="_blank" rel="external">https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio-1.8.6-1.el7.x86_64.rpm</a></p>
+</li>
+<li><p>sudo yum install ./eosio-1.8.6-1.el7.x86_64.rpm</p>
+</li>
+</ul>
+<h3 id="设置一个开发目录"><a href="#设置一个开发目录" class="headerlink" title="设置一个开发目录"></a>设置一个开发目录</h3><ul>
+<li><p>cd /data  mkdir development-eos</p>
+</li>
+<li><p>cd development-eos  进入开发目录</p>
+</li>
+</ul>
+<h3 id="启动节点"><a href="#启动节点" class="headerlink" title="启动节点"></a>启动节点</h3><ul>
+<li><p>keosd &amp;</p>
+</li>
+<li><p>如果成功则会看到如下截图：</p>
+</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763095080716.jpg" alt="keosd"></p>
+<h3 id="启动nodeos"><a href="#启动nodeos" class="headerlink" title="启动nodeos"></a>启动nodeos</h3><pre><code>nodeos -e -p eosio \
+--plugin eosio::producer_plugin \
+--plugin eosio::chain_api_plugin \
+--plugin eosio::http_plugin \
+--plugin eosio::history_plugin \
+--plugin eosio::history_api_plugin \
+--filter-on=&quot;*&quot; \
+--access-control-allow-origin=&apos;*&apos; \
+--contracts-console \
+--http-validate-host=false \
+--verbose-http-errors &gt;&gt; nodeos.log 2&gt;&amp;1 &amp;
+</code></pre><h3 id="查看nodeos-log是否已经启动nodeos"><a href="#查看nodeos-log是否已经启动nodeos" class="headerlink" title="查看nodeos.log是否已经启动nodeos"></a>查看nodeos.log是否已经启动nodeos</h3><ul>
+<li>tail -f nodeos.log</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763097186602.jpg" alt="nodeos.log"></p>
+<h3 id="查看当前已经存在的eos钱包"><a href="#查看当前已经存在的eos钱包" class="headerlink" title="查看当前已经存在的eos钱包"></a>查看当前已经存在的eos钱包</h3><ul>
+<li><p>cleos wallet list</p>
+</li>
+<li><p>不出意外应该会返回一个空的数组，当前我们并没有创建钱包</p>
+</li>
+</ul>
+<h3 id="检查Nodeos-的端口"><a href="#检查Nodeos-的端口" class="headerlink" title="检查Nodeos 的端口"></a>检查Nodeos 的端口</h3><ul>
+<li>浏览器打开：<a href="http://localhost:8888/v1/chain/get_info" target="_blank" rel="external">http://localhost:8888/v1/chain/get_info</a>  当然你也可以直接使用curl的方式：curl <a href="http://localhost:8888/v1/chain/get_info" target="_blank" rel="external">http://localhost:8888/v1/chain/get_info</a></li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763099467987.jpg" alt="检查Nodeos 的端口"></p>
+<h3 id="Macos安装CDT"><a href="#Macos安装CDT" class="headerlink" title="Macos安装CDT"></a>Macos安装CDT</h3><ul>
+<li>brew tap eosio/eosio.cdt</li>
+<li><p>brew install eosio.cdt</p>
+</li>
+<li><p>卸载CDT  brew remove eosio.cdt</p>
+</li>
+</ul>
+<h3 id="CentOS-Redhat内核安装CDT"><a href="#CentOS-Redhat内核安装CDT" class="headerlink" title="CentOS/Redhat内核安装CDT"></a>CentOS/Redhat内核安装CDT</h3><ul>
+<li><p>wget <a href="https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.3/eosio.cdt-1.6.3-1.el7.x86_64.rpm" target="_blank" rel="external">https://github.com/EOSIO/eosio.cdt/releases/download/v1.6.3/eosio.cdt-1.6.3-1.el7.x86_64.rpm</a></p>
+</li>
+<li><p>sudo yum install ./eosio.cdt-1.6.3-1.el7.x86_64.rpm</p>
+</li>
+<li><p>卸载CDT   sudo yum remove eosio.cdt</p>
+</li>
+</ul>
+<h3 id="通过源码编译方式安装CDT"><a href="#通过源码编译方式安装CDT" class="headerlink" title="通过源码编译方式安装CDT"></a>通过源码编译方式安装CDT</h3><ul>
+<li>首先克隆下源码 git clone –recursive <a href="https://github.com/eosio/eosio.cdt" target="_blank" rel="external">https://github.com/eosio/eosio.cdt</a> –branch v1.6.3 –single-branch</li>
+</ul>
+<ul>
+<li><p>然后执行 cd eosio.cdt   ./build.sh</p>
+</li>
+<li><p>sudo ./install.sh</p>
+</li>
+</ul>
+<h3 id="创建一个开发模式的钱包"><a href="#创建一个开发模式的钱包" class="headerlink" title="创建一个开发模式的钱包"></a>创建一个开发模式的钱包</h3><ul>
+<li><p>首先执行创建钱包的命令：cleos wallet create –to-console  ， 此时cleos会返回一个密码，你可以存在任何地方，后续以备使用。</p>
+</li>
+<li><p>打开一个eos钱包：cleos wallet open</p>
+</li>
+<li><p>返回钱包的列表查看目前可以打开的钱包：cleos wallet list</p>
+</li>
+<li><p>打开之前首先需要解锁：cleos wallet unlock</p>
+</li>
+<li><p>然后在输入：cleos wallet list，会看到列表的钱包后面会增加一个*号，然后就可以在执行打开命令打开。</p>
+</li>
+</ul>
+<h3 id="生成带有密钥的EOS钱包"><a href="#生成带有密钥的EOS钱包" class="headerlink" title="生成带有密钥的EOS钱包"></a>生成带有密钥的EOS钱包</h3><ul>
+<li>cleos wallet create_key</li>
+<li><p>运行上述命令后会得到一个新的key： “EOS8PEJ5FM4LLLpHK…X6PypHu97kqGDJQY5Y”</p>
+</li>
+<li><p>在网页<a href="https://developers.eos.io/eosio-home/docs/wallets" target="_blank" rel="external">https://developers.eos.io/eosio-home/docs/wallets</a> 的第五步输入上述得到的key就可以得到一个开发的Public key</p>
+</li>
+</ul>
+<h3 id="导出开发的密钥"><a href="#导出开发的密钥" class="headerlink" title="导出开发的密钥"></a>导出开发的密钥</h3><ul>
+<li>cleos wallet import，运行命令后会得到一串字符串（private key），包存后可以用来后期的开发</li>
+</ul>
+<h3 id="创建eos测试账户"><a href="#创建eos测试账户" class="headerlink" title="创建eos测试账户"></a>创建eos测试账户</h3><ul>
+<li><p>使用命令分别创建bob和alice两个账户，YOUR_PUBLIC_KEY是之前步骤生成的key</p>
+</li>
+<li><p>cleos create account eosio bob YOUR_PUBLIC_KEY </p>
+</li>
+<li><p>cleos create account eosio alice YOUR_PUBLIC_KEY</p>
+</li>
+<li><p>运行命令后会反馈当前广播交易的消息</p>
+</li>
+</ul>
+<h3 id="获取Public-Key"><a href="#获取Public-Key" class="headerlink" title="获取Public Key"></a>获取Public Key</h3><ul>
+<li>cleos get account alice（当前创建的用户）</li>
+</ul>
+<p><img src="https://cdn.bsatoshi.com/2019/12/14/15763107114594.jpg" alt="获取Public Key"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://developers.eos.io/eosio-home/docs/setting-up-your-environment" target="_blank" rel="external">developers eos</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;EOS、EOS-Mainnet、EOSIO都是什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;&gt;&lt;/a&gt;背景介绍&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;20
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
+    
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="eth" scheme="http://idiot6.com/tags/eth/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="Truffle" scheme="http://idiot6.com/tags/Truffle/"/>
+    
+      <category term="dapps" scheme="http://idiot6.com/tags/dapps/"/>
+    
+  </entry>
   
   <entry>
     <title>Go 语言解决不能Go get安装Gin问题解决方案</title>
@@ -577,439 +1683,6 @@ Please, commit your changes <span class="keyword">or</span> stash them before yo
       <category term="NPM" scheme="http://idiot6.com/tags/NPM/"/>
     
       <category term="swap" scheme="http://idiot6.com/tags/swap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一个你想用的vpn，免费5G，可续命</title>
-    <link href="http://idiot6.com/2017/05/11/freecatvpn/"/>
-    <id>http://idiot6.com/2017/05/11/freecatvpn/</id>
-    <published>2017-05-11T08:40:53.000Z</published>
-    <updated>2017-05-11T08:39:02.940Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="vpn翻墙"><a href="#vpn翻墙" class="headerlink" title="vpn翻墙"></a>vpn翻墙</h2><p>1.<a href="http://www.freecatvpn.net/" target="_blank" rel="external">freecatvpn</a>，go go out ，我们去油管看视频去！</p>
-<p>2.初始免费5G,不限速，每天可续命，也可直接付费，注册须邀请码，官网没有的话，请邮件我，会最快回复你，或者加群QQ群：604297136，也可twitter@：meng535101602，祝您使用愉快。</p>
-<p>3.免费教、免费用，更多使用请访问官方网站或者加群咨询。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;vpn翻墙&quot;&gt;&lt;a href=&quot;#vpn翻墙&quot; class=&quot;headerlink&quot; title=&quot;vpn翻墙&quot;&gt;&lt;/a&gt;vpn翻墙&lt;/h2&gt;&lt;p&gt;1.&lt;a href=&quot;http://www.freecatvpn.net/&quot; target=&quot;_blank&quot; rel
-    
-    </summary>
-    
-      <category term="vpn" scheme="http://idiot6.com/categories/vpn/"/>
-    
-    
-      <category term="vpn" scheme="http://idiot6.com/tags/vpn/"/>
-    
-      <category term="Shadowsocks" scheme="http://idiot6.com/tags/Shadowsocks/"/>
-    
-      <category term="freecatvpn" scheme="http://idiot6.com/tags/freecatvpn/"/>
-    
-      <category term="梯子" scheme="http://idiot6.com/tags/%E6%A2%AF%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL DBA 修炼之道读书笔记</title>
-    <link href="http://idiot6.com/2017/04/17/mysql_dba/"/>
-    <id>http://idiot6.com/2017/04/17/mysql_dba/</id>
-    <published>2017-04-17T11:00:27.000Z</published>
-    <updated>2017-04-17T11:14:35.933Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="第一章-理解mysql"><a href="#第一章-理解mysql" class="headerlink" title="第一章:理解mysql"></a>第一章:理解mysql</h3><ol>
-<li><p>三层架构:</p>
-<ol>
-<li>表现层(<code>UI</code>)，直接和用户交互的界面</li>
-<li>业务逻辑层(<code>BLL</code>)，对业务逻辑的处理，处理用户的请求</li>
-<li>数据访问层(<code>DAL</code>)，操作数据库，增删改查等</li>
-</ol>
-</li>
-<li><p><code>SQL</code>（结构化查询语言）是声明性语言，只告诉数据库要查询什么，并不告诉数据库如何去查询，数据库所要做的事基于算法和统计信息计算出最佳的访问路径，这个是由优化器(<code>optimizer</code>)来完成。</p>
-</li>
-<li><p>mysql权限:</p>
-<ol>
-<li>赋予查询，插入，修改，删除权限  <code>grant select,insert,update,delete on db_name.* to user_name@ &#39;10.%&#39; identified by  &#39;pwd&#39;</code></li>
-<li>删除权限:<code>revoke select,insert,update,delete on db_name.* from user_name@ &#39;10.%&#39;</code></li>
-</ol>
-</li>
-<li><p>数据库引擎:ARCHIVE存储引擎是被设计用来存储企业中的大量流水数据的存储引擎。使用zlib无损数据压缩，让数据都保存在压缩的存档表中。当数据被插入时，它们被压缩。只支持<code>insert</code>和<code>select</code>，支持自增键及其上的索引，不支持其他索引。适合做日志分析，用户行为分析，不需要<code>u、d</code>和索引的数据。</p>
-</li>
-<li><code>MySQL</code>是指<code>MYSQL</code>服务器，<code>mysql</code>指客户端</li>
-<li>清楚输入字符:可以用<code>&#39;\c</code>  如果前面语句为单引号则用单引，如果为双引则用双。</li>
-<li><code>MySQL</code>主要参数设置<ol>
-<li><code>innodb_buffer_pool_size</code>为了提升写性能，不清楚环境的数据和访问模式，应该设置为机器物理内存的70%-80%</li>
-<li><code>innodb_log_file_size</code>日志组里每个文件的大小，建议设置256mb或者更大</li>
-<li><code>innodb_flush_log_at_trx_commit</code>建议设置为2，默认为1，设置为2时，你爹事务提交时，日志缓冲被写到文件中，但不对日志文件到磁盘的操作</li>
-<li><code>sync_binlog</code>建议设置为0，不与磁盘同步。如果是<code>autocommit</code>模式，那么每执行一个语句就会像二进制日志写入一次，否则每个事务写入一次。</li>
-</ol>
-</li>
-</ol>
-<h3 id="第三章："><a href="#第三章：" class="headerlink" title="第三章："></a>第三章：</h3><ol>
-<li><p>开发基础：</p>
-<ol>
-<li>数据模型：是数据的定义和格式，即数据是如何组成的。关系数据库模型是以二维表的结构来标识实体与实体直接的关系，每个二维表又可称为关系。</li>
-<li>DLL=》数据定义语言（<code>Data Definition language</code>）是负责数据结构定义与数据库对象定义的语言，通常有用在创建数据库、创建表（<code>create、alter、drop</code>）；</li>
-<li>DML=》数据操作语言（<code>Data Manipulation Language</code>）是用来查询和修改数据的语句，包括（<code>select、insert、update、delete</code>）四种语句，就是所说的<code>CRUD（create、read、upadte、delete）</code></li>
-<li><code>XML（eXtensible Markup Language）</code>是可扩展标记语言，最开始设计<code>xml</code>的目的是为了在<code>Internet</code>上交换数据。</li>
-<li>xml被设计为传输和存储数据，其标签描述的是数据的内容，HTML被设计用来显示数据，其标签是用来格式化数据的。</li>
-</ol>
-</li>
-<li><p>数据类型：以下数据均为有符号（signed）</p>
-<ol>
-<li><code>tinyint</code>  占1字节   最小值  <code>-128~~127</code></li>
-<li><code>smallint</code>  2字节   <code>-32768 ~~ 32767</code></li>
-<li><code>mediumint</code>  3字节  <code>-8388608~~8388607</code></li>
-<li><code>int</code>     4字节  <code>-2147483648~~2147483647</code></li>
-<li><code>bigint</code>  8字节  <code>-9223372036954775808~~9223372036954775807</code></li>
-<li><code>float</code>  值会四舍五入</li>
-<li>日期和时间：<ol>
-<li>没有使用<code>NO_ZERO_DATES</code>的<code>SQL</code>模式，默认情况MySQL只允许在<code>date</code>或<code>datetime</code>列保存月和日是零的日期</li>
-<li><code>70~99</code>表示：<code>1970-1999</code></li>
-<li><code>00~69</code>表示：<code>2000-2069</code></li>
-<li>同时包含日期和时间信息：用<code>datetime</code> 8个字节</li>
-<li>只需要日期：用<code>date</code>  占3个字节</li>
-<li><code>timestamp</code>的值是以<code>utc</code>格式进行保存，存储时会对当前的时区进行转换，检索时在换回当前的时区。当前时区默认是<code>time_zone</code>系统变量，四个字节；</li>
-<li><code>time</code>类型，三个字节；</li>
-<li><code>year</code>类型，只显示年的时候用，1个字节。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<ol>
-<li><p>索引介绍：</p>
-</li>
-<li><p>种类分为以下几种：</p>
-<ol>
-<li>B树索引（<code>B-tree</code>）、散列索引（<code>hash</code>）、空间索引（<code>R-tree</code>）、全文索引（<code>full-text</code>）</li>
-<li>从逻辑上分：单列索引、复合索引（多列索引）、唯一索引（<code>Unique</code>）、非唯一（<code>Non Unique</code>）索引</li>
-</ol>
-</li>
-<li><p>簇索引：如果索引键值的逻辑顺序与索引所服务的表中相应行的屋里数序相同，那么就是簇索引，也称为聚集索引、聚簇索引。就是说数据和索引（<code>B+tree</code>）在一起，记录被真实地保存在索引的叶子中，簇索引也被称为索引组织表，反之为非聚集索引。<code>InnoDB</code>是聚集索引</p>
-</li>
-<li><p>索引查询：</p>
-<ol>
-<li>按最左前缀的原则进行筛选</li>
-</ol>
-</li>
-<li><p>MySQL优化器：</p>
-<ol>
-<li><code>explain</code>输出信息<code>extra</code>中表示的意义：<ol>
-<li><code>select  tables  optimized  away</code>  意思是查询所包含的<code>MIN、MAX</code>操作可以直接利用索引信息来解决，不用去检索物理记录。</li>
-<li><code>Using index</code>= 》表示覆盖索引（是指所有的数据都可以从索引中得到，不用去读取物理记录） </li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;第一章-理解mysql&quot;&gt;&lt;a href=&quot;#第一章-理解mysql&quot; class=&quot;headerlink&quot; title=&quot;第一章:理解mysql&quot;&gt;&lt;/a&gt;第一章:理解mysql&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;三层架构:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;表现层(&lt;c
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="mysql" scheme="http://idiot6.com/tags/mysql/"/>
-    
-      <category term="dba" scheme="http://idiot6.com/tags/dba/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GO基础安装</title>
-    <link href="http://idiot6.com/2017/03/21/golang_basic/"/>
-    <id>http://idiot6.com/2017/03/21/golang_basic/</id>
-    <published>2017-03-21T10:03:53.000Z</published>
-    <updated>2017-03-21T10:14:43.286Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="linux下安装go的步骤"><a href="#linux下安装go的步骤" class="headerlink" title="linux下安装go的步骤"></a>linux下安装go的步骤</h2><ul>
-<li><a href="https://golang.org/dl/" target="_blank" rel="external">GO下载地址</a></li>
-<li><code>wget   https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz</code></li>
-<li><code>tar -C /usr/local/ -xzf go1.7.4.linux-amd64.tar.gz</code></li>
-<li><p>#在/etc/profile添加变量</p>
-<ul>
-<li><code>vi /etc/profile</code></li>
-<li>#go 环境变量</li>
-<li><code>export GOROOT=/usr/local/go/bin</code></li>
-<li><code>export GOPATH=$PATH:$GOROOT/bin</code></li>
-<li><code>source /etc/profile</code></li>
-</ul>
-</li>
-<li><p>测试当前版本 <code>go version</code></p>
-</li>
-<li>构建GO  <code>/usr/local/go/src</code>   <code>./all.bash</code></li>
-</ul>
-<h2 id="NOTICE"><a href="#NOTICE" class="headerlink" title="NOTICE"></a>NOTICE</h2><ul>
-<li>如果当前没有安装之前版本(go1.6)，需要先安装低版本才能继续安装高版本</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;linux下安装go的步骤&quot;&gt;&lt;a href=&quot;#linux下安装go的步骤&quot; class=&quot;headerlink&quot; title=&quot;linux下安装go的步骤&quot;&gt;&lt;/a&gt;linux下安装go的步骤&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://gol
-    
-    </summary>
-    
-      <category term="GO" scheme="http://idiot6.com/categories/GO/"/>
-    
-    
-      <category term="golang" scheme="http://idiot6.com/tags/golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php常用函数</title>
-    <link href="http://idiot6.com/2017/02/21/php_function/"/>
-    <id>http://idiot6.com/2017/02/21/php_function/</id>
-    <published>2017-02-21T06:24:27.000Z</published>
-    <updated>2017-02-21T07:05:03.698Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="判断当前域名是否是https模式"><a href="#判断当前域名是否是https模式" class="headerlink" title="判断当前域名是否是https模式"></a>判断当前域名是否是<code>https</code>模式</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHttps</span><span class="params">()</span></span>&#123; </div><div class="line">    <span class="keyword">if</span>(!<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTPS'</span>]))  <span class="keyword">return</span> <span class="keyword">false</span>; </div><div class="line">    <span class="keyword">if</span>($_SERVER[<span class="string">'HTTPS'</span>] === <span class="number">1</span>)&#123;  <span class="comment">//Apache </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125;<span class="keyword">elseif</span>($_SERVER[<span class="string">'HTTPS'</span>] === <span class="string">'on'</span>)&#123; <span class="comment">//IIS </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125;<span class="keyword">elseif</span>($_SERVER[<span class="string">'SERVER_PORT'</span>] == <span class="number">443</span>)&#123; <span class="comment">//其他 </span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="验证网址"><a href="#验证网址" class="headerlink" title="验证网址"></a>验证网址</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">url</span><span class="params">( $str )</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">empty</span>( $str ) )</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">return</span> preg_match( <span class="string">'#(http|https|ftp|ftps)://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?#i'</span>, $str ) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="CURL请求数据"><a href="#CURL请求数据" class="headerlink" title="CURL请求数据"></a>CURL请求数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">sendByCurl</span><span class="params">($url, $mode, $params = <span class="string">''</span>, $timeout = <span class="number">10</span>)</span></span>&#123;</div><div class="line">    $ch = curl_init();</div><div class="line">    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); <span class="comment">//设置超时时间</span></div><div class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>); <span class="comment">//返回原生输出</span></div><div class="line">    <span class="keyword">if</span> ($mode == <span class="string">'post'</span>) &#123;</div><div class="line">        curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Expect:'</span>));</div><div class="line">        curl_setopt($ch, CURLOPT_POST, <span class="keyword">true</span>); <span class="comment">//发送一个常规的POST请求</span></div><div class="line">        curl_setopt($ch, CURLOPT_POSTFIELDS, $params); <span class="comment">//全部数据使用HTTP协议中的"POST"操作来发送</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        $url .= (strpos($url, <span class="string">'?'</span>) === <span class="keyword">false</span> ? <span class="string">'?'</span> : <span class="string">'&amp;'</span>) . http_build_query($params); <span class="comment">//如果是get,则会对url进行添加param参数</span></div><div class="line">    &#125;</div><div class="line">    curl_setopt($ch, CURLOPT_URL, $url); <span class="comment">// 需要获取的URL地址</span></div><div class="line">    $result = curl_exec($ch);</div><div class="line">    $errno = curl_errno($ch);</div><div class="line">    <span class="keyword">if</span> ($errno) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">            <span class="string">'errno'</span> =&gt; $errno,</div><div class="line">            <span class="string">'error'</span> =&gt; curl_error($ch),</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">    curl_close($ch);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;判断当前域名是否是https模式&quot;&gt;&lt;a href=&quot;#判断当前域名是否是https模式&quot; class=&quot;headerlink&quot; title=&quot;判断当前域名是否是https模式&quot;&gt;&lt;/a&gt;判断当前域名是否是&lt;code&gt;https&lt;/code&gt;模式&lt;/h2&gt;&lt;fig
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="function" scheme="http://idiot6.com/tags/function/"/>
-    
-      <category term="https" scheme="http://idiot6.com/tags/https/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ios安装plist文件</title>
-    <link href="http://idiot6.com/2017/01/18/plist/"/>
-    <id>http://idiot6.com/2017/01/18/plist/</id>
-    <published>2017-01-18T07:33:08.000Z</published>
-    <updated>2017-01-18T07:58:52.608Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="准备资源"><a href="#准备资源" class="headerlink" title="准备资源"></a>准备资源</h2><ol>
-<li>服务器必须支持<code>https</code>，且下载的文件也必须是<code>https</code>协议的下载源</li>
-<li>两张png图，即是安装完成后的icon（一张<code>57*57</code>,一张<code>114*114</code>）</li>
-<li>需要访问的文件，可放在<code>web</code>站资源，直接访问 </li>
-<li>文件<code>autoninstall.html</code>和<code>dai.plist</code>,下载可直接访问文件:<code>https://idiot6.com/autoninstall.html</code>(域名为测试地址，不可访问)</li>
-<li>主要是配置autoinstall.html中的doLocation路径和dai.plist文件中的<code>bundle-identifier</code>和图片资源、标题</li>
-<li>有个很严重的坑，就是plist文件会缓存，如果升级或者配置出问题并且上线，就要重新加<code>plist</code>文件,同事修改<code>autoinstall.html</code>中的路径</li>
-<li>配置文件如下：</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/HTML; charset=utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"cache-control"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"</span> <span class="attr">name</span>=<span class="string">"viewport"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doLocation</span>(<span class="params">url</span>)</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</div><div class="line">  <span class="keyword">if</span>(!a.click) &#123;</div><div class="line">    <span class="built_in">window</span>.location = url;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">  a.setAttribute(<span class="string">"href"</span>, url);</div><div class="line">  a.style.display = <span class="string">"none"</span>;</div><div class="line">  <span class="built_in">document</span>.body.appendChild(a);</div><div class="line">  a.click();</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">doLocation(<span class="string">'itms-services://?action=download-manifest&amp;url=https://idiot6.com/dai.plist'</span>);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">key</span>&gt;</span>items<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">key</span>&gt;</span>assets<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>software-package<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>①ipa文件地址<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>full-size-image<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>needs-shine<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>②图片资源114x114.png<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>display-image<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>needs-shine<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">key</span>&gt;</span>url<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">string</span>&gt;</span>③图片资源57x57.png<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">key</span>&gt;</span>metadata<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>bundle-identifier<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>④bundle-id<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>bundle-version<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>kind<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>software<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>subtitle<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>⑤标题<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">key</span>&gt;</span>title<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">string</span>&gt;</span>⑤标题<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;准备资源&quot;&gt;&lt;a href=&quot;#准备资源&quot; class=&quot;headerlink&quot; title=&quot;准备资源&quot;&gt;&lt;/a&gt;准备资源&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;服务器必须支持&lt;code&gt;https&lt;/code&gt;，且下载的文件也必须是&lt;code&gt;https&lt;/code&gt;协议
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
-    
-      <category term="plist" scheme="http://idiot6.com/tags/plist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的2016年</title>
-    <link href="http://idiot6.com/2016/12/30/2016end/"/>
-    <id>http://idiot6.com/2016/12/30/2016end/</id>
-    <published>2016-12-30T08:50:27.000Z</published>
-    <updated>2020-04-07T16:41:29.008Z</updated>
-    
-    <content type="html"><![CDATA[<p>2016年过的感觉就像学新东西一样，什么都试了下，什么都没深入。总结起来就是，迷途瞎忙，慵懒平淡。</p>
-<p>2017希望有点变化把，多看点技术书，读书不改变世界，改变自己。</p>
-<h3 id="关于GITHUB："><a href="#关于GITHUB：" class="headerlink" title="关于GITHUB："></a>关于GITHUB：</h3><ul>
-<li>GITHUB：<pre><code>1. 博客从wordpress转到了hexo，搭建了自己的博客，换了maupassant主题，添加了INS的图库感觉很帅；
-2. last year
-</code></pre></li>
-</ul>
-<p><img src="https://source.shengxuezixun.com/image/3bcfd028e01da991c701f65cd64c00c5.png?imageMogr2/thumbnail/600x600" alt="github"></p>
-<h3 id="关于工作："><a href="#关于工作：" class="headerlink" title="关于工作："></a>关于工作：</h3><ul>
-<li>WORK：<ol>
-<li>在盖娅司龄已经 一年半了，对于公司的业务也越来越熟悉，能快速完成工作上的任务，同时也踩了很多坑，也进步了很多，学到了很多东西；</li>
-<li>总结写代码时遇到的问题，以免下一次在碰到同样的问题 ，并整理发布到博客，记录一点一滴的进步；</li>
-<li>学习新技术和关注互联网动态，学习新的框架；</li>
-</ol>
-</li>
-</ul>
-<h3 id="关于分享："><a href="#关于分享：" class="headerlink" title="关于分享："></a>关于分享：</h3><ul>
-<li>SHARE：<ol>
-<li>个人博客中16年累计41篇（包括心灵鸡汤）；</li>
-<li>开发者头条APP中，个人公众号梦遥奇缘，订阅者534；</li>
-</ol>
-</li>
-</ul>
-<h3 id="关于读书："><a href="#关于读书：" class="headerlink" title="关于读书："></a>关于读书：</h3><ul>
-<li>READ：<ol>
-<li>东野圭吾的书目前正在看白夜行，已读（新参者、解忧杂货店、只差一个谎言、恶意、嫌疑人X的献身）</li>
-<li>别扯了时间根本不会改变一切（王远成）</li>
-<li>从0到1：开启商业与未来的秘密（蒂尔马斯特斯）</li>
-<li>黑客与画家（ 保罗•格雷厄姆）</li>
-<li>redis设计与实现（黄健宏）</li>
-<li>算法的乐趣（王晓华）</li>
-<li>app后台开发运维和架构实践（曾建生）</li>
-<li>我的第一本日语学习书（袁燕）</li>
-<li>购买了Reeder3，订阅好的博客（mottoin、代码家、SF头条、伯乐在线、标点符等值得拥有）</li>
-</ol>
-</li>
-</ul>
-<h3 id="关于生活："><a href="#关于生活：" class="headerlink" title="关于生活："></a>关于生活：</h3><ul>
-<li>LIFE：<ol>
-<li>买了人生第一个单反（70D，18-135），虽然已经在家吃灰，配置了台式电脑，入坑了守望屁股；</li>
-<li>续费了vps、域名，双十一也是那么坑（去年生日的时候买给自己的）；</li>
-<li>买了股票和万恶的数字币（区块链技术飞起）；</li>
-<li>夏、秋季时坚持每天去跑步，锻炼身体，入冬后就没了（北京的雾霾伤不起）；</li>
-</ol>
-</li>
-</ul>
-<h3 id="关于社交："><a href="#关于社交：" class="headerlink" title="关于社交："></a>关于社交：</h3><ul>
-<li>CHAT：<ol>
-<li>认识了一群逗比的朋友和同事；</li>
-<li>打游戏认识了俩基友；</li>
-</ol>
-</li>
-</ul>
-<h3 id="关于未来："><a href="#关于未来：" class="headerlink" title="关于未来："></a>关于未来：</h3><ul>
-<li>FATURE：<ol>
-<li>10月份办了护照，明年可以有一场说走就走的旅行；</li>
-<li>GITHUB上可以多做几个有趣的东西，学习下py爬虫；</li>
-<li>在这个计划赶不上变化的人生，2017一切随缘把；</li>
-<li>未来还有很远，我在慢慢的前进；</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>By：梦遥奇缘</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2016年过的感觉就像学新东西一样，什么都试了下，什么都没深入。总结起来就是，迷途瞎忙，慵懒平淡。&lt;/p&gt;
-&lt;p&gt;2017希望有点变化把，多看点技术书，读书不改变世界，改变自己。&lt;/p&gt;
-&lt;h3 id=&quot;关于GITHUB：&quot;&gt;&lt;a href=&quot;#关于GITHUB：&quot; cla
-    
-    </summary>
-    
-      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
-    
-    
-      <category term="点滴记录" scheme="http://idiot6.com/tags/%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php使用qrcode生成二维码，并合成为一张图</title>
-    <link href="http://idiot6.com/2016/11/16/qrcode_imagecopyresampled/"/>
-    <id>http://idiot6.com/2016/11/16/qrcode_imagecopyresampled/</id>
-    <published>2016-11-16T08:10:27.000Z</published>
-    <updated>2016-11-16T08:24:14.233Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="载入phpqrcode，并使用合成图片"><a href="#载入phpqrcode，并使用合成图片" class="headerlink" title="载入phpqrcode，并使用合成图片"></a>载入phpqrcode，并使用合成图片</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">include('phpqrcode.php");</div><div class="line">$filename = "xxx.png";//图片路径</div><div class="line">$errorCorrectionLevel = 'L';//容错级别</div><div class="line">$matrixPointSize = 3; //生成图大小</div><div class="line">$url = 'http://idiot6.com';</div><div class="line">QRcode::png($url, $filename, $errorCorrectionLevel, $matrixPointSize, 2);</div><div class="line"></div><div class="line">$QR = "xxx.png";     // qr</div><div class="line">$logo = 'layout-bg-1.png';// bg</div><div class="line"> </div><div class="line">$QR = imagecreatefromstring ( file_get_contents ( $QR ) );   //open picture source </div><div class="line">$logo = imagecreatefromstring ( file_get_contents ( $logo ) ); //open picture source  </div><div class="line"> </div><div class="line">imagecopyresampled ( $logo, $QR,565,215,0,0,154,154,$QR_width, $QR_height ); // mixed picture</div><div class="line"></div><div class="line">$result_png = rand(100000, 999999) . uniqid() . ".png"; // file name</div><div class="line"></div><div class="line">$file = '/data/www/upload/qrcode/' . $result_png;</div><div class="line"></div><div class="line">imagepng ( $logo, $file );//output picture</div></pre></td></tr></table></figure>
-<h2 id="qrcode-download"><a href="#qrcode-download" class="headerlink" title="qrcode download"></a>qrcode download</h2><p><a href="https://sourceforge.net/projects/phpqrcode/" target="_blank" rel="external">phpqrcode</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;载入phpqrcode，并使用合成图片&quot;&gt;&lt;a href=&quot;#载入phpqrcode，并使用合成图片&quot; class=&quot;headerlink&quot; title=&quot;载入phpqrcode，并使用合成图片&quot;&gt;&lt;/a&gt;载入phpqrcode，并使用合成图片&lt;/h2&gt;&lt;figu
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="qrcode" scheme="http://idiot6.com/tags/qrcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>curl访问https接口，点击图片下载</title>
-    <link href="http://idiot6.com/2016/11/16/curl_attachment/"/>
-    <id>http://idiot6.com/2016/11/16/curl_attachment/</id>
-    <published>2016-11-16T07:40:27.000Z</published>
-    <updated>2016-11-16T08:18:00.478Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="curl访问https接口"><a href="#curl访问https接口" class="headerlink" title="curl访问https接口"></a><code>curl</code>访问<code>https</code>接口</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$url = <span class="string">"https://test.idiot.com/preregister/data?phone=15756892356"</span> ;</div><div class="line">$ch = curl_init();</div><div class="line">curl_setopt($ch, CURLOPT_URL,$url);</div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">false</span>);</div><div class="line">$result = curl_exec($ch);</div><div class="line">print_r($result);</div></pre></td></tr></table></figure>
-<h2 id="图片点击直接下载"><a href="#图片点击直接下载" class="headerlink" title="图片点击直接下载"></a>图片点击直接下载</h2><p>1.后端返回加上<code>header</code>头：</p>
-<ul>
-<li><code>header(&#39;Content-type: image/png&#39;)</code></li>
-<li><code>header(&quot;Content-Disposition: attachment; filename=&#39;xxxx.png&#39;&quot;)</code></li>
-</ul>
-<p>2.前端：a标签属性加上<code>download</code>属性 </p>
-<ul>
-<li><code>eg</code>:<code>&lt;a href=&quot;large.jpg&quot; download&gt;</code>下载<code>&lt;/a&gt;</code></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;curl访问https接口&quot;&gt;&lt;a href=&quot;#curl访问https接口&quot; class=&quot;headerlink&quot; title=&quot;curl访问https接口&quot;&gt;&lt;/a&gt;&lt;code&gt;curl&lt;/code&gt;访问&lt;code&gt;https&lt;/code&gt;接口&lt;/h2&gt;&lt;fi
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="公司" scheme="http://idiot6.com/tags/%E5%85%AC%E5%8F%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>呵呵的一周，终于过去了!</title>
-    <link href="http://idiot6.com/2016/10/29/20161028/"/>
-    <id>http://idiot6.com/2016/10/29/20161028/</id>
-    <published>2016-10-29T08:40:27.000Z</published>
-    <updated>2016-10-29T08:57:24.986Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="昨天他们说，我发火了"><a href="#昨天他们说，我发火了" class="headerlink" title="昨天他们说，我发火了"></a>昨天他们说，我发火了</h2><ul>
-<li>印象中很久没有这种说法了，这一年我真的变了很多，变的不在是自己了，我或许明白为啥姜还是老的辣了。</li>
-<li>有些事是需要一个原则，是需要一个底限，职场还真是处处都是坑啊，慎重。</li>
-<li>我一直信奉少说话，多听、多做事的原则，可是这样貌似也不好，一副事不关己高高挂起的样子，不是也照样被埋到坑里，生活还真是tmd不容易。</li>
-</ul>
-<h2 id="纪念这些年我曾经对你们发过的火"><a href="#纪念这些年我曾经对你们发过的火" class="headerlink" title="纪念这些年我曾经对你们发过的火"></a>纪念这些年我曾经对你们发过的火</h2><ul>
-<li>或许真的是忍无可忍，无须再忍的地步了。</li>
-<li>用手指头都数完的次数，也是呵呵了。</li>
-</ul>
-<h2 id="2016-10-24-2016-10-29"><a href="#2016-10-24-2016-10-29" class="headerlink" title="2016/10/24 ~~ 2016/10/29"></a>2016/10/24 ~~ 2016/10/29</h2><ul>
-<li>周一加班，周二加班，周三加班。</li>
-<li>周四不加班了，公交堵车还下雨，等了一个多小时仍然没车，做了一趟到不了家的车，走回去了。</li>
-<li>周五原本是应该加班的，前端没全部做完，就延期到周六加班了，还有就是今天发火了。</li>
-<li>周六依然加班。。。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;昨天他们说，我发火了&quot;&gt;&lt;a href=&quot;#昨天他们说，我发火了&quot; class=&quot;headerlink&quot; title=&quot;昨天他们说，我发火了&quot;&gt;&lt;/a&gt;昨天他们说，我发火了&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;印象中很久没有这种说法了，这一年我真的变了很多，变的不在是自己了
-    
-    </summary>
-    
-      <category term="心の栄養" scheme="http://idiot6.com/categories/%E5%BF%83%E3%81%AE%E6%A0%84%E9%A4%8A/"/>
-    
-    
-      <category term="点滴记录" scheme="http://idiot6.com/tags/%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
