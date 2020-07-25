@@ -170,6 +170,308 @@
   </entry>
   
   <entry>
+    <title>React native 遇到的bug记录和解决方式</title>
+    <link href="http://idiot6.com/2020/06/24/title:%20React%20native%20%E9%81%87%E5%88%B0%E7%9A%84bug%E8%AE%B0%E5%BD%95%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
+    <id>http://idiot6.com/2020/06/24/title: React native 遇到的bug记录和解决方式/</id>
+    <published>2020-06-24T10:03:53.000Z</published>
+    <updated>2020-07-25T07:33:20.377Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装apk包"><a href="#小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装apk包" class="headerlink" title="小米手机无法通过 adb install 或sudo npx react-native run-android 安装apk包"></a>小米手机无法通过 <code>adb install 或sudo npx react-native run-android</code> 安装apk包</h3><ul>
+<li>首先确保自己开启了端口 <code>adb reverse tcp:8081 tcp:8081</code> ,然后运行<code>sudo npx react-native run-android</code> 然后出现错误： <code>Failure [INSTALL_FAILED_USER_RESTRICTED: Install canceled by user]</code></li>
+<li>解决：小米（mi8青春版）手机安装测试包需要允许手机使用USB安装应用，只打开开发者和连接USB是没有用的，能用的功能是充电，因此需要在手机上设置-》更多设置-〉开发者选项-》打开USB安装；</li>
+<li>然后在运行adb install 安装apk或者直接使用<code>sudo npx react-native run-android</code>安装</li>
+</ul>
+<h3 id="Oppo部分机型出现不能使用相机和存储功能"><a href="#Oppo部分机型出现不能使用相机和存储功能" class="headerlink" title="Oppo部分机型出现不能使用相机和存储功能"></a>Oppo部分机型出现不能使用相机和存储功能</h3><p><code>Android APIv29 FileNotFoundException EACCES (Permission denied)</code></p>
+<p>修改application 配置：<code>android:requestLegacyExternalStorage=&quot;true&quot;</code></p>
+<h3 id="IOS请求正常，安卓机小米、oppo部分机型不能使用axios请求，一直出现Network-error-Android"><a href="#IOS请求正常，安卓机小米、oppo部分机型不能使用axios请求，一直出现Network-error-Android" class="headerlink" title="IOS请求正常，安卓机小米、oppo部分机型不能使用axios请求，一直出现Network error  (Android)"></a>IOS请求正常，安卓机小米、oppo部分机型不能使用axios请求，一直出现Network error  (Android)</h3><ul>
+<li>RN 版本：0.62.2</li>
+<li>axios ：0.19.2</li>
+<li>修改安卓下配置：<code>android &gt; gradle.properties</code> =&gt; <code>FLIPPER_VERSION=0.39.0</code></li>
+</ul>
+<h3 id="安卓部分机型出现打开debug不能点击屏幕"><a href="#安卓部分机型出现打开debug不能点击屏幕" class="headerlink" title="安卓部分机型出现打开debug不能点击屏幕"></a>安卓部分机型出现打开debug不能点击屏幕</h3><ul>
+<li>打开debug时需要不能切换屏幕，并把当前debug在窗口最前面，使用终端调试即可（需要双屏幕，否则不能玩）</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装apk包&quot;&gt;&lt;a href=&quot;#小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020最新React Native 0.62.2版本开发指南总结</title>
+    <link href="http://idiot6.com/2020/06/24/title:%202020%E6%9C%80%E6%96%B0React%20Native%200.62.2%E7%89%88%E6%9C%AC%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E6%80%BB%E7%BB%93/"/>
+    <id>http://idiot6.com/2020/06/24/title: 2020最新React Native 0.62.2版本开发指南总结/</id>
+    <published>2020-06-24T09:22:53.000Z</published>
+    <updated>2020-07-25T07:33:20.377Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一个新手需要哪些基础知识上手RN开发？"><a href="#一个新手需要哪些基础知识上手RN开发？" class="headerlink" title="一个新手需要哪些基础知识上手RN开发？"></a>一个新手需要哪些基础知识上手RN开发？</h3><ul>
+<li>开发工具和插件等准备工作</li>
+<li>Git基础</li>
+<li>Javascript 基础</li>
+<li>ES6 基础</li>
+<li>CSS3 基础</li>
+<li>Flex 布局</li>
+<li>React 基础</li>
+<li>Redux、Saga</li>
+<li>React Native 基础</li>
+<li>IOS开发者账号和Xcode使用基础</li>
+<li>Android Studio使用和配置</li>
+<li>API调试</li>
+<li>翻墙工具</li>
+<li>拓展学习</li>
+</ul>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li><p>要想有一个效率的开发效果，必然需要一个效率的开发工具，因此开发工具和一些基础的插件已经成为开发者必备的工具，比如前端需要VSCode、WebStorm等，而后端则需要对应不同的语言使用不同的编辑器，比如Go用Goland、Java使用Idea、Php使用PhpStorm等。</p>
+</li>
+<li><p>这里只介绍前端开发的一些基础工具，比如VSCode插件、Google Chrome插件。</p>
+</li>
+<li><p>前端开发工具：</p>
+<ul>
+<li>VS Code</li>
+<li>WebStorm</li>
+</ul>
+</li>
+<li><p>由于作者使用的是VS Code，所以也推荐此工具，简洁方便，外加强大的插件功能，让开发效率可以更高，当然玩法也变的更多。</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/07/24/KezFLDioVl7vBdW.png" alt="vscode 插件"></p>
+<ul>
+<li><p>VS Code 需要哪些主题和基础的插件</p>
+<ul>
+<li>One Dark Pro ，主题，根据自己喜欢选择即可</li>
+<li>vscode-leetcode，刷题必备神器</li>
+<li>Path Intellisense，自动补全路径，在也不用一直输入</li>
+<li>Document this，js快速注释模版</li>
+<li>Beautify ，代码格式化</li>
+<li>React Native Tools，调试、提示</li>
+<li>ESLint ，语法检查</li>
+<li>vetur，vue语法高亮</li>
+<li>Atuo Rename Tag 、Auto Close Tag，自动补全Tag标签，修改时同步，补全闭合标签</li>
+<li>Git History，图形化查看git历史提交</li>
+<li>JavaScript (ES6) code snippets，es6语法提示高亮</li>
+<li>ES7 React/Redux/GraphQL/React-Native snippets，R系列开发必备</li>
+</ul>
+</li>
+<li><p>谷歌Chrome 插件</p>
+<ul>
+<li>FeHelper，json格式化、网页取色、时间戳等常用工具</li>
+<li>Adblock Plus、ublock，屏蔽广告必备</li>
+<li>Momentum ,简洁的新标签页</li>
+<li>React Developer Tools ， react调试工具</li>
+<li>Vue.js devtools ，vue调试工具</li>
+<li>Quick QR ， 二维码生成器</li>
+<li>划词翻译</li>
+<li>postman，调试接口必备</li>
+<li>wappalyzer ， 查看网页使用的技术</li>
+</ul>
+</li>
+</ul>
+<h3 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h3><ul>
+<li>git是什么？<ul>
+<li>是一个分布式版本控制软件。</li>
+</ul>
+</li>
+<li><a href="https://git-scm.com/book/zh/v2/" target="_blank" rel="external">git知识大全指南</a></li>
+<li><a href="https://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git基础指南</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="external">廖雪峰,Git教程</a></li>
+<li><a href="https://backlog.com/git-tutorial/cn/intro/intro1_1.html" target="_blank" rel="external">猴子都能懂的Git基础，进阶</a></li>
+</ul>
+<h3 id="Javascript-基础"><a href="#Javascript-基础" class="headerlink" title="Javascript 基础"></a>Javascript 基础</h3><ul>
+<li>推荐使用 MDN JS入门教程<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank" rel="external">JavaScript基础</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ES6-基础"><a href="#ES6-基础" class="headerlink" title="ES6 基础"></a>ES6 基础</h3><ul>
+<li><p>什么是ES6？</p>
+<ul>
+<li>ECMAScript 6.0（以下简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</li>
+</ul>
+</li>
+<li><p>入门文档推荐</p>
+<ul>
+<li><a href="https://es6.ruanyifeng.com/" target="_blank" rel="external">阮一峰 ES6 入门教程</a></li>
+<li><a href="http://caibaojian.com/es6/" target="_blank" rel="external">ES6 入门文档</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="CSS3-基础"><a href="#CSS3-基础" class="headerlink" title="CSS3 基础"></a>CSS3 基础</h3><ul>
+<li>Css做为页面的重要属性和Html，Js一样，建议先了解Css，然后在学习Css3如何布局、盒子模型、样式层叠等其他属性。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS" target="_blank" rel="external">MDN Css 入门介绍</a></li>
+<li><a href="https://segmentfault.com/a/1190000018585523" target="_blank" rel="external">CSS3开发文档</a></li>
+<li><a href="http://css.cuishifeng.cn/" target="_blank" rel="external">Css/Css3样式参考手册</a></li>
+</ul>
+<h3 id="Flex-布局"><a href="#Flex-布局" class="headerlink" title="Flex 布局"></a>Flex 布局</h3><ul>
+<li><p>什么是flex布局？</p>
+<ul>
+<li>Flexible Box 模型，通常被称为 flexbox，是一种一维的布局模型。它给 flexbox 的子元素之间提供了强大的空间分布和对齐能力。</li>
+<li>使用Flex布局很大程度上是为了适配不同机型，甚至是这种形式的布局更有效率去开发项目，节省时间。</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank" rel="external">MDN Flex布局基础知识</a></li>
+</ul>
+</li>
+<li><p>flex布局教程指南</p>
+<ul>
+<li><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰 Flex 布局教程：语法篇</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">阮一峰 Flex 布局教程：实例篇</a></li>
+</ul>
+</li>
+<li><p>Css3 Flexbox布局口诀</p>
+<ul>
+<li><a href="https://weibo.com/1712131295/CoRnElNkZ?ref=collection&amp;type=comment#_rnd1595575656531" target="_blank" rel="external">5张图看懂Flexbox布局</a></li>
+</ul>
+</li>
+<li><p>延伸阅读</p>
+<ul>
+<li><a href="https://juejin.im/post/5e8ae27df265da47f144a8db" target="_blank" rel="external">深度解析 CSS Flexbox 布局</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="React-、Redux-基础"><a href="#React-、Redux-基础" class="headerlink" title="React 、Redux 基础"></a>React 、Redux 基础</h3><ul>
+<li><p>React 基础</p>
+<ul>
+<li>学习是一个循序渐进的过程，推荐先看官方的基础文档，并上手直接写代码，跟着demo走起来，看再多说在多，不如直接做，逼逼那么多根本没用，不是天才就努力实干。对于大多数语言而言，目前大多数官方教程足够让你学会基础，如果不能让新手上手（没有笨的学生，只有教不好的老师），那只能说这是一门失败的语言… </li>
+<li><a href="https://zh-hans.reactjs.org/tutorial/tutorial.html" target="_blank" rel="external">官方文档入门学习React</a></li>
+</ul>
+</li>
+<li><p>拓展使用第三方教程</p>
+<ul>
+<li>全栈公开课，Part 1 部分讲解React入门，当然也推荐从头开始，系统的学习Web开发，也可以直接学习React和Redux部分</li>
+<li><a href="https://fullstackopen.com/zh#course-contents" target="_blank" rel="external">FullStack–React和Redux基础</a></li>
+<li><a href="https://www.runoob.com/react/react-tutorial.html" target="_blank" rel="external">React 教程–菜鸟教程版</a></li>
+<li><a href="https://shenbao.github.io/ishehui/html/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html" target="_blank" rel="external">快速入门React基础知识</a></li>
+</ul>
+</li>
+<li><p>Redux、Store、Saga、Reducer基础</p>
+<ul>
+<li>数据管理是APP开发的一大难题，因此有很多解决方案供大家使用，比如Redux、Saga、Dva这些，当然也有一些先进的，比如Rematch，或是一些高阶函数、Promise方式，后者是群里听大佬们谈论的，目前还没有实践，不过看了hook这些方式，确实用起来都会省事不少。</li>
+<li><a href="https://cn.redux.js.org/" target="_blank" rel="external">Redux、Store、Reducer文档</a></li>
+<li><a href="https://redux-saga-in-chinese.js.org/" target="_blank" rel="external">Redux-Saga文档和用法</a></li>
+</ul>
+</li>
+<li><p>拓展使用替代Redux方案，Rematch</p>
+<ul>
+<li>Rematch是 在 Redux 的基础上构建并减少了样板代码和执行了一些最佳实践，使用rematch可以不用写一堆types、action、store、saga等，写完项目交流的时候发现的，目前我们项目用的还是老一套Redux、Saga、Reducer，写起来type、saga，state等状态是真的痛苦，或许Rematch是更好的选择。</li>
+<li><a href="https://rematch.gitbook.io/handbook/" target="_blank" rel="external">Rematch官方文档</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="React-Native-基础"><a href="#React-Native-基础" class="headerlink" title="React Native 基础"></a>React Native 基础</h3><ul>
+<li><p>有了以上基础，写基础的页面应该不是啥大问题，而对于RN开发，则需要学习对应的文档，了解一些基础的UI组件使用、组件复用、网络请求、flexbox布局、数据存储（AsyncStorage）、loading加载、手机适配、与原生IOS、安卓交互等。</p>
+</li>
+<li><p>往远了说，在一切页面布局开始写的时候，同时应该规划好接口的调用和字段、mock数据格式、数据的持久化、打包的方式、热更新等。</p>
+</li>
+<li><p>RN基础之环境安装</p>
+<ul>
+<li>RN中文网，入门就是教你如何搭建环境，有win版和macos版，基本按着流程走不会出太大的问题，都可以跑起来初始化的项目。</li>
+<li><a href="https://www.react-native.cn/docs/getting-started" target="_blank" rel="external">React Native开发环境搭建指南</a></li>
+<li>此处可能遇到的问题，如果是iOS，则可能出现CocoaPods版本问题、超时问题、选择master版本问题、更多问题可以看<a href="https://github.com/CocoaPods/CocoaPods/issues" target="_blank" rel="external">issues</a>,brew 比较慢的问题，基本都是网的问题，推荐使用清华源，<a href="https://www.jianshu.com/p/62f1b963baa6" target="_blank" rel="external">brew update无反应</a>,或者直接上代理，并设置git的拉取方式，设置socks5代理端口，此方式同理适用npm、git clone,<a href="https://gist.github.com/laispace/666dd7b27e9116faece6" target="_blank" rel="external">如何设置git socks5端口</a>。</li>
+<li>如果是安装安卓版本，则可能遇到sdk版本问题，java jdk需要1.8（java8）版本，然后安装Android Studio 需翻墙，否则网站都进不去.安卓环境90%都是网络问题，这里翻墙情况下推荐使用电信网络，移动可能卡住不动。</li>
+<li><a href="https://speedsss.com/auth/register?ref=kP782G" target="_blank" rel="external">推荐一个稳定的机场,speed</a></li>
+</ul>
+</li>
+<li><p>组件化和组件复用</p>
+<ul>
+<li>RN和Flutter差不多，都是一切组件化，因此在开发的时候，则需要组件化，最终拼接一切完成设计稿里的页面样式，组件复用会很大程度上减少耦合，加快开发进度，减少工作时间，规划好组件复用会事半功倍。</li>
+<li>一般情况下：列表、交互、loading、toast会复用的比较多，比如一些Button、列表渲染、line、layout、layoutscroll、TouchableOpacity交互等一些常用的组件，应该让他们独立出来复用。</li>
+</ul>
+</li>
+<li><p>数据请求和数据持久化</p>
+<ul>
+<li>http请求一般使用axios，封装post、get，请求头等参数，根据不同需求使用即可</li>
+<li>数据持久化，推荐使用AsyncStorage+reducer，可以安卓、ios同时适配，也是官方的包。</li>
+</ul>
+</li>
+<li><p>RN 路由、Bottom </p>
+<ul>
+<li>推荐使用<a href="https://reactnavigation.org/docs/getting-started" target="_blank" rel="external">React Navigation</a>，功能全，生态完善，版本在持续升级，不过坑的是可能新旧版本语法不一样。</li>
+<li>备选：<a href="https://wix.github.io/react-native-navigation/docs/before-you-start" target="_blank" rel="external">Wix React Navigation</a>,有基础的功能，不过功能不如React Navigation 功能强大，相对的github也不如React Navigation活跃度高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="IOS开发者账号和Xcode使用基础"><a href="#IOS开发者账号和Xcode使用基础" class="headerlink" title="IOS开发者账号和Xcode使用基础"></a>IOS开发者账号和Xcode使用基础</h3><ul>
+<li><p><a href="https://www.jianshu.com/p/083c72de47b0" target="_blank" rel="external">Xcode打包IOS之证书签名配置</a> </p>
+</li>
+<li><p><a href="https://www.devio.org/2020/03/15/React-Native-releases-packaged-iOS-apps-for-apps/" target="_blank" rel="external">iOS 打包发布最新流程</a></p>
+</li>
+<li>注意事项，一般情况下不要升级Xcode，否则会导致项目跑不起来，同理安卓AS也一样，IOS开发者账号可能会遇到签名问题、添加测试机设备、打包AD hoc包等问题。</li>
+<li>一般情况下添加新的udid之后需要重新配置Profiles,选择已经添加的设备之后，一直下一步，最后通过Xcode导入当前下载的证书，然后重新打包hoc包即可。</li>
+<li>Xcode 模拟器或真机调试时需要开启:<code>automatically manage signing</code>,并选择开发者账号和已经配置的Profiles，然后设置Build Settings 搜索sign，设置debug和release的四个选项为<code>Apple Development</code>,重新打包启动即可。</li>
+<li>更多ios开发遇到的问题，请查看同时间发布的其他文章，或者加<a href="https://t.me/kkdelos" target="_blank" rel="external">TG</a>咨询我。</li>
+</ul>
+<h3 id="Android-Studio使用和配置"><a href="#Android-Studio使用和配置" class="headerlink" title="Android Studio使用和配置"></a>Android Studio使用和配置</h3><ul>
+<li>安卓环境基本按照官方文档都可以顺利完成，并跑起来，而更多的坑则是后期开发中需要设置xml配置，gradle配置，引用第三方包需要增加配置等问题。</li>
+<li>关于安卓开发中遇到的问题，请查看:”RN小技巧记录系列文章”。</li>
+</ul>
+<h3 id="API调试"><a href="#API调试" class="headerlink" title="API调试"></a>API调试</h3><ul>
+<li>接口调试也是前端必备技能，毕竟数据不能只使用假的，而对于调试接口，则需要看后端如何提供稳定，比如java、go、php都有swag在线调试，而对于没有swag的则可以使用postman发请求看接口的情况，当然你也可以直接使用axios去调试。</li>
+<li>在高端一点，可以使用抓包工具<code>Charles、Fiddler</code>等抓包工具查看返回情况和请求情况。</li>
+</ul>
+<h3 id="翻墙工具"><a href="#翻墙工具" class="headerlink" title="翻墙工具"></a>翻墙工具</h3><ul>
+<li>万恶的GFW，真是难为了国内的广大开发者。</li>
+<li>推荐使用，有钱可以直接上Surge，要不就选V2ray、Trojan模式</li>
+<li>客户端推荐使用：<a href="https://github.com/yichengchen/clashX/releases" target="_blank" rel="external">ClashX</a>、Shadowrocket、Quantumult X、<a href="https://github.com/Cenmrev/V2RayX/releases" target="_blank" rel="external">V2RayX</a></li>
+<li>科学上网的方式<ul>
+<li>自建：推荐使用Vultr，<a href="https://www.vultr.com/?ref=8557913-6G" target="_blank" rel="external">快速注册Vultr获取100美元测试金</a></li>
+</ul>
+</li>
+<li>机场千万家如何选？<ul>
+<li>不想折腾就买稳定的，否则就白嫖吧，反正不花钱,网上有很多分享ss的不过不是很安全。</li>
+<li><a href="https://speed17.com/#/register?code=llNeSueq" target="_blank" rel="external">注册白嫖版，邀请码过期请评论区留言</a></li>
+<li><a href="https://v2.qovoq.ml/#/register?code=EWAnpomv" target="_blank" rel="external">注册便宜版V2ray</a></li>
+<li><a href="https://speedsss.com/auth/register?ref=kP782G" target="_blank" rel="external">注册稳定付费版V2ray，支持Clashx</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="拓展学习"><a href="#拓展学习" class="headerlink" title="拓展学习"></a>拓展学习</h3><ul>
+<li><a href="https://fullstackopen.com/zh/part9" target="_blank" rel="external">Typescript基础入门</a></li>
+<li><a href="https://pan.baidu.com/s/1flEC_MvIYXAVDo94WesCSw" target="_blank" rel="external">开课吧web全栈架构师第4期</a>, 提取码: az94</li>
+<li><a href="https://pan.baidu.com/s/19XDotXphjuViwJzJFiW5Rg" target="_blank" rel="external">seo魔贝8期</a>, 提取码: qnua</li>
+</ul>
+<h3 id="RN相关博客推荐"><a href="#RN相关博客推荐" class="headerlink" title="RN相关博客推荐"></a>RN相关博客推荐</h3><ul>
+<li><a href="https://www.devio.org/tags/#React%20Native" target="_blank" rel="external">贾鹏辉的技术博客，RN开发部分</a></li>
+<li><a href="https://trello.com/b/Lbq1o6L9/learning-react-native" target="_blank" rel="external">trello上的RN指南和讨论</a></li>
+<li><a href="https://reactnativeexample.com/" target="_blank" rel="external">RN的一些组件和demo事例</a></li>
+<li><a href="https://react.parts/" target="_blank" rel="external">React和React Native组件库</a></li>
+<li><a href="https://react.iamkasong.com/#" target="_blank" rel="external">React技术揭秘</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一个新手需要哪些基础知识上手RN开发？&quot;&gt;&lt;a href=&quot;#一个新手需要哪些基础知识上手RN开发？&quot; class=&quot;headerlink&quot; title=&quot;一个新手需要哪些基础知识上手RN开发？&quot;&gt;&lt;/a&gt;一个新手需要哪些基础知识上手RN开发？&lt;/h3&gt;&lt;ul&gt;
+
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>dart 基础</title>
     <link href="http://idiot6.com/2020/06/19/dart%20%E5%9F%BA%E7%A1%80/"/>
     <id>http://idiot6.com/2020/06/19/dart 基础/</id>
@@ -517,6 +819,39 @@ z = 1000;
   </entry>
   
   <entry>
+    <title>type annotations can only be used in typescript files.ts(8010)</title>
+    <link href="http://idiot6.com/2020/05/23/type%20annotations%20can%20only%20be%20used%20in%20typescript%20files.ts(8010)/"/>
+    <id>http://idiot6.com/2020/05/23/type annotations can only be used in typescript files.ts(8010)/</id>
+    <published>2020-05-23T09:03:53.000Z</published>
+    <updated>2020-07-19T08:26:58.594Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="配置VS配置文件"><a href="#配置VS配置文件" class="headerlink" title="配置VS配置文件"></a>配置VS配置文件</h3><ul>
+<li>macos，preference=》setting=〉搜索 settings.json 点击Edit in settings.json</li>
+<li>添加配置 <ul>
+<li>“javascript.validate.enable”: false </li>
+<li>“typescript.validate.enable”: false,</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;配置VS配置文件&quot;&gt;&lt;a href=&quot;#配置VS配置文件&quot; class=&quot;headerlink&quot; title=&quot;配置VS配置文件&quot;&gt;&lt;/a&gt;配置VS配置文件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;macos，preference=》setting=〉搜索 settings.j
+    
+    </summary>
+    
+      <category term="vscode" scheme="http://idiot6.com/categories/vscode/"/>
+    
+    
+      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
+    
+      <category term="typescript" scheme="http://idiot6.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法</title>
     <link href="http://idiot6.com/2020/05/23/%20%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%EF%BC%9Ades%E5%8A%A0%E5%AF%86%E3%80%81aes%E5%8A%A0%E5%AF%86%E3%80%813des%E5%8A%A0%E5%AF%86%E3%80%81%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E3%80%81Hash%20%E7%AE%97%E6%B3%95/"/>
     <id>http://idiot6.com/2020/05/23/ 加密算法系列之：des加密、aes加密、3des加密、对称加密、非对称加密、Hash 算法/</id>
@@ -721,39 +1056,6 @@ z = 1000;
       <category term="des" scheme="http://idiot6.com/tags/des/"/>
     
       <category term="3des" scheme="http://idiot6.com/tags/3des/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>type annotations can only be used in typescript files.ts(8010)</title>
-    <link href="http://idiot6.com/2020/05/23/type%20annotations%20can%20only%20be%20used%20in%20typescript%20files.ts(8010)/"/>
-    <id>http://idiot6.com/2020/05/23/type annotations can only be used in typescript files.ts(8010)/</id>
-    <published>2020-05-23T09:03:53.000Z</published>
-    <updated>2020-07-19T08:26:58.594Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="配置VS配置文件"><a href="#配置VS配置文件" class="headerlink" title="配置VS配置文件"></a>配置VS配置文件</h3><ul>
-<li>macos，preference=》setting=〉搜索 settings.json 点击Edit in settings.json</li>
-<li>添加配置 <ul>
-<li>“javascript.validate.enable”: false </li>
-<li>“typescript.validate.enable”: false,</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;配置VS配置文件&quot;&gt;&lt;a href=&quot;#配置VS配置文件&quot; class=&quot;headerlink&quot; title=&quot;配置VS配置文件&quot;&gt;&lt;/a&gt;配置VS配置文件&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;macos，preference=》setting=〉搜索 settings.j
-    
-    </summary>
-    
-      <category term="vscode" scheme="http://idiot6.com/categories/vscode/"/>
-    
-    
-      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
-    
-      <category term="typescript" scheme="http://idiot6.com/tags/typescript/"/>
     
   </entry>
   
@@ -1621,68 +1923,6 @@ Please, commit your changes <span class="keyword">or</span> stash them before yo
       <category term="json_ld" scheme="http://idiot6.com/tags/json-ld/"/>
     
       <category term="canonical" scheme="http://idiot6.com/tags/canonical/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>经典抽奖算法</title>
-    <link href="http://idiot6.com/2017/08/03/lottery_active/"/>
-    <id>http://idiot6.com/2017/08/03/lottery_active/</id>
-    <published>2017-08-03T10:59:27.000Z</published>
-    <updated>2017-08-03T11:05:46.535Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="定义中奖概率数组"><a href="#定义中奖概率数组" class="headerlink" title="定义中奖概率数组"></a>定义中奖概率数组</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> $innerRate = <span class="keyword">array</span>(</div><div class="line"><span class="string">'1'</span> =&gt; <span class="number">1</span>,</div><div class="line"><span class="string">'2'</span> =&gt; <span class="number">200</span>,</div><div class="line"><span class="string">'3'</span> =&gt; <span class="number">500</span>,</div><div class="line"><span class="string">'4'</span> =&gt; <span class="number">100000</span>,</div><div class="line"><span class="string">'5'</span> =&gt; <span class="number">300000</span>,</div><div class="line"><span class="string">'6'</span> =&gt; <span class="number">1693000</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
-<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>1.<code>$i = $this-&gt;getRand($this-&gt;innerRate)</code>;<br>2.根据返回的$i,处理当前返回逻辑，if和switch都可以。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>($i==<span class="number">1</span>)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"一等奖"</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="keyword">echo</span> <span class="string">"二等奖"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="基础函数"><a href="#基础函数" class="headerlink" title="基础函数"></a>基础函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getRand</span><span class="params">($proArr)</span></span></div><div class="line">&#123;</div><div class="line">    $result = <span class="string">''</span>;</div><div class="line">    <span class="comment">// 概率数组的总概率精度</span></div><div class="line">    $proSum = array_sum($proArr);</div><div class="line">    <span class="comment">// 概率数组循环</span></div><div class="line">    <span class="keyword">foreach</span> ($proArr <span class="keyword">as</span> $key =&gt; $proCur) &#123;</div><div class="line">        $randNum = mt_rand(<span class="number">1</span>, $proSum); <span class="comment">// 抽取随机数</span></div><div class="line">        <span class="keyword">if</span> ($randNum &lt;= $proCur) &#123;</div><div class="line">            $result = $key; <span class="comment">// 得出结果</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $proSum -= $proCur;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">unset</span>($proArr);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;定义中奖概率数组&quot;&gt;&lt;a href=&quot;#定义中奖概率数组&quot; class=&quot;headerlink&quot; title=&quot;定义中奖概率数组&quot;&gt;&lt;/a&gt;定义中奖概率数组&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="lottery" scheme="http://idiot6.com/tags/lottery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云低配ECS NPM线上打包卡死解决办法</title>
-    <link href="http://idiot6.com/2017/07/25/npm_run_pro_error/"/>
-    <id>http://idiot6.com/2017/07/25/npm_run_pro_error/</id>
-    <published>2017-07-25T15:45:27.000Z</published>
-    <updated>2017-07-25T06:13:39.715Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.<code>npm install</code> #没问题</p>
-<p>2.<code>npm run production</code> 打包进行中，经历了三次，最多到65%，后来直接vps挂掉（cpu没满，可能是I/O瓶颈，用的是低配），重启然后加swap。</p>
-<p>3.创建文件作为交换分区（相当于 Windows 的虚拟内存页面文件 3GB）：<code>dd if=/dev/zero of=/mnt/swap bs=1024 count=3194304</code> </p>
-<p>4.设置交换分区文件：<code>mkswap /mnt/swap swapon /mnt/swap</code></p>
-<p>5.加入挂载点：<code>echo &quot;/mnt/swap swap swap defaults 0 0&quot; &gt;&gt; /etc/fstab</code></p>
-<p>6.挂载：<code>SWAP： mount -a</code></p>
-<blockquote>
-<p>By 这些年踩过的坑</p>
-<blockquote>
-<p>梦遥奇缘</p>
-</blockquote>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.&lt;code&gt;npm install&lt;/code&gt; #没问题&lt;/p&gt;
-&lt;p&gt;2.&lt;code&gt;npm run production&lt;/code&gt; 打包进行中，经历了三次，最多到65%，后来直接vps挂掉（cpu没满，可能是I/O瓶颈，用的是低配），重启然后加swap。&lt;/p
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://idiot6.com/categories/PHP/"/>
-    
-    
-      <category term="NPM" scheme="http://idiot6.com/tags/NPM/"/>
-    
-      <category term="swap" scheme="http://idiot6.com/tags/swap/"/>
     
   </entry>
   
