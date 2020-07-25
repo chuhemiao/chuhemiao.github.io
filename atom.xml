@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://idiot6.com/"/>
-  <updated>2020-07-19T08:26:58.111Z</updated>
+  <updated>2020-07-25T08:02:59.614Z</updated>
   <id>http://idiot6.com/</id>
   
   <author>
@@ -16,165 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>React Native打包安卓和Ipa指南，RN小技巧记录</title>
-    <link href="http://idiot6.com/2020/07/19/React%20Native%E6%89%93%E5%8C%85%E5%AE%89%E5%8D%93%E5%92%8CIpa%E6%8C%87%E5%8D%97%EF%BC%8CRN%E5%B0%8F%E6%8A%80%E5%B7%A7%E8%AE%B0%E5%BD%95/"/>
-    <id>http://idiot6.com/2020/07/19/React Native打包安卓和Ipa指南，RN小技巧记录/</id>
-    <published>2020-07-19T07:55:53.000Z</published>
-    <updated>2020-07-19T08:26:58.111Z</updated>
+    <title>SEO学习记录</title>
+    <link href="http://idiot6.com/2020/07/25/SEO%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://idiot6.com/2020/07/25/SEO学习记录/</id>
+    <published>2020-07-25T07:55:53.000Z</published>
+    <updated>2020-07-25T08:02:59.614Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="CSS小技巧之文字实现竖排"><a href="#CSS小技巧之文字实现竖排" class="headerlink" title="CSS小技巧之文字实现竖排"></a>CSS小技巧之文字实现竖排</h3><ul>
-<li><p>设置外层宽度，然后定位文字，给文字设置css行高（lineHeight应大于外层文字高度）</p>
-<h3 id="IOS相关"><a href="#IOS相关" class="headerlink" title="IOS相关"></a>IOS相关</h3></li>
-<li><p><code>error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening cleaaan.xcworkspace</code></p>
-</li>
-<li><p>碰到code 65 可能和ios包管理有关，<code>cd ios &amp;&amp; pod repo update &amp;&amp; pod install &amp;&amp; pod update</code></p>
-</li>
-<li><p>ios键盘遮挡问题，使用APSL下组件：<code>[react-native-keyboard-aware-scrollview](https://github.com/APSL/react-native-keyboard-aware-scroll-view)</code> </p>
-</li>
+    <content type="html"><![CDATA[<h3 id="SEO优化学习记录"><a href="#SEO优化学习记录" class="headerlink" title="SEO优化学习记录"></a>SEO优化学习记录</h3><ul>
+<li>页面布局</li>
+<li>挖词工具</li>
+<li>友链</li>
+<li>内链</li>
+<li>外链</li>
+<li>伪原创</li>
+<li>百度算法</li>
 </ul>
-<h3 id="JS相关"><a href="#JS相关" class="headerlink" title="JS相关"></a>JS相关</h3><ul>
-<li><code>TypeError: Invalid attempt to spread non-iterable instance</code></li>
-<li>可能原因是数据和对象转换赋值导致不能遍历这个数据的问题，检查接口获取到之后的数据和当前state定义的数据之间互相赋值是否加了[…aaa],aaa为state定义的数组或对象，这里的…可能是导致错误出现的原因，去掉试试。</li>
+<p><img src="https://cdn.bsatoshi.com/2020/07/25/SEO.png" alt="SEO优化学习记录"></p>
+<h3 id="seo市场营销"><a href="#seo市场营销" class="headerlink" title="seo市场营销"></a>seo市场营销</h3><ul>
+<li>营销布局</li>
+<li>策略思维</li>
+<li>上升排名</li>
 </ul>
-<h3 id="React-Native-ios打包-IPA"><a href="#React-Native-ios打包-IPA" class="headerlink" title="React Native ios打包 IPA"></a>React Native ios打包 IPA</h3><ul>
-<li><p><code>mkdir release_ios</code></p>
-</li>
-<li><p><code>npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/</code></p>
-</li>
-</ul>
-<ul>
-<li><code>release_ios</code> 下的文件 添加到xcode项目，xx项目名 -》 add files to xxx项目 -&gt;选择目录<code>release_ios-》folders</code>类型为<code>“Create folder references” -》 Add</code></li>
-</ul>
-<ul>
-<li>添加证书、配置描述文件打包 -》·product -&gt;archive =&gt; Distribute App· =&gt; 然后有4个选择，IOS App Store 上架、Development 测试，Enterprise 企业包，然后一直下一步，导出ipa</li>
-</ul>
-<h3 id="React-Native-安卓打包APK"><a href="#React-Native-安卓打包APK" class="headerlink" title="React Native 安卓打包APK"></a>React Native 安卓打包APK</h3><ul>
-<li>1.生成keystore</li>
-<li>2.设置 gradle 变量</li>
-<li>3.将签名配置加入到项目的 gradle 配置中</li>
-<li><ol>
-<li><code>cd  android</code></li>
-</ol>
-</li>
-<li><ol>
-<li><code>./gradlew assembleRelease</code></li>
-</ol>
-</li>
-<li><p>keytool -genkeypair -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</p>
-</li>
-</ul>
-<p>更多详细操作步骤推荐参考：</p>
-<ul>
-<li><a href="https://www.react-native.cn/docs/signed-apk-android" target="_blank" rel="external">React Native 官方打包APK</a></li>
-<li><p><a href="https://www.devio.org/2019/11/08/react-native-Release-APP-Signature-Package-APK/" target="_blank" rel="external">新版React Native发布APP之签名打包APK</a></p>
-</li>
-<li><p>Notice：Macos下可能需要sudo </p>
-<ul>
-<li>执行 sudo ./gradlew assembleRelease</li>
-</ul>
-</li>
-</ul>
-<h3 id="安卓打包线上realease版本安装后不能发起请求http问题"><a href="#安卓打包线上realease版本安装后不能发起请求http问题" class="headerlink" title="安卓打包线上realease版本安装后不能发起请求http问题"></a>安卓打包线上realease版本安装后不能发起请求http问题</h3><ul>
-<li>安卓打包realease版本后，默认 ReactNative Android9.0以上打包apk后http无法请求</li>
-</ul>
-<p><img src="media/15944435878136/15951436861022.jpg" alt="AndroidManifest.xml"></p>
-<ul>
-<li>修改 <code>/当前项目名/android/app/src/main/AndroidManifest.xml</code>，增加配置在application中 <code>android:usesCleartextTraffic=&quot;true&quot;</code></li>
-</ul>
-<h3 id="RN开发参考和React相关技术栈推荐"><a href="#RN开发参考和React相关技术栈推荐" class="headerlink" title="RN开发参考和React相关技术栈推荐"></a>RN开发参考和React相关技术栈推荐</h3><ul>
-<li><a href="https://www.react-native.cn/" target="_blank" rel="external">React Native中文网</a></li>
-<li><a href="https://reactnativeexample.com/" target="_blank" rel="external">RN常用例子和demo</a></li>
-<li><a href="https://shenbao.github.io/ishehui/index.html" target="_blank" rel="external">React和RN技术、RN速查表，强烈推荐查看</a></li>
-<li><a href="https://cn.redux.js.org/" target="_blank" rel="external">Store、Redux、Reducer、action等数据相关知识，必学必看</a></li>
-<li><a href="https://react.iamkasong.com/" target="_blank" rel="external">React 源码技术揭秘</a></li>
-</ul>
+<p><img src="https://cdn.bsatoshi.com/2020/07/25/market.png" alt="seo市场营销"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;a href=&quot;#CSS小技巧之文字实现竖排&quot; class=&quot;headerlink&quot; title=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;/a&gt;CSS小技巧之文字实现竖排&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;设置外层宽度，然后定位文字，给文字
+      &lt;h3 id=&quot;SEO优化学习记录&quot;&gt;&lt;a href=&quot;#SEO优化学习记录&quot; class=&quot;headerlink&quot; title=&quot;SEO优化学习记录&quot;&gt;&lt;/a&gt;SEO优化学习记录&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;页面布局&lt;/li&gt;
+&lt;li&gt;挖词工具&lt;/li&gt;
+&lt;li&gt;友链&lt;/li&gt;
+
     
     </summary>
     
-      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+      <category term="seo" scheme="http://idiot6.com/categories/seo/"/>
     
     
-      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+      <category term="seo" scheme="http://idiot6.com/tags/seo/"/>
     
-      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
-    
-      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
-    
-      <category term="rn开发" scheme="http://idiot6.com/tags/rn%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>flutter 问题汇总</title>
-    <link href="http://idiot6.com/2020/07/19/flutter%20%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://idiot6.com/2020/07/19/flutter 问题汇总/</id>
-    <published>2020-07-19T07:23:53.000Z</published>
-    <updated>2020-07-19T08:26:58.193Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>flutter doctor 一直卡住不动，可能是代理问题<ul>
-<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
-<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
-</ul>
-</li>
-</ul>
-<p>macos/linux 设置中国镜像：   每次都要先执行一次 （export PATH=”$PWD/flutter/bin:$PATH”）</p>
-<ol>
-<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
-<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
-<li>git clone -b dev <a href="https://github.com/flutter/flutter.git" target="_blank" rel="external">https://github.com/flutter/flutter.git</a></li>
-<li>export PATH=”$PWD/flutter/bin:$PATH”</li>
-<li>cd ./flutter</li>
-<li>flutter doctor</li>
-</ol>
-<p>然后运行flutter doctor -v 更新版本</p>
-<p>flutter 环境之java环境，必须使用jdk8，否则会一直提示升级。</p>
-<p>git clone 加速</p>
-<p>git config –global http.<a href="https://github.com.proxy" target="_blank" rel="external">https://github.com.proxy</a> socks5://127.0.0.1:7891<br>或者打开 .gitconfig 文件，输入下面配置</p>
-<p>[http “<a href="https://github.com" target="_blank" rel="external">https://github.com</a>“]<br>    proxy = socks5://127.0.0.1:1086</p>
-<ul>
-<li><p>Waiting for another flutter command to release the startup lock…</p>
-<ul>
-<li>进入到你的flutter sdk目录中，然后找到bin/cache/lockfile文件，删除它即可。</li>
-</ul>
-</li>
-</ul>
-<p>CDN: trunk URL couldn’t be downloaded:<br>      <a href="https://raw.githubusercontent.com" target="_blank" rel="external">https://raw.githubusercontent.com</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;flutter doctor 一直卡住不动，可能是代理问题&lt;ul&gt;
-&lt;li&gt;export PUB_HOSTED_URL=&lt;a href=&quot;https://pub.flutter-io.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http
-    
-    </summary>
-    
-      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
-    
-    
-      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
-    
-      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
-    
-      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
-    
-      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+      <category term="seo优化" scheme="http://idiot6.com/tags/seo%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>React native 遇到的bug记录和解决方式</title>
-    <link href="http://idiot6.com/2020/06/24/title:%20React%20native%20%E9%81%87%E5%88%B0%E7%9A%84bug%E8%AE%B0%E5%BD%95%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
-    <id>http://idiot6.com/2020/06/24/title: React native 遇到的bug记录和解决方式/</id>
-    <published>2020-06-24T10:03:53.000Z</published>
-    <updated>2020-07-25T07:33:20.377Z</updated>
+    <link href="http://idiot6.com/2020/07/24/React%20native%20%E9%81%87%E5%88%B0%E7%9A%84bug%E8%AE%B0%E5%BD%95%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
+    <id>http://idiot6.com/2020/07/24/React native 遇到的bug记录和解决方式/</id>
+    <published>2020-07-24T10:03:53.000Z</published>
+    <updated>2020-07-25T08:02:59.614Z</updated>
     
     <content type="html"><![CDATA[<h3 id="小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装apk包"><a href="#小米手机无法通过-adb-install-或sudo-npx-react-native-run-android-安装apk包" class="headerlink" title="小米手机无法通过 adb install 或sudo npx react-native run-android 安装apk包"></a>小米手机无法通过 <code>adb install 或sudo npx react-native run-android</code> 安装apk包</h3><ul>
 <li>首先确保自己开启了端口 <code>adb reverse tcp:8081 tcp:8081</code> ,然后运行<code>sudo npx react-native run-android</code> 然后出现错误： <code>Failure [INSTALL_FAILED_USER_RESTRICTED: Install canceled by user]</code></li>
@@ -214,10 +104,10 @@
   
   <entry>
     <title>2020最新React Native 0.62.2版本开发指南总结</title>
-    <link href="http://idiot6.com/2020/06/24/title:%202020%E6%9C%80%E6%96%B0React%20Native%200.62.2%E7%89%88%E6%9C%AC%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E6%80%BB%E7%BB%93/"/>
-    <id>http://idiot6.com/2020/06/24/title: 2020最新React Native 0.62.2版本开发指南总结/</id>
-    <published>2020-06-24T09:22:53.000Z</published>
-    <updated>2020-07-25T07:33:20.377Z</updated>
+    <link href="http://idiot6.com/2020/07/24/2020%E6%9C%80%E6%96%B0React%20Native%200.62.2%E7%89%88%E6%9C%AC%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E6%80%BB%E7%BB%93/"/>
+    <id>http://idiot6.com/2020/07/24/2020最新React Native 0.62.2版本开发指南总结/</id>
+    <published>2020-07-24T09:22:53.000Z</published>
+    <updated>2020-07-25T08:02:59.614Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一个新手需要哪些基础知识上手RN开发？"><a href="#一个新手需要哪些基础知识上手RN开发？" class="headerlink" title="一个新手需要哪些基础知识上手RN开发？"></a>一个新手需要哪些基础知识上手RN开发？</h3><ul>
 <li>开发工具和插件等准备工作</li>
@@ -459,6 +349,160 @@
     </summary>
     
       <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="dart" scheme="http://idiot6.com/tags/dart/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="flutter" scheme="http://idiot6.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Native打包安卓和Ipa指南，RN小技巧记录</title>
+    <link href="http://idiot6.com/2020/07/19/React%20Native%E6%89%93%E5%8C%85%E5%AE%89%E5%8D%93%E5%92%8CIpa%E6%8C%87%E5%8D%97%EF%BC%8CRN%E5%B0%8F%E6%8A%80%E5%B7%A7%E8%AE%B0%E5%BD%95/"/>
+    <id>http://idiot6.com/2020/07/19/React Native打包安卓和Ipa指南，RN小技巧记录/</id>
+    <published>2020-07-19T07:55:53.000Z</published>
+    <updated>2020-07-19T08:26:58.111Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CSS小技巧之文字实现竖排"><a href="#CSS小技巧之文字实现竖排" class="headerlink" title="CSS小技巧之文字实现竖排"></a>CSS小技巧之文字实现竖排</h3><ul>
+<li><p>设置外层宽度，然后定位文字，给文字设置css行高（lineHeight应大于外层文字高度）</p>
+<h3 id="IOS相关"><a href="#IOS相关" class="headerlink" title="IOS相关"></a>IOS相关</h3></li>
+<li><p><code>error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening cleaaan.xcworkspace</code></p>
+</li>
+<li><p>碰到code 65 可能和ios包管理有关，<code>cd ios &amp;&amp; pod repo update &amp;&amp; pod install &amp;&amp; pod update</code></p>
+</li>
+<li><p>ios键盘遮挡问题，使用APSL下组件：<code>[react-native-keyboard-aware-scrollview](https://github.com/APSL/react-native-keyboard-aware-scroll-view)</code> </p>
+</li>
+</ul>
+<h3 id="JS相关"><a href="#JS相关" class="headerlink" title="JS相关"></a>JS相关</h3><ul>
+<li><code>TypeError: Invalid attempt to spread non-iterable instance</code></li>
+<li>可能原因是数据和对象转换赋值导致不能遍历这个数据的问题，检查接口获取到之后的数据和当前state定义的数据之间互相赋值是否加了[…aaa],aaa为state定义的数组或对象，这里的…可能是导致错误出现的原因，去掉试试。</li>
+</ul>
+<h3 id="React-Native-ios打包-IPA"><a href="#React-Native-ios打包-IPA" class="headerlink" title="React Native ios打包 IPA"></a>React Native ios打包 IPA</h3><ul>
+<li><p><code>mkdir release_ios</code></p>
+</li>
+<li><p><code>npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/</code></p>
+</li>
+</ul>
+<ul>
+<li><code>release_ios</code> 下的文件 添加到xcode项目，xx项目名 -》 add files to xxx项目 -&gt;选择目录<code>release_ios-》folders</code>类型为<code>“Create folder references” -》 Add</code></li>
+</ul>
+<ul>
+<li>添加证书、配置描述文件打包 -》·product -&gt;archive =&gt; Distribute App· =&gt; 然后有4个选择，IOS App Store 上架、Development 测试，Enterprise 企业包，然后一直下一步，导出ipa</li>
+</ul>
+<h3 id="React-Native-安卓打包APK"><a href="#React-Native-安卓打包APK" class="headerlink" title="React Native 安卓打包APK"></a>React Native 安卓打包APK</h3><ul>
+<li>1.生成keystore</li>
+<li>2.设置 gradle 变量</li>
+<li>3.将签名配置加入到项目的 gradle 配置中</li>
+<li><ol>
+<li><code>cd  android</code></li>
+</ol>
+</li>
+<li><ol>
+<li><code>./gradlew assembleRelease</code></li>
+</ol>
+</li>
+<li><p>keytool -genkeypair -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</p>
+</li>
+</ul>
+<p>更多详细操作步骤推荐参考：</p>
+<ul>
+<li><a href="https://www.react-native.cn/docs/signed-apk-android" target="_blank" rel="external">React Native 官方打包APK</a></li>
+<li><p><a href="https://www.devio.org/2019/11/08/react-native-Release-APP-Signature-Package-APK/" target="_blank" rel="external">新版React Native发布APP之签名打包APK</a></p>
+</li>
+<li><p>Notice：Macos下可能需要sudo </p>
+<ul>
+<li>执行 sudo ./gradlew assembleRelease</li>
+</ul>
+</li>
+</ul>
+<h3 id="安卓打包线上realease版本安装后不能发起请求http问题"><a href="#安卓打包线上realease版本安装后不能发起请求http问题" class="headerlink" title="安卓打包线上realease版本安装后不能发起请求http问题"></a>安卓打包线上realease版本安装后不能发起请求http问题</h3><ul>
+<li>安卓打包realease版本后，默认 ReactNative Android9.0以上打包apk后http无法请求</li>
+</ul>
+<p><img src="media/15944435878136/15951436861022.jpg" alt="AndroidManifest.xml"></p>
+<ul>
+<li>修改 <code>/当前项目名/android/app/src/main/AndroidManifest.xml</code>，增加配置在application中 <code>android:usesCleartextTraffic=&quot;true&quot;</code></li>
+</ul>
+<h3 id="RN开发参考和React相关技术栈推荐"><a href="#RN开发参考和React相关技术栈推荐" class="headerlink" title="RN开发参考和React相关技术栈推荐"></a>RN开发参考和React相关技术栈推荐</h3><ul>
+<li><a href="https://www.react-native.cn/" target="_blank" rel="external">React Native中文网</a></li>
+<li><a href="https://reactnativeexample.com/" target="_blank" rel="external">RN常用例子和demo</a></li>
+<li><a href="https://shenbao.github.io/ishehui/index.html" target="_blank" rel="external">React和RN技术、RN速查表，强烈推荐查看</a></li>
+<li><a href="https://cn.redux.js.org/" target="_blank" rel="external">Store、Redux、Reducer、action等数据相关知识，必学必看</a></li>
+<li><a href="https://react.iamkasong.com/" target="_blank" rel="external">React 源码技术揭秘</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;a href=&quot;#CSS小技巧之文字实现竖排&quot; class=&quot;headerlink&quot; title=&quot;CSS小技巧之文字实现竖排&quot;&gt;&lt;/a&gt;CSS小技巧之文字实现竖排&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;设置外层宽度，然后定位文字，给文字
+    
+    </summary>
+    
+      <category term="react" scheme="http://idiot6.com/categories/react/"/>
+    
+    
+      <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
+    
+      <category term="React native" scheme="http://idiot6.com/tags/React-native/"/>
+    
+      <category term="vscode" scheme="http://idiot6.com/tags/vscode/"/>
+    
+      <category term="rn开发" scheme="http://idiot6.com/tags/rn%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flutter 问题汇总</title>
+    <link href="http://idiot6.com/2020/07/19/flutter%20%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://idiot6.com/2020/07/19/flutter 问题汇总/</id>
+    <published>2020-07-19T07:23:53.000Z</published>
+    <updated>2020-07-19T08:26:58.193Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>flutter doctor 一直卡住不动，可能是代理问题<ul>
+<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
+<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
+</ul>
+</li>
+</ul>
+<p>macos/linux 设置中国镜像：   每次都要先执行一次 （export PATH=”$PWD/flutter/bin:$PATH”）</p>
+<ol>
+<li>export PUB_HOSTED_URL=<a href="https://pub.flutter-io.cn" target="_blank" rel="external">https://pub.flutter-io.cn</a></li>
+<li>export FLUTTER_STORAGE_BASE_URL=<a href="https://storage.flutter-io.cn" target="_blank" rel="external">https://storage.flutter-io.cn</a></li>
+<li>git clone -b dev <a href="https://github.com/flutter/flutter.git" target="_blank" rel="external">https://github.com/flutter/flutter.git</a></li>
+<li>export PATH=”$PWD/flutter/bin:$PATH”</li>
+<li>cd ./flutter</li>
+<li>flutter doctor</li>
+</ol>
+<p>然后运行flutter doctor -v 更新版本</p>
+<p>flutter 环境之java环境，必须使用jdk8，否则会一直提示升级。</p>
+<p>git clone 加速</p>
+<p>git config –global http.<a href="https://github.com.proxy" target="_blank" rel="external">https://github.com.proxy</a> socks5://127.0.0.1:7891<br>或者打开 .gitconfig 文件，输入下面配置</p>
+<p>[http “<a href="https://github.com" target="_blank" rel="external">https://github.com</a>“]<br>    proxy = socks5://127.0.0.1:1086</p>
+<ul>
+<li><p>Waiting for another flutter command to release the startup lock…</p>
+<ul>
+<li>进入到你的flutter sdk目录中，然后找到bin/cache/lockfile文件，删除它即可。</li>
+</ul>
+</li>
+</ul>
+<p>CDN: trunk URL couldn’t be downloaded:<br>      <a href="https://raw.githubusercontent.com" target="_blank" rel="external">https://raw.githubusercontent.com</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;flutter doctor 一直卡住不动，可能是代理问题&lt;ul&gt;
+&lt;li&gt;export PUB_HOSTED_URL=&lt;a href=&quot;https://pub.flutter-io.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://idiot6.com/categories/flutter/"/>
     
     
       <category term="ios" scheme="http://idiot6.com/tags/ios/"/>
@@ -1884,45 +1928,6 @@ Please, commit your changes <span class="keyword">or</span> stash them before yo
     
     
       <category term="git" scheme="http://idiot6.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>站长百度百家号添加json_ld报错</title>
-    <link href="http://idiot6.com/2017/09/22/baijiahao/"/>
-    <id>http://idiot6.com/2017/09/22/baijiahao/</id>
-    <published>2017-09-22T09:40:53.000Z</published>
-    <updated>2017-09-22T09:33:53.091Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="添加canonical标签（必选）"><a href="#添加canonical标签（必选）" class="headerlink" title="添加canonical标签（必选）"></a>添加canonical标签（必选）</h2><p>1.<code>&lt;link rel=&quot;canonical&quot; href=&quot;http(s)://xxx&quot;/&gt;</code><br>2.要求href的内容为mip页或h5页对应的PC页地址；如果没有PC页，则填写当前页面地址。</p>
-<h3 id="添加json-ld数据"><a href="#添加json-ld数据" class="headerlink" title="添加json_ld数据"></a>添加json_ld数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"application/ld+json"</span>&gt;</div><div class="line">&#123;</div><div class="line">    <span class="string">"@context"</span>:<span class="string">"https://zhanzhang.baidu.com/contexts/cambrian.jsonld"</span>,</div><div class="line">    <span class="string">"@id"</span>:<span class="string">"https://btxiaobai.com/coinbaseethltc.html"</span>,</div><div class="line">    <span class="string">"title"</span>:<span class="string">"币圈大佬coinbase新增ETH和LTC钱包存储"</span>,</div><div class="line">    <span class="string">"images"</span>:[</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/21/3FjRPCI635TFPHViuAaGa8kqzr0RTWTgjdTClOiN.png"</span>,</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/21/TZpJXC0I7rV9YkG8gkrw0T4LL3XysM87y6KB5ifs.png"</span>,</div><div class="line">        <span class="string">"https://cdn.btxiaobai.com/article/2017/09/20/mPUtYXFtBOz3N9M9bcGO1TIztbzJmDtHOSKqnchL.png"</span></div><div class="line">        ],</div><div class="line">    <span class="string">"description"</span>:<span class="string">"coinbase新增ETH和LTC钱包存储"</span>,</div><div class="line">    <span class="string">"pubDate"</span>:<span class="string">"2017-09-22T16:23:00"</span></div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<p>1.注意所有数据之前不能有空格、换行等特殊字符、时间字段须加T、图片最多三张、id为当前网页url！</p>
-<h3 id="添加官方号ID声明（H5页面必选）"><a href="#添加官方号ID声明（H5页面必选）" class="headerlink" title="添加官方号ID声明（H5页面必选）"></a>添加官方号ID声明（H5页面必选）</h3><ol>
-<li>在页面标签前添加代码、appid为当前已添加到站长网站的appid</li>
-<li><code>eg:&lt;script src=&quot;//msite.baidu.com/sdk/c.js?appid=123456789&quot;&gt;&lt;/script&gt;</code></li>
-</ol>
-<h3 id="添加关注功能代码（强烈推荐）或者是mip页面"><a href="#添加关注功能代码（强烈推荐）或者是mip页面" class="headerlink" title="添加关注功能代码（强烈推荐）或者是mip页面"></a>添加关注功能代码（强烈推荐）或者是mip页面</h3><p>1.吸顶bar <code>&lt;script&gt;cambrian.render(&#39;head&#39;)&lt;/script&gt;</code></p>
-<h3 id="格式校验"><a href="#格式校验" class="headerlink" title="格式校验"></a>格式校验</h3><p>1.复制当前文章页url、粘贴到校验地址上。</p>
-<p>2.右键查看当前网页源代码，粘贴到网页源码选项。</p>
-<p>3.点击校验，如出现json_ld格式错误，请查看提示（绝大多数是格式问题）。</p>
-<h3 id="数据提交"><a href="#数据提交" class="headerlink" title="数据提交"></a>数据提交</h3><p>1.脚本提交数据，用php取出当前网站url，push到百度</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$urls = <span class="keyword">array</span>(</div><div class="line">    <span class="string">'https://www.btxiaobai.com/eroscoin.html'</span>,</div><div class="line">    <span class="string">'https://www.btxiaobai.com/j-japan-bitecoin.html'</span>,</div><div class="line">);</div><div class="line">$api = <span class="string">'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&amp;token=此处为你站长的token&amp;type=realtime'</span>;</div><div class="line">$ch = curl_init();</div><div class="line">$options =  <span class="keyword">array</span>(</div><div class="line">    CURLOPT_URL =&gt; $api,</div><div class="line">    CURLOPT_POST =&gt; <span class="keyword">true</span>,</div><div class="line">    CURLOPT_RETURNTRANSFER =&gt; <span class="keyword">true</span>,</div><div class="line">    CURLOPT_POSTFIELDS =&gt; implode(<span class="string">"\n"</span>, $urls),</div><div class="line">    CURLOPT_HTTPHEADER =&gt; <span class="keyword">array</span>(<span class="string">'Content-Type: text/plain'</span>),</div><div class="line">);</div><div class="line">curl_setopt_array($ch, $options);</div><div class="line">$result = curl_exec($ch);</div><div class="line"><span class="keyword">echo</span> $result;</div></pre></td></tr></table></figure>
-<p><img src="https://cdn.btxiaobai.com/article/2017/09/22/eHei4zYsn3vEI8yKdcPCNJdglY1vwwzYDS6ArCMQ.png" alt="返回结果"></p>
-<h3 id="效果查看"><a href="#效果查看" class="headerlink" title="效果查看"></a>效果查看</h3><p><a href="https://btxiaobai.com" target="_blank" rel="external">比特币小白</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;添加canonical标签（必选）&quot;&gt;&lt;a href=&quot;#添加canonical标签（必选）&quot; class=&quot;headerlink&quot; title=&quot;添加canonical标签（必选）&quot;&gt;&lt;/a&gt;添加canonical标签（必选）&lt;/h2&gt;&lt;p&gt;1.&lt;code&gt;&amp;l
-    
-    </summary>
-    
-      <category term="php" scheme="http://idiot6.com/categories/php/"/>
-    
-    
-      <category term="json_ld" scheme="http://idiot6.com/tags/json-ld/"/>
-    
-      <category term="canonical" scheme="http://idiot6.com/tags/canonical/"/>
     
   </entry>
   
